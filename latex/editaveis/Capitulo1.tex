@@ -52,48 +52,49 @@ Desenvolver um modelo de Inteligência Artificial capaz de identificar padrões 
 \end{itemize}
 
 \section{Metodologia}
-A metodologia do projeto está dividida em 5 fases, onde cada uma visa resolver um Objetivo Específico do projeto. Cada fase é composta pelas seguintes atividades:
+A metodologia do projeto está dividida em 2 fases, onde cada uma visa resolver
+um Objetivo Específico do projeto, que contém suas respectivas atividades para serem alcançados:
 
 \begin{itemize}
-    \item \textbf{Fase 1 (OE1) - Identificação de Parâmetros em Embriões}
+    \item \textbf{Fase 1: Análise e Preparação de Dados}
     \begin{itemize}
-        \item \textbf{Atividade 1 (A1)}: Analisar as variáveis disponíveis e sua organização;
-        \item \textbf{Atividade 2 (A2)}: Detectar e analisar valores que não estão na tabela, que possam afetar a correlação entre os parâmetros e a porcentagem de euploidia;
-        \item \textbf{Atividade 3 (A3)}: Calcular a correlação entre cada parâmetro e o impacto de euploidia.
+        \item \textbf{OE1 - Identificação de Parâmetros em Embriões}: 
+        \begin{itemize}
+            \item \textbf{Atividade 1 (A1):} Analisar as variáveis disponíveis e sua organização, realizando a limpeza dos dados, verificando se existem valores em branco ou até mesmo variáveis que possam ser inseridas e que afetem a correlação entre os parâmetros e a porcentagem de euploidia, normalizando todas as variáveis. 
+            \item \textbf{Atividade 2 (A2):} Calcular a sua correlação entre cada parâmetro, identificando como se relacionam e se impactam uns aos outros.
+        \end{itemize}
+
+        \item \textbf{OE2 - Pré-Processamento de Dados}: 
+        \begin{itemize}
+            \item \textbf{Atividade 3 (A3):} Definir e atribuir pesos específicos para cada parâmetro, baseando-se na influência que cada um tem na ploidia do embrião.
+            \item \textbf{Atividade 4 (A4):}  Gerar um gráfico para ser mais explicativo e melhorar a visualização dos pesos específicos entre os parâmetros e a euploidia.
+        \end{itemize}
     \end{itemize}
     
-    \item \textbf{Fase 2 (OE2) - Pré-Processamento de Dados}
+    \item \textbf{Fase 2: Desenvolvimento e Avaliação do Modelo}
     \begin{itemize}
-        \item \textbf{Atividade 4 (A4)}: Realizar a limpeza dos dados, removendo inconsistências, duplicidades e valores ausentes para garantir a consistência dos dados de entrada;
-        \item \textbf{Atividade 5 (A5)}: Normalizar e transformar as variáveis para padronizar os formatos e escalas dos dados de entrada.
-        \item \textbf{Atividade 6 (A6)}: Definir e atribuir pesos específicos a cada parâmetro, baseando-se em sua influência na ploidia do embrião.
-        \item \textbf{Atividade 7 (A7)}: Gerar um gráfico para visualizar os pesos específicos entre os parâmetros e a euploidia.
-    \end{itemize}
-    
-    \item \textbf{Fase 3 (OE3) - Treinamento e Ajuste de Modelo de Machine Learning para Predição de Euploidia}
-    \begin{itemize}
-        \item \textbf{Atividade 8 (A8)}: Separar o conjunto de dados em conjuntos de treinamento, validação e teste, fazendo uma distribuição dos dados.
-        \item \textbf{Atividade 9 (A9)}: Selecionar e configurar modelos pré-treinados ou customizados para a tarefa de predição de euploidia, ajustando o modelo de acordo com o tipo de dados e o objetivo.
-        \item \textbf{Atividade 10 (A10)}: Configurar a busca de hiperparâmetros para explorar os melhores valores e otimizar o modelo, aprimorando sua precisão e minimizando erros.
-        \item \textbf{Atividade 11 (A11)}: Utilizar um conjunto de validação para monitorar o desempenho inicial e registrar métricas.
-    \end{itemize}
-    
-    \item \textbf{Fase 4 (OE4) - Avaliação de Confiabilidade do Modelo}
-    \begin{itemize}
-        \item \textbf{Atividade 12 (A12)}: Definir as métricas de avaliação mais adequadas para medir a confiança do modelo, como Accuracy, Precision, Recall, F1-Score, e ROC-AUC (Receiver Operating Characteristic - Area Under Curve), de acordo com a natureza do problema de classificação.
-        \item \textbf{Atividade 13 (A13)}: Construir uma matriz de confusão para avaliar o desempenho do modelo em prever corretamente casos de euploidia e aneuploidia.
-        \item \textbf{Atividade 14 (A14)}: Gerar a curva ROC para o modelo, o que indica a capacidade do modelo de distinguir entre classes (euploide vs. aneuploide).
-        \item \textbf{Atividade 15 (A15)}: Realizar testes de robustez e análise de erros para identificar possíveis áreas de melhoria.
-    \end{itemize}
-    
-    \item \textbf{Fase 5 (OE5) - Desenvolvimento de Interface para Predições}
-    \begin{itemize}
-        \item \textbf{Atividade 16 (A16)}: Prototipar uma interface amigável para exibir as predições de euploidia para o usuário final (médicos).
-        \item \textbf{Atividade 17 (A17)}: Integrar a interface com o modelo de Machine Learning, garantindo respostas em tempo real.
-        \item \textbf{Atividade 18 (A18)}: Realizar testes de usabilidade para otimizar a experiência do usuário médico e assegurar fácil interpretação dos resultados.
+        \item \textbf{OE3 - Treinamento e Ajuste de Modelo de Machine Learning para Predição de Euploidia}: 
+        \begin{itemize}
+            \item \textbf{Atividade 5 (A5):} Separar o conjunto de dados já organizados em conjuntos de treinamento, validação e teste, fazendo uma distribuição dos dados.
+            \item \textbf{Atividade 6 (A6):} Selecionar e configurar modelos pré-treinados ou customizados, configurando para buscar hiperparâmetros para explorar os melhores valores e otimizar o modelo, para realizar tarefa de predição de euploidia, ajustando o modelo de acordo com o tipo de dados e o objetivo.
+            \item \textbf{Atividade 7 (A7):} Construir um conjunto de validação, para que realizemos o monitoramento do desempenho inicial e registrar.
+        \end{itemize}
+
+        \item \textbf{OE4 - Avaliação de Confiabilidade do Modelo}: 
+        \begin{itemize}
+            \item \textbf{Atividade 8 (A8):} Definir as métricas de avaliação mais adequadas para medir a confiança do modelo, como Accuracy, Precision, Recall, F1-Score, e ROC-AUC (Receiver Operating Characteristic - Area Under Curve), de acordo com a natureza do problema de classificação.
+            \item \textbf{Atividade 9 (A9):} Construir uma matriz de confusão para avaliar o desempenho do modelo em prever corretamente casos de euploidia e aneuploidia.
+            \item \textbf{Atividade 10 (A10):} Gerar a curva ROC para o modelo, o que indica a capacidade do modelo de distinguir entre classes (euploide vs. aneuploide).
+        \end{itemize}
+
+        \item \textbf{OE5 - Desenvolvimento do protótipo da Interface e finalização da versão 1.0 de ML para Predições}: 
+        \begin{itemize}
+            \item \textbf{Atividade 11 (A11):} Prototipar uma interface amigável para exibir as predições de euploidia para o usuário final (médicos).
+            \item \textbf{Atividade 12 (A12):} CEntregar o modelo versão 1.0 de Machine Learning, garantindo respostas em tempo real.
+            \item \textbf{Atividade 13 (A13):} Realizar testes de usabilidade para otimizar a experiência do usuário médico e assegurar fácil interpretação dos resultados.
+        \end{itemize}
     \end{itemize}
 \end{itemize}
-
 
 \subsection{Organização da Pesquisa}
 A Figura 1 mostra como a pesquisa deste trabalho irá ocorrer, com suas atividades de entrada e saída. Essa imagem foi criada para melhorar o entendimento do leitor.
