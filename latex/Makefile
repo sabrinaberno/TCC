@@ -18,11 +18,15 @@ EDITAVEIS_DIR = editaveis
 EDITAVEIS_SOURCES = informacoes.tex errata.tex dedicatoria.tex \
 					agradecimentos.tex epigrafe.tex resumo.tex abstract.tex \
 					abreviaturas.tex simbolos.tex  Capitulo1.tex \
-					aspectosgerais.tex consideracoes.tex textoepostexto.tex \
-					elementosdotexto.tex elementosdopostexto.tex \
+					textoepostexto.tex \
 					apendices.tex anexos.tex
 
 EDITAVEIS_FILES = $(addprefix $(EDITAVEIS_DIR)/, $(EDITAVEIS_SOURCES))
+
+AUXILIARES_DIR = auxiliares
+AUXILIARES_SOURCES = aspectosgerais.tex consideracoes.tex elementosdotexto.tex elementosdopostexto.tex
+
+AUXILIARES_FILES = $(addprefix $(AUXILIARES_DIR)/, $(AUXILIARES_SOURCES))
 
 MAIN_FILE = tcc.tex
 DVI_FILE  = $(addsuffix .dvi, $(basename $(MAIN_FILE)))
