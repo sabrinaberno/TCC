@@ -28,8 +28,6 @@ Portanto, a relevância deste projeto no contexto atual da medicina reprodutiva 
 
 \section{Problema}
 
-Na maioria dos ciclos de FIV humana, múltiplos embriões são criados após a hiperestimulação ovariana, mesmo assim a !taxa de gravidez clínica do ciclo de fertilização in vitro é estimada acima de 60\%, enquanto a taxa real de nascidos vivos ainda está bem abaixo de 50\% \cite{salame2024} 
-
 Atualmente, os casais têm a opção de testar geneticamente seus embriões para verificar se possuem determinadas doenças que podem comprometer o desenvolvimento adequado dentro do útero ou após o nascimento \cite{scienceofbiogenetics2024}. A viabilidade dos embriões e, consequentemente, a probabilidade de um embrião se implantar com sucesso, são influenciadas por diversos fatores, como fatores morfocinéticos, que desempenham um papel significativo nos abortos espontâneos, com estudos sugerindo que até 50\% das perdas gestacionais são devidas a anormalidades cromossômicas \cite{scienceofbiogenetics2024}. 
 
 Dito isso, a seleção de embriões euploides em procedimentos de fertilização in vitro (FIV) é determinante para o sucesso dos tratamento, porém é baseada em técnicas invasivas, como o Teste Genético Pré-implantacional para Aneuploidia (PGT-A) que é um procedimento relativamente complicado porque requer uma biópsia do embrião, durante a qual o mínimo de danos ao embrião deve ser garantido \cite{yang2024}. 
@@ -44,11 +42,10 @@ Desenvolver um modelo de Inteligência Artificial capaz de identificar padrões 
 
 \subsection{Objetivos Específicos}
 \begin{itemize}
-    \item \textbf{OE1}: Identificação de Parâmetros em Embriões
-    \item \textbf{OE2}: Pré-Processamento de Dados
-    \item \textbf{OE3}: Treinamento e Ajuste de Modelos de Machine Learning para Predição de Euploidia
-    \item \textbf{OE4}: Avaliação de Confiabilidade do Modelo
-    \item \textbf{OE5}: Desenvolvimento de Interface para Predições
+    \item \textbf{OE1}: Expansão, Processamento e Análise de Dados para Predição de Ploidia.
+    \item \textbf{OE2}: Treinamento e Ajuste de Modelo de Machine Learning para Predição de Euploidia.
+    \item \textbf{OE3}: Avaliação do Modelo
+    \item \textbf{OE4}: Protótipo de Interface
 \end{itemize}
 
 \section{Metodologia}
@@ -58,56 +55,33 @@ um Objetivo Específico do projeto, que contém suas respectivas atividades para
 \begin{itemize}
     \item \textbf{Fase 1: Análise e Preparação de Dados}
     \begin{itemize}
-        \item \textbf{OE1 - Identificação de Parâmetros em Embriões}: 
+        \item \textbf{OE1 - Expansão, Processamento e Análise de Dados para Predição de Ploidia}: 
         \begin{itemize}
-            \item \textbf{Atividade 1 (A1):} Analisar as variáveis disponíveis e sua organização, realizando a limpeza dos dados, verificando se existem valores em branco ou até mesmo variáveis que possam ser inseridas e que afetem a correlação entre os parâmetros e a porcentagem de euploidia, normalizando todas as variáveis. 
-            \item \textbf{Atividade 2 (A2):} Calcular a sua correlação entre cada parâmetro, identificando como se relacionam e se impactam uns aos outros.
+            \item \textbf{Atividade 1 (A1):} Análise, Revisão, Seleção e Limpeza de Variáveis para Predição de Euploidia 
+            \item \textbf{Atividade 2 (A2):} Identificação da Correlação e Atribuição de Pesos aos Parâmetros na Previsão da Ploidia do Embrião.
+            \item \textbf{Atividade 3 (A3):} Normalização dos Dados para Otimização.
+            \item \textbf{Atividade 4 (A4):} Separar o conjunto de dados em conjuntos de treinamento, validação e teste, fazendo uma distribuição dos dados e aplicar técnica de aumento de dados.
         \end{itemize}
-
-        \item \textbf{OE2 - Pré-Processamento de Dados}: 
-        \begin{itemize}
-            \item \textbf{Atividade 3 (A3):} Definir e atribuir pesos específicos para cada parâmetro, baseando-se na influência que cada um tem na ploidia do embrião.
-            \item \textbf{Atividade 4 (A4):} Gerar um gráfico para ser mais explicativo e melhorar a visualização dos pesos específicos entre os parâmetros e a euploidia.
-        \end{itemize}
-    \end{itemize}
     
     \item \textbf{Fase 2: Desenvolvimento e Avaliação do Modelo}
     \begin{itemize}
-        \item \textbf{OE3 - Treinamento e Ajuste de Modelo de Machine Learning para Predição de Euploidia}: 
+        \item \textbf{OE2 - Treinamento e Ajuste de Modelo de Machine Learning para Predição de Euploidia}: 
         \begin{itemize}
-            \item \textbf{Atividade 5 (A5):} Separar o conjunto de dados já organizados em conjuntos de treinamento, validação e teste, fazendo uma distribuição dos dados.
-            \item \textbf{Atividade 6 (A6):} Selecionar e configurar modelos pré-treinados ou customizados, configurando para buscar hiperparâmetros para explorar os melhores valores e otimizar o modelo, para realizar tarefa de predição de euploidia, ajustando o modelo de acordo com o tipo de dados e o objetivo.
-            \item \textbf{Atividade 7 (A7):} Construir um conjunto de validação, para que realizemos o monitoramento do desempenho inicial e registrar.
+            \item \textbf{Atividade 5 (A5):} Seleção e Configuração de Modelos Pré-Treinados/Personalizados para Otimização da Predição de Euploidia, Incluindo Treinamento, Validação e Teste
         \end{itemize}
 
-        \item \textbf{OE4 - Avaliação de Confiabilidade do Modelo}: 
+        \item \textbf{OE3 - Avaliação do Modelo}: 
         \begin{itemize}
-            \item \textbf{Atividade 8 (A8):} Definir as métricas de avaliação mais adequadas para medir a confiança do modelo, como Accuracy, Precision, Recall, F1-Score, e ROC-AUC (Receiver Operating Characteristic - Area Under Curve), de acordo com a natureza do problema de classificação.
-            \item \textbf{Atividade 9 (A9):} Construir uma matriz de confusão para avaliar o desempenho do modelo em prever corretamente casos de euploidia e aneuploidia.
-            \item \textbf{Atividade 10 (A10):} Gerar a curva ROC para o modelo, o que indica a capacidade do modelo de distinguir entre classes (euploide vs. aneuploide).
+            \item \textbf{Atividade 6 (A6):} Utilizar métricas de avaliação mais adequadas para medir o desempenho do modelo de acordo com a natureza do problema de classificação.
+            \item \textbf{Atividade 7 (A7):} Avaliar a precisão e eficácia do modelo em prever corretamente casos de euploidia e aneuploidia  por Meio da Matriz de Confusão e Curva ROC
         \end{itemize}
 
-        \item \textbf{OE5 - Desenvolvimento do protótipo da Interface e finalização da versão 1.0 de ML para Predições}: 
+        \item \textbf{OE4 - Protótipo de Interface}: 
         \begin{itemize}
-            \item \textbf{Atividade 11 (A11):} Prototipar uma interface amigável para exibir as predições de euploidia para o usuário final (médicos).
-            \item \textbf{Atividade 12 (A12):} Entregar o modelo versão 1.0 de Machine Learning, garantindo respostas em tempo real.
-            \item \textbf{Atividade 13 (A13):} Realizar testes de usabilidade para otimizar a experiência do usuário médico e assegurar fácil interpretação dos resultados.
+            \item \textbf{Atividade 8 (A8):} Prototipar uma interface básica para exibir as predições de euploidia para o usuário final (médicos).
         \end{itemize}
     \end{itemize}
 \end{itemize}
-
-\subsection{Organização da Pesquisa}
-A Figura 1 ilustra o fluxo de atividades desta pesquisa, destacando as etapas de entrada e saída de cada uma delas. O número da saída de cada atividade corresponde ao mesmo número da atividade, facilitando a correlação entre os processos. A imagem foi desenvolvida com o intuito de facilitar a compreensão do leitor sobre a estrutura e o andamento do trabalho.
-
-\includepdf{figuras/fluxoatividades.pdf}
-
-% \begin{figure}[h]
-%     \centering
-%     \includepdf[pages=-]{figuras/fluxoatividades.pdf}
-%     \caption{Fluxo das atividades da pesquisa - Autoras}
-%     \label{fluxo_atividades}
-% \end{figure}
-
 
 \section{Composição e estrutura do trabalho}
 Este trabalho foi organizado da seguinte maneira:
