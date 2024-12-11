@@ -1,31 +1,18 @@
 TARGET = TCC_FGA.pdf
 
+LATEX = pdflatex
 BIBTEX = bibtex
-LATEX = latex
-DVIPS = dvips
-PS2PDF = ps2pdf
 
 VERSION = 0.1.0
 
 FIXOS_DIR = fixos
-FIXOS_SOURCES = informacoes.tex fichaCatalografica.tex \
-		folhaDeAprovacao.tex pacotes.tex comandos.tex setup.tex	\
-		listasAutomaticas.tex indiceAutomatico.tex
-
+FIXOS_SOURCES = informacoes.tex fichaCatalografica.tex folhaDeAprovacao.tex pacotes.tex comandos.tex setup.tex listasAutomaticas.tex indiceAutomatico.tex
 FIXOS_FILES = $(addprefix $(FIXOS_DIR)/, $(FIXOS_SOURCES))
-
 EDITAVEIS_DIR = editaveis
-EDITAVEIS_SOURCES = informacoes.tex errata.tex dedicatoria.tex \
-					agradecimentos.tex epigrafe.tex resumo.tex abstract.tex \
-					abreviaturas.tex simbolos.tex  Capitulo1.tex \
-					textoepostexto.tex \
-					apendices.tex anexos.tex
-
+EDITAVEIS_SOURCES = informacoes.tex errata.tex dedicatoria.tex agradecimentos.tex epigrafe.tex resumo.tex abstract.tex abreviaturas.tex simbolos.tex Capitulo1.tex textoepostexto.tex apendices.tex anexos.tex
 EDITAVEIS_FILES = $(addprefix $(EDITAVEIS_DIR)/, $(EDITAVEIS_SOURCES))
-
 AUXILIARES_DIR = auxiliares
 AUXILIARES_SOURCES = aspectosgerais.tex consideracoes.tex elementosdotexto.tex elementosdopostexto.tex
-
 AUXILIARES_FILES = $(addprefix $(AUXILIARES_DIR)/, $(AUXILIARES_SOURCES))
 
 MAIN_FILE = tcc.tex
@@ -38,17 +25,22 @@ SOURCES = $(FIXOS_FILES) $(EDITAVEIS_FILES)
 
 .PHONY: all clean dist-clean
 
+EPS_FILES = $(wildcard figuras/*.eps)
+EPS_TO_PDF_FILES= $(addsuffix .pdf, $(basename $(EPS_FILES)))
+
 all: 
 	@make $(TARGET)
-     
-$(TARGET): $(MAIN_FILE) $(SOURCES) bibliografia.bib
-	$(LATEX) $(MAIN_FILE) $(SOURCES)
-	$(BIBTEX) $(AUX_FILE)
-	$(LATEX) $(MAIN_FILE) $(SOURCES)
-	$(LATEX) $(MAIN_FILE) $(SOURCES)
-	$(DVIPS) $(DVI_FILE)
-	$(PS2PDF) $(PS_FILE)
-	@cp $(PDF_FILE) $(TARGET)
+
+$(TARGET): $(MAIN_FILE) $(SOURCES) bibliografia.bib $(EPS_TO_PDF_FILES)
+	echo $(EPS_TO_PDF_FILES)
+	$(LATEX) $(MAIN_FILE)
+	$(BIBTEX) $(basename $(MAIN_FILE))
+	$(LATEX) $(MAIN_FILE)
+	$(LATEX) $(MAIN_FILE)
+	@cp $(PDF_FILE) $(TARGET)   
+
+%.pdf: %.eps
+	epstopdf $<
 
 clean-soft:
 	rm -f *~ *.dvi *.ps *.backup *.aux *.log
