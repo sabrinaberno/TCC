@@ -68,29 +68,22 @@ Este anexo descreve as variáveis utilizadas na planilha de dados referente ao d
 
 \chapter{APÊNDICE B - Z-score normalization (standardization)}
 
-O Z-Score é um indicador numérico que ilustra a conexão entre uma determinada quantia e a média de um conjunto de valores, expressa em termos de desvios padrão. Quando o Z-Score de um dado é zero, isso sugere que ela coincide com a média do conjunto. Um Z-Score de 1 indica que o valor está um desvio padrão acima da média, ao passo que valores negativos sugerem que estão abaixo da média. A normalização pelo Z-Score, também conhecida como padronização, pressupõe que os dados sigam uma distribuição gaussiana (em forma de sino) e transforma os valores para que tenham uma média (μ) de 0 e um desvio padrão (σ) de 1, facilitando a análise e a comparação entre variáveis com diferentes escalas \cite{jaiswal2024; maiseretorno2022}. A fórmula para padronização é:
+O Z-Score é um indicador numérico que ilustra a conexão entre uma determinada quantia e a média de um conjunto de valores, expressa em termos de desvios padrão. Quando o Z-Score de um dado é zero, isso sugere que ela coincide com a média do conjunto. Um Z-Score de 1 indica que o valor está um desvio padrão acima da média, ao passo que valores negativos sugerem que estão abaixo da média. A normalização pelo Z-Score, também conhecida como padronização, pressupõe que os dados sigam uma distribuição gaussiana (em forma de sino) e transforma os valores para que tenham uma média (\(\mu\)) de 0 e um desvio padrão (\(\sigma\)) de 1, facilitando a análise e a comparação entre variáveis com diferentes escalas \cite{jaiswal2024, maiseretorno2022}. A fórmula para padronização é:
 
-\includepdf{figuras/Z-Score.pdf}
+\includepdf[pages=-, scale=1, pagecommand={}, fitpaper=true]{figuras/Z-Score.pdf}
 
-% \begin{figure}[h]
-%     \centering
-%     \includepdf[pages=-]{figuras/Z-Score.pdf}
-%     \caption{Fórmula do Z-score}
-%     \label{resultado_pgt}
-% \end{figure}
-
-Em que
+Em que:
 \begin{itemize}
   \item \textbf{x:} Valor original do dado;
-  \item \textbf{μ:} Média da variável;
-  \item \textbf{σ:} Desvio padrão da variável.
+  \item \textbf{\(\mu\):} Média da variável;
+  \item \textbf{\(\sigma\):} Desvio padrão da variável.
 \end{itemize}
 
-O Z-Score é um instrumento valioso para a identificação se uma pontuação é típica ou atípica em comparação a um conjunto de dados previamente definido. Esta métrica permite a comparação entre pontuações de variados conjuntos de dados, o que torna as análises mais exatas e uniformes. O Z-Score, apesar de ser sensível a outliers (valores atípicos que estão muito distantes da maioria dos outros dados) e depender do intervalo de dados, é benéfico em circunstâncias onde a preservação do intervalo original é crucial \cite{sousa2019; maiseretorno2022}.
+O Z-Score é um instrumento valioso para a identificação se uma pontuação é típica ou atípica em comparação a um conjunto de dados previamente definido. Esta métrica permite a comparação entre pontuações de variados conjuntos de dados, o que torna as análises mais exatas e uniformes. O Z-Score, apesar de ser sensível a outliers (valores atípicos que estão muito distantes da maioria dos outros dados) e depender do intervalo de dados, é benéfico em circunstâncias onde a preservação do intervalo original é crucial \cite{sousa2019, maiseretorno2022}.
 
 Também é crucial reconhecer as variáveis numéricas que serão convertidas, já que o Z-Score só se aplica a variáveis contínuas. Assim, cada valor na variável será transformado em um Z-Score, representando quantos desvios padrão ele está acima ou abaixo da média da variável. 
 
-Para normalizar a tabela de dados usando o método Z-Score, utilizaremos o  Pandas, que é uma biblioteca Python de código aberto para análise de dados \cite{chen2018}. Inicialmente, importaremos a planilha Excel com os dados originais. Depois, são identificadas e ordenadas manualmente as colunas numéricas a serem normalizadas. Uma réplica do original DataFrame é gerada para manter os dados inalterados, enquanto as variáveis selecionadas são modificadas utilizando a fórmula do Z-Score: cada valor é ajustado pela subtração da média da variável e divisão pelo seu desvio padrão. Este procedimento assegura que as variáveis sejam ajustadas para uma média de 0 e um desvio padrão de 1, removendo variações de escala entre elas. Assim, a tabela normalizada é armazenada em um novo arquivo Excel. Após a aplicação do Z-score, se faz a verificação da média e do desvio padrão das variáveis transformadas, em que A média (μ) deve ser próxima de 0 e o desvio padrão (σ) deve ser próximo de 1.
+Para normalizar a tabela de dados usando o método Z-Score, utilizaremos o  Pandas, que é uma biblioteca Python de código aberto para análise de dados \cite{chen2018}. Inicialmente, importaremos a planilha Excel com os dados originais. Depois, são identificadas e ordenadas manualmente as colunas numéricas a serem normalizadas. Uma réplica do original DataFrame é gerada para manter os dados inalterados, enquanto as variáveis selecionadas são modificadas utilizando a fórmula do Z-Score: cada valor é ajustado pela subtração da média da variável e divisão pelo seu desvio padrão. Este procedimento assegura que as variáveis sejam ajustadas para uma média de 0 e um desvio padrão de 1, removendo variações de escala entre elas. Assim, a tabela normalizada é armazenada em um novo arquivo Excel. Após a aplicação do Z-score, se faz a verificação da média e do desvio padrão das variáveis transformadas, em que A média (\(\mu\)) deve ser próxima de 0 e o desvio padrão (\(\sigma\))  deve ser próximo de 1.
 
 \chapter{APÊNDICE C - Monte Carlo}
 
@@ -100,7 +93,7 @@ A Simulação de Monte Carlo trabalha com o princípio de geração de valores a
 
 Diferentemente de modelos de previsão tradicionais, que trabalham com valores fixos, o Monte Carlo oferece uma gama de resultados possíveis e a probabilidade associada a cada um. Isso permite uma análise mais detalhada e uma maior flexibilidade para lidar com incertezas.
 
-Embora os números usados no método sejam chamados de aleatórios, em implementações computacionais eles são, na verdade, gerados por algoritmos que criam números pseudoaleatórios (Kalos, 2009). Esses números imitam propriedades de números verdadeiramente aleatórios, mas são derivados de um processo determinístico \cite{kalos2009}. É “importante ressaltar que essa técnica produz uma gama de resultados igualmente plausíveis, onde nenhuma observação é mais ou menos válida do que as outras – incluindo aquelas que não foram perturbadas” \cite{kiar2021}.
+Embora os números usados no método sejam chamados de aleatórios, em implementações computacionais eles são, na verdade, gerados por algoritmos que criam números pseudoaleatórios \cite{kalos2009}. Esses números imitam propriedades de números verdadeiramente aleatórios, mas são derivados de um processo determinístico \cite{kalos2009}. É “importante ressaltar que essa técnica produz uma gama de resultados igualmente plausíveis, onde nenhuma observação é mais ou menos válida do que as outras --- incluindo aquelas que não foram perturbadas” \cite{kiar2021}.
 
 Para aplicar a técnica de Monte Carlo na base de dados, iniciaremos analisando as variáveis numéricas do conjunto de treinamento, determinando suas distribuições. Após isso, usaremos essas distribuições para gerar valores aleatórios utilizando funções como \textit{numpy.random.normal()} para distribuições normais. Esses valores serão usados para criar pequenas variações nas variáveis originais, aumentando a diversidade do conjunto de dados. Para finalizar, combinaremos os dados originais com os novos dados gerados, garantindo que os padrões estatísticos sejam mantidos e validaremos o conjunto expandido para assegurar que as novas amostras respeitam as características do conjunto original.
 
@@ -116,16 +109,9 @@ O coeficiente de Spearman atribui um posto (ou ranking) a cada valor das variáv
 
 A fórmula do coeficiente de Spearman é dada por:
 
-\includepdf{figuras/CoeficientedeSpearman.pdf}
+\includepdf[pages=-, scale=1, pagecommand={}, fitpaper=true]{figuras/CoeficientedeSpearman.pdf}
 
-% \begin{figure}[h]
-%     \centering
-%     \includepdf[pages=-]{figuras/CoeficientedeSpearman.pdf}
-%     \caption{Fórmula do Coeficiente de Spearman}
-%     \label{resultado_pgt}
-% \end{figure}
-
-Em que
+Em que:
 \begin{itemize}
   \item \textbf{di:} Diferença entre os postos de cada par de observações,
   \item \textbf{n:} Número de observações.
