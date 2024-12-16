@@ -60,83 +60,85 @@ Na tabela a seguir, demonstraremos os objetivos que cada fase possui, mostrando 
 %     \label{resultado_pgt}
 % \end{figure}
 
+\textbf{OE1 - Identificação de Parâmetros em Embriões}
 \begin{itemize}
-  \textbf{OE1 - Identificação de Parâmetros em Embriões}
-  \begin{itemize}
-      \item \textbf{Atividade 1 (A1):} Análise, Revisão, Seleção e Limpeza de Variáveis para Predição de Euploidia.
+    \item \textbf{Atividade 1 (A1):} Análise, Revisão, Seleção e Limpeza de Variáveis para Predição de Euploidia.
+    \begin{itemize}
+      \item \textbf{Detalhamento da Execução:} 
       \begin{itemize}
-        \item \textbf{Detalhamento da Execução:} 
-        \begin{itemize}
-          \item Começaremos com a verificação da pertinência das variáveis já existentes na planilha de dados dos embriões e se aplica a introdução de outras variáveis que possam aprimorar a exatidão da análise, ou até mesmo eliminando, se for necessário. Seguindo com a limpeza dos dados, substituindo valores nulos por valores mais apropriados em alguns casos, como as colunas que fazem conta entre outras duas colunas, nessas será possível encontrar valores e substituí-los.
-        \end{itemize}
-
-        \item \textbf{Metodologia:} 
-        \begin{itemize}
-          \item Para realizar a verificação da pertinência das variáveis já existentes e se seria viável introduzir novas variáveis, utilizaremos a pesquisa bibliográfica, especificamente os estudos já apresentados no capítulo 2: O de \citeonline(yuan2023), o artigo “Development of an artifcial intelligence based model for predicting the euploidy of blastocysts in PGT‐A treatments” e de o de \citeonline(souzarebeca2022), “Análise da ploidia de embriões humanos por meio da inteligência artificial com o uso de variáveis de morfologia, morfocinética e variáveis relacionadas com a paciente”, ambos artigos descrevem o uso de IA para fazer a predição da ploidia de embriões, o que se assemelha com o que queremos propor, com a diferença de que temos o objetivo final prever a porcentagem de aneuploidia. Dessa forma, analisaremos os estudos feitos por ambos pesquisadores e utilizaremos para entender o poder que cada variável tem para o objetivo final e se é necessário adicionar outras variáveis que não existem na nossa planilha, ou até mesmo excluí-las. Além de que, conduziremos entrevistas com o especialista encarregado de fornecer os dados, para uma análise prática da pertinência das variáveis disponíveis e para debater possíveis variáveis extras que possam ser pertinentes para a análise. As entrevistas possibilitarão alinhar a seleção das variáveis ao conhecimento clínico e experiência prática do profissional, garantindo que as variáveis selecionadas sejam aplicáveis no cenário real de previsão de euploidia. 
-          \item Em relação a limpeza dos dados, utilizaremos a linguagem \textit{Python} que possui a biblioteca \textit{Pandas}, que permite o carregamento de planilhas do Excel, do formato .xlsx, como a que possuímos. De acordo com \citeonline(chen2018): “O Pandas é uma biblioteca Python de código aberto para análise de dados. Ele dá a Python a capacidade de trabalhar com dados do tipo planilha, permitindo carregar, manipular, alinhar e combinar dados rapidamente, entre outras funções.”.Usaremos as funções \textit{isnull()} e \textit{info()}, da biblioteca \textit{Pandas}.
-        \end{itemize}
-
-        \item \textbf{Resultados Esperados:} 
-        \begin{itemize}
-          \item Inicialmente, analisar as variáveis possibilitando a detecção de variáveis irrelevantes ou redundantes, aprimorando a correlação entre os parâmetros estudados e a percentagem de euploidia. Também a detecção e correção de inconsistências, como valores em branco ou discrepâncias, garantindo que o conjunto de dados esteja organizado e pronto para futuras análises, prevenindo distorções nos resultados. 
-        \end{itemize}
+        \item Começaremos com a verificação da pertinência das variáveis já existentes na planilha de dados dos embriões e se aplica a introdução de outras variáveis que possam aprimorar a exatidão da análise, ou até mesmo eliminando, se for necessário. Seguindo com a limpeza dos dados, substituindo valores nulos por valores mais apropriados em alguns casos, como as colunas que fazem conta entre outras duas colunas, nessas será possível encontrar valores e substituí-los.
       \end{itemize}
 
-      \item \textbf{Atividade 2 (A2):} Identificação da Correlação e Atribuição de Pesos aos Parâmetros na Previsão da Ploidia do Embrião.
+      \item \textbf{Metodologia:} 
       \begin{itemize}
-        \item \textbf{Detalhamento da Execução:} 
-        \begin{itemize}
-          \item O objetivo desta atividade é identificar as relações entre os diferentes parâmetros presentes na planilha de dados dos embriões, avaliando a intensidade e o sentido dessas relações, com foco em sua influência na porcentagem de euploidia. Após a pesquisa bibliográfica e as entrevistas concedidas pelo especialista, utilizaremos o coeficiente de correlação de Spearman, que mede a relação monótona entre duas variáveis, considerando as ordens atribuídas às observações em vez dos valores originais \cite{sousa2019}. A correlação será calculada para todas as combinações possíveis de variáveis, possibilitando uma análise mais detalhada de suas interações \cite{sousa2019}. Um gráfico de dispersão será gerado para complementar a análise visual, facilitando a identificação de padrões. Também com o conhecimento adquirido pela A1, determinaremos a relevância relativa de cada parâmetro na previsão da ploidia do embrião, atribuindo pesos que reflitam sua influência, identificando a relevância de cada parâmetro.
-        \end{itemize}
-
-        \item \textbf{Metodologia:} 
-        \begin{itemize}
-          \item Para realizar a análise de correlação entre os parâmetros, será utilizado o coeficiente de Spearman, uma técnica estatística amplamente empregada para avaliar a intensidade e o sentido da relação monótona entre duas variáveis. Inicialmente, as variáveis do conjunto de dados serão classificadas em ordem crescente, atribuindo-lhes ranks que serão usados para o cálculo do coeficiente. Essa abordagem permite capturar relações tanto lineares quanto não lineares entre as variáveis \cite{sousa2019}, mais explicado no APÊNDICE D. A fórmula do coeficiente de correlação de Spearman será aplicada, utilizando as ordens atribuídas, assegurando que o método se adapte a diferentes formatos de relação, como curvas monótonas crescentes ou decrescentes. Além disso, será realizada uma análise complementar com gráficos de dispersão, que ajudarão a identificar a inclinação dos dados e o sentido da correlação, sendo positiva (próximas ao valor 1) quando as variáveis variam no mesmo sentido e negativa (próximas ao valor -1) quando variam em sentidos opostos \cite{sousa2019}. O resultado numérico do coeficiente será avaliado em relação à sua magnitude, indicando se a correlação é forte, moderada ou fraca, e seu sinal indicará o tipo de relação (positiva ou negativa). Usaremos a biblioteca Pandas para manipulação dos dados e a SciPy para calcular o coeficiente de Spearman.
-          \item A metodologia para a definição e atribuição de pesos específicos aos parâmetros relevantes para a ploidia do embrião combina análise teórica e prática. Inicialmente, será realizada uma pesquisa bibliográfica em publicações científicas e revisões sistemáticas que explorem a influência dos parâmetros na ploidia embrionária. Paralelamente, serão conduzidas entrevistas estruturadas com especialistas em medicina reprodutiva para coletar opiniões qualificadas e validar os achados teóricos. Durante as entrevistas, serão discutidos os fatores mais críticos e as percepções práticas sobre a influência de cada parâmetro, possibilitando uma visão mais contextualizada e aplicada. Caso existam opiniões divergentes ou discrepâncias, essas serão analisadas de maneira qualitativa. Nesse processo, buscaremos compreender os motivos por trás das diferenças nas interpretações ou nas evidências apresentadas, priorizando a busca por justificativas bem fundamentadas que expliquem como e por que cada parâmetro influencia a ploidia do embrião. Em vez de apenas números ou valores específicos, o foco estará em reunir argumentos sólidos e evidências documentadas que sustentem a atribuição de pesos aos parâmetros, garantindo consistência e embasamento científico nas conclusões finais.
-        \end{itemize}
-
-        \item \textbf{Resultados Esperados:} 
-        \begin{itemize}
-          \item Os cálculos realizados com o coeficiente de Spearman permitirão identificar quais parâmetros possuem uma relação mais forte (positiva ou negativa) com a porcentagem de euploidia, além de explorar como esses parâmetros se relacionam entre si. Os gráficos gerados deverão destacar as variáveis mais influentes, os padrões visuais que reforcem as relações monótonas, áreas onde a ausência de correlação linear não exclua outras formas de relação. Também resultará em uma lista detalhada dos parâmetros identificados, acompanhada das respectivas justificativas para os pesos atribuídos a cada um, com base em sua influência na ploidia do embrião. Em vez de valores numéricos, os resultados trarão explicações fundamentadas cientificamente, apresentando as razões pelas quais cada parâmetro exerce determinada influência. Essas justificativas serão construídas a partir da revisão bibliográfica e das opiniões dos especialistas entrevistados, com destaque para as evidências e argumentos que sustentem as decisões tomadas. O resultado final fornecerá uma visão qualitativa e consistente dos fatores que impactam a ploidia, sendo uma base essencial para análises e decisões futuras no estudo.
-        \end{itemize}
+        \item Para realizar a verificação da pertinência das variáveis já existentes e se seria viável introduzir novas variáveis, utilizaremos a pesquisa bibliográfica, especificamente os estudos já apresentados no capítulo 2: O de \citeonline(yuan2023), o artigo “Development of an artifcial intelligence based model for predicting the euploidy of blastocysts in PGT‐A treatments” e de o de \citeonline(souzarebeca2022), “Análise da ploidia de embriões humanos por meio da inteligência artificial com o uso de variáveis de morfologia, morfocinética e variáveis relacionadas com a paciente”, ambos artigos descrevem o uso de IA para fazer a predição da ploidia de embriões, o que se assemelha com o que queremos propor, com a diferença de que temos o objetivo final prever a porcentagem de aneuploidia. 
+        \item Dessa forma, analisaremos os estudos feitos por ambos pesquisadores e utilizaremos para entender o poder que cada variável tem para o objetivo final e se é necessário adicionar outras variáveis que não existem na nossa planilha, ou até mesmo excluí-las. Além de que, conduziremos entrevistas com o especialista encarregado de fornecer os dados, para uma análise prática da pertinência das variáveis disponíveis e para debater possíveis variáveis extras que possam ser pertinentes para a análise. As entrevistas possibilitarão alinhar a seleção das variáveis ao conhecimento clínico e experiência prática do profissional, garantindo que as variáveis selecionadas sejam aplicáveis no cenário real de previsão de euploidia. 
+        \item Em relação a limpeza dos dados, utilizaremos a linguagem \textit{Python} que possui a biblioteca \textit{Pandas}, que permite o carregamento de planilhas do Excel, do formato .xlsx, como a que possuímos. De acordo com \citeonline(chen2018): “O Pandas é uma biblioteca Python de código aberto para análise de dados. Ele dá a Python a capacidade de trabalhar com dados do tipo planilha, permitindo carregar, manipular, alinhar e combinar dados rapidamente, entre outras funções.”.Usaremos as funções \textit{isnull()} e \textit{info()}, da biblioteca \textit{Pandas}.
       \end{itemize}
 
-      \item \textbf{Atividade 3 (A3):} Normalização dos Dados para Otimização
+      \item \textbf{Resultados Esperados:} 
       \begin{itemize}
-        \item \textbf{Detalhamento da Execução:} 
-        \begin{itemize}
-          \item As variáveis numéricas são normalizadas, por meio de uma técnica de normalização, o Z-Score, assegurando os intervalos de valores de cada coluna. 
-        \end{itemize}
+        \item Inicialmente, analisar as variáveis possibilitando a detecção de variáveis irrelevantes ou redundantes, aprimorando a correlação entre os parâmetros estudados e a percentagem de euploidia. Também a detecção e correção de inconsistências, como valores em branco ou discrepâncias, garantindo que o conjunto de dados esteja organizado e pronto para futuras análises, prevenindo distorções nos resultados. 
+      \end{itemize}
+    \end{itemize}
 
-        \item \textbf{Metodologia:} 
-        \begin{itemize}
-          \item É de sua importância que façamos a normalização dos dados, visto que, de acordo com \citeonline(milewski2016):“Estudos anteriores demonstraram que a incorporação de dados morfológicos normalizados ​​para avaliação da qualidade do embrião aumenta consideravelmente o poder preditivo dos modelos criados.”. A normalização é uma forma de dimensionar recursos, transformando o intervalo deles em uma escala padrão \cite{jaiswal2024}. Também é importante citar que “dados normalizados também são fáceis de interpretar e, portanto, mais fáceis de entender. Quando todos os recursos de um conjunto de dados estão na mesma escala, também se torna mais fácil identificar e visualizar as relações entre diferentes recursos e fazer comparações significativas.” \cite{jaiswal2024}. Utilizaremos o método Z-Score, detalhado no APÊNDICE B, mas em resumo, é técnica que transforma os dados para que eles tenham média 0 e desvio padrão 1, sendo útil para garantir que todas as variáveis tenham a mesma escala, o que tem grande importância para algoritmos que possuem dados que dependem um dos outros \cite{jaiswal2024}.
-        \end{itemize}
-
-        \item \textbf{Resultados Esperados:} 
-        \begin{itemize}
-          \item Por fim, a normalização das variáveis assegurará que todas estejam dentro do mesmo intervalo, eliminando vieses numéricos e aprimorando a exatidão dos algoritmos de aprendizado de máquina que serão implementados posteriormente.
-        \end{itemize}
+    \item \textbf{Atividade 2 (A2):} Identificação da Correlação e Atribuição de Pesos aos Parâmetros na Previsão da Ploidia do Embrião.
+    \begin{itemize}
+      \item \textbf{Detalhamento da Execução:} 
+      \begin{itemize}
+        \item O objetivo desta atividade é identificar as relações entre os diferentes parâmetros presentes na planilha de dados dos embriões, avaliando a intensidade e o sentido dessas relações, com foco em sua influência na porcentagem de euploidia. Após a pesquisa bibliográfica e as entrevistas concedidas pelo especialista, utilizaremos o coeficiente de correlação de Spearman, que mede a relação monótona entre duas variáveis, considerando as ordens atribuídas às observações em vez dos valores originais \cite{sousa2019}. A correlação será calculada para todas as combinações possíveis de variáveis, possibilitando uma análise mais detalhada de suas interações \cite{sousa2019}. Um gráfico de dispersão será gerado para complementar a análise visual, facilitando a identificação de padrões. Também com o conhecimento adquirido pela A1, determinaremos a relevância relativa de cada parâmetro na previsão da ploidia do embrião, atribuindo pesos que reflitam sua influência, identificando a relevância de cada parâmetro.
       \end{itemize}
 
-      \item \textbf{Atividade 4 (A4):} Separar o conjunto de dados em conjuntos de treinamento, validação e teste, fazendo uma distribuição dos dados e aplicar técnica de aumento de dados.
+      \item \textbf{Metodologia:} 
       \begin{itemize}
-        \item \textbf{Detalhamento da Execução:} 
-        \begin{itemize}
-          \item A separação do conjunto de dados será realizada para garantir que etapas de treinamento, validação e testes sejam feitas de forma organizada. Iremos dividir em 3 conjuntos: Treinamento, para ensinar o modelo; Validação, para ajustar os parâmetros de forma adequada e evitar o overfitting, ocorre quando um algoritmo reduz o erro por meio da memorização de exemplos de treinamento em vez de aprender a verdadeira relação geral entre os dados \cite{bashir2020}; e Teste, para avaliar o desempenho final. A divisão será produzida com uma distribuição de 70\% dos dados para treinamento, 15\% para validação e 15\% para teste. O nosso conjunto de dados original é relativamente pequeno, tendo 85 linhas, assim, aplicaremos a técnica de aumento de dados (data augmentation) com o algoritmo Monte Carlo, detalhado no APÊNDICE C.  Utilizaremos a técnica exclusivamente nos dados de treinamento para evitar interferências ruins na criação e desempenho do modelo de aprendizado de máquina, preservando as características e padrões já existentes na tabela, contribuindo para a capacidade do modelo \cite{kiar2021}. 
-        \end{itemize}
-
-        \item \textbf{Metodologia:} 
-        \begin{itemize}
-          \item Para a realização, usaremos uma abordagem padrão em aprendizado de máquina, dividindo o conjunto de dados em três, como citado. A divisão é feita para garantir que cada conjunto seja representativo e que o modelo seja avaliado imparcialmente \cite{bashir2020}. Para aumentar o conjunto de dados de treinamento, será aplicada uma técnica de aumento de dados (data augmentation) com Monte Carlo, que é a geração de “dados artificiais de alta qualidade por meio da manipulação de amostras de dados existentes” \cite{wang2019}. 
-        \end{itemize}
-
-        \item \textbf{Resultados Esperados:} 
-        \begin{itemize}
-          \item Os resultados são a divisão do conjunto de dados em três subconjuntos: treinamento, validação e teste e a ampliação do conjunto de treinamento com o uso de data augmentation, aplicando o algoritmo de Monte Carlo. 
-        \end{itemize}
+        \item Para realizar a análise de correlação entre os parâmetros, será utilizado o coeficiente de Spearman, uma técnica estatística amplamente empregada para avaliar a intensidade e o sentido da relação monótona entre duas variáveis. Inicialmente, as variáveis do conjunto de dados serão classificadas em ordem crescente, atribuindo-lhes ranks que serão usados para o cálculo do coeficiente. Essa abordagem permite capturar relações tanto lineares quanto não lineares entre as variáveis \cite{sousa2019}, mais explicado no APÊNDICE D. A fórmula do coeficiente de correlação de Spearman será aplicada, utilizando as ordens atribuídas, assegurando que o método se adapte a diferentes formatos de relação, como curvas monótonas crescentes ou decrescentes. 
+        \item Além disso, será realizada uma análise complementar com gráficos de dispersão, que ajudarão a identificar a inclinação dos dados e o sentido da correlação, sendo positiva (próximas ao valor 1) quando as variáveis variam no mesmo sentido e negativa (próximas ao valor -1) quando variam em sentidos opostos \cite{sousa2019}. O resultado numérico do coeficiente será avaliado em relação à sua magnitude, indicando se a correlação é forte, moderada ou fraca, e seu sinal indicará o tipo de relação (positiva ou negativa). Usaremos a biblioteca Pandas para manipulação dos dados e a SciPy para calcular o coeficiente de Spearman.
+        \item A metodologia para a definição e atribuição de pesos específicos aos parâmetros relevantes para a ploidia do embrião combina análise teórica e prática. Inicialmente, será realizada uma pesquisa bibliográfica em publicações científicas e revisões sistemáticas que explorem a influência dos parâmetros na ploidia embrionária. Paralelamente, serão conduzidas entrevistas estruturadas com especialistas em medicina reprodutiva para coletar opiniões qualificadas e validar os achados teóricos. Durante as entrevistas, serão discutidos os fatores mais críticos e as percepções práticas sobre a influência de cada parâmetro, possibilitando uma visão mais contextualizada e aplicada. Caso existam opiniões divergentes ou discrepâncias, essas serão analisadas de maneira qualitativa. 
+        \item Nesse processo, buscaremos compreender os motivos por trás das diferenças nas interpretações ou nas evidências apresentadas, priorizando a busca por justificativas bem fundamentadas que expliquem como e por que cada parâmetro influencia a ploidia do embrião. Em vez de apenas números ou valores específicos, o foco estará em reunir argumentos sólidos e evidências documentadas que sustentem a atribuição de pesos aos parâmetros, garantindo consistência e embasamento científico nas conclusões finais.
       \end{itemize}
-  \end{itemize}
+
+      \item \textbf{Resultados Esperados:} 
+      \begin{itemize}
+        \item Os cálculos realizados com o coeficiente de Spearman permitirão identificar quais parâmetros possuem uma relação mais forte (positiva ou negativa) com a porcentagem de euploidia, além de explorar como esses parâmetros se relacionam entre si. Os gráficos gerados deverão destacar as variáveis mais influentes, os padrões visuais que reforcem as relações monótonas, áreas onde a ausência de correlação linear não exclua outras formas de relação. Também resultará em uma lista detalhada dos parâmetros identificados, acompanhada das respectivas justificativas para os pesos atribuídos a cada um, com base em sua influência na ploidia do embrião. Em vez de valores numéricos, os resultados trarão explicações fundamentadas cientificamente, apresentando as razões pelas quais cada parâmetro exerce determinada influência. Essas justificativas serão construídas a partir da revisão bibliográfica e das opiniões dos especialistas entrevistados, com destaque para as evidências e argumentos que sustentem as decisões tomadas. O resultado final fornecerá uma visão qualitativa e consistente dos fatores que impactam a ploidia, sendo uma base essencial para análises e decisões futuras no estudo.
+      \end{itemize}
+    \end{itemize}
+
+    \item \textbf{Atividade 3 (A3):} Normalização dos Dados para Otimização
+    \begin{itemize}
+      \item \textbf{Detalhamento da Execução:} 
+      \begin{itemize}
+        \item As variáveis numéricas são normalizadas, por meio de uma técnica de normalização, o Z-Score, assegurando os intervalos de valores de cada coluna. 
+      \end{itemize}
+
+      \item \textbf{Metodologia:} 
+      \begin{itemize}
+        \item É de sua importância que façamos a normalização dos dados, visto que, de acordo com \citeonline(milewski2016):“Estudos anteriores demonstraram que a incorporação de dados morfológicos normalizados para avaliação da qualidade do embrião aumenta consideravelmente o poder preditivo dos modelos criados.”. A normalização é uma forma de dimensionar recursos, transformando o intervalo deles em uma escala padrão \cite{jaiswal2024}. Também é importante citar que “dados normalizados também são fáceis de interpretar e, portanto, mais fáceis de entender. Quando todos os recursos de um conjunto de dados estão na mesma escala, também se torna mais fácil identificar e visualizar as relações entre diferentes recursos e fazer comparações significativas.” \cite{jaiswal2024}. Utilizaremos o método Z-Score, detalhado no APÊNDICE B, mas em resumo, é técnica que transforma os dados para que eles tenham média 0 e desvio padrão 1, sendo útil para garantir que todas as variáveis tenham a mesma escala, o que tem grande importância para algoritmos que possuem dados que dependem um dos outros \cite{jaiswal2024}.
+      \end{itemize}
+
+      \item \textbf{Resultados Esperados:} 
+      \begin{itemize}
+        \item Por fim, a normalização das variáveis assegurará que todas estejam dentro do mesmo intervalo, eliminando vieses numéricos e aprimorando a exatidão dos algoritmos de aprendizado de máquina que serão implementados posteriormente.
+      \end{itemize}
+    \end{itemize}
+
+    \item \textbf{Atividade 4 (A4):} Separar o conjunto de dados em conjuntos de treinamento, validação e teste, fazendo uma distribuição dos dados e aplicar técnica de aumento de dados.
+    \begin{itemize}
+      \item \textbf{Detalhamento da Execução:} 
+      \begin{itemize}
+        \item A separação do conjunto de dados será realizada para garantir que etapas de treinamento, validação e testes sejam feitas de forma organizada. Iremos dividir em 3 conjuntos: Treinamento, para ensinar o modelo; Validação, para ajustar os parâmetros de forma adequada e evitar o overfitting, ocorre quando um algoritmo reduz o erro por meio da memorização de exemplos de treinamento em vez de aprender a verdadeira relação geral entre os dados \cite{bashir2020}; e Teste, para avaliar o desempenho final. A divisão será produzida com uma distribuição de 70\% dos dados para treinamento, 15\% para validação e 15\% para teste. O nosso conjunto de dados original é relativamente pequeno, tendo 85 linhas, assim, aplicaremos a técnica de aumento de dados (data augmentation) com o algoritmo Monte Carlo, detalhado no APÊNDICE C.  
+        \item Utilizaremos a técnica exclusivamente nos dados de treinamento para evitar interferências ruins na criação e desempenho do modelo de aprendizado de máquina, preservando as características e padrões já existentes na tabela, contribuindo para a capacidade do modelo \cite{kiar2021}. 
+      \end{itemize}
+
+      \item \textbf{Metodologia:} 
+      \begin{itemize}
+        \item Para a realização, usaremos uma abordagem padrão em aprendizado de máquina, dividindo o conjunto de dados em três, como citado. A divisão é feita para garantir que cada conjunto seja representativo e que o modelo seja avaliado imparcialmente \cite{bashir2020}. Para aumentar o conjunto de dados de treinamento, será aplicada uma técnica de aumento de dados (data augmentation) com Monte Carlo, que é a geração de “dados artificiais de alta qualidade por meio da manipulação de amostras de dados existentes” \cite{wang2019}. 
+      \end{itemize}
+
+      \item \textbf{Resultados Esperados:} 
+      \begin{itemize}
+        \item Os resultados são a divisão do conjunto de dados em três subconjuntos: treinamento, validação e teste e a ampliação do conjunto de treinamento com o uso de data augmentation, aplicando o algoritmo de Monte Carlo. 
+      \end{itemize}
+    \end{itemize}
 \end{itemize}
 
 \includepdf{figuras/TabelaF2.pdf}
@@ -148,82 +150,84 @@ Na tabela a seguir, demonstraremos os objetivos que cada fase possui, mostrando 
 %     \label{resultado_pgt}
 % \end{figure}
 
+\textbf{OE2 - Treinamento e Ajuste de Modelo de Machine Learning para Predição de Euploidia}
 \begin{itemize}
-  \textbf{OE2 - Treinamento e Ajuste de Modelo de Machine Learning para Predição de Euploidia}
-  \begin{itemize}
-      \item \textbf{Atividade 5 (A5):} Seleção e Configuração de Modelos Pré-Treinados/Personalizados para Otimização da Predição de Euploidia, Incluindo Treinamento, Validação e Teste
+    \item \textbf{Atividade 5 (A5):} Seleção e Configuração de Modelos Pré-Treinados/Personalizados para Otimização da Predição de Euploidia, Incluindo Treinamento, Validação e Teste
+    \begin{itemize}
+      \item \textbf{Detalhamento da Execução:} 
       \begin{itemize}
-        \item \textbf{Detalhamento da Execução:} 
-        \begin{itemize}
-          \item A definir
-        \end{itemize}
-
-        \item \textbf{Metodologia:} 
-        \begin{itemize}
-          \item A definir
-        \end{itemize}
-
-        \item \textbf{Resultados Esperados:} 
-        \begin{itemize}
-          \item A definir
-        \end{itemize}
+        \item A definir
       \end{itemize}
-\end{itemize}
 
+      \item \textbf{Metodologia:} 
+      \begin{itemize}
+        \item A definir
+      \end{itemize}
+
+      \item \textbf{Resultados Esperados:} 
+      \begin{itemize}
+        \item A definir
+      \end{itemize}
+    \end{itemize}
+
+\textbf{OE3 - Avaliação do modelo}
 \begin{itemize}
-  \textbf{OE3 - Avaliação do modelo}
-  \begin{itemize}
-      \item \textbf{Atividade 6 (A6):} Utilizar métricas de avaliação mais adequadas para medir o desempenho do modelo de acordo com a natureza do problema de classificação.
+    \item \textbf{Atividade 6 (A6):} Utilizar métricas de avaliação mais adequadas para medir o desempenho do modelo de acordo com a natureza do problema de classificação.
+    \begin{itemize}
+      \item \textbf{Detalhamento da Execução:} 
       \begin{itemize}
-        \item \textbf{Detalhamento da Execução:} 
-        \begin{itemize}
-          \item O objetivo dessa atividade é aplicar e avaliar métricas adequadas para medir a confiança e o desempenho do modelo de IA, considerando as especificidades e objetivos do problema abordado. As métricas escolhidas incluem Acurácia, Precisão, Recall (Sensibilidade) e F1-Score Cada métrica será implementada e analisada com base em um conjunto de dados previamente definido, utilizando ferramentas de análise estatística e frameworks de aprendizado de máquina. A análise será realizada para garantir que as métricas reflitam de forma eficaz o desempenho do modelo em termos de sua capacidade de generalização e identificação de padrões no conjunto de teste.
-        \end{itemize}
-
-        \item \textbf{Metodologia:} 
-        \begin{itemize}
-          \item A definição e cálculo das métricas de avaliação serão conduzidos utilizando \textit{Python} e bibliotecas amplamente empregadas em aprendizado de máquina, como \textit{scikit-learn}, \textit{pandas}, para análise, visualização e manipulação dos resultados. O processo será conduzido para fornecer uma análise detalhada e equilibrada do classificador. As métricas escolhidas incluem acurácia, precisão, \textit{recall} e \textit{F1-Score}. A acurácia mede a proporção de previsões corretas em relação ao total de previsões realizadas \cite{vilela2022}. Essa métrica é útil para problemas onde as classes estão balanceadas e não há uma preocupação maior com erros específicos, como falsos positivos ou falsos negativos \cite{vilela2022}. Ela será calculada usando a função \textit{accuracy_score} do \textit{scikit-learn}. A precisão avalia a proporção de exemplos classificados como positivos que realmente pertencem à classe positiva \cite{vilela2022}. É crucial em problemas onde falsos positivos têm consequências severas, como em diagnósticos médicos \cite{vilela2022}. Será calculada com a função precision_score do \textit{scikit-learn}. O \textit{recall} mede a capacidade do modelo de identificar corretamente os exemplos pertencentes à classe positiva \cite{vilela2022}. É especialmente importante em situações onde falsos negativos têm maior impacto \cite{vilela2022}, como na detecção de aneuploidia de embriões. Será calculado com a função \textit{recall_score} do \textit{scikit-learn}. O \textit{F1-Score} combina precisão e \textit{recall}, fornecendo uma visão equilibrada entre ambos \cite{vilela2022}. É particularmente relevante em casos onde as classes estão desbalanceadas e há necessidade de avaliar o desempenho geral do modelo \cite{vilela2022}. O cálculo será realizado utilizando a função \textit{f1_score} do \textit{scikit-learn}.
-        \end{itemize}
-
-        \item \textbf{Resultados Esperados:} 
-        \begin{itemize}
-          \item Espera-se que a análise detalhada das métricas forneça uma visão abrangente do desempenho do modelo, destacando seus pontos fortes e fracos em diferentes cenários. A Acurácia deverá apresentar um panorama geral da performance, enquanto Precisão, Recall e F1-Score deverão evidenciar aspectos específicos de classificação positiva e negativa \cite{vilela2022}. A métrica \textit{ROC-AUC} permitirá avaliar a capacidade geral do modelo de distinguir entre classes \cite{vilela2022}. Os resultados deverão ser utilizados para refinar e ajustar o modelo, garantindo maior confiabilidade e aderência aos objetivos propostos no problema de classificação. Além disso, a escolha criteriosa das métricas será essencial para orientar decisões estratégicas relacionadas ao modelo, especialmente em aplicações sensíveis a erros de classificação.
-        \end{itemize}
+        \item O objetivo dessa atividade é aplicar e avaliar métricas adequadas para medir a confiança e o desempenho do modelo de IA, considerando as especificidades e objetivos do problema abordado. As métricas escolhidas incluem Acurácia, Precisão, Recall (Sensibilidade) e F1-Score Cada métrica será implementada e analisada com base em um conjunto de dados previamente definido, utilizando ferramentas de análise estatística e frameworks de aprendizado de máquina. A análise será realizada para garantir que as métricas reflitam de forma eficaz o desempenho do modelo em termos de sua capacidade de generalização e identificação de padrões no conjunto de teste.
       \end{itemize}
 
-      \item \textbf{Atividade 7 (A7):} Avaliar a precisão e eficácia do modelo em prever corretamente casos de euploidia e aneuploidia  por Meio da Matriz de Confusão e Curva ROC
+      \item \textbf{Metodologia:} 
       \begin{itemize}
-        \item \textbf{Detalhamento da Execução:} 
-        \begin{itemize}
-          \item O objetivo desta atividade é avaliar o desempenho do modelo de classificação desenvolvido para prever corretamente os casos de euploidia e aneuploidia, utilizando a Matriz de Confusão e a Curva ROC (Receiver Operating Characteristic). A Matriz de Confusão será construída após o treinamento e teste do modelo, permitindo identificar as taxas de verdadeiros positivos, falsos positivos, verdadeiros negativos e falsos negativos. Essa análise ajudará a compreender o desempenho geral do modelo e a identificar possíveis áreas de melhoria. Adicionalmente, será gerada a Curva \textit{ROC} para avaliar a performance do modelo na separação das duas classes: euploide (classe positiva) e aneuploide (classe negativa) \cite{vilela2022}. A curva será analisada com base em diferentes valores de limiar (threshold), fornecendo uma visão detalhada sobre a sensibilidade e a especificidade do modelo em cada ponto. A métrica AUC (Área sob a Curva) será utilizada como indicador global da capacidade do modelo de distinguir entre as classes, sendo especialmente útil para avaliar problemas de classificação desbalanceada \cite{vilela2022}.
-        \item \textbf{Metodologia:} 
-        \begin{itemize}
-          \item A avaliação do desempenho do modelo será realizada em duas etapas principais: a construção da Matriz de Confusão e a geração da Curva ROC. A Matriz de Confusão é uma ferramenta essencial para entender o desempenho do modelo de classificação. De acordo com \citeonline(sathyanarayanan2024), essa matriz é uma tabela de dimensão N × N, onde N representa o número de classes. Cada linha da matriz indica a quantidade de instâncias previstas em uma classe, enquanto cada coluna representa a quantidade de instâncias reais da classe. Para este estudo, a matriz permitirá a análise de predições corretas e incorretas, classificando-as como verdadeiros positivos (TP), verdadeiros negativos (TN), falsos positivos (FP) e falsos negativos (FN). A partir dessas classificações, podemos calcular diversas métricas importantes para medir a precisão do modelo, como a acurácia, precisão, \textit{recall} e \textit{F1-score}, que nos ajudam a identificar as áreas de melhoria no modelo de predição. 
-          \item Além disso, será utilizada uma Curva \textit{ROC} para avaliar a performance do modelo de forma mais detalhada. O modelo de classificação Random Forest será implementado utilizando a biblioteca \textit{scikit-learn}, que permite gerar probabilidades de pertença à classe positiva (euploide). A Curva ROC, que é fundamental para problemas de classificação binária, depende dessas probabilidades, em vez de apenas classificações binárias \cite{vilela2022}. A curva será gerada variando o limiar de decisão (\textit{threshold}) do modelo. O limiar define a probabilidade a partir da qual uma instância será classificada como pertencente à classe positiva (euploide) \cite{vilela2022}. O threshold será ajustado para diferentes valores, e para cada um, será calculada a sensibilidade (taxa de verdadeiros positivos) e a especificidade (1 - taxa de falsos positivos) \cite{vilela2022}. Para isso, utilizaremos o método predict_proba() do \textit{scikit-learn} para obter as probabilidades previstas pelo modelo. A função \textit{roc_curve()} da biblioteca também será utilizada para calcular os valores de falso positivo e verdadeiro positivo para os diferentes limiares, gerando o gráfico da Curva \textit{ROC}, com a especificidade no eixo x e a sensibilidade no eixo y. Finalmente, a métrica \textit{AUC} (Área sob a Curva) será calculada utilizando a função \textit{roc_auc_score()} do \textit{scikit-learn}. A \textit{AUC}, que varia de 0 a 1, fornecerá uma avaliação quantitativa do modelo, sendo que valores mais próximos de 1 indicam um melhor desempenho na classificação. A Curva \textit{ROC}, junto com a \textit{AUC}, nos ajudará a entender o comportamento do modelo para diferentes limiares e a selecionar o melhor ponto de corte, equilibrando os \textit{trade-offs} entre a taxa de verdadeiros positivos e falsos positivos.
-        \end{itemize}
-
-        \item \textbf{Resultados Esperados:} 
-        \begin{itemize}
-          \item Ao construir a Matriz de Confusão, espera-se obter uma análise detalhada do desempenho do modelo, identificando os verdadeiros positivos (TP), verdadeiros negativos (TN), falsos positivos (FP) e falsos negativos (FN). Essa análise permitirá avaliar não apenas a precisão global do modelo, mas também as taxas de erro em diferentes categorias, como os casos de euploidia erroneamente classificados como aneuploidia (FP) e os de aneuploidia erroneamente classificados como euploidia (FN). Essa avaliação fornecerá subsídios para aprimoramentos no modelo de classificação. Para a Curva ROC, o gráfico gerado mostrará a relação entre a sensibilidade e a especificidade em diferentes valores de limiar. Espera-se que o modelo apresente uma curva ascendente, indicando sua capacidade de identificar corretamente os positivos (euploide) sem gerar muitos falsos positivos. O valor da AUC (Área sob a Curva) será calculado para quantificar a habilidade do modelo em distinguir entre as classes \cite{vilela2022}. Valores de AUC próximos de 1 indicam um excelente desempenho do modelo, enquanto valores próximos de 0,5 sugerem que o modelo apresenta desempenho similar a uma escolha aleatória \cite{vilela2022}. A partir da Curva ROC, será possível selecionar o limiar mais adequado para balancear os erros de falso positivo e falso negativo, permitindo uma análise criteriosa dos trade-offs envolvidos \cite{vilela2022}. Esses resultados fornecerão uma base sólida para avaliar a eficácia do modelo e sua aplicabilidade no contexto do estudo.
-        \end{itemize}
+        \item A definição e cálculo das métricas de avaliação serão conduzidos utilizando \textit{Python} e bibliotecas amplamente empregadas em aprendizado de máquina, como \textit{scikit-learn}, \textit{pandas}, para análise, visualização e manipulação dos resultados. O processo será conduzido para fornecer uma análise detalhada e equilibrada do classificador. 
+        \item As métricas escolhidas incluem acurácia, precisão, \textit{recall} e \textit{F1-Score}. A acurácia mede a proporção de previsões corretas em relação ao total de previsões realizadas \cite{vilela2022}. Essa métrica é útil para problemas onde as classes estão balanceadas e não há uma preocupação maior com erros específicos, como falsos positivos ou falsos negativos \cite{vilela2022}. Ela será calculada usando a função \textit{accuracy\_score} do \textit{scikit-learn}. A precisão avalia a proporção de exemplos classificados como positivos que realmente pertencem à classe positiva \cite{vilela2022}. É crucial em problemas onde falsos positivos têm consequências severas, como em diagnósticos médicos \cite{vilela2022}. Será calculada com a função precision\_score do \textit{scikit-learn}. O \textit{recall} mede a capacidade do modelo de identificar corretamente os exemplos pertencentes à classe positiva \cite{vilela2022}. É especialmente importante em situações onde falsos negativos têm maior impacto \cite{vilela2022}, como na detecção de aneuploidia de embriões. Será calculado com a função \textit{recall\_score} do \textit{scikit-learn}. O \textit{F1-Score} combina precisão e \textit{recall}, fornecendo uma visão equilibrada entre ambos \cite{vilela2022}. É particularmente relevante em casos onde as classes estão desbalanceadas e há necessidade de avaliar o desempenho geral do modelo \cite{vilela2022}. O cálculo será realizado utilizando a função \textit{f1\_score} do \textit{scikit-learn}.
       \end{itemize}
 
-      \item \textbf{Atividade 8 (A8):} Prototipar uma interface básica para exibir as predições de euploidia para o usuário final (médicos).
+      \item \textbf{Resultados Esperados:} 
       \begin{itemize}
-        \item \textbf{Detalhamento da Execução:} 
-        \begin{itemize}
-          \item A finalidade é desenvolver o protótipo de uma interface básica que possibilite aos médicos visualizar as previsões de euploidia produzidas pelo modelo. O protótipo incluirá componentes cruciais como campos de preenchimento para os dados necessários à previsão, botões de interação para envio de informações, além de uma área de apresentação dos resultados.
-        \item \textbf{Metodologia:} 
-        \begin{itemize}
-          \item Para criar uma interface fácil de usar que permita aos médicos visualizar as previsões de euploidia, empregaremos o Figma, um software colaborativo baseado na web para a criação de interfaces. O Figma disponibiliza funcionalidades que simplificam a criação de interfaces de usuário e experiências do usuário, priorizando a colaboração em tempo real, por meio de uma gama de ferramentas de edição vetorial e prototipagem \cite{figma2024}.
-        \end{itemize}
-
-        \item \textbf{Resultados Esperados:} 
-        \begin{itemize}
-          \item O resultado é que o protótipo da interface básica possibilite aos médicos uma visualização clara e intuitiva das previsões de euploidia. A interface precisa ser funcional e esteticamente atraente, assegurando a compreensão simples dos resultados exibidos. Será coletado opiniões valiosas sobre o design, a navegação e a clareza das informações apresentadas, possibilitando as alterações necessárias.
-        \end{itemize}
+        \item Espera-se que a análise detalhada das métricas forneça uma visão abrangente do desempenho do modelo, destacando seus pontos fortes e fracos em diferentes cenários. A Acurácia deverá apresentar um panorama geral da performance, enquanto Precisão, Recall e F1-Score deverão evidenciar aspectos específicos de classificação positiva e negativa \cite{vilela2022}. A métrica \textit{ROC-AUC} permitirá avaliar a capacidade geral do modelo de distinguir entre classes \cite{vilela2022}. 
+        \item Os resultados deverão ser utilizados para refinar e ajustar o modelo, garantindo maior confiabilidade e aderência aos objetivos propostos no problema de classificação. Além disso, a escolha criteriosa das métricas será essencial para orientar decisões estratégicas relacionadas ao modelo, especialmente em aplicações sensíveis a erros de classificação.
       \end{itemize}
-\end{itemize}
+    \end{itemize}
+
+    \item \textbf{Atividade 7 (A7):} Avaliar a precisão e eficácia do modelo em prever corretamente casos de euploidia e aneuploidia  por Meio da Matriz de Confusão e Curva ROC
+    \begin{itemize}
+      \item \textbf{Detalhamento da Execução:} 
+      \begin{itemize}
+        \item O objetivo desta atividade é avaliar o desempenho do modelo de classificação desenvolvido para prever corretamente os casos de euploidia e aneuploidia, utilizando a Matriz de Confusão e a Curva ROC (Receiver Operating Characteristic). A Matriz de Confusão será construída após o treinamento e teste do modelo, permitindo identificar as taxas de verdadeiros positivos, falsos positivos, verdadeiros negativos e falsos negativos. Essa análise ajudará a compreender o desempenho geral do modelo e a identificar possíveis áreas de melhoria. Adicionalmente, será gerada a Curva \textit{ROC} para avaliar a performance do modelo na separação das duas classes: euploide (classe positiva) e aneuploide (classe negativa) \cite{vilela2022}. 
+        \item A curva será analisada com base em diferentes valores de limiar (threshold), fornecendo uma visão detalhada sobre a sensibilidade e a especificidade do modelo em cada ponto. A métrica AUC (Área sob a Curva) será utilizada como indicador global da capacidade do modelo de distinguir entre as classes, sendo especialmente útil para avaliar problemas de classificação desbalanceada \cite{vilela2022}.
+      \item \textbf{Metodologia:} 
+      \begin{itemize}
+        \item A avaliação do desempenho do modelo será realizada em duas etapas principais: a construção da Matriz de Confusão e a geração da Curva ROC. 
+        \item A Matriz de Confusão é uma ferramenta essencial para entender o desempenho do modelo de classificação. De acordo com \citeonline(sathyanarayanan2024), essa matriz é uma tabela de dimensão N × N, onde N representa o número de classes. Cada linha da matriz indica a quantidade de instâncias previstas em uma classe, enquanto cada coluna representa a quantidade de instâncias reais da classe. Para este estudo, a matriz permitirá a análise de predições corretas e incorretas, classificando-as como verdadeiros positivos (TP), verdadeiros negativos (TN), falsos positivos (FP) e falsos negativos (FN). A partir dessas classificações, podemos calcular diversas métricas importantes para medir a precisão do modelo, como a acurácia, precisão, \textit{recall} e \textit{F1-score}, que nos ajudam a identificar as áreas de melhoria no modelo de predição. 
+        \item Além disso, será utilizada uma Curva \textit{ROC} para avaliar a performance do modelo de forma mais detalhada. O modelo de classificação Random Forest será implementado utilizando a biblioteca \textit{scikit-learn}, que permite gerar probabilidades de pertença à classe positiva (euploide). A Curva ROC, que é fundamental para problemas de classificação binária, depende dessas probabilidades, em vez de apenas classificações binárias \cite{vilela2022}. A curva será gerada variando o limiar de decisão (\textit{threshold}) do modelo. O limiar define a probabilidade a partir da qual uma instância será classificada como pertencente à classe positiva (euploide) \cite{vilela2022}. O threshold será ajustado para diferentes valores, e para cada um, será calculada a sensibilidade (taxa de verdadeiros positivos) e a especificidade (1 - taxa de falsos positivos) \cite{vilela2022}. 
+        \item Para isso, utilizaremos o método predict\_proba() do \textit{scikit-learn} para obter as probabilidades previstas pelo modelo. A função \textit{roc\_curve()} da biblioteca também será utilizada para calcular os valores de falso positivo e verdadeiro positivo para os diferentes limiares, gerando o gráfico da Curva \textit{ROC}, com a especificidade no eixo x e a sensibilidade no eixo y. Finalmente, a métrica \textit{AUC} (Área sob a Curva) será calculada utilizando a função \textit{roc\_auc\_score()} do \textit{scikit-learn}. A \textit{AUC}, que varia de 0 a 1, fornecerá uma avaliação quantitativa do modelo, sendo que valores mais próximos de 1 indicam um melhor desempenho na classificação. A Curva \textit{ROC}, junto com a \textit{AUC}, nos ajudará a entender o comportamento do modelo para diferentes limiares e a selecionar o melhor ponto de corte, equilibrando os \textit{trade-offs} entre a taxa de verdadeiros positivos e falsos positivos.
+      \end{itemize}
+
+      \item \textbf{Resultados Esperados:} 
+      \begin{itemize}
+        \item Ao construir a Matriz de Confusão, espera-se obter uma análise detalhada do desempenho do modelo, identificando os verdadeiros positivos (TP), verdadeiros negativos (TN), falsos positivos (FP) e falsos negativos (FN). Essa análise permitirá avaliar não apenas a precisão global do modelo, mas também as taxas de erro em diferentes categorias, como os casos de euploidia erroneamente classificados como aneuploidia (FP) e os de aneuploidia erroneamente classificados como euploidia (FN). Essa avaliação fornecerá subsídios para aprimoramentos no modelo de classificação. Para a Curva ROC, o gráfico gerado mostrará a relação entre a sensibilidade e a especificidade em diferentes valores de limiar. 
+        \item Espera-se que o modelo apresente uma curva ascendente, indicando sua capacidade de identificar corretamente os positivos (euploide) sem gerar muitos falsos positivos. O valor da AUC (Área sob a Curva) será calculado para quantificar a habilidade do modelo em distinguir entre as classes \cite{vilela2022}. Valores de AUC próximos de 1 indicam um excelente desempenho do modelo, enquanto valores próximos de 0,5 sugerem que o modelo apresenta desempenho similar a uma escolha aleatória \cite{vilela2022}. A partir da Curva ROC, será possível selecionar o limiar mais adequado para balancear os erros de falso positivo e falso negativo, permitindo uma análise criteriosa dos trade-offs envolvidos \cite{vilela2022}. Esses resultados fornecerão uma base sólida para avaliar a eficácia do modelo e sua aplicabilidade no contexto do estudo.
+      \end{itemize}
+    \end{itemize}
+
+    \item \textbf{Atividade 8 (A8):} Prototipar uma interface básica para exibir as predições de euploidia para o usuário final (médicos).
+    \begin{itemize}
+      \item \textbf{Detalhamento da Execução:} 
+      \begin{itemize}
+        \item A finalidade é desenvolver o protótipo de uma interface básica que possibilite aos médicos visualizar as previsões de euploidia produzidas pelo modelo. O protótipo incluirá componentes cruciais como campos de preenchimento para os dados necessários à previsão, botões de interação para envio de informações, além de uma área de apresentação dos resultados.
+      \item \textbf{Metodologia:} 
+      \begin{itemize}
+        \item Para criar uma interface fácil de usar que permita aos médicos visualizar as previsões de euploidia, empregaremos o Figma, um software colaborativo baseado na web para a criação de interfaces. O Figma disponibiliza funcionalidades que simplificam a criação de interfaces de usuário e experiências do usuário, priorizando a colaboração em tempo real, por meio de uma gama de ferramentas de edição vetorial e prototipagem \cite{figma2024}.
+      \end{itemize}
+
+      \item \textbf{Resultados Esperados:} 
+      \begin{itemize}
+        \item O resultado é que o protótipo da interface básica possibilite aos médicos uma visualização clara e intuitiva das previsões de euploidia. A interface precisa ser funcional e esteticamente atraente, assegurando a compreensão simples dos resultados exibidos. Será coletado opiniões valiosas sobre o design, a navegação e a clareza das informações apresentadas, possibilitando as alterações necessárias.
+      \end{itemize}
+    \end{itemize}
 
 \subsection{Desenvolvimento da Inteligência Artificial}
 
