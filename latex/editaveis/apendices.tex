@@ -2,12 +2,142 @@
 
 \partapendices
 
-\chapter{Primeiro Apêndice}
+\chapter{APÊNDICE A - Variáveis utilizadas na análise da ploidia embrionária}
 
-Texto do primeiro apêndice.
+Este anexo descreve as variáveis utilizadas na planilha de dados referente ao desenvolvimento embrionário e sua relação com a ploidia. As variáveis incluem informações demográficas, temporais e morfológicas do embrião, bem como métricas de qualidade baseadas no sistema Gardner. Todos os tempos descritos abaixo são expressos em horas.
 
-\chapter{Segundo Apêndice}
+\begin{itemize}
+  \item \textbf{Variáveis Gerais}
+  \begin{itemize}
+      \item \textbf{Idade:} Idade da paciente no momento do procedimento.
+      \item \textbf{Data da biópsia:} Data em que foi realizada a biópsia embrionária.
+      \item \textbf{Embrião n.:} Identificação numérica do embrião dentro do ciclo de fertilização.
+  \end{itemize}
+\end{itemize}
 
-Texto do segundo apêndice.
+\begin{itemize}
+  \item \textbf{Variáveis Temporais}
+  As variáveis temporais são baseadas nos intervalos de tempo entre eventos específicos durante o desenvolvimento do embrião:
+  \begin{itemize}
+    \item \textbf{t0:} Tempo do início da fertilização in vitro (FIV) ou ponto médio da microinjeção espermática (ICSI).
+    \item \textbf{tPB2:} Tempo em que o segundo corpo polar se destaca completamente da oolema.
+    \item \textbf{tPN:} Confirmação da fertilização pela aparência do primeiro pró-núcleo (PN).
+    \item \textbf{tPNf:} Momento em que ambos (e o último) PNs deixam de ser visíveis.
+    \item \textbf{tn:} Primeira vez em que o embrião atinge n blastômeros.
+    \item \textbf{st2:} Primeiro indício de movimentos citoplasmáticos antes da primeira citocinese.
+    \item \textbf{tSC:} Evidência inicial de compactação.
+    \item \textbf{tM:} Conclusão do processo de compactação.
+    \item \textbf{tSB:} Início da blastulação (primeira evidência visível do blastocelo).
+    \item \textbf{tB:} Formação do blastocisto completo.
+  \end{itemize}
+\end{itemize}
+
+\begin{itemize}
+  \item \textbf{Variáveis Derivadas}
+  \begin{itemize}
+    \item \textbf{cc1 (t2–tPNf):} Duração do primeiro ciclo celular.
+    \item \textbf{cc2 (t3–t2):} Duração do segundo ciclo celular.
+    \item \textbf{cc3 (t5–t3):} Duração do terceiro ciclo celular.
+    \item \textbf{t5–t2:} Intervalo entre a formação de 2 e 5 células.
+    \item \textbf{s2 (t4–t3):} Sincronização das divisões celulares no segundo ciclo.
+    \item \textbf{s3 (t8–t5):} Sincronização do padrão de clivagem no terceiro ciclo.
+    \item \textbf{tSC-t8:} Intervalo entre a compactação inicial e a formação de 8 células.
+    \item \textbf{tB-tSB:} Duração da blastulação.
+  \end{itemize}
+\end{itemize}
+
+\begin{itemize}
+  \item \textbf{Variáveis Morfológicas}
+  Baseadas no sistema de pontuação Gardner:
+  \begin{itemize}
+    \item \textbf{Estágio:} Estágio de expansão e eclosão do blastocisto (graus 1 a 6).
+    \item \textbf{Morfo:} Qualidade morfológica baseada no sistema Gardner.
+    \item \textbf{ICM (Inner Cell Mass):} Qualidade da massa celular interna.
+    \item \textbf{TE (Trophectoderm):} Qualidade do trofectoderma.
+    \item \textbf{Kid Score:} Escore do sistema KID (viabilidade embrionária baseada em inteligência artificial).
+  \end{itemize}
+\end{itemize}
+
+\begin{itemize}
+  \item \textbf{Variável de Resultado}
+  \begin{itemize}
+    \item \textbf{Ploidia:} Estado de ploidia do embrião, resultado final da análise.
+  \end{itemize}
+\end{itemize}
+
+
+\chapter{APÊNDICE B - Z-score normalization (standardization)}
+
+O Z-Score é um indicador numérico que ilustra a conexão entre uma determinada quantia e a média de um conjunto de valores, expressa em termos de desvios padrão. Quando o Z-Score de um dado é zero, isso sugere que ela coincide com a média do conjunto. Um Z-Score de 1 indica que o valor está um desvio padrão acima da média, ao passo que valores negativos sugerem que estão abaixo da média. A normalização pelo Z-Score, também conhecida como padronização, pressupõe que os dados sigam uma distribuição gaussiana (em forma de sino) e transforma os valores para que tenham uma média (μ) de 0 e um desvio padrão (σ) de 1, facilitando a análise e a comparação entre variáveis com diferentes escalas \cite{jaiswal2024; maiseretorno2022}. A fórmula para padronização é:
+
+\includepdf{figuras/Z-Score.pdf}
+
+% \begin{figure}[h]
+%     \centering
+%     \includepdf[pages=-]{figuras/Z-Score.pdf}
+%     \caption{Fórmula do Z-score}
+%     \label{resultado_pgt}
+% \end{figure}
+
+Em que
+\begin{itemize}
+  \item \textbf{x:} Valor original do dado;
+  \item \textbf{μ:} Média da variável;
+  \item \textbf{σ:} Desvio padrão da variável.
+\end{itemize}
+
+O Z-Score é um instrumento valioso para a identificação se uma pontuação é típica ou atípica em comparação a um conjunto de dados previamente definido. Esta métrica permite a comparação entre pontuações de variados conjuntos de dados, o que torna as análises mais exatas e uniformes. O Z-Score, apesar de ser sensível a outliers (valores atípicos que estão muito distantes da maioria dos outros dados) e depender do intervalo de dados, é benéfico em circunstâncias onde a preservação do intervalo original é crucial \cite{sousa2019; maiseretorno2022}.
+
+Também é crucial reconhecer as variáveis numéricas que serão convertidas, já que o Z-Score só se aplica a variáveis contínuas. Assim, cada valor na variável será transformado em um Z-Score, representando quantos desvios padrão ele está acima ou abaixo da média da variável. 
+
+Para normalizar a tabela de dados usando o método Z-Score, utilizaremos o  Pandas, que é uma biblioteca Python de código aberto para análise de dados \cite{chen2018}. Inicialmente, importaremos a planilha Excel com os dados originais. Depois, são identificadas e ordenadas manualmente as colunas numéricas a serem normalizadas. Uma réplica do original DataFrame é gerada para manter os dados inalterados, enquanto as variáveis selecionadas são modificadas utilizando a fórmula do Z-Score: cada valor é ajustado pela subtração da média da variável e divisão pelo seu desvio padrão. Este procedimento assegura que as variáveis sejam ajustadas para uma média de 0 e um desvio padrão de 1, removendo variações de escala entre elas. Assim, a tabela normalizada é armazenada em um novo arquivo Excel. Após a aplicação do Z-score, se faz a verificação da média e do desvio padrão das variáveis transformadas, em que A média (μ) deve ser próxima de 0 e o desvio padrão (σ) deve ser próximo de 1.
+
+\chapter{APÊNDICE C - Monte Carlo}
+
+O Método de Aritmética de Monte Carlo (MCA) é uma técnica matemática e computacional amplamente utilizada para resolver problemas que envolvem incerteza e variabilidade \cite{kalos2009}. Baseia-se no uso de números aleatórios para simular processos estocásticos, ou seja, processos que evoluem de maneira dependente de eventos aleatórios \cite{kalos2009}. Esse método é especialmente eficaz para lidar com problemas de alta complexidade matemática, onde métodos analíticos tradicionais podem ser inviáveis. Além de que “o aumento do conjunto de dados foi amplamente demonstrado como uma técnica eficaz para melhorar a generalização de modelos de aprendizado” \cite{kiar2021}.
+
+A Simulação de Monte Carlo trabalha com o princípio de geração de valores aleatórios dentro de um intervalo previamente definido para variáveis que apresentam incerteza \cite{kalos2009}. Esses valores aleatórios são extraídos de uma distribuição de probabilidade específica, como a distribuição uniforme ou normal, dependendo do problema. O método consiste em repetir o cálculo de um modelo várias vezes, cada vez utilizando um conjunto diferente de valores aleatórios como entrada \cite{kalos2009}. 
+
+Diferentemente de modelos de previsão tradicionais, que trabalham com valores fixos, o Monte Carlo oferece uma gama de resultados possíveis e a probabilidade associada a cada um. Isso permite uma análise mais detalhada e uma maior flexibilidade para lidar com incertezas.
+
+Embora os números usados no método sejam chamados de aleatórios, em implementações computacionais eles são, na verdade, gerados por algoritmos que criam números pseudoaleatórios (Kalos, 2009). Esses números imitam propriedades de números verdadeiramente aleatórios, mas são derivados de um processo determinístico \cite{kalos2009}. É “importante ressaltar que essa técnica produz uma gama de resultados igualmente plausíveis, onde nenhuma observação é mais ou menos válida do que as outras – incluindo aquelas que não foram perturbadas” \cite{kiar2021}.
+
+Para aplicar a técnica de Monte Carlo na base de dados, iniciaremos analisando as variáveis numéricas do conjunto de treinamento, determinando suas distribuições. Após isso, usaremos essas distribuições para gerar valores aleatórios utilizando funções como \textit{numpy.random.normal()} para distribuições normais. Esses valores serão usados para criar pequenas variações nas variáveis originais, aumentando a diversidade do conjunto de dados. Para finalizar, combinaremos os dados originais com os novos dados gerados, garantindo que os padrões estatísticos sejam mantidos e validaremos o conjunto expandido para assegurar que as novas amostras respeitam as características do conjunto original.
+
+\chapter{APÊNDICE D - Coeficiente de Spearman}
+
+O coeficiente de correlação de Spearman é uma ferramenta estatística bastante útil quando trabalhamos com dados que não seguem uma distribuição normal ou apresentam outliers (valores atípicos que estão muito distantes da maioria dos outros dados). Isso ocorre porque o coeficiente de Spearman não usa os valores originais dos dados, mas sim as ordens ou posições em que as observações são classificadas \cite{sousa2019}. Essa abordagem torna o coeficiente mais robusto (menos sensível) a distorções causadas por assimetria nos dados (quando os dados se distribuem de forma desigual) e por outliers \cite{sousa2019}.
+
+O coeficiente de Spearman é uma medida não paramétrica, o que significa que ele não depende de pressupostos sobre a distribuição dos dados, como a necessidade de os dados serem normalmente distribuídos (um tipo de distribuição comum em estatísticas) \cite{restrepo2007}. Ele é usado para medir o grau de associação monotônica entre duas variáveis \cite{restrepo2007}.
+
+Uma relação monotônica entre duas variáveis é uma relação em que uma variável tende a aumentar ou diminuir à medida que a outra também aumenta ou diminui, mas essa mudança não precisa ser em uma linha reta \cite{restrepo2007}. Em outras palavras, a direção da mudança nas variáveis é constante, mas não necessariamente linear.
+
+O coeficiente de Spearman atribui um posto (ou ranking) a cada valor das variáveis \cite{sousa2019}. Isso significa que, ao invés de olhar diretamente para os valores das variáveis, ele compara a posição relativa dos dados em cada variável. Por exemplo, se temos uma variável que mede a idade e outra que mede a altura, em vez de comparar diretamente a idade e a altura, o coeficiente compara as posições relativas (ranks) de cada dado nas duas variáveis. Depois de classificar os dados dessa forma, o coeficiente de Spearman avalia a correlação entre essas classificações, ou seja, verifica o quanto as posições (ranks) das variáveis estão relacionadas entre si \cite{sousa2019}.
+
+A fórmula do coeficiente de Spearman é dada por:
+
+\includepdf{figuras/CoeficientedeSpearman.pdf}
+
+% \begin{figure}[h]
+%     \centering
+%     \includepdf[pages=-]{figuras/CoeficientedeSpearman.pdf}
+%     \caption{Fórmula do Coeficiente de Spearman}
+%     \label{resultado_pgt}
+% \end{figure}
+
+Em que
+\begin{itemize}
+  \item \textbf{di:} Diferença entre os postos de cada par de observações,
+  \item \textbf{n:} Número de observações.
+\end{itemize}
+
+Os valores do coeficiente de Spearman variam entre -1 e +1, com:
+\begin{itemize}
+  \item \textbf{+1:} Indica uma correlação monotônica positiva perfeita: À medida que uma variável aumenta, a outra também aumenta de forma consistente.
+  \item \textbf{-1:} Indica uma correlação monotônica negativa perfeita: À medida que uma variável aumenta, a outra diminui de forma consistente.
+  \item \textbf{0:} Indica nenhuma correlação monotônica: Não há uma relação clara entre as duas variáveis, seja positiva ou negativa.
+\end{itemize}
+
+Na base de dados, o coeficiente de Spearman será aplicado ao transformar os valores originais das variáveis em ranks e calcular a correlação entre eles usando a função \textit{spearmanr()} da biblioteca \textit{SciPy}. Isso permitirá identificar relações monotônicas entre as variáveis de forma robusta contra outliers. Com os resultados obtidos, determinaremos quais variáveis têm maior influência na previsão de euploidia e justificaremos com base nos coeficientes e nas visualizações geradas.
 
 \end{apendicesenv}
