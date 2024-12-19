@@ -8,7 +8,7 @@ O sucesso da fertilização in vitro (FIV) está ligado à saúde genética dos 
 
 Para avaliar a qualidade dos embriões, são utilizados testes genéticos de triagem embrionária, sendo o mais conhecido e amplamente aplicado o Teste Genético Pré-Implantação (PGT), especificamente o Teste Genético Pré-Implantação para Aneuploidia (PGT-A) \cite{yang2024}. No entanto, esse teste levanta alguns desafios e limitações, como o tempo para ter resultado, seu custo elevado e a complexidade em termos de procedimento, que utiliza uma biópsia embrionária, onde a minimização de danos ao embrião deve ser assegurada \cite{yang2024}. Portanto, surgem questões em pensar em um método de avaliação embrionária que seja mais rápido,  menos custoso e menos invasivo. 
 
-Com essas lacunas e preocupações, é fundamental que nos concentremos em combinar o desenvolvimento de ART (Assisted Reproductive Technology - Tecnologia de Reprodução Assistida) e IA (Inteligência Artificial) \cite{wang2019}, para explorar uma abordagem que pode melhorar significativamente os resultados em medicina reprodutiva. A IA está emergindo como uma ferramenta poderosa que pode transformar a forma em que os diagnósticos embrionários são realizados. Uma das técnicas que emergiram, unindo as técnicas de ART com IA, é o Time-Lapse System – Sistema de Time-Lapse (TLS), que fornece um suporte valioso para a ART e levou à identificação de novos marcadores dentro do procedimento de fertilização in vitro que podem potencialmente melhorar os resultados dos pacientes \cite{luong2023}. Com os dados obtidos por meio do TLS, é possível analisar diferentes características dos embriões, como o timing de divisões celulares, padrões de crescimento, entre outras, fornecendo dados importantes que contribuem para o processo de seleção de embriões \cite{luong2023}. 
+Com essas lacunas e preocupações, é fundamental que nos concentremos em combinar o desenvolvimento de ART (Assisted Reproductive Technology - Tecnologia de Reprodução Assistida) e IA (Inteligência Artificial) \cite{wang2019}, para explorar uma abordagem que possa contribuir e gerar novoc insights, visando melhorar os resultados na medicina reprodutiva. A IA está emergindo como uma ferramenta poderosa que pode transformar a forma em que os diagnósticos embrionários são realizados. Uma das técnicas que emergiram, unindo as técnicas de ART com IA, é o Time-Lapse System – Sistema de Time-Lapse (TLS), que fornece um suporte valioso para a ART e levou à identificação de novos marcadores dentro do procedimento de fertilização in vitro que podem potencialmente melhorar os resultados dos pacientes \cite{luong2023}. Com os dados obtidos por meio do TLS, é possível analisar diferentes características dos embriões, como o tempo de divisões celulares, padrões de crescimento, entre outras, fornecendo dados importantes que contribuem para o processo de seleção de embriões \cite{luong2023}. 
 
 O desenvolvimento da inteligência artificial que propomos neste projeto é uma abordagem de menor custo para a detecção de padrões genéticos em óvulos. Mais especificamente, visa identificar a probabilidade de um embrião ser euploide—embrião que tem a quantidade correta de cromossomos, ou seja, 23 pares de cromossomos—possibilitando um progresso na medicina reprodutiva. Com a IA realizando uma análise dos dados obtidos por meio do Time-Lapse System, essa tecnologia poderá oferecer uma abordagem menos invasiva, eliminando a necessidade de testes genéticos invasivos e dispendiosos, como a PGT-A. Ao melhorar a seleção de embriões com maior potencial de euploidia, a IA poderá tornar o tratamento mais acessível a um maior número de pacientes e, futuramente, aumentar as taxas de sucesso em fertilização in vitro (FIV) \cite{ramalho2024}. 
 
@@ -38,18 +38,18 @@ Assim, este trabalho em questão visa responder a seguinte pergunta: "Como utili
 \section{Objetivos}
 
 \subsection{Objetivos Gerais}
-Desenvolver um modelo de Inteligência Artificial capaz de identificar padrões em dados morfocinéticos de embriões, obtidos por meio do Time-Lapse System, que predigam a porcentagem de euploidia evidenciando a saúde genética do embrião, proporcionando uma alternativa menos invasiva e mais acessível para a seleção de embriões em tratamentos de fertilização in vitro.
+Desenvolver uma abordagem baseada em inteligência artificial para identificar padrões em dados morfocinéticos de embriões, obtidos por meio do Time-Lapse System, capaz de predizer a porcentagem de euploidia, proporcionando uma solução mais eficaz e menos invasiva em comparação ao PGT-A.
 
 \subsection{Objetivos Específicos}
 \begin{itemize}
     \item \textbf{OE1}: Expansão, Processamento e Análise de Dados para Predição de Ploidia.
     \item \textbf{OE2}: Treinamento e Ajuste de Modelo de Machine Learning para Predição de Euploidia.
-    \item \textbf{OE3}: Avaliação do Modelo
-    \item \textbf{OE4}: Protótipo de Interface
+    \item \textbf{OE3}: Avaliação do Modelo de IA proposto
+    \item \textbf{OE4}: Prototipação de Interface para Interação com o Usuário
 \end{itemize}
 
 \section{Metodologia}
-A metodologia do projeto está dividida em 2 fases, onde cada uma visa resolver um Objetivo Específico (OE) do projeto, que contém suas respectivas atividades para serem alcançados:
+A metodologia do projeto está dividida em 3 fases, onde cada uma visa resolver um Objetivo Específico (OE) do projeto, que contém suas respectivas atividades para serem alcançados:
 
 \begin{itemize}
     \item \textbf{Fase 1: Análise e Preparação de Dados}
@@ -62,6 +62,7 @@ A metodologia do projeto está dividida em 2 fases, onde cada uma visa resolver 
             \item \textbf{Atividade 4 (A4):} Separar o conjunto de dados em conjuntos de treinamento, validação e teste, fazendo uma distribuição dos dados e aplicar técnica de aumento de dados.
         \end{itemize}
     \end{itemize}
+
     \item \textbf{Fase 2: Desenvolvimento e Avaliação do Modelo}
     \begin{itemize}
         \item \textbf{OE2 - Treinamento e Ajuste de Modelo de Machine Learning para Predição de Euploidia}: 
@@ -75,6 +76,14 @@ A metodologia do projeto está dividida em 2 fases, onde cada uma visa resolver 
             \item \textbf{Atividade 7 (A7):} Avaliar a precisão e eficácia do modelo em prever corretamente casos de euploidia e aneuploidia  por Meio da Matriz de Confusão e Curva ROC
         \end{itemize}
 
+        \item \textbf{OE4 - Protótipo de Interface}: 
+        \begin{itemize}
+            \item \textbf{Atividade 8 (A8):} Prototipar uma interface básica para exibir as predições de euploidia para o usuário final (médicos).
+        \end{itemize}
+    \end{itemize}
+
+    \item \textbf{Fase 3: Prototipação de Interface}
+    \begin{itemize}
         \item \textbf{OE4 - Protótipo de Interface}: 
         \begin{itemize}
             \item \textbf{Atividade 8 (A8):} Prototipar uma interface básica para exibir as predições de euploidia para o usuário final (médicos).
