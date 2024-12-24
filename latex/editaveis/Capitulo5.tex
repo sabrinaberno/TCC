@@ -1,0 +1,13 @@
+\chapter[Metodologia]{Resultados}
+
+\section{Fase 1: Análise e Preparação de Dados}
+\subsection{OE1 - Expansão, Processamento e Análise de Dados para Predição de Ploidia}
+\subsubsection{Atividade 1 (A1): Análise, Revisão, Seleção e Limpeza de Variáveis para Predição de Euploidia}
+Na fase inicial da tarefa (A1), realizamos uma análise, revisão e escolha das variáveis para o nosso modelo de IA. Através do estudo bibliográfico, conseguimos verificar um grupo de variáveis da planilha de dados que possui fundamentação científica que evidenciam sua importância para a evolução do modelo. As variáveis selecionadas para o nosso estudo serão: \textbf{Idade, t2, t3, t4, t5, t8, s2, cc2, tSC, tSB, tB, cc3 (t5-t3), s3 (t8-t5), t5-t2, tSC-t8, tB-tSB, Estágio, Morfo e KIDScore}. 
+
+A coluna de \textbf{Plodia} também foi selecionada, pois nos possibilita agrupar os embriões em duas categorias claras, distinguindo entre aqueles com euploidia normal e aqueles com alterações cromossômicas, o que é crucial para a elaboração de um modelo sólido.
+
+Não identificamos estudos que estabelecem uma ligação direta entre o parâmetro \textbf{st2} e a previsão de euploidia. Apesar do movimento citoplasmático antes da citocinese ser um marco significativo no desenvolvimento embrionário, a ausência de provas científicas que liguem esse movimento à qualidade do embrião e à euploidia nos levou a remover o \textbf{st2} da lista de variáveis para o modelo. Igualmente, não foram identificados estudos que analisassem especificamente o intervalo entre \textbf{t2} (o instante em que o embrião alcança a fase de duas células) e \textbf{st2} (movimento citoplasmático pré-citocinese) para prever a euploidia. Como \textbf{st2} foi eliminada, também removemos o parâmetro \textbf{t2-st2} do nosso grupo de variáveis
+
+A partir do estudo bibliográfico minucioso realizado na seção de \textbf{Atividade 1 do Capítulo 4}, conseguimos determinar quais variáveis são fundamentais para a elaboração do nosso modelo de previsão de euploidia. Depois de examinar e revisar as variáveis, modificamos a planilha para espelhar os dados mais significativos para o modelo, que se encontra nos Anexos como \textbf{"Planilha de dados dos embriões 2"}. Portanto, as colunas \textbf{Id, Data da biópsia e Embrião n.} foram eliminadas, uma vez que não contribuem para o valor do modelo. Adicionalmente, as variáveis \textbf{st2} e \textbf{t2-st2} foram eliminadas, conforme mencionado anteriormente. Portanto, a planilha revisada agora inclui somente as variáveis que possuem uma ligação comprovada com a previsão de euploidia, fundamentada nas evidências científicas revisadas.
+
