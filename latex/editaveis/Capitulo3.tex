@@ -47,13 +47,73 @@ Nesta pesquisa, buscaremos identificar e mapear os padrões em um campo que aind
 
 \subsection{Fases de Trabalho}
 
-As fases do nosso trabalho se dividem em duas etapas, sendo: \textbf{Fase 1: Análise e Preparação de Dados}, com o objetivo de compreender e organizar os dados para realizar a análise da influência dos parâmetros na porcentagem de euploidia, e a \textbf{Fase 2: Desenvolvimento e Avaliação do Modelo}, que foca no desenvolvimento, ajuste e avaliação de um modelo de ML para efetuar a predição de euploidia, finalizando com a entrega de um protótipo de uma interface a ser evoluída em trabalhos futuros, realizando a criação e junção dos dois.
+As fases do nosso trabalho se dividem em duas etapas, sendo: \textbf{Fase 1: Análise e Preparação de Dados} (Tabela \ref{tab:fase1}), com o objetivo de compreender e organizar os dados para realizar a análise da influência dos parâmetros na porcentagem de euploidia, e a \textbf{Fase 2: Desenvolvimento e Avaliação do Modelo} detalhada na Tabela (Tabela \ref{tab:fase2}), que foca no desenvolvimento, ajuste e avaliação de um modelo de ML para efetuar a predição de euploidia, finalizando com a entrega de um protótipo de uma interface a ser evoluída em trabalhos futuros, realizando a criação e junção dos dois.
 
-Na tabela a seguir, demonstraremos os objetivos de cada fase, mostrando suas atividades, nas quais estão descritos resumidamente o que será feito, qual método será utilizado e o resultado esperado. Em seguida, detalharemos cada parte.
+Nas seções a seguir, demonstraremos os objetivos de cada fase, mostrando suas atividades, nas quais estão descritos resumidamente o que será feito, qual método será utilizado e o resultado esperado. Em seguida, detalharemos cada parte.
 
-\begin{center}
-  \includegraphics[scale=0.8]{figuras/TabelaF1.pdf}
-\end{center}
+\begin{table}[h!]
+  \centering
+  \renewcommand{\arraystretch}{1.0} 
+  \caption{\scriptsize Fase 1: Análise e Preparação de Dados}
+  \label{tab:fase1}
+  \resizebox{\textwidth}{!}{ 
+    \begin{tabular}{|p{3cm}|p{4cm}|p{3cm}|p{5cm}|} 
+
+      \hline
+      \multicolumn{4}{|c|}{\cellcolor[HTML]{008940} \textcolor{white}{\textbf{Fase 1: Análise e Preparação de Dados}}} \\
+      \hline
+
+      \midrule
+
+      \vspace{0.2cm} \cellcolor[HTML]{C0C0C0} \textbf{Objetivos Específicos} \vspace{0.2cm} & 
+      \vspace{0.2cm} \cellcolor[HTML]{C0C0C0} \textbf{Atividades} \vspace{0.2cm} & 
+      \vspace{0.2cm} \cellcolor[HTML]{C0C0C0} \textbf{Método de Pesquisa} \vspace{0.2cm} & 
+      \vspace{0.2cm} \cellcolor[HTML]{C0C0C0} \textbf{Resultados Esperados}\vspace{0.2cm} \\
+
+      \midrule
+
+      \multirow{4}{*}{\cellcolor[HTML]{133e78} \textcolor{white}{\parbox[c]{\linewidth}{\centering \textbf{OE1 \\
+      Expansão, Processamento e Análise de Dados para Predição de Ploidia}}}} &
+      \textcolor[HTML]{133E78}{\textbf{Atividade 1 (A1)}} \newline
+      Análise, Revisão e Seleção de Variáveis para Predição de Euploidia &
+      - Pesquisa bibliográfica \newline
+      - Entrevista com Especialista \newline
+      - Python - Biblioteca Pandas &
+      - Analisar, Revisar e Selecionar as variáveis \newline
+      - Limpeza dos dados \\
+
+      \cline{2-4}
+
+      \cellcolor[HTML]{133e78} & 
+      \textcolor[HTML]{133E78}{\textbf{Atividade 2 (A2)}} \newline
+      Identificação da Correlação e Atribuição de Pesos aos Parâmetros na Previsão da Ploidia do Embrião &
+      - Coeficiente de correlação de Spearman &
+      - Análise das correlações entre variáveis pelo Gráfico de dispersão \\
+
+      \cline{2-4}
+
+      \cellcolor[HTML]{133e78} & 
+      \textcolor[HTML]{133E78}{\textbf{Atividade 3 (A3)}} \newline
+      Normalização dos Dados para Otimização &
+      - Z-Score &
+      - Normalização das variáveis numéricas \\
+
+      \cline{2-4}
+
+      \cellcolor[HTML]{133e78} & 
+      \vspace{0.2cm} \textcolor[HTML]{133E78}{\textbf{Atividade 4 (A4)}} \newline
+      Divisão de Dados e Aplicação de Data Augmentation \vspace{0.2cm} & 
+      - Divisão do conjunto de dados \newline
+      - Data augmentation com o Algoritmo de Monte Carlo &
+      - Dados para treinamento, validação e teste \newline
+      - Aumento do conjunto de dados para treinamento \\
+
+      \hline
+    \end{tabular}
+  }
+  \caption*{\scriptsize Fonte: Autoras (2024)}
+\end{table} 
+\FloatBarrier  %impede que o texto flutue para outra página (garante que a tabela fique nessa ordem)
 
 \subsubsection{OE1 - Identificação de Parâmetros em Embriões}
 
@@ -90,9 +150,54 @@ Para a realização, usaremos uma abordagem padrão em aprendizado de máquina, 
 
 Os resultados são a divisão do conjunto de dados em três subconjuntos: treinamento, validação e teste e a ampliação do conjunto de treinamento com o uso de data augmentation, aplicando o algoritmo de Monte Carlo. 
 
-\begin{center}
-  \includegraphics[scale=0.8]{figuras/TabelaF2.pdf}
-\end{center}
+\begin{table}[h!]
+  \centering
+  \renewcommand{\arraystretch}{1.0} 
+  \caption{\scriptsize Fase 2: Desenvolvimento e Avaliação do Modelo}
+  \label{tab:fase2}
+  \resizebox{\textwidth}{!}{ 
+    \begin{tabular}{|p{3cm}|p{4cm}|p{3cm}|p{5cm}|} 
+
+      \hline
+      \multicolumn{4}{|c|}{\cellcolor[HTML]{008940} \textcolor{white}{\textbf{Fase 2: Desenvolvimento e Avaliação do Modelo}} \vspace{0.2cm}} \\
+      \hline
+      
+      \vspace{0.2cm} \cellcolor[HTML]{C0C0C0}  \textbf{Objetivos Específicos} \vspace{0.2cm} & 
+      \vspace{0.2cm} \cellcolor[HTML]{C0C0C0}  \textbf{Atividades} \vspace{0.2cm} & 
+      \vspace{0.2cm} \cellcolor[HTML]{C0C0C0}  \textbf{Método de Pesquisa} \vspace{0.2cm} & 
+      \vspace{0.2cm} \cellcolor[HTML]{C0C0C0}  \textbf{Resultados Esperados}\vspace{0.2cm} \\
+      
+      \midrule
+
+      \cellcolor[HTML]{133e78} \vspace{0.2cm} \textcolor{white}{\parbox[c]{\linewidth}{\centering \textbf{OE2 \\ Treinamento e Ajuste de Modelo de Machine Learning para Predição de Euploidia}}} \vspace{0.2cm} & 
+      \vspace{0.2cm} \parbox[t]{\linewidth}{\textcolor[HTML]{133E78}{\textbf{Atividade 5 (A5)}} \\ Selecionar e configurar modelos, realizando treinamento, validação e teste} \vspace{0.2cm} & 
+      \vspace{0.2cm}  \vspace{0.2cm} & \vspace{0.2cm}  \vspace{0.2cm} \\
+
+      \hline
+
+      \vspace{0.2cm} \multirow{2}{*}{\cellcolor[HTML]{133e78} \textcolor{white}{\parbox[c]{\linewidth}{\centering \textbf{OE3 \\ Avaliação do Modelo}}}} \vspace{0.2cm} & 
+      \vspace{0.2cm} \parbox[t]{\linewidth}{\textcolor[HTML]{133E78}{\textbf{Atividade 6 (A6)}} \\ Utilizar métricas adequadas para medir o desempenho do modelo} \vspace{0.2cm} & 
+      \vspace{0.2cm} Python (Bibliotecas scikit-learn e pandas) \vspace{0.2cm} & 
+      \vspace{0.2cm} \parbox[t]{\linewidth}{- Acurácia \\ - Precisão \\ - Recall \\ - F1-Score} \vspace{0.2cm} \\
+
+      \cline{2-4}
+
+      \cellcolor[HTML]{133e78} & 
+      \vspace{0.2cm} \parbox[c]{\linewidth}{\textcolor[HTML]{133E78}{\textbf{Atividade 7 (A7)}} \\ Avaliação do Desempenho do Modelo na Predição por Meio da Matriz de Confusão e Curva ROC} \vspace{0.2cm} & 
+      \vspace{0.2cm} Matriz de confusão (Random Forest - scikit-learn) \vspace{0.2cm} & 
+      \vspace{0.2cm} \parbox[t]{\linewidth}{- Verdadeiros positivos (TP) \\ - Verdadeiros negativos (TN) \\ - Falsos positivos (FP) \\ - Falsos negativos (FN) \\ - Gráfico exibindo a relação entre a sensibilidade e a especificidade para diferentes valores de limiar.} \vspace{0.2cm} \\
+
+      \hline
+
+      \cellcolor[HTML]{133e78} \vspace{0.2cm} \textcolor{white}{\parbox[c]{\linewidth}{\centering \textbf{OE4 \\ Protótipo de Interface}}} & 
+      \vspace{0.2cm} \parbox[t]{\linewidth}{\textcolor[HTML]{133E78}{\textbf{Atividade 8 (A8)}} \\ Prototipar uma interface} \vspace{0.2cm} & 
+      \vspace{0.2cm} - Interface básica desenvolvida no FIGMA \vspace{0.2cm} & \vspace{0.2cm} \parbox[t]{\linewidth}{- Interface básica \\ - Coleta de opiniões}\vspace{0.2cm} \\
+
+      \hline 
+    \end{tabular}
+  }
+  \caption*{\scriptsize Fontre: Autoras (2024)}
+\end{table} 
 
 \subsubsection{OE2 - Treinamento e Ajuste de Modelo de Machine Learning para Predição de Euploidia}
 
