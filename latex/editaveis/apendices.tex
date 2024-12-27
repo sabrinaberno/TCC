@@ -123,12 +123,41 @@ Em que:
   \item \textbf{n:} Número de observações.
 \end{itemize}
 
-Os valores do coeficiente de Spearman variam entre -1 e +1, com:
-\begin{itemize}
-  \item \textbf{+1:} Indica uma correlação monotônica positiva perfeita: À medida que uma variável aumenta, a outra também aumenta de forma consistente.
-  \item \textbf{-1:} Indica uma correlação monotônica negativa perfeita: À medida que uma variável aumenta, a outra diminui de forma consistente.
-  \item \textbf{0:} Indica nenhuma correlação monotônica: Não há uma relação clara entre as duas variáveis, seja positiva ou negativa.
-\end{itemize}
+Os valores do coeficiente de Spearman variam entre -1 e +1. Utilizaremos esses valores para interpretar a força e a direção da relação entre as variáveis segundo \citeonline{santos2007} na tabela \ref{tab:correlacao_pearson}:
+
+\begin{table}[h!]
+  \centering
+  \caption{\scriptsize Interpretação do coeficiente de correlação de Spearman}
+  \label{tab:correlacao_pearson}
+  \begin{tabular}{|c|c|}
+  \hline
+  \vspace{0.2cm} \cellcolor[HTML]{C0C0C0} \textbf{Coeficiente de Correlação} & \cellcolor[HTML]{C0C0C0} \textbf{Correlação} \\
+  \hline
+  $R_{xy} = 1$ & Perfeita positiva \\
+  \hline
+  $0,8 \leq R_{xy} < 1$ & Forte positiva \\
+  \hline
+  $0,5 \leq R_{xy} < 0,8$ & Moderada positiva \\
+  \hline
+  $0,1 \leq R_{xy} < 0,5$ & Fraca positiva \\
+  \hline
+  $0 \leq R_{xy} < 0,1$ & Infima positiva \\
+  \hline
+  $0$ & Nula \\
+  \hline
+  $-0,1 \leq R_{xy} < 0$ & Infima negativa \\
+  \hline
+  $-0,5 \leq R_{xy} < -0,1$ & Fraca negativa \\
+  \hline
+  $-0,8 \leq R_{xy} < -0,5$ & Moderada negativa \\
+  \hline
+  $-1 \leq R_{xy} < -0,8$ & Forte negativa \\
+  \hline
+  $R_{xy} = -1$ & Perfeita negativa \\
+  \hline
+  \end{tabular}
+  \caption*{\scriptsize Fontre: \cite{santos2007}}
+\end{table}
 
 Na base de dados, o coeficiente de Spearman será aplicado ao transformar os valores originais das variáveis em ranks e calcular a correlação entre eles usando a função \textit{spearmanr()} da biblioteca \textit{SciPy}. Isso permitirá identificar relações monotônicas entre as variáveis de forma robusta contra outliers. Com os resultados obtidos, determinaremos quais variáveis têm maior influência na previsão de euploidia e justificaremos com base nos coeficientes e nas visualizações geradas.
 
