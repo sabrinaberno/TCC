@@ -9,9 +9,13 @@ Este anexo descreve as variáveis utilizadas na planilha de dados referente ao d
 \begin{itemize}
   \item \textbf{Variáveis Gerais}
   \begin{itemize}
+      \item \textbf{Id:} Identificador numérico de cada paciente.
       \item \textbf{Idade:} Idade da paciente no momento do procedimento.
       \item \textbf{Data da biópsia:} Data em que foi realizada a biópsia embrionária.
       \item \textbf{Embrião n.:} Identificação numérica do embrião dentro do ciclo de fertilização.
+      \item \textbf{Estágio:} Dia de evolução no cultivo (5º dia ou 6º dia) \cite{ramalho2024}.
+      \item \textbf{Morfo:} Classificação morfológica dos embriões baseada no estágio de expansão da blástula, estágio inicial do desenvolvimento embrionário que ocorre após a segmentação (divisões celulares iniciais) do zigoto. As notas de 1 a 5 são a expansão do embrião, com 1 sendo o menos expansivo e 5 o mais expansivo \cite{ramalho2024}.
+      \item \textbf{KIDScore™:} Algoritmo combina variáveis morfocinéticas e parâmetros de desenvolvimento embrionário. A pontuação vai de 0 a 10 por conta de estarmos utilizando embriões de estado de blastocisto \cite{gazzo2020}. 
   \end{itemize}
 \end{itemize}
 
@@ -19,42 +23,23 @@ Este anexo descreve as variáveis utilizadas na planilha de dados referente ao d
   \item \textbf{Variáveis Temporais}
   As variáveis temporais são baseadas nos intervalos de tempo entre eventos específicos durante o desenvolvimento do embrião:
   \begin{itemize}
-    \item \textbf{t0:} Tempo do início da fertilização in vitro (FIV) ou ponto médio da microinjeção espermática (ICSI).
-    \item \textbf{tPB2:} Tempo em que o segundo corpo polar se destaca completamente da oolema.
-    \item \textbf{tPN:} Confirmação da fertilização pela aparência do primeiro pró-núcleo (PN).
-    \item \textbf{tPNf:} Momento em que ambos (e o último) PNs deixam de ser visíveis.
-    \item \textbf{tn:} Primeira vez em que o embrião atinge n blastômeros.
-    \item \textbf{st2:} Primeiro indício de movimentos citoplasmáticos antes da primeira citocinese.
-    \item \textbf{tSC:} Evidência inicial de compactação.
-    \item \textbf{tM:} Conclusão do processo de compactação.
-    \item \textbf{tSB:} Início da blastulação (primeira evidência visível do blastocelo).
-    \item \textbf{tB:} Formação do blastocisto completo.
-  \end{itemize}
-\end{itemize}
-
-\begin{itemize}
-  \item \textbf{Variáveis Derivadas}
-  \begin{itemize}
-    \item \textbf{cc1 (t2–tPNf):} Duração do primeiro ciclo celular.
-    \item \textbf{cc2 (t3–t2):} Duração do segundo ciclo celular.
-    \item \textbf{cc3 (t5–t3):} Duração do terceiro ciclo celular.
-    \item \textbf{t5–t2:} Intervalo entre a formação de 2 e 5 células.
-    \item \textbf{s2 (t4–t3):} Sincronização das divisões celulares no segundo ciclo.
-    \item \textbf{s3 (t8–t5):} Sincronização do padrão de clivagem no terceiro ciclo.
-    \item \textbf{tSC-t8:} Intervalo entre a compactação inicial e a formação de 8 células.
-    \item \textbf{tB-tSB:} Duração da blastulação.
-  \end{itemize}
-\end{itemize}
-
-\begin{itemize}
-  \item \textbf{Variáveis Morfológicas}
-  Baseadas no sistema de pontuação Gardner:
-  \begin{itemize}
-    \item \textbf{Estágio:} Estágio de expansão e eclosão do blastocisto (graus 1 a 6).
-    \item \textbf{Morfo:} Qualidade morfológica baseada no sistema Gardner.
-    \item \textbf{ICM (Inner Cell Mass):} Qualidade da massa celular interna.
-    \item \textbf{TE (Trophectoderm):} Qualidade do trofectoderma.
-    \item \textbf{Kid Score:} Escore do sistema KID (viabilidade embrionária baseada em inteligência artificial).
+    \item \textbf{st2:} Primeiro indício de movimentos citoplasmáticos antes da primeira citocinese. É a fase final da divisão celular, onde o citoplasma é dividido entre as duas células filhas \cite{ramalho2024}.
+    \item \textbf{t2:} Tempo para 2 células. Tempo necessário para o embrião completar a primeira clivagem, ou seja, a divisão da célula-ovo (zigoto) em duas células, entre 24,3 – 27,9 horas após a fertilização \cite{cruz2012}.
+    \item \textbf{t3:} Tempo para 3 células. Marca o momento em que o embrião se divide de duas para três células, entre 35,4 – 40,3 horas após a fertilização \cite{cruz2012}.
+    \item \textbf{t4:} Tempo para 4 células. Transição do embrião para o estágio de quatro células.
+    \item \textbf{t5:} Tempo para 5 células. Momento em que o embrião alcança o estágio de cinco células, entre 48,8 – 56,6 horas após a fertilização \cite{cruz2012}.
+    \item \textbf{t8:} Tempo para 8 células.
+    \item \textbf{tSC:} Tempo de formação do estágio de clivagem sincronizada (Time to Synchronized Compaction). Representa o tempo necessário para que o embrião, após atingir o estágio de 8 células, comece a apresentar compactação sincronizada. A compactação consiste na união mais forte das células embrionárias \cite{kato2021}.
+    \item \textbf{tSB:} Tempo para o início da blastulação (Time to Start Blastulation). Tempo necessário para o embrião iniciar a formação do blastocisto \cite{kato2021}.
+    \item \textbf{tB:} Tempo para o Blastocisto (Time to Blastocyst). Tempo que leva para o embrião alcançar o estágio de blastocisto completo, que é o último estágio de desenvolvimento embrionário antes da implantação no útero \cite{yuan2023}.
+    \item \textbf{t2-st2:} Intervalo de tempo entre o T2 e o ST2. Esse intervalo é usado para avaliar a regularidade e a qualidade das divisões celulares no estágio inicial do desenvolvimento embrionário \cite{ramalho2024}.
+    \item \textbf{cc2 (t3-t2):} Tempo necessário para que o embrião passe da divisão de 2 células (T2) para a divisão de 3 células (T3). É utilizado para avaliar a regularidade e a dinâmica do ciclo celular inicial do embrião \cite{ramalho2024}.
+    \item \textbf{cc3 (t5-t3):} Tempo necessário para que o embrião passe da divisão de 3 células (T3) para a divisão de 5 células (T5). É utilizado como um indicador da dinâmica do ciclo celular \cite{ramalho2024}.
+    \item \textbf{t5-t2:} Intervalo de tempo entre o estágio de 2 células (T2) e o estágio de 5 células (T5). É uma métrica importante para avaliar a eficiência das divisões celulares iniciais \cite{ramalho2024}.
+    \item \textbf{s2 (t4-t3):} Intervalo de tempo necessário para que o embrião passe do estágio de 3 células (T3) para o estágio de 4 células (T4). Este parâmetro é usado para avaliar a regularidade da divisão celular \cite{ramalho2024}.
+    \item \textbf{s3 (t8-t5):} Intervalo de tempo necessário para que o embrião passe do estágio de 5 células (T5) para o estágio de 8 células (T8). É usado para avaliar a sincronização e a regularidade do ciclo celular \cite{ramalho2024}.
+    \item \textbf{tSC-t8:} Intervalo de tempo entre o estágio em que o embrião atinge a compactação inicial (tSC) e o estágio de 8 células (T8). É usado para avaliar a transição do embrião das divisões celulares iniciais para o início da compactação \cite{ramalho2024}.
+    \item \textbf{tB-tSB:} Intervalo de tempo entre o estágio em que o embrião atinge o blastocisto inicial (tSB) e o estágio de blastocisto expandido (tB). Avalia o tempo necessário para que o embrião progrida do início da formação do blastocisto até a sua expansão completa \cite{ramalho2024}.
   \end{itemize}
 \end{itemize}
 
