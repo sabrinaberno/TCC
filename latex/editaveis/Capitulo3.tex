@@ -170,14 +170,15 @@ Os resultados são a divisão do conjunto de dados em três subconjuntos: treina
       \midrule
 
       \cellcolor[HTML]{133e78} \vspace{0.2cm} \textcolor{white}{\parbox[c]{\linewidth}{\centering \textbf{OE2 \\ Treinamento e Ajuste de Modelo de Machine Learning para Predição de Euploidia}}} \vspace{0.2cm} & 
-      \vspace{0.2cm} \parbox[t]{\linewidth}{\textcolor[HTML]{133E78}{\textbf{Atividade 5 (A5)}} \\ Selecionar e configurar modelos, realizando treinamento, validação e teste} \vspace{0.2cm} & 
-      \vspace{0.2cm}  \vspace{0.2cm} & \vspace{0.2cm}  \vspace{0.2cm} \\
+      \vspace{0.2cm} \parbox[t]{\linewidth}{\textcolor[HTML]{133E78}{\textbf{Atividade 5 (A5)}} \\ Desenvolvimento e Treinamento do Modelo de Machine Learning para Otimização da Predição de Euploidia, Incluindo Treinamento, Validação e Teste} \vspace{0.2cm} & 
+      \vspace{0.2cm} Python (Bibliotecas scikit-learn) \vspace{0.2cm} & 
+      \vspace{0.2cm} - Treinamento do modelo bem-sucedido com no mínimo 70\% de precisão, usando KNN, regressão linear e naive bayes \vspace{0.2cm} \\
 
       \hline
 
       \vspace{0.2cm} \multirow{2}{*}{\cellcolor[HTML]{133e78} \textcolor{white}{\parbox[c]{\linewidth}{\centering \textbf{OE3 \\ Avaliação do Modelo}}}} \vspace{0.2cm} & 
       \vspace{0.2cm} \parbox[t]{\linewidth}{\textcolor[HTML]{133E78}{\textbf{Atividade 6 (A6)}} \\ Utilizar métricas adequadas para medir o desempenho do modelo} \vspace{0.2cm} & 
-      \vspace{0.2cm} Python (Bibliotecas scikit-learn e pandas) \vspace{0.2cm} & 
+      \vspace{0.2cm} Python (Biblioteca scikit-learn e pandas) \vspace{0.2cm} & 
       \vspace{0.2cm} \parbox[t]{\linewidth}{- Acurácia \\ - Precisão \\ - Recall \\ - F1-Score} \vspace{0.2cm} \\
 
       \cline{2-4}
@@ -191,33 +192,41 @@ Os resultados são a divisão do conjunto de dados em três subconjuntos: treina
 
       \cellcolor[HTML]{133e78} \vspace{0.2cm} \textcolor{white}{\parbox[c]{\linewidth}{\centering \textbf{OE4 \\ Protótipo de Interface}}} & 
       \vspace{0.2cm} \parbox[t]{\linewidth}{\textcolor[HTML]{133E78}{\textbf{Atividade 8 (A8)}} \\ Prototipar uma interface} \vspace{0.2cm} & 
-      \vspace{0.2cm} - Interface básica desenvolvida no FIGMA \vspace{0.2cm} & \vspace{0.2cm} \parbox[t]{\linewidth}{- Interface básica \\ - Coleta de opiniões}\vspace{0.2cm} \\
+      \vspace{0.2cm} Interface básica desenvolvida no FIGMA \vspace{0.2cm} & \vspace{0.2cm} \parbox[t]{\linewidth}{- Interface básica \\ - Coleta de opiniões}\vspace{0.2cm} \\
 
       \hline 
     \end{tabular}
   }
   \caption*{\scriptsize Fontre: Autoras (2024)}
 \end{table} 
+\FloatBarrier
 
 \subsubsection{OE2 - Treinamento e Ajuste de Modelo de Machine Learning para Predição de Euploidia}
 
-\textbf{Atividade 5 (A5):} Seleção e Configuração de Modelos Pré-Treinados/Personalizados para Otimização da Predição de Euploidia, Incluindo Treinamento, Validação e Teste
-    \begin{itemize}
-      \item \textbf{Detalhamento da Execução:} 
-      \begin{itemize}
-        \item A definir
-      \end{itemize}
+\textbf{Atividade 5 (A5):} Desenvolvimento e Treinamento do Modelo de Machine Learning para Otimização da Predição de Euploidia, Incluindo Treinamento, Validação e Teste.
 
-      \item \textbf{Metodologia:} 
-      \begin{itemize}
-        \item A definir
-      \end{itemize}
+O desenvolvimento do modelo de Machine Learning para a predição de euploidia começará com a implementação do algoritmo k-Nearest Neighbors (KNN), com o objetivo de classificar os embriões como euploides ou aneuploides. O KNN foi escolhido inicialmente devido à sua simplicidade e eficácia em problemas de classificação, especialmente quando se tem dados com distribuições bem definidas. Caso o modelo de KNN não forneça os resultados esperados, a regressão linear ou o Naive Bayes serão testados como alternativas. O objetivo principal é alcançar uma precisão de 70\%, e se esse objetivo não for atingido com o KNN, esses modelos alternativos serão ajustados até que o objetivo seja atingido.
 
-      \item \textbf{Resultados Esperados:} 
-      \begin{itemize}
-        \item A definir
-      \end{itemize}
-    \end{itemize}
+O processo de desenvolvimento será realizado em várias etapas. Na Atividade 3, o pré-processamento dos dados já terá sido realizado, incluindo a limpeza e normalização dos dados, sendo a normalização especialmente importante para o KNN, pois este modelo é sensível à escala dos dados. Com os dados prontos, passaremos para a fase de treinamento do modelo.
+
+Inicialmente, utilizaremos o \textit{KNeighborsClassifier} do \textit{Scikit-learn}. O primeiro passo será definir o número de vizinhos (n\_neighbors), um dos parâmetros mais importantes do KNN. Para isso,  utilizaremos um valor de 
+k igual a 3 para o número de vizinhos, com base em sua simplicidade e aplicabilidade em problemas semelhantes. Se o modelo não alcançar a precisão de 70\% no conjunto de teste, ajustaremos o valor de k para 5, a fim de observar se uma maior quantidade de vizinhos pode melhorar a performance do mode
+
+O desenvolvimento do modelo de Machine Learning para a predição de euploidia começará com a implementação do algoritmo k-Nearest Neighbors (KNN), com o objetivo de classificar os embriões como euploides ou aneuploides. Inicialmente, utilizaremos um valor de k igual 3 para o número de vizinhos, com base em sua simplicidade e aplicabilidade em problemas semelhantes. Se o modelo não alcançar a precisão de 70\% no conjunto de teste, ajustaremos o valor de k para 5, a fim de observar se uma maior quantidade de vizinhos pode melhorar a performance do modelo.
+
+Durante a fase de desenvolvimento, o \textit{Scikit-learn} será utilizado para implementar o \textit{KNeighborsClassifier}. O primeiro passo será treinar o modelo com o valor inicial de k igual a 3, utilizando os dados já pré-processados, conforme definido na Atividade 3. Como o KNN é sensível à escala dos dados, assume-se que a normalização já tenha sido feita nesta etapa. 
+
+Após o treinamento inicial, o modelo será avaliado com o conjunto de teste, e a precisão será calculada. Se a precisão atingir 70\%, o modelo será considerado bem-sucedido. Caso contrário, ajustaremos o valor de k para 5, e o modelo será treinado novamente. Esse ajuste de k será realizado para explorar se um número maior de vizinhos pode melhorar a capacidade de generalização do modelo.
+
+A regressão linear será uma das alternativas a ser explorada. Embora tradicionalmente voltada para problemas de regressão, a regressão linear pode ser adaptada para tarefas de classificação binária. Usaremos o \textit{LogisticRegression} do \textit{Scikit-learn} para esse fim. Assim como o KNN, o modelo de regressão linear será treinado com os dados de treinamento, e seus parâmetros serão ajustados, se necessário, para maximizar a precisão. A avaliação será feita com base nos resultados obtidos no conjunto de teste.
+
+Outra alternativa será o Naive Bayes, que é particularmente eficiente para problemas de classificação, especialmente quando as características são independentes entre si. Usaremos a implementação do \textit{NaiveBayes} disponível no \textit{Scikit-learn}, treinando o modelo da mesma forma que os anteriores, e ajustando seus parâmetros conforme necessário.
+
+Os dados utilizados para treinar e testar os modelos serão divididos em três conjuntos: treinamento, validação e teste. O conjunto de treinamento será utilizado para ajustar os parâmetros do modelo, o de validação ajudará a ajustar os hiperparâmetros como o valor de k no KNN, e o conjunto de teste será usado para avaliar a precisão final do modelo.
+
+A avaliação final do modelo será feita na Atividade 6, onde a precisão dos diferentes modelos será comparada. Nosso objetivo é alcançar uma precisão de 70\% na classificação dos embriões como euploides ou aneuploides. Caso isso não seja alcançado com o KNN, a regressão linear e o Naive Bayes serão testados até que o modelo que melhor se ajuste aos dados seja encontrado, com a precisão desejada.
+
+Ao final, espera-se que o modelo final seja capaz de classificar corretamente os embriões com pelo menos 70\% de precisão, permitindo uma análise confiável da euploidia, que pode ser utilizada como apoio em estudos científicos e aplicações clínicas.
 
 \subsubsection{OE3 - Avaliação do modelo}
 
