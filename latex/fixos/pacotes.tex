@@ -1,17 +1,39 @@
-\documentclass[12pt,openright,twoside,a4paper,english,french,spanish,brazil]{abntex2}
+\documentclass[12pt,oneside,a4paper,brazil]{abntex2}
 
-\usepackage{cmap}	
-\usepackage{lmodern}	
-\usepackage[T1]{fontenc}	
-\usepackage[utf8]{inputenc}		
-\usepackage{lastpage}		
-\usepackage{indentfirst}
-\usepackage{color}	
-\usepackage{graphicx}	
-\usepackage{units}
-\usepackage[brazilian,hyperpageref]{backref}
-\usepackage[alf]{abntex2cite}
-\usepackage{bold-extra}
-\usepackage{eso-pic}
-\usepackage{pdfpages}
-\usepackage[brazil]{babel}
+% Pacotes de formatação de texto
+\usepackage{cmap}          % Mapear caracteres especiais no PDF
+\usepackage{lmodern}       % Fonte Latin Modern
+\usepackage[T1]{fontenc}   % Codificação de fonte
+\usepackage[utf8]{inputenc} % Codificação UTF-8
+\usepackage{babel}         % Idioma português do Brasil
+
+% Pacotes de margens e layout
+\usepackage[a4paper,left=3cm,right=2cm,top=3cm,bottom=2cm]{geometry}
+\setlength{\parindent}{1.25cm} % Recuo de parágrafo
+\setlength{\parskip}{0pt}      % Espaçamento entre parágrafos
+\setlength{\oddsidemargin}{0pt} % Margem para páginas ímpares
+\setlength{\evensidemargin}{0pt} % Margem para páginas pares
+
+% Pacotes de referências e citações
+\usepackage[alf]{abntex2cite}  % Citações no padrão ABNT
+\usepackage[brazilian,hyperpageref]{backref} % Referências cruzadas no índice
+
+% Pacotes de tabelas e gráficos
+\usepackage{graphicx}   % Inclusão de imagens
+\usepackage{booktabs}   % Melhorias em tabelas
+\usepackage{multirow}   % Combinar linhas em tabelas
+\usepackage[table,xcdraw]{xcolor} % Cores em tabelas
+\usepackage{makecell}   % Controle de células em tabelas
+
+% Pacotes de personalização
+\usepackage{caption}       % Configuração de legendas
+\usepackage{placeins}      % Controle de posicionamento de elementos flutuantes
+\usepackage{eso-pic}       % Adicionar elementos no fundo
+\usepackage{pdfpages}      % Inserir PDFs externos
+
+% Outros pacotes úteis
+\usepackage{lastpage}      % Referência para a última página
+\usepackage{indentfirst}   % Indenta o primeiro parágrafo
+\usepackage{bold-extra}    % Suporte a fontes em negrito e itálico
+\usepackage{ragged2e}      % Melhor controle de alinhamento de texto
+\justifying                % Texto justificado
