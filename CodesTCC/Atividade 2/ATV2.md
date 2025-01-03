@@ -96,7 +96,7 @@ doc.save(output_word)
 print(f"\nRelatório gerado e salvo em: {output_word}")
 ```
 
-## Rodas o Código
+## Executar o Código
 
 Instale as dependências, caso necessário:
 ```python
