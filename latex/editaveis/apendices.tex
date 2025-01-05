@@ -3,6 +3,7 @@
 \partapendices
 
 \chapter{Variáveis utilizadas na análise da ploidia embrionária}
+\label{apendice:variaveis}
 
 Este anexo descreve as variáveis utilizadas na planilha de dados referente ao desenvolvimento embrionário e sua relação com a ploidia. As variáveis incluem informações demográficas, temporais e morfológicas do embrião, bem como métricas de qualidade baseadas no sistema Gardner. Todos os tempos descritos abaixo são expressos em horas.
 
@@ -52,6 +53,8 @@ Este anexo descreve as variáveis utilizadas na planilha de dados referente ao d
 
 
 \chapter{Z-score normalization (standardization)}
+\label{apendice:zscore}
+
 
 O Z-Score é um indicador numérico que ilustra a conexão entre uma determinada quantia e a média de um conjunto de valores, expressa em termos de desvios padrão. Quando o Z-Score de um dado é zero, isso sugere que ela coincide com a média do conjunto. Um Z-Score de 1 indica que o valor está um desvio padrão acima da média, ao passo que valores negativos sugerem que estão abaixo da média. A normalização pelo Z-Score, também conhecida como padronização, pressupõe que os dados sigam uma distribuição gaussiana (em forma de sino) e transforma os valores para que tenham uma média (\(\mu\)) de 0 e um desvio padrão (\(\sigma\)) de 1, facilitando a análise e a comparação entre variáveis com diferentes escalas \cite{jaiswal2024, maiseretorno2022}. A fórmula para padronização é:
 
@@ -74,6 +77,8 @@ Também é crucial reconhecer as variáveis numéricas que serão convertidas, j
 Para normalizar a tabela de dados usando o método Z-Score, utilizaremos o  Pandas, que é uma biblioteca Python de código aberto para análise de dados \cite{chen2018}. Inicialmente, importaremos a planilha Excel com os dados originais. Depois, são identificadas e ordenadas manualmente as colunas numéricas a serem normalizadas. Uma réplica do original DataFrame é gerada para manter os dados inalterados, enquanto as variáveis selecionadas são modificadas utilizando a fórmula do Z-Score: cada valor é ajustado pela subtração da média da variável e divisão pelo seu desvio padrão. Este procedimento assegura que as variáveis sejam ajustadas para uma média de 0 e um desvio padrão de 1, removendo variações de escala entre elas. Assim, a tabela normalizada é armazenada em um novo arquivo Excel. Após a aplicação do Z-score, se faz a verificação da média e do desvio padrão das variáveis transformadas, em que A média (\(\mu\)) deve ser próxima de 0 e o desvio padrão (\(\sigma\))  deve ser próximo de 1.
 
 \chapter{Monte Carlo}
+\label{apendice:montecarlo}
+
 
 O Método de Aritmética de Monte Carlo (MCA) é uma técnica matemática e computacional amplamente utilizada para resolver problemas que envolvem incerteza e variabilidade \cite{kalos2009}. Baseia-se no uso de números aleatórios para simular processos estocásticos, ou seja, processos que evoluem de maneira dependente de eventos aleatórios \cite{kalos2009}. Esse método é especialmente eficaz para lidar com problemas de alta complexidade matemática, onde métodos analíticos tradicionais podem ser inviáveis. Além de que “o aumento do conjunto de dados foi amplamente demonstrado como uma técnica eficaz para melhorar a generalização de modelos de aprendizado” \cite{kiar2021}.
 
@@ -86,6 +91,8 @@ Embora os números usados no método sejam chamados de aleatórios, em implement
 Para aplicar a técnica de Monte Carlo na base de dados, iniciaremos analisando as variáveis numéricas do conjunto de treinamento, determinando suas distribuições. Após isso, usaremos essas distribuições para gerar valores aleatórios utilizando funções como \textit{numpy.random.normal()} para distribuições normais. Esses valores serão usados para criar pequenas variações nas variáveis originais, aumentando a diversidade do conjunto de dados. Para finalizar, combinaremos os dados originais com os novos dados gerados, garantindo que os padrões estatísticos sejam mantidos e validaremos o conjunto expandido para assegurar que as novas amostras respeitam as características do conjunto original.
 
 \chapter{Coeficiente de Spearman}
+\label{apendice:spearman}
+
 
 O coeficiente de correlação de Spearman é uma ferramenta estatística bastante útil quando trabalhamos com dados que não seguem uma distribuição normal ou apresentam outliers (valores atípicos que estão muito distantes da maioria dos outros dados). Isso ocorre porque o coeficiente de Spearman não usa os valores originais dos dados, mas sim as ordens ou posições em que as observações são classificadas \cite{sousa2019}. Essa abordagem torna o coeficiente mais robusto (menos sensível) a distorções causadas por assimetria nos dados (quando os dados se distribuem de forma desigual) e por outliers \cite{sousa2019}.
 

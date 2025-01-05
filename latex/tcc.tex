@@ -8,11 +8,12 @@
 
 \begin{document}
 
-\frenchspacing 
+%\frenchspacing     % Adiciona folhas extras em branco no final de cada capítulo
 \imprimircapa
 \imprimirfolhaderosto*
 
 \input{fixos/fichaCatalografica}
+\newpage
 % \input{editaveis/errata}
 % \input{fixos/folhaDeAprovacao}
 \input{editaveis/dedicatoria}
@@ -21,7 +22,7 @@
 \input{editaveis/resumo}
 % \input{editaveis/abstract}
 \input{fixos/listasAutomaticas}
-% \input{editaveis/abreviaturas}
+\input{editaveis/abreviaturas}
 % \input{editaveis/simbolos}
 \input{fixos/indiceAutomatico}
 
@@ -30,7 +31,8 @@
 \input{editaveis/Capitulo1}
 \input{editaveis/Capitulo2}
 \input{editaveis/Capitulo3}
-
+\input{editaveis/Capitulo4}
+\input{editaveis/Capitulo5}
 
 \bookmarksetup{startatroot} 
 
@@ -38,7 +40,8 @@
 
 \bibliography{bibliografia} 
 \input{editaveis/apendices}
-% \input{editaveis/anexos}
+\input{editaveis/anexos}
+
 \printindex
 
 \end{document}

@@ -116,9 +116,9 @@ Nas seções a seguir, demonstraremos os objetivos de cada fase, mostrando suas 
 \end{table} 
 \FloatBarrier  %impede que o texto flutue para outra página (garante que a tabela fique nessa ordem)
 
-\subsubsection{OE1 - Identificação de Parâmetros em Embriões}
+\subsubsection{\textbf{Objetivo Específico 1} - Identificação de Parâmetros em Embriões}
 
-\textbf{Atividade 1 (A1):} Análise, Revisão, Seleção e Limpeza de Variáveis para Predição de Euploidia.
+\paragraph{\textbf{Atividade 1 (A1):} Análise, Revisão, Seleção e Limpeza de Variáveis para Predição de Euploidia}
 
 Começaremos com a verificação da pertinência das variáveis já existentes na planilha de dados dos embriões e com a avaliação da introdução de outras variáveis que possam aprimorar a exatidão da análise, ou até mesmo com a eliminação de variáveis, se necessário. Em seguida, faremos a limpeza dos dados, substituindo valores nulos por valores mais apropriados em alguns casos, como nas colunas que realizam cálculos entre outras colunas, onde será possível identificar valores e substituí-los.
 
@@ -126,7 +126,7 @@ Para realizar a verificação da pertinência das variáveis já existentes e av
 
 Inicialmente, analisar as variáveis possibilitando a detecção de variáveis irrelevantes ou redundantes, aprimorando a correlação entre os parâmetros estudados e a percentagem de euploidia. Também a detecção e correção de inconsistências, como valores em branco ou discrepâncias, garantindo que o conjunto de dados esteja organizado e pronto para futuras análises, prevenindo distorções nos resultados. 
 
-\textbf{Atividade 2 (A2):} Identificação da Correlação e Atribuição de Pesos aos Parâmetros na Previsão da Ploidia do Embrião.
+\paragraph{\textbf{Atividade 2 (A2):} Identificação da Correlação e Atribuição de Pesos aos Parâmetros na Previsão da Ploidia do Embrião}
 
 O objetivo desta atividade é identificar as relações entre os diferentes parâmetros presentes na planilha de dados dos embriões, avaliando a intensidade e o sentido dessas relações, com foco em sua influência na porcentagem de euploidia. Após a pesquisa bibliográfica e as entrevistas concedidas pelo especialista, utilizaremos o coeficiente de correlação de Spearman, que mede a relação monótona entre duas variáveis, considerando as ordens atribuídas às observações em vez dos valores originais \cite{sousa2019}. A correlação será calculada para todas as combinações possíveis de variáveis, possibilitando uma análise mais detalhada de suas interações \cite{sousa2019}. Um gráfico de dispersão será gerado para complementar a análise visual, facilitando a identificação de padrões. Também com o conhecimento adquirido pela A1, determinaremos a relevância relativa de cada parâmetro na previsão da ploidia do embrião, atribuindo pesos que reflitam sua influência, identificando a relevância de cada parâmetro.
 
@@ -138,7 +138,7 @@ Usaremos a biblioteca Pandas para manipulação dos dados e a SciPy para calcula
 
 Os cálculos realizados com o coeficiente de Spearman permitirão identificar quais parâmetros possuem uma relação mais forte (positiva ou negativa) com a porcentagem de euploidia, além de explorar como esses parâmetros se relacionam entre si. Os gráficos gerados deverão destacar as variáveis mais influentes, os padrões visuais que reforcem as relações monótonas, áreas onde a ausência de correlação linear não exclua outras formas de relação. Também resultará em uma lista detalhada dos parâmetros identificados, acompanhada das respectivas justificativas para os pesos atribuídos a cada um, com base em sua influência na ploidia do embrião. Em vez de valores numéricos, os resultados trarão explicações fundamentadas cientificamente, apresentando as razões pelas quais cada parâmetro exerce determinada influência. Essas justificativas serão construídas a partir da revisão bibliográfica e das opiniões dos especialistas entrevistados, com destaque para as evidências e argumentos que sustentem as decisões tomadas. O resultado final fornecerá uma visão qualitativa e consistente dos fatores que impactam a ploidia, sendo uma base essencial para análises e decisões futuras no estudo.
 
-\textbf{Atividade 3 (A3):} Normalização dos Dados para Otimização
+\paragraph{\textbf{Atividade 3 (A3):} Normalização dos Dados para Otimização}
 
 As variáveis numéricas são normalizadas, por meio de uma técnica de normalização, o Z-Score, assegurando os intervalos de valores de cada coluna. 
 
@@ -146,8 +146,7 @@ A normalização é de grande importância que façamos a normalização dos dad
 
 Por fim, a normalização das variáveis assegurará que todas estejam dentro do mesmo intervalo, eliminando vieses numéricos e aprimorando a exatidão dos algoritmos de aprendizado de máquina que serão implementados posteriormente.
 
-
-\textbf{Atividade 4 (A4):} Separar o conjunto de dados em conjuntos de treinamento, validação e teste, fazendo uma distribuição dos dados e aplicar técnica de aumento de dados.
+\paragraph{\textbf{Atividade 4 (A4):} Separar o conjunto de dados em conjuntos de treinamento, validação e teste, fazendo uma distribuição dos dados e aplicar técnica de aumento de dados}
    
 A separação do conjunto de dados será feita para garantir que as etapas de treinamento, validação e testes sejam feitas de forma organizada. Iremos dividir em 3 conjuntos: Treinamento, para ensinar o modelo; Validação, para ajustar os parâmetros de forma adequada e evitar o overfitting, ocorre quando um algoritmo reduz o erro por meio da memorização de exemplos de treinamento em vez de aprender a verdadeira relação geral entre os dados \cite{bashir2020}; e Teste, para avaliar o desempenho final. A divisão será produzida com uma distribuição de 70\% dos dados para treinamento, 15\% para validação e 15\% para teste. O nosso conjunto de dados original é relativamente pequeno, tendo 84 linhas, assim, aplicaremos a técnica de aumento de dados (data augmentation) usando o algoritmo Monte Carlo (APÊNDICE C), que gera novas amostras a partir de dados existentes. Utilizaremos a técnica exclusivamente nos dados de treinamento para evitar interferências ruins na criação e desempenho do modelo de aprendizado de máquina, preservando as características e padrões já existentes na tabela, contribuindo para a capacidade do modelo \cite{kiar2021}. 
 
@@ -207,9 +206,9 @@ O resultado esperado é a divisão do conjunto de dados em três subconjuntos: t
 \end{table} 
 \FloatBarrier
 
-\subsubsection{OE2 - Treinamento e Ajuste de Modelo de Machine Learning para Predição de Euploidia}
+\subsubsection{\textbf{Objetivo Específico 2} - Treinamento e Ajuste de Modelo de Machine Learning para Predição de Euploidia}
 
-\textbf{Atividade 5 (A5):} Desenvolvimento e Treinamento do Modelo de Machine Learning para Otimização da Predição de Euploidia, Incluindo Treinamento, Validação e Teste.
+\paragraph{\textbf{Atividade 5 (A5):} Desenvolvimento e Treinamento do Modelo de Machine Learning para Otimização da Predição de Euploidia, Incluindo Treinamento, Validação e Teste}
 
 O desenvolvimento do modelo de Machine Learning para a predição de euploidia começará com a implementação do algoritmo k-Nearest Neighbors (KNN), com o objetivo de classificar os embriões como euploides ou aneuploides. O KNN foi escolhido inicialmente devido à sua simplicidade e eficácia em problemas de classificação, especialmente quando se tem dados com distribuições bem definidas. Caso o modelo de KNN não forneça os resultados esperados, a regressão linear e o Naive Bayes serão testados como alternativas. O objetivo principal é alcançar uma precisão de 70\%, e se esse objetivo não for atingido com o KNN, esses modelos alternativos serão ajustados até que o objetivo seja atingido.
 
@@ -228,9 +227,9 @@ A avaliação final do modelo será feita na Atividade 6, onde a precisão dos d
 
 Ao final, espera-se que o modelo final seja capaz de classificar corretamente os embriões com pelo menos 70\% de precisão, permitindo uma análise confiável da euploidia, que pode ser utilizada como apoio em estudos científicos e aplicações clínicas.
 
-\subsubsection{OE3 - Avaliação do modelo}
+\subsubsection{\textbf{Objetivo Específico 3} - Avaliação do modelo}
 
-\textbf{Atividade 6 (A6):} Utilizar métricas de avaliação mais adequadas para medir o desempenho do modelo de acordo com a natureza do problema de classificação.
+\paragraph{\textbf{Atividade 6 (A6):} Utilizar métricas de avaliação mais adequadas para medir o desempenho do modelo de acordo com a natureza do problema de classificação}
 
 O objetivo dessa atividade é aplicar e avaliar métricas adequadas para medir a confiança e o desempenho do modelo de IA, considerando as especificidades e objetivos do problema abordado. As métricas escolhidas incluem Acurácia, Precisão, Recall (Sensibilidade) e F1-Score Cada métrica será implementada e analisada com base em um conjunto de dados previamente definido, utilizando ferramentas de análise estatística e frameworks de aprendizado de máquina. A análise será realizada para garantir que as métricas reflitam de forma eficaz o desempenho do modelo em termos de sua capacidade de generalização e identificação de padrões no conjunto de teste.
 
@@ -238,7 +237,7 @@ A definição e cálculo das métricas de avaliação serão conduzidos utilizan
 
 Espera-se que a análise detalhada das métricas forneça uma visão abrangente do desempenho do modelo, destacando seus pontos fortes e fracos em diferentes cenários. A Acurácia deverá apresentar um panorama geral da desempenho, enquanto Precisão, Recall e F1-Score deverão evidenciar aspectos específicos de classificação positiva e negativa \cite{vilela2022}. A métrica \textit{ROC-AUC} permitirá avaliar a capacidade geral do modelo de distinguir entre classes \cite{vilela2022}. Os resultados deverão ser utilizados para refinar e ajustar o modelo, garantindo maior confiabilidade e aderência aos objetivos propostos no problema de classificação. Além disso, a escolha criteriosa das métricas será essencial para orientar decisões estratégicas relacionadas ao modelo, especialmente em aplicações sensíveis a erros de classificação.
 
-\textbf{Atividade 7 (A7):} Avaliar a precisão e eficácia do modelo em prever corretamente casos de euploidia e aneuploidia  por meio da Matriz de Confusão e Curva ROC
+\paragraph{\textbf{Atividade 7 (A7):} Avaliar a precisão e eficácia do modelo em prever corretamente casos de euploidia e aneuploidia  por meio da Matriz de Confusão e Curva ROC}
 
 O objetivo desta atividade é avaliar o desempenho do modelo de classificação desenvolvido para prever corretamente os casos de euploidia e aneuploidia, utilizando a Matriz de Confusão e a Curva ROC (Receiver Operating Characteristic). A Matriz de Confusão será construída após o treinamento e teste do modelo, permitindo identificar as taxas de verdadeiros positivos, falsos positivos, verdadeiros negativos e falsos negativos. Essa análise ajudará a compreender o desempenho geral do modelo e a identificar possíveis áreas de melhoria. Adicionalmente, será gerada a Curva \textit{ROC} para avaliar o desempenho do modelo na separação das duas classes: euploide (classe positiva) e aneuploide (classe negativa) \cite{vilela2022}. A curva será analisada com base em diferentes valores de limiar (threshold), fornecendo uma visão detalhada sobre a sensibilidade e a especificidade do modelo em cada ponto. A métrica AUC (Área sob a Curva) será utilizada como indicador global da capacidade do modelo de distinguir entre as classes, sendo especialmente útil para avaliar problemas de classificação desbalanceada \cite{vilela2022}.
 
@@ -252,7 +251,9 @@ Finalmente, a métrica \textit{AUC} (Área sob a Curva) será calculada utilizan
 
 Ao construir a Matriz de Confusão, espera-se obter uma análise detalhada do desempenho do modelo, identificando os verdadeiros positivos (TP), verdadeiros negativos (TN), falsos positivos (FP) e falsos negativos (FN). Essa análise permitirá avaliar não apenas a precisão global do modelo, mas também as taxas de erro em diferentes categorias, como os casos de euploidia erroneamente classificados como aneuploidia (FP) e os de aneuploidia erroneamente classificados como euploidia (FN). Essa avaliação fornecerá subsídios para aprimoramentos no modelo de classificação. Para a Curva ROC, o gráfico gerado mostrará a relação entre a sensibilidade e a especificidade em diferentes valores de limiar. Espera-se que o modelo apresente uma curva ascendente, indicando sua capacidade de identificar corretamente os positivos (euploide) sem gerar muitos falsos positivos. O valor da AUC (Área sob a Curva) será calculado para quantificar a habilidade do modelo em distinguir entre as classes \cite{vilela2022}. Valores de AUC próximos de 1 indicam um excelente desempenho do modelo, enquanto valores próximos de 0,5 sugerem que o modelo apresenta desempenho similar a uma escolha aleatória \cite{vilela2022}. A partir da Curva ROC, será possível selecionar o limiar mais adequado para balancear os erros de falso positivo e falso negativo, permitindo uma análise criteriosa dos trade-offs envolvidos \cite{vilela2022}. Esses resultados fornecerão uma base sólida para avaliar a eficácia do modelo e sua aplicabilidade no contexto do estudo.
 
-\textbf{Atividade 8 (A8):} Prototipar uma interface básica para exibir as predições de euploidia para o usuário final (médicos).
+\subsubsection{\textbf{Objetivo Específico 4} - Protótipo de Interface}
+
+\paragraph{\textbf{Atividade 8 (A8):} Prototipar uma interface básica para exibir as predições de euploidia para o usuário final (médicos)}
 
 A finalidade é desenvolver o protótipo de uma interface básica que possibilite aos médicos visualizar as previsões de euploidia produzidas pelo modelo. O protótipo incluirá componentes cruciais como campos de preenchimento para os dados necessários à previsão, botões de interação para envio de informações, além de uma área de apresentação dos resultados.
 

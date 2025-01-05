@@ -1,4 +1,21 @@
-\chapter[Metodologia]{Execução da Pesquisa}
+\lstset{
+    language=Python,
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{blue},
+    stringstyle=\color{red},
+    commentstyle=\color{green!50!black},
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    stepnumber=1,
+    showstringspaces=false,
+    breaklines=true,
+    frame=single,
+    captionpos=b,
+    tabsize=4,
+    literate={á}{{\'a}}1 {â}{{\^a}}1 {ã}{{\~a}}1 {é}{{\'e}}1 {ê}{{\^e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ô}{{\^o}}1 {õ}{{\~o}}1 {ú}{{\'u}}1 {ç}{{\c{c}}}1
+}
+
+\chapter[Execução da Pesquisa e Resultados]{Execução da Pesquisa e Resultados}
 
 \section{Fase 1: Análise e Preparação de Dados}
 \subsection{OE1 - Expansão, Processamento e Análise de Dados para Predição de Ploidia}
@@ -7,43 +24,303 @@ O desenvolvimento dessa atividade teve início com a elaboração do referencial
 
 Os dados utilizados neste estudo foram obtidos por meio do especialista, \citeonline{ramalho2024}, e de suas pacientes, que autorizaram o uso dessas informações para fins de pesquisa, contratos esses que estão na sessão de Anexo. As informações foram coletadas na clínica Bruno Ramalho Reprodução Humana, bem como na clínica Genesis, onde o \citeonline{ramalho2024} também atua.
 
-A primeira etapa dessa atividade consiste em verificar a pertinência das variáveis já existentes na \textbf{“Planilha de dados dos embriões 1”}, que se encontra em Anexos, analisando seu impacto no desempenho do modelo preditivo. Essa análise também busca identificar se há necessidade de introduzir novas variáveis que possam melhorar a precisão do modelo ou excluir aquelas que se mostram irrelevantes.
+A primeira etapa dessa atividade consiste em verificar a pertinência das variáveis já existentes na \textbf{“Planilha Original de Dados dos Embriões”}, que se encontra no Anexo \ref{anexo:planilha-original}, analisando seu impacto no desempenho do modelo preditivo. Essa análise também busca identificar se há necessidade de introduzir novas variáveis que possam melhorar a precisão do modelo ou excluir aquelas que se mostram irrelevantes.
 
 \subsubsection{Idade}
-As informações trazidas pelo Fertility and Ageing corroboram a relevância de incluir variáveis relacionadas à idade materna, pois estudos apontam que o aumento da aneuploidia em embriões está diretamente associado ao envelhecimento materno. O estudo de \citeonline{yuan2023} também aponta que a taxa de euploidia dos embriões está correlacionada com a idade feminina. À medida que a idade avança, há um declínio no número total e na qualidade dos ovócitos, um fator crítico para a fecundidade reduzida observada após os 35 anos. Além disso, a resposta à estimulação ovariana e os níveis de FSH (hormônio folículo-estimulante) emergem como possíveis variáveis preditivas relevantes. Estudos indicam que a idade materna exerce maior influência sobre a qualidade embrionária do que os níveis de FSH isoladamente, reforçando que o impacto na fertilidade está mais relacionado à qualidade do oócito do que à sua quantidade \cite{eshre2005}.
+As informações trazidas pelo Fertility and Ageing (\citeonline{eshre2005}) corroboram a relevância de incluir variáveis relacionadas à \textbf{idade materna}, pois estudos apontam que o aumento da aneuploidia em embriões está diretamente associado ao envelhecimento materno. O estudo de \citeonline{yuan2023} também aponta que a taxa de euploidia dos embriões está correlacionada com a idade feminina. À medida que a idade avança, há um declínio no número total e na qualidade dos ovócitos, um fator crítico para a fecundidade reduzida observada após os 35 anos \cite{yuan2023}. Além disso, a resposta à estimulação ovariana e os níveis de FSH (hormônio folículo-estimulante) emergem como possíveis variáveis preditivas relevantes. Estudos indicam que a idade materna exerce maior influência sobre a qualidade embrionária do que os níveis de FSH isoladamente, reforçando que o impacto na fertilidade está mais relacionado à qualidade do oócito do que à sua quantidade \cite{eshre2005}.
 
 \subsubsection{t2, t3, t4, t5, t8, s2, cc2, tSC, tSB, tB, cc3 (t5-t3), s3 (t8-t5), t5-t2,  tSC-t8 e tB-tSB}
-Os \textbf{sistemas de Time-Lapse} ajudam a identificar marcadores morfocinéticos, que mostram como as células se dividem durante o desenvolvimento do embrião. Esses marcadores, junto com características físicas tradicionais, são fundamentais para selecionar o embrião mais adequado para a transferência \cite{souzarebeca2022}. O desenvolvimento embrionário é um processo dinâmico, com mudanças perceptíveis em um curto período \cite{cruz2012}. Estudos detalhados sobre o ritmo das divisões celulares, assim como características como tamanho e organização das células, demonstram que o tempo necessário para atingir certos estágios de desenvolvimento está diretamente relacionado ao potencial de implantação do embrião \cite{souzarebeca2022}.
+Os \textbf{sistemas de Time-Lapse} ajudam a identificar \textbf{marcadores morfocinéticos}, que mostram como as células se dividem durante o desenvolvimento do embrião. Esses marcadores, junto com características físicas tradicionais, são fundamentais para selecionar o embrião mais adequado para a transferência \cite{souzarebeca2022}. O desenvolvimento embrionário é um processo dinâmico, com mudanças perceptíveis em um curto período \cite{cruz2012}. Estudos detalhados sobre o ritmo das divisões celulares, assim como características como tamanho e organização das células, demonstram que o tempo necessário para atingir certos estágios de desenvolvimento está diretamente relacionado ao potencial de implantação do embrião \cite{souzarebeca2022}.
 
-Embriões que se dividem muito rapidamente apresentam menor chance de implantação quando comparados aos que seguem um ciclo celular dentro do intervalo considerado normal  \cite{cruz2012}. Isso ocorre porque alterações no tempo de compactação inicial, na formação da blástula e na progressão até o estágio de blastocisto completo estão associadas a uma maior probabilidade de aneuploidias \cite{cruz2012}. O projeto “Timing of cell division in human cleavage-stage embryos is linked with blastocyst formation and quality” de \citeonline{cruz2012} utilizou o sistema Time-Lapse para identificar marcadores morfocinéticos e monitorar com precisão os tempos das divisões celulares durante o desenvolvimento embrionário. Os tempos considerados ótimos para previsões de desenvolvimento embrionário foram: \textbf{t2 (24,3–27,9 horas), t3 (35,4–40,3 horas), t5 (48,8–56,6 horas), s2 (<0,76 horas) e cc2 (<11,9 horas)}. A explicação detalhada dessas variáveis está disponível no \textbf{Apêndice A}. 
+Embriões que se dividem muito rapidamente apresentam menor chance de implantação quando comparados aos que seguem um ciclo celular dentro do intervalo considerado normal  \cite{cruz2012}. Isso ocorre porque alterações no tempo de compactação inicial, na formação da blástula e na progressão até o estágio de blastocisto completo estão associadas a uma maior probabilidade de aneuploidias \cite{cruz2012}. O projeto \textit{Timing of cell division in human cleavage-stage embryos is linked with blastocyst formation and quality} de \citeonline{cruz2012} utilizou o sistema Time-Lapse para identificar marcadores morfocinéticos e monitorar com precisão os tempos das divisões celulares durante o desenvolvimento embrionário. Os tempos considerados ótimos para previsões de desenvolvimento embrionário foram: \textbf{t2 (24,3–27,9 horas), t3 (35,4–40,3 horas), t5 (48,8–56,6 horas), s2 (<0,76 horas) e cc2 (<11,9 horas)}. A explicação detalhada dessas variáveis está disponível no \textbf{Apêndice \ref{apendice:variaveis}}. 
 
 Especificamente, no nível morfológico, \textbf{t5} destacou-se como o indicador mais relevante do potencial de implantação \cite{cruz2012}. Observa-se que a capacidade de diferenciar embriões viáveis daqueles não viáveis melhora significativamente quando os critérios se baseiam em eventos de divisão celular mais tardios \cite{cruz2012}. Embriões com t5 entre 48,8 e 56,6 horas demonstram não apenas um maior potencial de implantação, mas também uma maior propensão a se desenvolverem em blastocistos de morfologia superior \cite{cruz2012}.
 
-Ao criar um modelo de IA para a previsão de euploidia, é importante que considere as variáveis \textbf{t4, t8, tSC, tSB, tB, cc3 (t5 - t3) e s3 (t8 - t5)}. Essas métricas são fundamentais para o desenvolvimento embrionário, conforme evidenciado no estudo que comprovou a efetividade da IA em detectar embriões viáveis com uma precisão de 70\% \cite{borges2019}. A incorporação dessas variáveis em um modelo de IA é crucial, pois possibilita a captura das sutilezas do desenvolvimento embrionário, que, de acordo com a pesquisa, são melhoradas através da análise automatizada fundamentada em IA. Isso se torna especialmente relevante pois os sistemas de time-lapse disponibilizam informações detalhadas e contínuas, que podem ser combinadas para detectar padrões relacionados à euploidia \cite{borges2019}.
+Ao criar um modelo de IA para a previsão de euploidia, é importante que considere as variáveis \textbf{t4, t8, tSC, tSB, tB, cc3 (t5 - t3) e s3 (t8 - t5)}. Essas métricas são fundamentais para o desenvolvimento embrionário, conforme evidenciado no estudo que comprovou a efetividade da IA em detectar embriões viáveis com uma precisão de 70\% \cite{borges2019}. A incorporação dessas variáveis em um modelo de IA é crucial, pois possibilita a captura das sutilezas do desenvolvimento embrionário, que, de acordo com a pesquisa, são melhoradas através da análise automatizada fundamentada em Inteligência Artificial. Isso se torna especialmente relevante pois os sistemas de time-lapse disponibilizam informações detalhadas e contínuas, que podem ser combinadas para detectar padrões relacionados à euploidia \cite{borges2019}.
 
-A avaliação de fatores morfocinéticos, como o tempo necessário para clivagem e a extensão das fases subsequentes, tem sido alvo de pesquisa para antecipar a probabilidade de implantação embrionária. Por exemplo, um estudo publicado pelo Instituto Sapientiae por Edson Borges Jr. destacou a importância desses parâmetros na predição do potencial de implantação embrionária. Apesar dessa pesquisa não tratar especificamente os intervalos \textbf{t5-t2, tSC-t8 e tB-tSB}, ela sugere que a avaliação de intervalos de tempo entre eventos específicos no desenvolvimento embrionário pode oferecer percepções valiosas sobre a qualidade e a capacidade de desenvolvimento dos embriões \cite{borges2022}.
+A avaliação de fatores morfocinéticos, como o tempo necessário para clivagem e a extensão das fases subsequentes, tem sido alvo de pesquisa para antecipar a probabilidade de implantação embrionária. Por exemplo, um estudo publicado pelo Instituto Sapientiae por \citeonline{borges2022} destacou a importância desses parâmetros na predição do potencial de implantação embrionária. Apesar dessa pesquisa não tratar especificamente os intervalos \textbf{t5-t2, tSC-t8 e tB-tSB}, ela sugere que a avaliação de intervalos de tempo entre eventos específicos no desenvolvimento embrionário pode oferecer percepções valiosas sobre a qualidade e a capacidade de desenvolvimento dos embriões \cite{borges2022}.
 
 \subsubsection{Estágio e Morfo}
-Modelos de IA têm sido empregados na avaliação de embriões produzidos até o quinto dia ou mais, com o objetivo de aprimorar a escolha com base em informações objetivas e de alta exatidão \cite{lassen2022}. Esses modelos priorizam a análise dos estágios "\textbf{Dia 5+}", ou seja, aqueles que atingem o estágio de blastocisto no quinto dia ou mais tarde, devido à maior disponibilidade de dados morfológicos e dinâmicos do desenvolvimento embrionário \cite{lassen2022}. Conforme o Dr. Bruno Ramalho, esses elementos não afetam diretamente a ploidia dos embriões, mas sim o seu desenvolvimento, ressaltando a relevância de reconhecer padrões que possam antecipar a viabilidade embrionária.
+Modelos de IA têm sido empregados na avaliação de embriões produzidos até o quinto dia ou mais, com o objetivo de aprimorar a escolha com base em informações objetivas e de alta exatidão \cite{lassen2022}. Esses modelos priorizam a análise dos estágios "\textbf{Dia 5+}", ou seja, aqueles que atingem o estágio de blastocisto no quinto dia ou mais tarde, devido à maior disponibilidade de dados morfológicos e dinâmicos do desenvolvimento embrionário \cite{lassen2022}. Conforme o Dr. \citeonline{ramalho2024}, esses elementos não afetam diretamente a ploidia dos embriões, mas sim o seu desenvolvimento, ressaltando a relevância de reconhecer padrões que possam antecipar a viabilidade embrionária.
 
-De acordo com os critérios definidos por \citeonline{gardner1999}, com base na morfologia do embrião se tem a categorização dos blastocistos, um fator determinante para o potencial de implantação e a qualidade embrionária \cite{capalbo2014}. Os blastocistos são agrupados em quatro categorias principais, considerando tanto a massa celular interna (ICM, Inner Cell Mass) quanto o TE (trophectoderma):
+De acordo com os critérios definidos por \citeonline{gardner1999}, com base na \textbf{morfologia do embrião} se tem a categorização dos blastocistos, um fator determinante para o potencial de implantação e a qualidade embrionária \cite{capalbo2014}. Os blastocistos são agrupados em quatro categorias principais, considerando tanto a massa celular interna (ICM, Inner Cell Mass) quanto o TE (trophectoderma):
 \begin{itemize}
-  \item \textbf{Grupo 1 (Excelente)}: Blastocistos com classificação \textbf{≥3AA}.Blastocistos altamente desenvolvidos com massa celular interna densa e trophectoderma bem organizado \cite{capalbo2014}.
+  \item \textbf{Grupo 1 (Excelente)}: Blastocistos com classificação  \textbf{$\geq$ 3AA}. Blastocistos altamente desenvolvidos com massa celular interna densa e trophectoderma bem organizado \cite{capalbo2014}.
   \item \textbf{Grupo 2 (Bom)}: Blastocistos com classificação \textbf{3, 4, 5 ou 6} e com notas \textbf{AB ou BA}. Apresentam características boas, mas menos consistentes em relação ao grupo excelente \cite{capalbo2014}.
   \item \textbf{Grupo 3 (Médio)}: Blastocistos com classificação \textbf{3, 4, 5 ou 6} e notas \textbf{BB, AC ou CA}. Qualidade moderada com irregularidades tanto na ICM quanto no TE \cite{capalbo2014}.
-  \item \textbf{Grupo 4 (Ruim)}: Blastocistos com classificação \textbf{≤3BB}. Blastocistos de menor qualidade, com poucas células organizadas na ICM e TE menos coeso \cite{capalbo2014}.
+  \item \textbf{Grupo 4 (Ruim)}: Blastocistos com classificação \textbf{$\leq$ 3BB}.Blastocistos de menor qualidade, com poucas células organizadas na ICM e TE menos coeso \cite{capalbo2014}.
 \end{itemize}
 O estudo de \citeonline{capalbo2014} enfatizou a relação entre a morfologia padrão dos blastocistos, a euploidia e as taxas de implantação. Blastocistos de excelente morfologia, particularmente os biopsiados no dia 5, mostraram uma maior probabilidade de serem euploides e apresentaram taxas de implantação superiores.
 
-\subsubsection{KIDScore™}
-O KIDScore™ é um algoritmo baseado em IA, aplicado à análise de imagens em sistemas Time-Lapse, tem se mostrado uma ferramenta importante na avaliação de embriões durante os tratamentos de reprodução assistida \cite{kato2021}. O Algoritmo combina variáveis morfocinéticas e parâmetros de desenvolvimento embrionário para fornecer uma pontuação que auxilia na seleção de embriões com maior potencial de implantação e viabilidade genética \cite{gazzo2020}. A pontuação vai de 0 a 10. Pontuações baixas, entre 0 e 3, indicam embriões de qualidade inferior, com baixo potencial de implantação. Pontuações médias, de 4 a 6, correspondem a embriões de qualidade moderada, com um potencial razoável de implantação. Já pontuações altas, de 7 a 10, representam embriões de alta qualidade, com grande potencial de implantação \cite{gazzo2020}. \citeonline{kato2021} cita que o modelo apresentou uma alta precisão na previsão de resultados de gravidez, sendo especialmente útil tanto em pacientes com idade materna avançada quanto em pacientes mais jovens. Por fim, \citeonline{gazzo2020} informaram que o uso do algoritmo no processo de seleção embrionária levou a um aumento expressivo nas taxas de implantação após a transferência de embriões congelados (FET). Então o modelo quando combinada com informações sobre os tempos de divisão celular, sendo \textbf{t2, t3, t5, s2 e cc2} descritos por \citeonline{cruz2012}, possibilita um exame mais completo do crescimento embrionário, melhorando a acurácia na seleção de embriões com maior probabilidade de êxito em tratamentos de FIV. 
+\subsubsection{KIDScore\texttrademark}  
+O KIDScore\texttrademark{}, um algoritmo baseado em IA aplicado à análise de imagens em sistemas Time-Lapse, tem se mostrado uma ferramenta importante na avaliação de embriões durante os tratamentos de reprodução assistida \cite{kato2021}. O algoritmo combina variáveis morfocinéticas e parâmetros de desenvolvimento embrionário para fornecer uma pontuação que auxilia na seleção de embriões com maior potencial de implantação e viabilidade genética \cite{gazzo2020}. A pontuação vai de \textbf{0 a 10}. Pontuações baixas, entre 0 e 3, indicam embriões de qualidade inferior, com baixo potencial de implantação. Pontuações médias, de 4 a 6, correspondem a embriões de qualidade moderada, com um potencial razoável de implantação. Já pontuações altas, de 7 a 10, representam embriões de alta qualidade, com grande potencial de implantação \cite{gazzo2020}. \citeonline{kato2021} cita que o modelo apresentou uma alta precisão na previsão de resultados de gravidez, sendo especialmente útil tanto em pacientes com idade materna avançada quanto em pacientes mais jovens. Por fim, \citeonline{gazzo2020} informaram que o uso do algoritmo no processo de seleção embrionária levou a um aumento expressivo nas taxas de implantação após a transferência de embriões congelados (FET). Então o modelo quando combinada com informações sobre os tempos de divisão celular, sendo \textbf{t2, t3, t5, s2 e cc2} descritos por \citeonline{cruz2012}, possibilita um exame mais completo do crescimento embrionário, melhorando a acurácia na seleção de embriões com maior probabilidade de êxito em tratamentos de FIV. 
 
-\subsubsection{KIDScore™}
-Para a elaboração do nosso modelo de previsão de euploidia, optamos por empregar a coluna de \textbf{Plodia}, que proporciona uma categorização minuciosa dos embriões em diversas categorias de euploidia. As categorizações contidas nesta coluna são: Aneuplóide complexo, Aneuploide/Triploide XXX, Caótico, Haploide, Mosaico de alto grau, Mosaico de baixo grau e Normal/Euplóide. Em um dos diálogos com o especialista Dr. Bruno Ramalho, ele nos deu uma orientação clínica crucial sobre como categorizar o mosaico. De acordo com o \citeonline{ramalho2024}, em termos clínicos, geralmente considera-se os embriões com Caótico, Haplóide e Mosaico de alto grau como Aneuploides, enquanto os com mosaico de baixo grau como Euploides. Diante disso, optamos por reorganizar os valores na tabela de dados, agrupando as seguintes categorias sob o termo \textbf{Aneuploide}: Aneuploide complexo, Aneuploide/Triploide XXX, Caótico, Haploide e Mosaico de alta complexidade. Em contrapartida, os embriões categorizados como Mosaico de baixo grau e Normal/Euploide serão reunidos na categoria \textbf{Euploide}.
+\subsubsection{Ploidia}
+Para a elaboração do nosso modelo de previsão de euploidia, optamos por empregar a coluna de \textbf{Ploidia}, que proporciona uma categorização minuciosa dos embriões em diversas categorias de euploidia. As categorizações contidas nesta coluna são: Aneuploide complexo, Aneuploide/Triploide XXX, Caótico, Haploide, Mosaico de alto grau, Mosaico de baixo grau e Normal/Euploide. Em um dos diálogos com o especialista Dr. \citeonline{ramalho2024}, ele nos deu uma orientação clínica crucial sobre como categorizar o mosaico. De acordo com o \citeonline{ramalho2024}, em termos clínicos, geralmente considera-se os embriões com Caótico, Haplóide e Mosaico de alto grau como Aneuploides, enquanto os com mosaico de baixo grau como Euploides. Diante disso, optamos por reorganizar os valores na tabela de dados, agrupando as seguintes categorias sob o termo \textbf{Aneuploide}: Aneuploide complexo, Aneuploide/Triploide XXX, Caótico, Haploide e Mosaico de alta complexidade. Em contrapartida, os embriões categorizados como Mosaico de baixo grau e Normal/Euploide serão reunidos na categoria \textbf{Euploide}.
 
 \subsubsection{Limpeza dos Dados}
-Ao lidar com os dados ausentes, utilizamos o método de Análise de Casos Completos (ACC), que envolve a remoção de observações que possuem pelo menos um valor ausente \cite{camargos2011}. Este procedimento é frequentemente empregado quando o número de dados ausentes é reduzido, assegurando que a remoção de algumas observações não interfira de forma significativa na análise estatística e preserva a consistência do modelo \cite{camargos2011}. Em nosso cenário, das 85 linhas de dados disponíveis, apenas 2 apresentavam valores ausentes. As células sem dados estão em preto na \textbf{"Planilha de dados dos embriões 3"}. 
+Ao lidar com os dados ausentes, utilizamos o método de Análise de Casos Completos (ACC), que envolve a remoção de observações que possuem pelo menos um valor ausente \cite{camargos2011}. Este procedimento é frequentemente empregado quando o número de dados ausentes é reduzido, assegurando que a remoção de algumas observações não interfira de forma significativa na análise estatística e preserva a consistência do modelo \cite{camargos2011}. Em nosso cenário, das 84 linhas de dados disponíveis, apenas 2 apresentavam valores ausentes. As células sem dados estão em preto na \textbf{"Planilha com Indicação de Dados Ausentes"} no Anexo \ref{anexo:planilha-dados-ausentes}. 
 
+\subsubsection{Atividade 2 (A2): Identificação da Correlação entre os Parâmetros na Previsão da Ploidia do Embrião}
 
+O coeficiente de \textbf{correlação de Spearman}, explicado no APÊNDICE \ref{apendice:spearman}, foi escolhido para esta atividade devido à necessidade de reconhecer relações entre os parâmetros documentados nos dados dos embriões e a porcentagem de euploidia. A metodologia leva em conta a classificação ordinal das observações, minimizando os efeitos de valores atípicos e permitindo a análise de variáveis com distribuições não normais \cite{sousa2019}. Além disso, a sua facilidade de uso em pesquisas científicas e a sua vasta aplicação em estudos destacam sua utilidade na análise de ploidia dos embriões.
 
+O programa em Python criado para essa análise foi desenvolvido para ser modular, eficaz e gerar resultados claros tanto em formato visual quanto textual. Ele emprega as bibliotecas \textit{Pandas, SciPy, Matplotlib e python-docx} para manipular dados, determinar correlações, produzir gráficos e elaborar relatórios em Word. A seguir, detalha-se a lógica do código:
 
+\begin{itemize}
+    \item \textbf{Carregamento e Preparação dos Dados}: As informações dos embriões foram processadas a partir da Planilha de Dados Refinada, encontrada no Anexo \ref{anexo:planilha-refinada}, utilizando todas as colunas disponíveis. Essa etapa garante que todas as variáveis relevantes sejam consideradas.
+    \item \textbf{Cálculo da Correlação de Spearman}: O coeficiente de Spearman foi calculado para todas as combinações possíveis de variáveis, utilizando a função \texttt{spearmanr} da biblioteca SciPy. O método \texttt{"omit"} foi empregado para lidar com valores ausentes, garantindo maior robustez mesmo que não existam dados faltantes nesta planilha.
+    \item \textbf{Criação de Gráficos de Dispersão}: Para cada par de variáveis, foram criados gráficos de dispersão que auxiliam na análise numérica e permitem a identificação visual de padrões. As cores foram padronizadas, com a variável 1 (\texttt{var1}) em verde claro e marcador ``o'', e a variável 2 (\texttt{var2}) em azul escuro e marcador ``x''.
+    \item \textbf{Elaboração de Relatório Automatizado}: O relatório gerado contém descrições textuais dos coeficientes e gráficos correspondentes. Este documento automatizado facilita a comunicação visual e escrita dos resultados.
+\end{itemize}
+
+O código em Python utilizado para realizar a análise está apresentado a seguir:
+
+\begin{lstlisting}
+  import pandas as pd
+  from scipy.stats import spearmanr
+  import matplotlib.pyplot as plt
+  from docx import Document
+  from docx.shared import Inches
+  import os
+  
+  file_path = "PlanilhaDadosRefinados.xlsx"
+  data = pd.read_excel(file_path)
+  
+  numerical_columns = [ 
+      "Idade", "Estágio", "Morfo", "KIDScore", "t2", "t3", "t4", "t5", "t8", "tSC", "tSB", "tB", "cc2 (t3-t2)", 
+      "cc3 (t5-t3)", "t5-t2", "s2 (t4-t3)", "s3 (t8-t5)", "tSC-t8", "tB-tSB", "Ploidia"
+  ]
+  
+  numerical_columns = [col for col in numerical_columns if col in data.columns]
+  
+  results = []
+  for col1 in numerical_columns:
+      for col2 in numerical_columns:
+          if col1 != col2:  
+              coef, _ = spearmanr(data[col1], data[col2], nan_policy="omit")
+              results.append({"Variable 1": col1, "Variable 2": col2, "Spearman Coefficient": coef})
+  
+  correlation_df = pd.DataFrame(results)
+  
+  output_file = "correlation_results.xlsx"
+  correlation_df.to_excel(output_file, index=False)
+  print(f"\nResultados salvos no arquivo: {output_file}")
+  
+  doc = Document()
+  doc.add_heading('Correlação de Spearman - Embriões', 0)
+  
+  output_dir = "gráficos"
+  os.makedirs(output_dir, exist_ok=True)
+  
+  color_var1 = "lightgreen"
+  color_var2 = "darkblue"
+  
+  for index, row in correlation_df.iterrows():
+      var1, var2 = row['Variable 1'], row['Variable 2']
+      coef = row['Spearman Coefficient']
+  
+      plt.figure(figsize=(6, 4))
+      plt.scatter(data[var1], data[var2], alpha=0.6, c=color_var1, label=f'{var1}', marker='o')
+      plt.scatter(data[var2], data[var1], alpha=0.6, c=color_var2, label=f'{var2}', marker='x')
+      
+      plt.title(f"Dispersão entre {var1} e {var2} (Coeficiente de Spearman: {coef:.2f})")
+      plt.xlabel(var1)
+      plt.ylabel(var2)
+  
+      img_path = os.path.join(output_dir, f"grafico_{var1}_{var2}.png")
+      plt.savefig(img_path)
+      plt.close()
+  
+      doc.add_heading(f'Correlação entre {var1} e {var2}', level=1)
+      doc.add_paragraph(f'Coeficiente de Spearman: {coef:.2f}')
+      doc.add_picture(img_path, width=Inches(5.0))
+  
+  output_word = "relatorio_correlacoes.docx"
+  doc.save(output_word)
+  
+  print(f"\nRelatório gerado e salvo em: {output_word}")
+\end{lstlisting}
+
+O código analisa a correlação entre as variáveis numéricas em uma sequência de dados, empregando o coeficiente de Spearman. Ele inicia carregando a planilha Excel com as informações dos embriões e seleciona todas as colunas relevantes para a análise. O coeficiente de Spearman é calculado para cada par de variáveis, avaliando a intensidade e a direção da relação monótona entre elas. Os resultados são armazenados em um \texttt{DataFrame}, que é uma estrutura de dados bidimensional do Pandas, semelhante a uma tabela, permitindo fácil manipulação e análise. Esta tabela é então exportada para um arquivo Excel chamado \texttt{correlation\_results.xlsx}.
+
+Após isso, o programa gera gráficos de dispersão para observar as correlações, ressaltando os padrões das variáveis associadas. Esses gráficos, juntamente com os coeficientes de correlação, são automaticamente incorporados a um documento Word. No final, temos um relatório completo com as análises e visualizações, salvo como um arquivo chamado \texttt{relatorio\_correlacoes.docx}.
+
+\subsubsection{Atividade 3 (A3): Normalização dos Dados para Otimização}
+A etapa de normalização dos dados é um passo fundamental na criação de modelos de aprendizado de máquina, particularmente em situações onde as variáveis têm diferentes escalas e distribuições. Esta tarefa foi executada com o uso do método Z-Score, conforme sugerido por \citeonline{milewski2016} que enfatiza que a normalização aumenta consideravelmente o poder preditivo dos modelos criados. 
+Para a normalização das informações morfocinéticas dos embriões, utilizou-se o método Z-Score, também conhecido como padronização. Esta metodologia modifica os dados de forma que cada variável possua uma média de 0 e um desvio padrão de 1, explicado na APÊNDICE \ref{apendice:zscore}. 
+A normalização foi conduzida com Python e a biblioteca Pandas. O procedimento foi automatizado para simplificar a análise em grande escala dos dados morfocinéticos dos embriões. A normalização foi aplicada especificamente às variáveis numéricas do conjunto de dados, previamente selecionadas na fase de escolha das variáveis. O código utilizado para realizar essa atividade foi:
+
+\begin{lstlisting}
+  import pandas as pd
+  import numpy as np
+  
+  
+  file_path = "PlanilhaDeDadosDosEmbriões4.xlsx"  
+  data = pd.read_excel(file_path)
+  
+  
+  numeric_columns = data.select_dtypes(include=[np.number]).columns
+  
+  
+  normalized_data = data.copy()
+  
+  
+  for col in numeric_columns:
+      mean = data[col].mean()
+      std = data[col].std()
+      normalized_data[col] = (data[col] - mean) / std
+  
+  
+  output_file = "Planilha_normalizada.xlsx"
+  normalized_data.to_excel(output_file, index=False)
+  
+  
+  print(f"Normalização concluída. Arquivo salvo como: {output_file}")
+\end{lstlisting}  
+
+A sequência de passos executados pelo código para a normalização dos dados foi:
+
+\begin{enumerate}
+    \item \textbf{Análise dos Dados:} Os dados foram inicialmente importados do arquivo Excel que possui os dados dos embriões, usando a função \texttt{pd.read\_excel()}.
+    
+    \item \textbf{Identificação das Colunas Numéricas:} Em seguida, foram identificadas as colunas numéricas do \textit{DataFrame} através do método \texttt{select\_dtypes()}. Essa etapa é muito importante, já que a normalização com Z-Score deve ser realizada apenas em variáveis contínuas. As variáveis normalizadas foram: Idade, Kidscore, t2, t3, t4, t5, t8, tSC, tSB, tB, cc2 (\texttt{t3-t2}), cc3 (\texttt{t5-t3}), \texttt{t5-t2}, s2 (\texttt{t4-t3}), s3 (\texttt{t8-t5}), \texttt{tSC-t8} e \texttt{tB-tSB}.
+    
+    \item \textbf{Cálculo da Média e Desvio Padrão:} Para cada variável numérica, a média e o desvio padrão foram calculados. Esses valores são fundamentais para a utilização da fórmula do Z-Score, apresentada e explicada no \textbf{APÊNDICE \ref{apendice:zscore}}.
+    
+    \item \textbf{Utilização do Z-Score:} Para cada valor de uma variável, a média é subtraída e o desvio padrão é dividido, de acordo com a fórmula. Isso modifica os dados para que todas as variáveis apresentem média zero e desvio padrão igual a 1.
+    
+    \item \textbf{Armazenamento dos Dados Normalizados:} Depois de aplicar o Z-Score, os dados normalizados foram guardados em uma nova planilha Excel, denominada “\texttt{Planilha\_normalizada.xlsx}”. A planilha está em “\texttt{Atividade 3}” no GitHub do nosso projeto: \textbf{GitHub-TCC}.
+\end{enumerate}
+
+A opção pelo Z-Score se deve à sua habilidade de converter os dados para uma escala padrão, preservando as informações pertinentes. Pesquisas apontam que a normalização melhora a precisão dos algoritmos de aprendizado de máquina ao remover os efeitos de escalas distintas entre as variáveis \cite{jaiswal2024}. Além disso, essa técnica simplifica a comparação entre variáveis, auxiliando na interpretação e validação dos modelos criados.
+
+\subsubsection{Atividade 4 (A4): Separar o conjunto de dados em conjuntos de treinamento, validação e teste, fazendo uma distribuição dos dados e aplicar técnica de aumento de dados}
+Nessa atividade, apresentamos a implementação do procedimento de segmentação do conjunto de dados em três subconjuntos diferentes: treinamento, validação e teste. Esta distribuição obedece às proporções estabelecidas na metodologia (70\%, 15\% e 15\%, respectivamente) e foi feita através de um \textit{script} em Python. Utilizamos a planilha criada pela Atividade 3, a ``\texttt{Planilha\_normalizada.xlsx}'', pois utilizaremos os dados já normalizados e tratados a partir de agora.
+
+\subsection*{Divisão do Conjunto de Dados}
+A segmentação do conjunto de dados foi planejada para assegurar que cada subconjunto tenha uma representação adequada para seus respectivos propósitos: 
+\begin{itemize}
+    \item \textbf{Conjunto de Treinamento (70\%):} Usado para treinar o modelo, facilitando a aprendizagem de padrões e relações entre os dados.
+    \item \textbf{Conjunto de Validação (15\%):} Usado para ajustar hiperparâmetros e evitar o \textit{overfitting}, que ocorre quando um algoritmo reduz o erro por meio da memorização de exemplos de treinamento em vez de aprender a verdadeira relação geral entre os dados \cite{bashir2020}, assegurando que o modelo não memorize os dados de treinamento.
+    \item \textbf{Conjunto de Teste (15\%):} Destinado à avaliação final do modelo, proporcionando uma métrica neutra de desempenho.
+\end{itemize}
+
+A distribuição foi feita de maneira aleatória para prevenir viés e assegurar a aplicabilidade geral do modelo. O \textit{script} calculou o tamanho de cada subconjunto com base em um total de 83 amostras, mais precisamente com 82 linhas de amostra, pois a primeira linha da planilha é o cabeçalho, seguindo as porcentagens estabelecidas.
+
+Abaixo, descrevemos o código implementado, seguido de sua explicação detalhada:
+
+\begin{lstlisting}
+  import pandas as pd
+  import numpy as np
+  
+  
+  df = pd.read_excel("Planilha_normalizada.xlsx")
+  
+  
+  df = df.sample(frac=1, random_state=42).reset_index(drop=True)
+  
+  
+  n_total = len(df)
+  n_train = int(n_total * 0.7)
+  n_val = int(n_total * 0.15)
+  n_test = n_total - n_train - n_val
+  
+  
+  train_data = df.iloc[:n_train]
+  val_data = df.iloc[n_train:n_train + n_val]
+  test_data = df.iloc[n_train + n_val:]
+  
+  
+  train_data.to_excel("dados_treinamento.xlsx", index=False)
+  val_data.to_excel("dados_validacao.xlsx", index=False)
+  test_data.to_excel("dados_teste.xlsx", index=False)
+  
+  
+  print(f"Conjunto de Treinamento: {len(train_data)} linhas")
+  print(f"Conjunto de Validação: {len(val_data)} linhas")
+  print(f"Conjunto de Teste: {len(test_data)} linhas")
+\end{lstlisting}  
+
+\begin{itemize}
+  \item \textbf{Importação das Bibliotecas:} A biblioteca \texttt{pandas} foi empregada para a manipulação de dados e \texttt{numpy} para realizar operações matemáticas.
+
+  \item \textbf{Carregamento dos Dados:} O documento Excel que continha a base de dados dos embriões foi carregado em um \textit{DataFrame} do \texttt{pandas} para simplificar as operações subsequentes.
+
+  \item \textbf{Embaralhamento dos Dados:} Utilizamos a função \texttt{sample} com os parâmetros \texttt{(frac=1 e random\_state=42)} para embaralhar os dados de maneira aleatória, assegurando a remoção de qualquer padrão sequencial existente no conjunto original. O argumento \texttt{random\_state} garante a reprodutibilidade, possibilitando que o mesmo resultado seja alcançado em futuras execuções.
+
+  \item \textbf{Cálculo das Proporções:} As proporções foram estabelecidas para os conjuntos de treinamento, validação e teste, assegurando que a soma das dimensões corresponda ao número total de amostras. Isso é crucial para prevenir perdas de informações ou desbalanceamento nos conjuntos.
+
+  \item \textbf{Divisão dos Dados:} A escolha dos subconjuntos foi feita com base nos índices do \textit{DataFrame}, que foram divididos em intervalos definidos com base nos tamanhos previamente calculados.
+
+  \item \textbf{Armazenamento dos Dados:} Os subconjuntos resultantes foram salvos em arquivos Excel separados utilizando a função \texttt{to\_excel}, com o parâmetro \texttt{index=False} para evitar a inclusão de índices desnecessários nos arquivos finais. Os arquivos foram nomeados para refletir suas respectivas funções: \texttt{dados\_treinamento.xlsx}, \texttt{dados\_validacao.xlsx} e \texttt{dados\_teste.xlsx}. 
+\end{itemize}
+
+O script priorizou a simplicidade, a replicabilidade e a eficácia. Através deste método, garantimos que os conjuntos produzidos sejam apropriados para as fases seguintes de treinamento, validação e teste do modelo de IA, mantendo a integridade dos dados originais.
+
+\subsection*{Aumento de Dados (\textit{Data Augmentation}) utilizando o Método de Monte Carlo:} 
+A técnica de aumento de dados (\textit{data augmentation}) foi utilizada para melhorar o desempenho do modelo ao gerar mais exemplos de treinamento a partir dos dados existentes. Este processo visa aumentar a capacidade de generalização do modelo e evitar o \textit{overfitting}, tornando-o mais robusto. Abaixo, descrevemos o código implementado, seguido de sua explicação detalhada:
+
+\begin{lstlisting}
+  import pandas as pd
+  import numpy as np
+  
+  
+  train_data_path = 'dados_treinamento.xlsx'  
+  df_train = pd.read_excel(train_data_path)
+  
+  
+  numerical_columns = df_train.select_dtypes(include=['float64', 'int64']).columns
+  categorical_columns = df_train.select_dtypes(include=['object']).columns
+  
+  
+  augmentation_factor = 3  
+  num_new_samples = len(df_train) * augmentation_factor
+  
+  
+  new_samples = {}
+  for col in numerical_columns:
+      mean = df_train[col].mean()
+      std = df_train[col].std()
+      new_samples[col] = np.random.normal(loc=mean, scale=std, size=num_new_samples)
+  
+  
+  df_new_samples = pd.DataFrame(new_samples)
+  
+  
+  for col in categorical_columns:
+      replicated_values = np.random.choice(df_train[col], size=num_new_samples, replace=True)
+      df_new_samples[col] = replicated_values
+  
+  
+  df_augmented = pd.concat([df_train, df_new_samples], ignore_index=True)
+  
+  
+  augmented_data_path = 'dados_treinamento_aumentado.xlsx'
+  df_augmented.to_excel(augmented_data_path, index=False)
+  
+  
+  print(f"Conjunto de dados aumentado salvo em: {augmented_data_path}")
+\end{lstlisting}
+
+O programa emprega distribuições estatísticas autênticas para produzir novas amostras que seguem os padrões dos dados originais. A distinção entre dados numéricos e categóricos possibilita o tratamento adequado de cada variável, garantindo a integridade do conjunto de dados ampliado.
+
+\begin{itemize}
+  \item \textbf{Importação das Bibliotecas:} As bibliotecas \texttt{pandas} e \texttt{numpy} foram utilizadas para manipular dados e realizar operações matemáticas: o \texttt{pandas} foi empregado para carregar, manipular e armazenar os conjuntos de dados, enquanto o \texttt{numpy} foi responsável pela criação de valores aleatórios para as colunas numéricas e pela replicação de valores categóricos.
+
+  \item \textbf{Carregamento do Conjunto de Dados de Treinamento:} O documento  com os \texttt{dados de treinamento} foi inserido num \textit{DataFrame}, que atua como uma estrutura para a organização e manipulação eficaz dos dados. A variável \texttt{train\_data\_path} definiu o caminho do arquivo, enquanto a função \texttt{pd.read\_excel} foi empregada para acessar os dados.
+
+  \item \textbf{Identificação das Colunas Numéricas e Categóricas:} Foram escolhidas colunas numéricas (como \texttt{float64} ou \texttt{int64}) para produzir novos valores com base em distribuições estatísticas, enquanto as colunas categóricas (do tipo \texttt{object}) para duplicar valores já existentes, preservando as proporções originais. Esta divisão foi feita por meio dos métodos \texttt{select\_dtypes}, que possibilitaram a identificação e categorização das colunas com base no seu tipo de informação.
+
+  \item \textbf{Definição do Fator de Aumento:} O fator de ampliação foi estipulado em 3, o que sugere que o volume do conjunto de treinamento será triplicado. A quantidade de amostras adicionais foi determinada ao multiplicar o tamanho original do conjunto (\texttt{len(df\_train)}) pelo fator de ampliação. Isso estabeleceu o número de novos exemplos a serem produzidos para ampliar a base de dados de treinamento.
+
+  \item \textbf{Geração de Novas Amostras para Colunas Numéricas:} Para cada coluna numérica, foram criados novos valores por meio da distribuição normal. Os parâmetros utilizados foram o valor médio (\texttt{mean}) e o desvio padrão (\texttt{std}) da coluna original, assegurando que os novos valores mantenham as propriedades estatísticas da distribuição original. Este procedimento garante que os dados expandidos para as colunas numéricas mantenham a mesma distribuição da amostra inicial.
+
+  \item \textbf{Replicação de Valores para Colunas Categóricas:} Os valores já existentes nas colunas categóricas foram replicados de maneira aleatória por meio da função \texttt{np.random.choice}, com reposição. Esta estratégia mantém a proporção original dos valores categóricos, assegurando a uniformidade nos padrões e possibilitando a manutenção da distribuição das categorias nos novos exemplos criados.
+
+  \item \textbf{Combinação dos Dados Originais com os Novos:} A meta era unir os dados originais aos novos dados produzidos, resultando em um conjunto de treinamento expandido. Com o parâmetro \texttt{ignore\_index=True}, a função \texttt{pd.concat} foi empregada para recomeçar os índices no novo conjunto de dados, assegurando que o \textit{DataFrame} gerado apresentasse uma sequência ininterrupta de índices, sem duplicações ou sobreposições.
+
+  \item \textbf{Armazenamento do Conjunto de Dados Ampliado:} O arquivo Excel com os dados ampliados foi nomeado como \texttt{dados\_treinamento\_aumentado.xlsx}. O parâmetro \texttt{index=False} foi empregado para prevenir a criação de índices nos arquivos finais, facilitando sua utilização em fases subsequentes do trabalho e assegurando que o arquivo gerado contenha apenas os dados, sem colunas de índice adicionais.
+\end{itemize}
+
+A aplicação da média e do desvio padrão assegura que os novos dados numéricos correspondam às características do conjunto original, ao mesmo tempo que as categorias mantêm suas proporções, mantendo os padrões originais. A produção de dados por meio de distribuições estatísticas amplia a diversidade do conjunto sem adicionar ruído excessivo ou padrões inverossímeis, assegurando uma diversificação controlada. Este procedimento garante que o conjunto de treinamento ampliado seja robusto o suficiente para treinar o modelo, prevenindo sobrecargas e aprimorando a generalização, levando a um modelo mais eficiente e seguro.
