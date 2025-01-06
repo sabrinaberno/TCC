@@ -48,3 +48,5 @@ Por fim, rode o arquvio python "divisao_dados.py" com esse comando:
 ```python
 python normalizacao_zscore.py
 ```
+
+Voltar aqui
