@@ -1,0 +1,68 @@
+\chapter[Considerações e Trabalhos Futuros]{Considerações e Trabalhos Futuros}
+
+\section{Atividade 1 (A1): Análise, Revisão, Seleção e Limpeza de Variáveis para Predição de Euploidia}
+
+A Atividade 1 (A1) foi crucial para a realização deste estudo, ao estabelecer os fundamentos para o modelo de Inteligência Artificial (IA) sugerido. Ao analisar, revisar, escolher e limpar as variáveis, conseguimos identificar os atributos mais significativos para a previsão de euploidia. A seleção cuidadosa das variáveis foi respaldada por uma pesquisa bibliográfica detalhada, assegurando que cada componente escolhido possuísse uma base científica robusta.
+
+As variáveis finais abrangem parâmetros de tempo como t2, t3, t4, t5, t6 e t8, indicadores de desenvolvimento embrionário (s2, cc2, s3, tSC, tSB, tB), características qualitativas (Estágio, Morfo, KIDScore), além da coluna Plodia, crucial para classificar embriões com euploidia normal ou com alterações cromossômicas. Variáveis sem comprovação científica adequada, como st2 e t2-st2, foram excluídas do conjunto.
+
+A partir das fases de limpeza e organização de dados, a planilha original passou por uma revisão, resultando na "Planilha de Dados Refinados", que está nos anexos, com 83 linhas, assegurando a consistência e a qualidade do conjunto de dados para as próximas etapas. Este estudo também ressalta a relevância da precisão ética e técnica ao manusear dados delicados, aumentando a confiabilidade das análises conduzidas.
+
+Os resultados alcançados até agora indicam que o conjunto de dados aprimorado e a escolha meticulosa de variáveis estabeleceram uma fundação sólida para a criação de um modelo de IA eficiente e seguro.
+
+\section{Atividade 2 (A2): Identificação da Correlação entre os Parâmetros na Previsão da Ploidia do Embrião.}
+
+Com base nos resultados da Atividade 2, conseguimos identificar padrões significativos que oferecem perspectivas sobre os elementos que afetam a criação de embriões geneticamente saudáveis. Além disso, conseguimos avaliar a capacidade preditiva das variáveis analisadas para a elaboração de um modelo fundamentado em inteligência artificial.
+
+O fator idade se mostrou como a variável mais importante na previsão da ploidia, com uma correlação negativa significativa de -0,50. Esta conclusão está alinhada com a literatura científica, que indica o envelhecimento como um elemento fundamental no crescimento de erros cromossômicos. Portanto, os embriões provenientes de mulheres com mais idade têm maior probabilidade de sofrer aneuploidia.
+
+A diferença entre os tempos tB e tSB (-0,28) e o ciclo celular CC3 (-0,28) também se sobressaíram como variáveis significativas na previsão da ploidia. Essas correlações indicam que o ritmo e a sincronização do crescimento celular desempenham um papel crucial na criação de embriões euploides. Mudanças nesses momentos podem indicar falhas cromossômicas que levam a aneuploidias.
+
+Variáveis como o estágio de desenvolvimento e o tempo t5 apresentam correlações moderadas e negativas (-0,24), sugerindo que atrasos em etapas particulares do ciclo embrionário podem afetar adversamente a qualidade genética. Possivelmente, esses atrasos indicam falhas no comportamento cromossômico durante as divisões celulares.
+
+Os achados indicam que a qualidade genética do embrião não se limita ao comportamento individual de cada variável, mas também à interação dinâmica entre elas. Por exemplo, a correlação significativa entre cc2 e t3 (0,80) destaca a relevância do sincronismo nos estágios iniciais da divisão celular. Ademais, a correlação negativa entre tB (-0,17) e ploidia sublinha que as variáveis temporais podem exercer impactos discretos, porém significativos, no comportamento genético embrionário.
+
+\section{Atividade 3 (A3): Normalização dos Dados para Otimização}
+
+A normalização dos dados, feita através do método Z-Score, foi um passo crucial na realização deste estudo. Esta metodologia ofereceu uma base comparativa sólida entre as variáveis, removendo efeitos de escalas desiguais e assegurando maior solidez aos modelos de aprendizagem de máquina. A avaliação minuciosa das variáveis normalizadas forneceu percepções valiosas sobre as informações morfocinéticas dos embriões, preparando o conjunto de dados para a próxima fase da modelagem.
+
+Antes do processo de normalização, variáveis como "t8" exibiam amplitudes consideravelmente maiores, enquanto variáveis como "t2" apresentavam amplitudes mais baixas. Esta diferença complicava a avaliação equitativa das variáveis e poderia afetar de forma negativa o rendimento dos algoritmos de aprendizado de máquina. Depois da normalização, todas as variáveis foram ajustadas para uma escala homogênea, com média zero e desvio padrão igual a 1, possibilitando uma análise mais equilibrada e comparativa.
+
+A normalização evidenciou a uniformidade de certas variáveis, tais como "Idade" e "KIDScore", que apresentaram distribuições parecidas após o ajuste. Isso indica que a variabilidade relativa dos dados e dos escores atribuídos aos embriões é reduzida, o que pode simplificar a interpretação e aplicação dessas variáveis nos modelos preditivos.
+
+\section{Atividade 4 (A4): Separar o conjunto de dados em conjuntos de treinamento, validação e teste, fazendo uma distribuição dos dados e aplicar técnica de aumento de dados.}
+
+A divisão e o aumento dos dados foram passos cruciais para assegurar a solidez e a fiabilidade do modelo preditivo criado neste estudo. A realização dessas tarefas ajudou a estabelecer uma base robusta, variada e estatisticamente consistente para o treinamento, validação e teste do modelo, ao mesmo tempo que abordou os desafios associados ao reduzido volume de dados inicial.
+
+A segmentação das informações em subconjuntos de treinamento, validação e teste, de acordo com a proporção de 70\%, 15\% e 15\%, garantiu a neutralidade e representatividade dos dados. A utilização de um gerador pseudoaleatório, regulado pelo parâmetro random_state, assegurou a replicabilidade dos resultados, possibilitando a replicação do procedimento em análises futuras.
+
+A aleatoriedade na distribuição dos dados impediu vieses e garantiu que os subconjuntos espelhassem a variedade existente no conjunto original. A elaboração de arquivos Excel estruturados e de fácil acesso forneceu um alicerce claro e reutilizável para as fases seguintes.
+
+A decisão de concentrar o aumento de dados apenas no conjunto de treinamento impediu qualquer impacto negativo nos subconjuntos de validação e teste, garantindo a integridade da análise do modelo.
+
+Utilizar a técnica de Monte Carlo para expandir o conjunto de treinamento foi uma abordagem eficiente para superar as restrições de amostragem decorrentes do tamanho limitado do dataset inicial. A metodologia produziu exemplos sintéticos a partir de características estatísticas dos dados originais, preservando sua consistência e assegurando que os dados expandidos fossem representativos.
+
+As variáveis numéricas foram expandidas de acordo com distribuições normais, ao passo que as categóricas mantiveram seus valores originais. Isso assegurou que o conjunto expandido não só mantivesse as propriedades originais, como também ampliasse a gama de exemplos à disposição do modelo.
+
+O acréscimo de 228 linhas ao conjunto de treinamento aumentou consideravelmente a variedade e a quantidade de dados disponíveis, reforçando a habilidade do modelo de se adaptar a novos cenários e diminuir a probabilidade de superfaturamento.
+
+A fusão da segmentação estratégica dos dados com a expansão do conjunto de treinamento gerou uma base de dados mais sólida para o treinamento do modelo. Este procedimento melhorou a preparação dos dados e estabeleceu condições para que o modelo atinja maior exatidão e confiabilidade.
+
+\section{Conclusão da Fase 1: Análise e Preparação de Dados}
+
+Com o cumprimento das quatro tarefas sugeridas na Fase 1: Análise e Preparação de Dados, concluímos com sucesso a primeira fase do projeto, voltada para a expansão, processamento e análise dos dados para a previsão de ploidia embrionária.
+
+A Primeira Fase nos possibilitou criar um conjunto de dados sólido, estruturado e aprimorado para uso em algoritmos de aprendizado de máquina. Este marco simboliza um progresso importante no progresso do projeto, confirmando as suposições iniciais e estabelecendo uma fundação sólida para a próxima fase.
+
+\section{Conclusão da Fase 1: Análise e Preparação de Dados}
+
+Após a finalização da Fase 1 do projeto, começamos a Fase 2, que se concentra no desenvolvimento, análise e criação da solução preditiva. Nesta fase, os esforços serão direcionados para três metas específicas: a capacitação e ajuste do modelo de aprendizado de máquina, a análise minuciosa de sua performance e o desenvolvimento de um protótipo inicial de interface direcionada ao usuário final, neste caso, os médicos. Cada tarefa será organizada e realizada para assegurar resultados consistentes, fiáveis e relevantes para a prática clínica.
+
+O objetivo inicial, OE2, diz respeito ao treinamento e ao ajuste do modelo de aprendizado de máquina. Na Quinta Atividade, será feita a escolha e ajuste dos algoritmos que serão desenvolvidos para o desafio de classificação de euploidia. Esta fase envolverá a verificação do modelo com base nos dados coletados na Fase 1. A meta principal é determinar a estratégia que proporcione os resultados mais precisos e robustos, registrando as configurações perfeitas para aplicações futuras.
+
+Depois da elaboração inicial do modelo, avançaremos para uma análise minuciosa de sua efetividade, conforme previsto no OE3. A Atividade 6 se concentrará na aplicação de métricas como acurácia, precisão, recall e F1-score para avaliar a performance do modelo em situações de classificação binária. Na Atividade 7, será conduzida uma análise minuciosa com o uso da matriz de confusão e da curva ROC, possibilitando a avaliação da habilidade do modelo em diferenciar corretamente as categorias de euploidia e aneuploidia. Essas avaliações são fundamentais para assegurar a fiabilidade do modelo em cenários reais de uso.
+
+Finalmente, na Atividade 8 do OE4, começaremos a desenvolver uma interface básica que será implementada para simplificar o acesso e a compreensão dos resultados preditivos. Este protótipo será desenvolvido para mostrar as previsões de euploidia de forma compreensível e compreensível, possibilitando que os médicos usem o instrumento de maneira eficaz no processo decisório clínico. 
+
+Com as bases estabelecidas na Fase 1, a Fase 2 é um momento crucial para a realização das metas do projeto. O objetivo será desenvolver um modelo preditivo eficiente e uma interface útil, sempre procurando harmonizar a inovação tecnológica com as demandas da medicina reprodutiva. Este progresso será crucial para obter resultados clínicos mais precisos e acessíveis, proporcionando vantagens diretas para pacientes e profissionais do setor.
+
