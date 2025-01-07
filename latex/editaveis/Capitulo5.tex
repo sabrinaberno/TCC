@@ -15,7 +15,7 @@ Ao tratar de \textbf{dados ausentes} em conjuntos de dados, utilizando o método
 
 \subsubsection{Atividade 2 (A2): Identificação da Correlação entre os Parâmetros na Previsão da Ploidia do Embrião}
 
-A análise de correlação foi realizada com o objetivo de identificar as interações mais significativas entre os parâmetros relacionados ao desenvolvimento embrionário e a ploidia. Para isso, foi utilizado o coeficiente de Spearman, explicado no \textbf{APÊNDICE \ref{apendice:spearman}}. A análise das relações entre as variáveis possibilitou a identificação das variáveis que se afetam e afetam a porcentagem de euploidia, fornecendo um alicerce para a melhoria de processos e tomada de decisões da IA. A consolidação dos resultados resultou em dois documentos: um arquivo Excel (\textit{correlation\_results.xlsx}) que apresenta uma visão aprofundada dos coeficientes calculados, transformado em um PDF mais compacto para facilitar a visualização, disponível nos anexos, e um documento Word (\textit{relatorio\_correlacoes.docx}) que contém todos os gráficos de dispersão para as combinações examinadas e valores de correlação relacionados, totalizando 172 páginas. Caso haja interesse em consultar o documento completo, siga os passos descritos na “Atividade 2” no GitHub do projeto: \textit{GitHub-TCC}. Executando o código, é possível gerar o documento completo.
+A análise de correlação foi realizada com o objetivo de identificar as interações mais significativas entre os parâmetros relacionados ao desenvolvimento embrionário e a ploidia. Para isso, foi utilizado o coeficiente de Spearman, explicado no APÊNDICE \ref{apendice:spearman}. A análise das relações entre as variáveis possibilitou a identificação das variáveis que se afetam e afetam a porcentagem de euploidia, fornecendo um alicerce para a melhoria de processos e tomada de decisões da IA. A consolidação dos resultados resultou em dois documentos: um arquivo Excel (\textit{correlation\_results.xlsx}) que apresenta uma visão aprofundada dos coeficientes calculados, transformado em um PDF mais compacto para facilitar a visualização, disponível nos anexos, e um documento Word (\textit{relatorio\_correlacoes.docx}) que contém todos os gráficos de dispersão para as combinações examinadas e valores de correlação relacionados, totalizando 172 páginas. Caso haja interesse em consultar o documento completo, siga os passos descritos na “Atividade 2” no GitHub do projeto: \textit{\href{https://github.com/sabrinaberno/TCC1}{GitHub-TCC}}. Executando o código, é possível gerar o documento completo.
 
 \subsection*{correlation\_results}
 
@@ -41,16 +41,14 @@ Em seguida, apresentaremos a avaliação dos resultados mais relevantes obtidos 
 
 \subsection*{Idade}
 
-Nos gráficos seguintes, a variável \textit{Idade} está representada pelo marcador “o” em verde claro, enquanto as demais variáveis estão identificadas com o marcador “x” em azul escuro. 
-
-A correlação com \textbf{t4} (-0,15) na Figura \ref{fig:idade-t4} sugere que a idade exerce uma influência leve sobre eventos específicos do desenvolvimento embrionário. Mulheres mais velhas podem apresentar embriões com ligeiro atraso no tempo necessário para atingir o estágio \textit{t4}. Embora a influência da idade no ritmo inicial de desenvolvimento seja limitada, há uma leve tendência de atraso.
+A correlação com \textbf{t4 (-0,15) na Figura \ref{fig:idade-t4} sugere que a idade exerce uma influência leve sobre eventos específicos do desenvolvimento embrionário}. Mulheres mais velhas podem apresentar embriões com ligeiro atraso no tempo necessário para atingir o estágio \textit{t4}. Embora a influência da idade no ritmo inicial de desenvolvimento seja limitada, há uma leve tendência de atraso.
 
 \begin{figure}[h]
     \captionsetup{font=footnotesize, justification=centering, labelsep=period, position=above}
     \caption{Dispersão entre Idade e t4 - Coeficiente de Spearman: -0.15}
     \label{fig:idade-t4}
     \centering
-    \includegraphics[scale=0.3]{figuras/Spearman/idade-t4.pdf}
+    \includegraphics[scale=0.6]{figuras/Spearman/idade-t4.pdf}
     \vspace{0.3cm} 
     \begin{minipage}{\linewidth}
         \centering
@@ -59,15 +57,14 @@ A correlação com \textbf{t4} (-0,15) na Figura \ref{fig:idade-t4} sugere que a
 \end{figure}
 \FloatBarrier
 
-Em relação ao tempo para 5 células, \textbf{t5} (0.11), obteve uma correlação positiva. Isso sugere uma tendência muito sutil de que embriões em fases mais avançadas estejam ligados a mães de mais idade, como observado na Figura \ref{fig:idade-t5}.
+Em relação ao tempo para 5 células, \textit{t5} (0.11), obteve uma correlação positiva.\textbf{ Isso sugere uma tendência muito sutil de que embriões em fases mais avançadas estejam ligados a mães de mais idade}, como observado na Figura \ref{fig:idade-t5}.
 
 \begin{figure}[h]
     \captionsetup{font=footnotesize, justification=centering, labelsep=period, position=above}
     \caption{Dispersão entre Idade e t5 - Coeficiente de Spearman: 0,11}
     \label{fig:idade-t5}
     \centering
-    \includegraphics[scale=0.3]{figuras/Spearman/idade-t5.pdf}
-    \vspace{0.3cm} 
+    \includegraphics[scale=0.6]{figuras/Spearman/idade-t5.pdf}
     \begin{minipage}{\linewidth}
         \centering
         \scriptsize{Fonte: Autoras (2025)}
@@ -75,7 +72,7 @@ Em relação ao tempo para 5 células, \textbf{t5} (0.11), obteve uma correlaç�
 \end{figure}
 \FloatBarrier
 
-Ao reparar em alguns índices negativos, observamos os índices \textbf{tSB (-0.10), cc2 (t3-t2) (-0.17), s2 (t4-t3) (-0.24),  s3 (t8-t5) (-0.28) e a Ploidia(-0.50)}. Nota-se que os coeficientes mais próximos de 0 (como -0,10 a -0,28) indicam uma correlação negativa fraca. Isso traduz que há uma tendência muito sutil de que, quando uma variável aumenta, a idade, a outra diminui. Em \textbf{tSB} Figura \ref{fig:idade-tSB}, o coeficiente negativo insinua que o tempo de formação inicial da blastocisto tende a ser menor em embriões provenientes de mães mais velhas. Na variável \textbf{cc2}, Figura \ref{fig:idade-cc2}, a correlação desfavorável sugere uma maior irregularidade no intervalo entre a segunda e a terceira divisão celular (t2 para t3) em embriões de mães mais velhas. Em \textbf{s2} (Figura \ref{fig:idade-s2}) e \textbf{s3} (Figura \ref{fig:idade-s3}), mostra que a idade materna também está ligada a uma diminuição na eficácia do intervalo entre as divisões celulares de t3 para t4. Isso indica um efeito na fase intermediária do ciclo celular. Nos embriões de mães mais velhas, o período entre a fase de 8 células e a formação do blastocisto final é estendido, sinalizando obstáculos no progresso dessas fases. Todos esses atrasos podem ser cruciais, já que fases iniciais bem sincronizadas são fundamentais para um desenvolvimento embrionário adequado, mostrando como uma idade avançada pode afetar o desenvolvimento embrionário, afirmando a bibliografia estudada, fato já citado por \citeonline{borges2019}, que reitera que a idade materna exerce maior influência sobre a qualidade embrionária.
+Ao reparar em alguns índices negativos, observamos os índices \textbf{tSB (-0.10), cc2 (t3-t2) (-0.17), s2 (t4-t3) (-0.24),  s3 (t8-t5) (-0.28) e a Ploidia(-0.50)}. Nota-se que os coeficientes mais próximos de 0 (como -0,10 a -0,28) indicam uma correlação negativa fraca. Isso traduz que há uma tendência muito sutil de que, quando uma variável aumenta, a idade, a outra diminui. Em \textit{tSB} Figura \ref{fig:idade-tSB}, o coeficiente negativo insinua que o tempo de formação inicial da blastocisto tende a ser menor em embriões provenientes de mães mais velhas. Na variável \textit{cc2}, Figura \ref{fig:idade-cc2}, a correlação desfavorável sugere uma maior irregularidade no intervalo entre a segunda e a terceira divisão celular (t2 para t3) em embriões de mães mais velhas. Em \textbf{s2} (Figura \ref{fig:idade-s2}) e \textit{s3} (Figura \ref{fig:idade-s3}), mostra que a idade materna também está ligada a uma diminuição na eficácia do intervalo entre as divisões celulares de t3 para t4. Isso indica um efeito na fase intermediária do ciclo celular. Nos embriões de mães mais velhas, o período entre a fase de 8 células e a formação do blastocisto final é estendido, sinalizando obstáculos no progresso dessas fases. Todos esses atrasos podem ser cruciais, já que fases iniciais bem sincronizadas são fundamentais para um desenvolvimento embrionário adequado, mostrando como uma idade avançada pode afetar o desenvolvimento embrionário, afirmando a bibliografia estudada, fato já citado por \citeonline{borges2019}, que reitera que \textbf{a idade materna exerce maior influência sobre a qualidade embrionária}.
 
 \begin{figure}[h]
     \captionsetup{font=footnotesize, justification=centering, labelsep=period, position=above}
@@ -96,7 +93,7 @@ Ao reparar em alguns índices negativos, observamos os índices \textbf{tSB (-0.
         \caption{Dispersão entre Idade e cc2 (t3-t2) - Coeficiente de Spearman: -0.15}
         \label{fig:idade-cc2}
         \centering
-        \includegraphics[scale=0.35]{figuras/Spearman/idade-cc2.pdf}
+        \includegraphics[scale=0.47]{figuras/Spearman/idade-cc2.pdf}
         \vspace{0.3cm}
         \begin{minipage}{\linewidth}
             \centering
@@ -125,7 +122,7 @@ Ao reparar em alguns índices negativos, observamos os índices \textbf{tSB (-0.
         \caption{Dispersão entre Idade e s3 (t8-t5) - Coeficiente de Spearman: -0.28}
         \label{fig:idade-s3}
         \centering
-        \includegraphics[scale=0.35]{figuras/Spearman/idade-s3.pdf}
+        \includegraphics[scale=0.47]{figuras/Spearman/idade-s3.pdf}
         \vspace{0.3cm}
         \begin{minipage}{\linewidth}
             \centering
@@ -146,7 +143,7 @@ No gráfico de dispersão entre as variáveis Idade e tSB, se nota que o eixo Y,
         \caption{Dispersão entre Idade e tB-tSB - Coeficiente de Spearman: 0.20}
         \label{fig:idade-tB-tSB}
         \centering
-        \includegraphics[scale=0.35]{figuras/Spearman/idade-tB-tSB.pdf}
+        \includegraphics[scale=0.47]{figuras/Spearman/idade-tB-tSB.pdf}
         \vspace{0.3cm}
         \begin{minipage}{\linewidth}
             \centering
@@ -158,7 +155,7 @@ No gráfico de dispersão entre as variáveis Idade e tSB, se nota que o eixo Y,
         \caption{Dispersão entre Idade e cc3 (t5-t3) - Coeficiente de Spearman: 0.20}
         \label{fig:idade-cc3}
         \centering
-        \includegraphics[scale=0.35]{figuras/Spearman/idade-cc3.pdf}
+        \includegraphics[scale=0.47]{figuras/Spearman/idade-cc3.pdf}
         \vspace{0.3cm}
         \begin{minipage}{\linewidth}
             \centering
@@ -168,19 +165,19 @@ No gráfico de dispersão entre as variáveis Idade e tSB, se nota que o eixo Y,
 \end{figure}
 \FloatBarrier
 
-E por fim temos a \textbf{Ploidia (-0,50), a correlação negativa mais relevante entre todas as outras variáveis}, que sugere uma relação negativa, demonstrando que a alta idade materna está ligada a uma diminuição na proporção de embriões euploides. Esta informação indica que embriões de mães mais velhas contêm uma proporção reduzida de euploidia, o que pode estar ligado a uma queda na qualidade genética dos embriões. Portanto, a idade materna é um dos elementos chave na diminuição da euploidia embrionária, e conseguimos comprovar esse dado juntamente com as informações que possui na literatura, como citado por \textit{Fertility and Ageing} \cite{eshre2005}, que também reitera que o aumento da aneuploidia em embriões está diretamente associado ao envelhecimento materno.
+E por fim temos a \textit{Ploidia (-0,50)}, a correlação negativa mais relevante entre todas as outras variáveis, que sugere uma relação negativa, demonstrando que \textbf{a alta idade materna está ligada a uma diminuição na proporção de embriões euploides. Esta informação indica que embriões de mães mais velhas contêm uma proporção reduzida de euploidia, o que pode estar ligado a uma queda na qualidade genética dos embriões}. Portanto, a idade materna é um dos elementos chave na diminuição da euploidia embrionária, e conseguimos comprovar esse dado juntamente com as informações que possui na literatura, como citado por \textit{Fertility and Ageing} \cite{eshre2005}, que também reitera que o aumento da aneuploidia em embriões está diretamente associado ao envelhecimento materno.
 
 \subsection*{Estágio}
-Os coeficientes de correlação de Spearman entre os \textbf{estágios} e os tempos de transição celular \textbf{(t2, t3, t4, t5, t8)} revelam relações positivas moderadas. Esses dados indicam que, conforme o embrião progride para estágios mais avançados, os tempos associados às divisões celulares iniciais tendem a aumentar de forma sutil. Por exemplo, \textbf{t2 (0,30), t3 (0,25) e t4 (0,32)} apresentam as correlações mais significativas, evidenciando que o avanço no estágio está vinculado a uma maior duração das transições celulares iniciais. Por outro lado, \textbf{t5 (0,15) e t8 (0,17)}, apesar de apresentarem correlações mais baixas, também corroboram essa tendência de relação positiva. Esses resultados sugerem que o progresso do estágio embrionário está associado a um padrão de desenvolvimento, possivelmente, mais metódico nos estágios iniciais e intermediários do ciclo celular.
+Os coeficientes de correlação de Spearman entre os \textit{estágios} e os tempos de transição celular \textit{(t2, t3, t4, t5, t8)} revelam relações positivas moderadas. Esses dados indicam que, \textbf{conforme o embrião progride para estágios mais avançados, os tempos associados às divisões celulares iniciais tendem a aumentar de forma sutil}. Por exemplo, \textit{t2 (0,30), t3 (0,25) e t4 (0,32)} apresentam as correlações mais significativas, evidenciando que o avanço no estágio está vinculado a uma maior duração das transições celulares iniciais. Por outro lado, \textit{t5 (0,15) e t8 (0,17)}, apesar de apresentarem correlações mais baixas, também corroboram essa tendência de relação positiva. Esses resultados sugerem que o progresso do estágio embrionário está associado a um padrão de desenvolvimento, possivelmente, mais metódico nos estágios iniciais e intermediários do ciclo celular.
 
-As correlações positivas observadas entre o \textbf{estágio} embrionário e os tempos \textbf{tSC (0,50), tSB (0,53) e tB (0,59)} indicam uma conexão significativa entre o progresso do estágio embrionário e o desenvolvimento contínuo das estruturas celulares. O incremento nos índices de correlação sugere que, conforme o embrião avança para fases mais desenvolvidas, há uma maior regularidade no cumprimento dos marcos temporais dessas transições. Isso implica que o estágio não apenas representa uma condição de desenvolvimento estrutural, mas também abriga informações significativas sobre a dinâmica temporal do ciclo celular. Assim, essas correlações ressaltam que o estágio embrionário atua como um indicador abrangente da qualidade e da evolução do desenvolvimento embrionário.
+As correlações positivas observadas entre o \textit{estágio} embrionário e os tempos \textit{tSC (0,50), tSB (0,53) e tB (0,59)} indicam uma conexão significativa entre o progresso do estágio embrionário e o desenvolvimento contínuo das estruturas celulares. O incremento nos índices de correlação sugere que, conforme \textbf{o embrião avança para fases mais desenvolvidas, há uma maior regularidade no cumprimento dos marcos temporais dessas transições}. Isso implica que o estágio não apenas representa uma condição de desenvolvimento estrutural, mas também abriga informações significativas sobre a dinâmica temporal do ciclo celular. Assim, essas correlações ressaltam que o estágio embrionário atua como um indicador abrangente da qualidade e da evolução do desenvolvimento embrionário.
 
-A relação inversa entre o \textbf{estágio} de desenvolvimento e a \textbf{ploidia (-0,24)} indica que, embora essa correlação seja considerada tênue, sugere que o estágio de desenvolvimento pode ter um impacto negativo na ploidia, enfatizando a necessidade de avaliar não apenas a morfologia do embrião, mas também sua genética ao longo do ciclo celular. 
+A relação inversa entre o \textit{estágio} de desenvolvimento e a \textit{ploidia (-0,24)} indica que, \textbf{embora essa correlação seja considerada tênue, sugere que o estágio de desenvolvimento pode ter um impacto negativo na ploidia}, enfatizando a necessidade de avaliar não apenas a morfologia do embrião, mas também sua genética ao longo do ciclo celular. 
 
 \subsection*{Morfo}
-A avaliação da variável \textbf{Morfo}, que categoriza a expansão morfológica dos embriões em fases iniciais, revelou correlações moderadamente negativas com variáveis temporais como \textbf{t2 (-0.38), t3 (-0.43) e t5 (-0.45)}. Esses achados sugerem que embriões com características morfológicas menos expansivas costumam apresentar atrasos nos primeiros tempos de divisão celular. Assim, mudanças na morfologia podem ser influenciadas por variações no ritmo de desenvolvimento celular. Dessa forma, conseguimos evidenciar a fala de \citeonline{capalbo2014}, que cita que a morfologia do embrião é um fator determinante para o potencial de implantação e a qualidade embrionária. 
+A avaliação da variável \textit{Morfo}, que categoriza a expansão morfológica dos embriões em fases iniciais, revelou correlações moderadamente negativas com variáveis temporais como \textbf{t2 (-0.38), t3 (-0.43) e t5 (-0.45)}. Esses achados sugerem que \textbf{embriões com características morfológicas menos expansivas costumam apresentar atrasos nos primeiros tempos de divisão celular}. Assim, mudanças na morfologia podem ser influenciadas por variações no ritmo de desenvolvimento celular. Dessa forma, conseguimos evidenciar a fala de \citeonline{capalbo2014}, que cita que a morfologia do embrião é um fator determinante para o potencial de implantação e a qualidade embrionária. 
 
-Ao examinarmos os intervalos \textbf{cc2 (t3-t2) (-0,38) e cc3 (t5-t3) (-0,31)}, os gráficos \ref{fig:morfo-cc2} e \ref{fig:morfo-cc3}, respectivamente, corroboram essa tendência, destacando que embriões que apresentam alterações morfológicas menos favoráveis quando enfrentam flutuações no ritmo de desenvolvimento celular, a medida que uma variável aumenta, a outra vem a diminuir. Esses resultados enfatizam a relevância de uma divisão celular sincronizada para preservar características morfológicas ideais, evidenciando como o ritmo do ciclo celular influencia diretamente a qualidade estrutural do embrião. A variável “Morfo” está representada pelo marcador “o” em azul escuro e as outras variáveis “cc2” e “cc3”, estão identificadas com o marcador “x” em verde claro.
+Ao examinarmos os intervalos \textit{cc2 (t3-t2) (-0,38) e cc3 (t5-t3) (-0,31)}, os gráficos \ref{fig:morfo-cc2} e \ref{fig:morfo-cc3}, respectivamente, corroboram essa tendência, destacando que embriões que apresentam alterações morfológicas menos favoráveis quando enfrentam flutuações no ritmo de desenvolvimento celular, a medida que uma variável aumenta, a outra vem a diminuir. Esses resultados enfatizam a relevância de uma divisão celular sincronizada para preservar características morfológicas ideais, evidenciando como o ritmo do ciclo celular influencia diretamente a qualidade estrutural do embrião. A variável “Morfo” está representada pelo marcador “o” em azul escuro e as outras variáveis “cc2” e “cc3”, estão identificadas com o marcador “x” em verde claro.
 
 
 \begin{figure}[h]
@@ -213,10 +210,10 @@ Ao examinarmos os intervalos \textbf{cc2 (t3-t2) (-0,38) e cc3 (t5-t3) (-0,31)},
 \FloatBarrier
 
 
-A correlação entre \textbf{Morfo} e \textbf{Ploidia} exibe um coeficiente de correlação de \textbf{0.05}, sugerindo uma ligação positiva, porém extremamente fraca. Isso sugere que, neste conjunto de dados, as características morfológicas dos embriões não parecem estar diretamente ligadas à euploidia. 
+A correlação entre \textit{Morfo} e \textit{Ploidia} exibe um coeficiente de correlação de \textit{0.05}, sugerindo uma ligação positiva, porém extremamente fraca. Isso sugere que, neste conjunto de dados, as características morfológicas dos embriões não parecem estar diretamente ligadas à euploidia. 
 
 \subsection*{t2, t3, t4, t5 e t8}
-Existe uma forte interdependência entre os tempos de transição celular, como evidenciado pela correlação de \textbf{0.89} entre \textbf{t2 e t4}, indicando que esses eventos de desenvolvimento estão fortemente associados, à medida que uma variável aumenta, a outra também aumenta de forma consistente. A correlação entre \textbf{t3 e t2 (0.78), t4 e t5 (0.56)} e entre \textbf{t5 e t8 (0.52)} também demonstra alinhamento nas fases iniciais e intermediárias do desenvolvimento embrionário. No primeiro gráfico a variável “t2” está representada pelo marcador “o” em azul escuro e a variável “t4” está identificada com o marcador “x” em verde claro. No gráfico 2 a variável “t2” está representada pelo marcador “o” e a variável “t2” está identificada com o marcador “x”. Já no gráfico 3, a variável “t4” está em verde claro e a variável “t5” está identificada por azul escuro. Por fim, no último gráfico, a variável “t5” está representada por “o” e a variável “t5” está identificada por “x”.
+Existe uma forte interdependência entre os tempos de transição celular, como evidenciado pela correlação de \textit{0.89} entre \textit{t2 e t4}, indicando que esses eventos de desenvolvimento estão fortemente associados, à medida que uma variável aumenta, a outra também aumenta de forma consistente. A correlação entre \textit{t3 e t2 (0.78), t4 e t5 (0.56)} e entre \textit{t5 e t8 (0.52)} também demonstra alinhamento nas fases iniciais e intermediárias do desenvolvimento embrionário. 
 
 \begin{figure}[h]
     \captionsetup{font=footnotesize, justification=centering, labelsep=period, position=above}
@@ -225,7 +222,7 @@ Existe uma forte interdependência entre os tempos de transição celular, como 
         \caption{Dispersão entre t2 e t4 - Coeficiente de Spearman: 0.89}
         \label{fig:t2-t4}
         \centering
-        \includegraphics[scale=0.35]{figuras/Spearman/t2-t4.pdf}
+        \includegraphics[scale=0.49]{figuras/Spearman/t2-t4.pdf}
         \vspace{0.3cm}
         \begin{minipage}{\linewidth}
             \centering
@@ -254,7 +251,7 @@ Existe uma forte interdependência entre os tempos de transição celular, como 
         \caption{Dispersão entre t4 e t5 - Coeficiente de Spearman: 0.56}
         \label{fig:t4-t5}
         \centering
-        \includegraphics[scale=0.35]{figuras/Spearman/t4-t5.pdf}
+        \includegraphics[scale=0.48]{figuras/Spearman/t4-t5.pdf}
         \vspace{0.3cm}
         \begin{minipage}{\linewidth}
             \centering
@@ -266,7 +263,7 @@ Existe uma forte interdependência entre os tempos de transição celular, como 
         \caption{Dispersão entre t5 e t8 - Coeficiente de Spearman: 0.52}
         \label{fig:t5-t8}
         \centering
-        \includegraphics[scale=0.35]{figuras/Spearman/t5-t8.pdf}
+        \includegraphics[scale=0.48]{figuras/Spearman/t5-t8.pdf}
         \vspace{0.3cm}
         \begin{minipage}{\linewidth}
             \centering
@@ -276,10 +273,10 @@ Existe uma forte interdependência entre os tempos de transição celular, como 
 \end{figure}
 \FloatBarrier
 
-A correlação negativa entre \textbf{t2 (-0.08), t3 (-0.06), t4 (-0.02), t8 (-0.07) e a ploidia}, demonstram uma falta de correlação entre essas variáveis para a determinação de um embrião euploidia ou aneuplóide. Já  \textbf{t5} e \textbf{ploidia (-0.24)} indica que atrasos nesse estágio de desenvolvimento, estão ligados a uma qualidade genética inferior (menor ploidia). Algo que já foi evidenciado por \citeonline{cruz2012}, pois destacou t5 como o indicador mais relevante do potencial de implantação. 
+A correlação quase nula entre \textit{t2 (-0.08), t3 (-0.06), t4 (-0.02), t8 (-0.07) e a ploidia}, demonstram uma falta de correlação entre essas variáveis para a determinação de um embrião euploidia ou aneuplóide. Já \textbf{\textit{t5} e \textit{ploidia (-0.24)} indica que atrasos nesse estágio de desenvolvimento, estão ligados a uma qualidade genética inferior (menor ploidia)}. Algo que já foi evidenciado por \citeonline{cruz2012}, pois destacou t5 como o indicador mais relevante do potencial de implantação. 
 
 \subsection*{tSC}
-Ao relacionar a variável de Tempo de formação do estágio de clivagem sincronizada (Time to Synchronized Compaction) com as variáveis de tempos de transição celular, \textbf{t2 (0.40), t3 (0.42), t4 (0.43), t5 (0.35) e t8 (0.35)}, indicam uma relação de intensidade moderada e positiva durante o desenvolvimento embrionário, sendo mais acentuada nos estágios iniciais e intermediários. A conexão com \textbf{t2} sugere uma interdependência inicial que persiste em \textbf{t3} e se intensifica um pouco em \textbf{t4}, indicando um alinhamento mais intenso nas etapas intermediárias do ciclo celular. As correlações com \textbf{t5 e t8} apresentam uma ligeira redução, sugerindo que o impacto do \textbf{tSC} nos eventos embrionários começa a se desvanecer em fases mais avançadas. Esses padrões indicam que o tSC tem um papel mais significativo nas etapas iniciais e intermediárias do desenvolvimento, diminuindo seu impacto progressivamente conforme o tempo passa. Os gráficos abaixo mostram o retrato da explicação, em que tSC está identificado pelo marcador “o” em verde claro. Nota-se que, à medida que uma variável cresce, a outra cresce de forma conjunta. 
+Ao relacionar a variável de Tempo de formação do estágio de clivagem sincronizada (Time to Synchronized Compaction) com as variáveis de tempos de transição celular, \textit{t2 (0.40), t3 (0.42), t4 (0.43), t5 (0.35) e t8 (0.35)}, indicam uma relação de intensidade moderada e positiva durante o desenvolvimento embrionário, sendo mais acentuada nos estágios iniciais e intermediários. A conexão com \textit{t2}, Figura \ref{fig:tSC-t2}, sugere uma interdependência inicial que persiste em \textit{t3}, Figura \ref{fig:tSC-t3}, e se intensifica um pouco em \textit{t4}, Figura \ref{fig:tSC-t4}, indicando um alinhamento mais intenso nas etapas intermediárias do ciclo celular. As correlações com \textit{t5 e t8}, Figura \ref{fig:tSC-t8}, apresentam uma ligeira redução, sugerindo que o impacto do \textit{tSC} nos eventos embrionários começa a se desvanecer em fases mais avançadas. Esses padrões indicam que o \textbf{tSC tem um papel mais significativo nas etapas iniciais e intermediárias do desenvolvimento, diminuindo seu impacto progressivamente conforme o tempo passa}. Os gráficos abaixo mostram o retrato da explicação, em que tSC está identificado pelo marcador “o” em verde claro. Nota-se que, à medida que uma variável cresce, a outra cresce de forma conjunta. 
 
 \begin{figure}[h]
     \captionsetup{font=footnotesize, justification=centering, labelsep=period, position=above}
@@ -339,7 +336,7 @@ Ao relacionar a variável de Tempo de formação do estágio de clivagem sincron
 \end{figure}
 \FloatBarrier
 
-As correlações de \textbf{tSC} com \textbf{tSB (0.75) e tB (0.74)} demonstram uma forte ligação entre essas variáveis, indicando que estão fortemente conectadas, em que a medida que uma variável aumenta, a outra também aumenta de forma consistente. Isso indica uma relação quase linear, em que mudanças no tSB impactam diretamente no tSC, evidenciando uma ligação funcional direta entre os dois acontecimentos. A variável tSC permanece sendo identificada pelo marcador “o” nos gráficos a seguir.
+As correlações de \textit{tSC} com \textit{tSB (0.75) e tB (0.74)}, Figura \ref{fig:tSC-tSB} e Figura \ref{fig:tSC-tB} respectivamente, demonstram uma forte ligação entre essas variáveis, indicando que estão fortemente conectadas, em que a medida que uma variável aumenta, a outra também aumenta de forma consistente. Isso indica uma relação quase linear, em que mudanças no tSB impactam diretamente no tSC, evidenciando uma ligação funcional direta entre os dois acontecimentos. A variável tSC permanece sendo identificada pelo marcador “o” nos gráficos a seguir.
 
 \begin{figure}[h]
     \captionsetup{font=footnotesize, justification=centering, labelsep=period, position=above}
@@ -370,12 +367,12 @@ As correlações de \textbf{tSC} com \textbf{tSB (0.75) e tB (0.74)} demonstram 
 \end{figure}
 \FloatBarrier
 
-Os coeficientes de correlação de tSC com os intervalos de tempo \textbf{cc2 (t3-t2) (0.41), cc3 (t5-t3) (0.24) e t5-t2 (0.34)} apresentam relações positivas que variam de moderadas a fracas, sinalizando variados níveis de concordância com esses tempos acumulados. A correlação moderada com \textbf{cc2 (t3-t2)} indica que o intervalo entre t3 e t2 tem uma influência moderada no tSC, evidenciando uma ligação mais clara neste estágio. Em contrapartida, a correlação fraca com \textbf{cc3 (t5-t3)} sugere que as alterações no intervalo entre \textbf{t5 e t3} exercem uma influência restrita sobre o tSC. Por outro lado, a relação moderada com \textbf{t5-t2} indica que o tempo acumulado entre esses eventos afeta o tSC, embora em menor grau do que com cc2. Estes achados indicam que a influência do tSC se \textbf{reduz} conforme os períodos de tempo se estendem.
+Os coeficientes de correlação de tSC com os intervalos de tempo \textit{cc2 (t3-t2) (0.41), cc3 (t5-t3) (0.24) e t5-t2 (0.34)} apresentam relações positivas que variam de moderadas a fracas, sinalizando variados níveis de concordância com esses tempos acumulados. A correlação moderada com \textit{cc2 (t3-t2)} indica que o intervalo entre t3 e t2 tem uma influência moderada no tSC, evidenciando uma ligação mais clara neste estágio. Em contrapartida, a correlação fraca com \textit{cc3 (t5-t3)} sugere que as alterações no intervalo entre \textbf{t5 e t3} exercem uma influência restrita sobre o tSC. Por outro lado, a relação moderada com \textit{t5-t2} indica que o tempo acumulado entre esses eventos afeta o tSC, embora em menor grau do que com cc2. Estes achados indicam que a influência do tSC se \textbf{reduz} conforme os períodos de tempo se estendem.
 
-Por fim, a correlação com a \textbf{Ploidia (-0.04)}, é fraca e negativa, sugerindo que não existe uma conexão relevante entre essas variáveis. Este resultado indica que Ploidia pode estar ligada a processos diferentes que não afetam diretamente \textbf{tSC}.
+Por fim, a correlação com a \textit{Ploidia (-0.04)}, é fraca e negativa, sugerindo que não existe uma conexão relevante entre essas variáveis. Este resultado indica que Ploidia pode estar ligada a processos diferentes que não afetam diretamente \textit{tSC}.
 
 \subsection*{tSB}
-Ao analisar sua realção com \textbf{t2 (0.43), t3 (0.56), t4 (0.57), t5 (0.39) e t8 (0.40)} mostram relações positivas de intensidade moderada, conforme uma variável aumenta, a outra segue um aumento consistente, aumentando nos estágios iniciais e intermediários e apresentando um ligeiro declínio nos estágios posteriores. A relação com \textbf{t2} indica que os eventos iniciais exercem um efeito significativo no comportamento de \textbf{tSB}. A forte ligação com \textbf{t3 e t4} indica que esses estágios intermediários têm uma influência mais significativa sobre \textbf{tSB}. Em contrapartida, as correlações moderadas com \textbf{t5 e t8} sugerem uma redução na conexão nos estágios subsequentes, evidenciando um efeito menos significativo de \textbf{tSB} conforme os processos progridem no desenvolvimento. Nos gráficos a seguir, tSB está definido em cor verde claro.
+Ao analisar sua realção com \textit{t2 (0.43), t3 (0.56), t4 (0.57), t5 (0.39) e t8 (0.40)} mostram relações positivas de intensidade moderada, conforme uma variável aumenta, a outra segue um aumento consistente, aumentando nos estágios iniciais e intermediários e apresentando um ligeiro declínio nos estágios posteriores. A relação com \textit{t2} \textbf{indica que os eventos iniciais exercem um efeito significativo no comportamento de \textbf{tSB}}. A forte ligação com \textit{t3 e t4}, Figura \ref{fig:tSB-t3} e Figura \ref{fig:tSB-t4} respectivamente, indica que \textbf{esses estágios intermediários têm uma influência mais significativa sobre \textbf{tSB}}. Em contrapartida, as correlações moderadas com \textbf{t5 e t8} sugerem uma redução na conexão nos estágios subsequentes, evidenciando um efeito menos significativo de \textit{tSB} conforme os processos progridem no desenvolvimento. Nos gráficos a seguir, tSB está definido em cor verde claro.
 
 \begin{figure}[h]
     \captionsetup{font=footnotesize, justification=centering, labelsep=period, position=above}
@@ -406,14 +403,14 @@ Ao analisar sua realção com \textbf{t2 (0.43), t3 (0.56), t4 (0.57), t5 (0.39)
 \end{figure}
 \FloatBarrier
 
-As correlações entre \textbf{tSB e tSC (0.75), tB (0.93) e cc2 (t3-t2) (0.63)} evidenciam ligações fortes e relevantes, indicando uma interdependência entre essas variáveis. A forte ligação com \textbf{tSC} sugere que alterações em uma variável têm um \textbf{impacto direto} na outra. \textbf{A correlação com tB indica uma dependência quase total entre as duas variáveis}, indicando que são praticamente comparáveis em termos de sua interação. Ademais, a correlação robusta com cc2 (t3-t2) indica que o período entre t3 e t2 tem um impacto considerável sobre tSB, possivelmente por causa do efeito direto dos eventos temporais iniciais no comportamento dessa variável. O gráfico abaixo ilustra a forma que \textbf{tSB e tSC} possuem uma relação de crescimento mútuo entre si, quase se espelhando. Dessa forma, alterações em tB podem ser significativas para mudanças em tSB.
+As correlações entre \textit{tSB e tSC (0.75), tB (0.93) e cc2 (t3-t2) (0.63)} evidenciam ligações fortes e relevantes, indicando uma interdependência entre essas variáveis. A forte ligação com \textbf{tSC} sugere que alterações em uma variável têm um \textbf{impacto direto} na outra. \textbf{A correlação com tB indica uma dependência quase total entre as duas variáveis}, indicando que são praticamente comparáveis em termos de sua interação. Ademais, a correlação robusta com cc2 (t3-t2) indica que \textbf{o período entre t3 e t2 tem um impacto considerável sobre tSB, possivelmente por causa do efeito direto dos eventos temporais iniciais no comportamento dessa variável}. A Figura \ref{fig:tSB-tB} ilustra a forma que \textit{tSB e tB} possuem uma relação de crescimento mútuo entre si, quase se espelhando. Dessa forma, alterações em tB podem ser significativas para mudanças em tSB.
 
 \begin{figure}[h]
     \captionsetup{font=footnotesize, justification=centering, labelsep=period, position=above}
     \caption{Dispersão entre tSB e tB - Coeficiente de Spearman: 0.93}
     \label{fig:tSB-tB}
     \centering
-    \includegraphics[scale=0.5]{figuras/Spearman/tSB-tB.pdf}
+    \includegraphics[scale=0.40]{figuras/Spearman/tSB-tB.pdf}
     \vspace{0.3cm} 
     \begin{minipage}{\linewidth}
         \centering
@@ -422,24 +419,24 @@ As correlações entre \textbf{tSB e tSC (0.75), tB (0.93) e cc2 (t3-t2) (0.63)}
 \end{figure}
 \FloatBarrier
 
-O coeficiente de correlação de \textbf{tSB com Ploidia (-0.11)} é fraco e negativo, sugerindo que não existe uma conexão evidente ou relevante entre essas variáveis. Este resultado indica que Ploidia é afetada por elementos diferentes, que não estão diretamente ligados aos processos ligados à tSB.
+O coeficiente de correlação de \textit{tSB com Ploidia (-0.11)} é fraco e negativo, sugerindo que não existe uma conexão evidente ou relevante entre essas variáveis. Este resultado indica que Ploidia é afetada por elementos diferentes, que não estão diretamente ligados aos processos ligados à tSB.
 
 \subsection*{tB}
-As correlações entre \textbf{tB} e os tempos de desenvolvimento \textbf{t2 (0.40), t3 (0.48), t4 (0.50), t5 (0.35) e t8 (0.37)} exibem relações moderadamente positivas, sugerindo que tB está ligado a eventos temporais durante o ciclo embrionário, sendo mais intensa nos estágios intermediários. A forte ligação com \textbf{t3 e t4} sugere que tB está mais em sintonia com eventos desses estágios, o que pode indicar uma interação mais intensa com processos de divisão celular intermediários. O crescimento da correlação em \textbf{t4} pode indicar uma etapa crucial para o desenvolvimento do embrião. Por outro lado, as correlações mais baixas com \textbf{t5 e t8} indicam uma redução da influência do tB em fases mais avançadas, ressaltando que \textbf{sua importância é maior nos estágios iniciais e intermediários do ciclo celular}.
+As correlações entre \textit{tB} e os tempos de desenvolvimento \textit{t2 (0.40), t3 (0.48), t4 (0.50), t5 (0.35) e t8 (0.37)} exibem relações moderadamente positivas, sugerindo que tB está ligado a eventos temporais durante o ciclo embrionário, sendo mais intensa nos estágios intermediários. A forte ligação com \textit{t3 e t4} sugere que tB está mais em sintonia com eventos desses estágios, o que pode indicar uma interação mais intensa com processos de divisão celular intermediários. O crescimento da correlação em \textit{t4} pode indicar uma etapa crucial para o desenvolvimento do embrião. Por outro lado, as correlações mais baixas com \textit{t5 e t8} indicam uma redução da influência do tB em fases mais avançadas, ressaltando que sua importância é maior nos estágios iniciais e intermediários do ciclo celular.
 
-As correlações de tB com os intervalos de tempo \textbf{cc2 (t3-t2) (0.54) e tSC-t8 (0.47)} ressaltam a influência de processos particulares no comportamento dessa variável. A correlação moderada-alta com \textbf{cc2 (t3-t2)} indica que os períodos de transição entre t3 e t2 \textbf{têm uma influência relevante no comportamento de tB}, sugerindo que as dinâmicas nos estágios iniciais influenciam diretamente o desenvolvimento subsequente. Em contrapartida, a correlação moderada entre tSC e t8 indica que a diferença temporal entre \textbf{tSC e t8} está positivamente ligada a tB. 
+As correlações de tB com os intervalos de tempo \textit{cc2 (t3-t2) (0.54) e tSC-t8 (0.47)} ressaltam a influência de processos particulares no comportamento dessa variável. A correlação moderada-alta com \textit{cc2 (t3-t2)} indica que \textbf{os períodos de transição entre t3 e t2 têm uma influência relevante no comportamento de tB}, sugerindo que as dinâmicas nos estágios iniciais influenciam diretamente o desenvolvimento subsequente. Em contrapartida, a correlação moderada entre \textit{tSC e t8} indica que a diferença temporal entre \textbf{tSC e t8} está positivamente ligada a tB. 
 
-A fraca e negativa correlação entre \textbf{tB e Ploidia (-0.17)} indica uma conexão fraca entre essas variáveis. A direção negativa sugere que aumentos em tB podem estar ligados a pequenas diminuições em Ploidia. Esta associação tênue enfatiza que tB não desempenha um papel crucial no comportamento da Ploidia, porém o afeta fracamente de forma negativa.
+A fraca e negativa correlação entre \textit{tB e Ploidia (-0.17)} indica uma conexão fraca entre essas variáveis. A direção negativa sugere que aumentos em tB podem estar ligados a pequenas diminuições em Ploidia. Esta associação tênue enfatiza que tB não desempenha um papel crucial no comportamento da Ploidia, porém o afeta fracamente de forma negativa.
 
 \subsection*{cc2 (t3-t2)}
-A relação entre o intervalo \textbf{cc2} e as diversas fases de crescimento do embrião, simbolizadas pelos tempos \textbf{t2, t3, t4, t5 e t8}, mostra variações de intensidade. A correlação com \textbf{t2 (0.39)} é moderada e positiva, indicando que acontecimentos iniciais, como o surgimento das primeiras células embrionárias, possuem uma ligação direta, porém não tão relevante com cc2. Com \textbf{t3 (0.80)}, se nota uma correlação positiva significativa, demonstrando um \textbf{alinhamento quase imediato entre cc2} e o momento de desenvolvimento correspondente a \textbf{t3}, sugerindo uma \textbf{conexão robusta entre ambos}. Por outro lado, a correlação com \textbf{t4 (0.59)} é moderadamente alta, indicando que \textbf{cc2 é também impactado por eventos subsequentes representados por t4}. A conexão com t5 (0.64), também moderada-alta, \textbf{evidencia a persistência da influência de eventos temporais}, evidenciando que t5 desempenha um papel significativo na progressão de cc2. Por fim, com t8 (0.46), a correlação é moderada, porém o efeito de t8 sobre cc2 é menos significativo do que nos estágios anteriores, \textbf{sugerindo uma dependência que diminui conforme o embrião progride para fases mais avançadas de desenvolvimento}. O gráfico abaixo mostra a maior relação que cc2 possui durante as fases de crescimento, que é na fase \textbf{t3 (0.80)}, em que a variável cc2, em verde, cresce de forma consistente à medida que a outra também cresce. 
+A relação entre o intervalo \textit{cc2} e as diversas fases de crescimento do embrião, simbolizadas pelos tempos \textit{t2, t3, t4, t5 e t8}, mostra variações de intensidade. A correlação com \textit{t2 (0.39)} é moderada e positiva, indicando que acontecimentos iniciais, como o surgimento das primeiras células embrionárias, possuem uma ligação direta, porém não tão relevante com cc2. Com \textit{t3 (0.80)}, se nota, na figura \ref{fig:cc2-t3}, uma correlação positiva significativa, demonstrando um \textbf{alinhamento quase imediato entre cc2} e o momento de desenvolvimento correspondente a \textit{t3}, sugerindo uma \textbf{conexão robusta entre ambos}. Por outro lado, a correlação com \textbf{t4 (0.59)} é moderadamente alta, indicando que \textbf{cc2 é também impactado por eventos subsequentes representados por t4}. A conexão com t5 (0.64), também moderada-alta, \textbf{evidencia a persistência da influência de eventos temporais}, evidenciando que t5 desempenha um papel significativo na progressão de cc2. Por fim, com t8 (0.46), a correlação é moderada, porém o efeito de t8 sobre cc2 é menos significativo do que nos estágios anteriores, \textbf{sugerindo uma dependência que diminui conforme o embrião progride para fases mais avançadas de desenvolvimento}. O gráfico abaixo mostra a maior relação que cc2 possui durante as fases de crescimento, que é na fase \textbf{t3 (0.80)}, em que a variável cc2, em verde, cresce de forma consistente à medida que a outra também cresce. 
 
 \begin{figure}[h]
     \captionsetup{font=footnotesize, justification=centering, labelsep=period, position=above}
     \caption{Dispersão entre cc2 (t3-t2) e t3 - Coeficiente de Spearman: 0.80}
     \label{fig:cc2-t3}
     \centering
-    \includegraphics[scale=0.5]{figuras/Spearman/cc2-t3.pdf}
+    \includegraphics[scale=0.4]{figuras/Spearman/cc2-t3.pdf}
     \vspace{0.3cm} 
     \begin{minipage}{\linewidth}
         \centering
@@ -448,19 +445,19 @@ A relação entre o intervalo \textbf{cc2} e as diversas fases de crescimento do
 \end{figure}
 \FloatBarrier
 
-A correlação com \textbf{cc3 (0.34)} é moderada, sugerindo uma relação restrita entre cc2 e cc3. Por outro lado, a correlação com \textbf{t5-t2 (0.65)} é forte e positiva, indicando que o intervalo \textbf{cc2 se alinha fortemente ao intervalo completo entre t5 e t2}. Isso indica que o comportamento de cc2 pode ser significativamente elucidado pela combinação das variáveis que compõem esses intervalos de tempo, evidenciando uma relação mais sólida entre eles.
+A correlação com \textit{cc3 (0.34)} é moderada, sugerindo uma relação restrita entre cc2 e cc3. Por outro lado, a correlação com \textit{t5-t2 (0.65)} é forte e positiva, indicando que o intervalo \textit{cc2 se alinha fortemente ao intervalo completo entre t5 e t2}. Isso indica que o comportamento de cc2 pode ser significativamente elucidado pela combinação das variáveis que compõem esses intervalos de tempo, evidenciando uma relação mais sólida entre eles.
 
-A correlação entre \textbf{cc2 e Ploidia (-0.03)} é muito fraca e negativa, sugerindo que não existe uma conexão relevante entre esses dois componentes. Isso indica que \textbf{o período temporal entre t3 e t2 não tem um impacto significativo na Ploidia}, o que sugere que o desenvolvimento temporal do embrião, simbolizado por cc2, não está diretamente ligado à ploidia do embrião.
+A correlação entre \textit{cc2 e Ploidia (-0.03)} é muito fraca e negativa, sugerindo que não existe uma conexão relevante entre esses dois componentes. Isso indica que \textbf{o período temporal entre t3 e t2 não tem um impacto significativo na Ploidia}, o que sugere que o desenvolvimento temporal do embrião, simbolizado por cc2, não está diretamente ligado à ploidia do embrião.
 
 \subsection*{cc3 (t5-t3)}
-A correlação com \textbf{t2 (0.15)} é fraca e positiva, sugerindo que pequenas alterações em t2 não provocam alterações significativas em cc3. Com \textbf{t3 (0.25)}, a correlação é moderada e positiva, mostrando um \textbf{ligeiro crescimento em cc3 à medida que t3 se eleva}. A correlação com \textbf{t4 (0.26)} é igualmente moderada e positiva. A conexão entre t4 e cc3 é parecida com a de t3, porém um pouco mais intensa, indicando que \textbf{t4 desempenha um papel moderado nas alterações percebidas em cc3}. A correlação com \textbf{t5 (0.81)} é \textbf{extremamente forte e positiva, sugerindo que conforme t5 cresce, cc3 também cresce quase de maneira linear}, como se consegue observar no gráfico abaixo, em que cc3 está definido pelo marcador “o”. Isso é coerente, já que cc3 é determinado como a diferença entre t5 e t3, e qualquer alteração em t5 afeta diretamente cc3. Por fim, a correlação com o \textbf{t8 (0.40)} é moderada e positiva, indicando que, \textbf{conforme o t8 se eleva, o cc3 tende a crescer}. O t8 tem um impacto maior sobre o cc3 do que o t2, t3, e t4, mas ainda distante do impacto de t5.
+A correlação com \textit{t2 (0.15)} é fraca e positiva, sugerindo que pequenas alterações em t2 não provocam alterações significativas em cc3. Com \textit{t3 (0.25)}, a correlação é moderada e positiva, mostrando um ligeiro crescimento em cc3 à medida que t3 se eleva. A correlação com \textit{t4 (0.26)} é igualmente moderada e positiva. A conexão entre t4 e cc3 é parecida com a de t3, porém um pouco mais intensa, indicando que t4 desempenha um papel moderado nas alterações percebidas em cc3. A correlação com \textit{t5 (0.81)}, presente na figura \ref{fig:cc3-t5}, é extremamente forte e positiva, sugerindo que \textbf{conforme t5 cresce, cc3 também cresce quase de maneira linear}, como se consegue observar no gráfico abaixo, em que cc3 está definido pelo marcador “o”. Isso é coerente, já que cc3 é determinado como a diferença entre t5 e t3, e qualquer alteração em t5 afeta diretamente cc3. Por fim, a correlação com o \textbf{t8 (0.40)} é moderada e positiva, indicando que, conforme o t8 se eleva, o cc3 tende a crescer. O t8 tem um impacto maior sobre o cc3 do que o t2, t3, e t4, mas ainda distante do impacto de t5.
 
 \begin{figure}[h]
     \captionsetup{font=footnotesize, justification=centering, labelsep=period, position=above}
     \caption{Dispersão entre cc3 (t5-t3) e t5 - Coeficiente de Spearman: 0.81}
     \label{fig:cc3-t5}
     \centering
-    \includegraphics[scale=0.5]{figuras/Spearman/cc3-t5.pdf}
+    \includegraphics[scale=0.4]{figuras/Spearman/cc3-t5.pdf}
     \vspace{0.3cm} 
     \begin{minipage}{\linewidth}
         \centering
@@ -469,14 +466,14 @@ A correlação com \textbf{t2 (0.15)} é fraca e positiva, sugerindo que pequena
 \end{figure}
 \FloatBarrier
 
-A correlação entre o intervalo \textbf{t5-t3 (representado por cc3)} e o intervalo \textbf{t5-t2 (0.90)} é extremamente forte e positiva, \textbf{sugerindo que o comportamento de cc3 está fortemente ligado ao intervalo t5-t2}. Isso corrobora a noção de que as alterações de t5 em relação a outras variáveis temporais, como t2, têm um impacto significativo em cc3. Portanto, o intervalo t5-t2 pode ser um indicador relevante para prever o comportamento de cc3, indicando que \textbf{a evolução do embrião entre os estágios t5 e t2 desempenha um papel relevante no comportamento de cc3 (t5-t3)}. Isso indica que alterações nesse intervalo temporal afetam significativamente a diferença de tempo entre os estágios t5 e t3. 
+A correlação entre o intervalo \textit{t5-t3 (representado por cc3)} e o intervalo \textit{t5-t2 (0.90)} é extremamente forte e positiva como pode ser visto na figura \ref{fig:cc3-t5-t2}, \textbf{sugerindo que o comportamento de cc3 está fortemente ligado ao intervalo t5-t2}. Isso corrobora a noção de que as alterações de t5 em relação a outras variáveis temporais, como t2, têm um impacto significativo em cc3. Portanto, o intervalo t5-t2 pode ser um indicador relevante para prever o comportamento de cc3, indicando que \textbf{a evolução do embrião entre os estágios t5 e t2 desempenha um papel relevante no comportamento de cc3 (t5-t3)}. Isso indica que alterações nesse intervalo temporal afetam significativamente a diferença de tempo entre os estágios t5 e t3. 
 
 \begin{figure}[h]
     \captionsetup{font=footnotesize, justification=centering, labelsep=period, position=above}
     \caption{Dispersão entre cc3 (t5-t3) e t5-t2 - Coeficiente de Spearman: 0.81}
     \label{fig:cc3-t5-t2}
     \centering
-    \includegraphics[scale=0.5]{figuras/Spearman/cc3-t5-t2.pdf}
+    \includegraphics[scale=0.4]{figuras/Spearman/cc3-t5-t2.pdf}
     \vspace{0.3cm} 
     \begin{minipage}{\linewidth}
         \centering
@@ -485,39 +482,39 @@ A correlação entre o intervalo \textbf{t5-t3 (representado por cc3)} e o inter
 \end{figure}
 \FloatBarrier
 
-A correlação entre cc3 e o intervalo \textbf{s3 (-0.36)} é moderada e negativa, sugerindo que \textbf{conforme s3 se eleva, a tendência é que cc3 diminua}. Esta correlação indica que um \textbf{aumento no intervalo entre t8 e t5 pode estar inversamente ligado a alterações em cc3}, o que poderia indicar um comportamento de compensação entre as variáveis. Ao estender o tempo entre os estágios t8 e t5, pode haver uma diminuição no comportamento observado em cc3 (t5-t3), indicando uma interação entre esses momentos de desenvolvimento do embrião.
+A correlação entre cc3 e o intervalo \textit{s3 (-0.36)} é moderada e negativa, sugerindo que conforme s3 se eleva, a tendência é que cc3 diminua. Esta correlação indica que um \textbf{aumento no intervalo entre t8 e t5 pode estar inversamente ligado a alterações em cc3}, o que poderia indicar um comportamento de compensação entre as variáveis. Ao estender o tempo entre os estágios t8 e t5, pode haver uma diminuição no comportamento observado em cc3 (t5-t3), indicando uma interação entre esses momentos de desenvolvimento do embrião.
 
-A correlação de cc3 com a \textbf{Ploidia (-0.281)} é bastante elevada quando comparada a outras variáveis, como a correlação de Ploidia com t2 (-0.075) ou t5 (-0.237). Isso sugere que \textbf{cc3 exerce uma influência moderada e negativa sobre a Ploidia, indicando que alterações na cc3 podem ter um impacto mais relevante sobre a ploidia do que em outras variáveis temporais}. Este efeito adverso indica que alterações em cc3 estão ligadas a uma diminuição no valor da ploidia. No entanto, \textbf{a correlação entre cc3 e Ploidia é evidente}, indicando uma influência mais significativa em relação a outras variáveis temporais.
+A correlação de cc3 com a \textit{Ploidia (-0.281)} é bastante elevada quando comparada a outras variáveis, como a correlação de Ploidia com t2 (-0.075) ou t5 (-0.237). Isso sugere que \textbf{cc3 exerce uma influência moderada e negativa sobre a Ploidia, indicando que alterações na cc3 podem ter um impacto mais relevante sobre a ploidia do que em outras variáveis temporais}. Este efeito adverso indica que alterações em cc3 estão ligadas a uma diminuição no valor da ploidia. No entanto, \textbf{a correlação entre cc3 e Ploidia é evidente}, indicando uma influência mais significativa em relação a outras variáveis temporais.
 
 \subsection*{t5-t2}
-A correlação com \textbf{Morfo (-0.38)} é moderadamente negativa, sugerindo que, conforme o valor de Morfo cresce, o intervalo t5-t2 tende a se estreitar. Isso indica que \textbf{as características morfológicas do embrião podem influenciar o comportamento temporal entre os estágios t5 e t2}, possivelmente indicando um desenvolvimento mais devagar ou desordenado conforme as características morfológicas se modificam.
+A correlação com \textit{Morfo (-0.38)} é moderadamente negativa, sugerindo que, conforme o valor de Morfo cresce, o intervalo t5-t2 tende a se estreitar. Isso indica que \textbf{as características morfológicas do embrião podem influenciar o comportamento temporal entre os estágios t5 e t2}, possivelmente indicando um desenvolvimento mais devagar ou desordenado conforme as características morfológicas se modificam.
 
-Com \textbf{t2 (0.21)}, a correlação é fraca e positiva, sugerindo uma pequena ligação entre o crescimento de t2 e o intervalo t5-t2, porém essa relação é pouco relevante. Com \textbf{t3 (0.51)}, a correlação é moderada e positiva, sugerindo uma correlação mais intensa entre os intervalos temporais dos estágios t5 e t3. A correlação com \textbf{t4 (0.39)} também é moderada e positiva, embora um pouco menos intensa que com t3, sugerindo que t4 também afeta o intervalo entre t5 e t2, porém em uma escala menor. Com \textbf{t5 (0.92)}, a correlação é extremamente intensa e positiva, sinalizando que \textbf{o período entre t5 e t2 está fortemente ligado ao tempo de t5. Isso é esperado, pois t5 representa o término desse intervalo}. A correlação robusta indica que \textbf{alterações em t5 afetam consideravelmente o intervalo entre t5 e t2}. A correlação com \textbf{t8 (0.45)} é positiva e moderada, indicando uma conexão entre t8 e o intervalo t5-t2, embora não seja tão intensa quanto com t5.
+Com \textit{t2 (0.21)}, a correlação é fraca e positiva, sugerindo uma pequena ligação entre o crescimento de t2 e o intervalo t5-t2, porém essa relação é pouco relevante. Com \textit{t3 (0.51)}, a correlação é moderada e positiva, sugerindo uma correlação mais intensa entre os intervalos temporais dos estágios t5 e t3. A correlação com \textit{t4 (0.39)} também é moderada e positiva, embora um pouco menos intensa que com t3, sugerindo que t4 também afeta o intervalo entre t5 e t2, porém em uma escala menor. Com \textit{t5 (0.92)}, a correlação é extremamente intensa e positiva, sinalizando que \textbf{o período entre t5 e t2 está fortemente ligado ao tempo de t5. Isso é esperado, pois t5 representa o término desse intervalo}. A correlação robusta indica que \textbf{alterações em t5 afetam consideravelmente o intervalo entre t5 e t2}. A correlação com \textit{t8 (0.45)} é positiva e moderada, indicando uma conexão entre t8 e o intervalo t5-t2, embora não seja tão intensa quanto com t5.
 
-Com \textbf{tSB (0.40) e tB (0.37)}, as correlações são moderadas e positivas, indicando que \textbf{a mudança nos tempos tSB e tB também afeta o intervalo entre t5 e t2}. No caso de \textbf{s3 (indicado por t8-t5, -0.41)}, a correlação é moderada e negativa, indicando que, \textbf{conforme o intervalo t8-t5 cresce, o intervalo t5-t2 tende a se reduzir, indicando um possível comportamento compensatório entre os dois períodos de tempo}.
+Com \textit{tSB (0.40) e tB (0.37)}, as correlações são moderadas e positivas, indicando que \textbf{a mudança nos tempos tSB e tB também afeta o intervalo entre t5 e t2}. No caso de \textit{s3 (indicado por t8-t5, -0.41)}, a correlação é moderada e negativa, indicando que, \textbf{conforme o intervalo t8-t5 cresce, o intervalo t5-t2 tende a se reduzir, indicando um possível comportamento compensatório entre os dois períodos de tempo}.
 
 O coeficiente de correlação de \textbf{Ploidia (-0.23)} com t5-t2 é moderado e negativo, sugerindo \textbf{uma relação inversa entre as alterações na ploidia e o intervalo entre t5 e t2}. Isso indica que, \textbf{conforme t5-t2 evolui, a ploidia tende a se reduzir, indicando uma possível restrição da ploidia no comportamento temporal entre esses estágios}. 
 
 \subsection*{s2 (t4-t3)}
-A correlação com \textbf{t3 (-0.22)} é moderada e negativa, sugerindo que \textbf{conforme o valor de t3 cresce, a distância s2 (t4-t3) tende a se afilar}. Isso indica que uma alteração no tempo t3 pode diminuir a distância entre t4 e t3, sugerindo que as alterações no tempo t3 estão um pouco inversamente ligadas a esse intervalo. A correlação de \textbf{t4 (0.16)} é fraca e positiva, indicando uma \textbf{pequena ligação entre o aumento de t4 e o intervalo s2 (t4-t3)}. 
+A correlação com \textit{t3 (-0.22)} é moderada e negativa, sugerindo que conforme o valor de t3 cresce, a distância s2 (t4-t3) tende a se afilar. Isso indica que uma alteração no tempo t3 pode diminuir a distância entre t4 e t3, sugerindo que as alterações no tempo t3 estão um pouco inversamente ligadas a esse intervalo. A correlação de \textit{t4 (0.16)} é fraca e positiva, indicando uma pequena ligação entre o aumento de t4 e o intervalo s2 (t4-t3). 
 
-A correlação com \textbf{cc2 (t3-t2) (-0.21)} é moderada e negativa. Isso pode sugerir uma \textbf{relação inversa entre o comportamento temporal dos intervalos t4-t3 e t3-t2}, com alterações em cc2 impactando negativamente o intervalo s2, possivelmente por causa de um comportamento mais rápido no começo do desenvolvimento do embrião.
+A correlação com \textit{cc2 (t3-t2) (-0.21)} é moderada e negativa. Isso pode sugerir uma relação inversa entre o comportamento temporal dos intervalos t4-t3 e t3-t2, com alterações em cc2 impactando negativamente o intervalo s2, possivelmente por causa de um comportamento mais rápido no começo do desenvolvimento do embrião.
 
-Com uma correlação moderada e positiva de \textbf{s3 (t8-t5) (0.25)}, indica que um \textbf{crescimento no intervalo s3 está ligado a um crescimento no intervalo s2}. Isso pode sugerir que \textbf{o aumento do intervalo entre t8 e t5 está ligado ao aumento do intervalo entre t4 e t3}, o que pode representar uma compensação nos tempos entre as diversas fases do embrião.
+Com uma correlação moderada e positiva de \textit{s3 (t8-t5) (0.25)}, indica que um crescimento no intervalo s3 está ligado a um crescimento no intervalo s2. Isso pode sugerir que \textbf{o aumento do intervalo entre t8 e t5 está ligado ao aumento do intervalo entre t4 e t3}, o que pode representar uma compensação nos tempos entre as diversas fases do embrião.
 
-A correlação com \textbf{Ploidia (0.11)} é leve e positiva, sugerindo que alterações em s2 exercem um efeito levemente positivo na ploidia. Apesar do efeito ser mínimo, ele propõe que \textbf{uma alteração em s2 pode levar a uma pequena alteração na ploidia}.
+A correlação com \textit{Ploidia (0.11)} é leve e positiva, sugerindo que alterações em s2 exercem um efeito levemente positivo na ploidia. Apesar do efeito ser mínimo, ele propõe que \textbf{uma alteração em s2 pode levar a uma pequena alteração na ploidia}.
 
 \subsection*{s3 (t8-t5)}
-A correlação com \textbf{t5 (-0.39)} é moderada e negativa. Isso indica que \textbf{o período entre t8 e t5 diminui à medida que o estágio t5 progride, sugerindo que uma elevação em t5 pode levar a uma aceleração do progresso}, reduzindo o intervalo subsequente até t8. 
+A correlação com \textit{t5 (-0.39)} é moderada e negativa. Isso indica que \textbf{o período entre t8 e t5 diminui à medida que o estágio t5 progride, sugerindo que uma elevação em t5 pode levar a uma aceleração do progresso}, reduzindo o intervalo subsequente até t8. 
 
-Com \textbf{t8 (0.48)}, a correlação é positiva e moderada mais alta que t5, indicando que, \textbf{conforme t8 se eleva, o intervalo s3 também tende a se expandir}. Isso sugere que um aumento no intervalo de tempo entre t8 e t5 está ligado a um incremento no valor de t8, sinalizando um processo de evolução mais extenso ou mais lento em comparação com outros intervalos. \textbf{Este resultado indica que, conforme o embrião se aproxima do estágio t8, o período de tempo entre os estágios t8 e t5 aumenta}, assim demonstrado no gráfico abaixo, em que s3 está em ver claro. 
+Com \textit{t8 (0.48)} na Figura \ref{fig:s3-t8}, a correlação é positiva e moderada mais alta que t5, indicando que, conforme t8 se eleva, o intervalo s3 também tende a se expandir. Isso sugere que um aumento no intervalo de tempo entre t8 e t5 está ligado a um incremento no valor de t8, sinalizando um processo de evolução mais extenso ou mais lento em comparação com outros intervalos. \textbf{Este resultado indica que, conforme o embrião se aproxima do estágio t8, o período de tempo entre os estágios t8 e t5 aumenta}, assim demonstrado no gráfico abaixo, em que s3 está em ver claro. 
 
 \begin{figure}[h]
     \captionsetup{font=footnotesize, justification=centering, labelsep=period, position=above}
     \caption{Dispersão entre s3 (t8-t5) e t8 - Coeficiente de Spearman: 0.48}
     \label{fig:s3-t8}
     \centering
-    \includegraphics[scale=0.5]{figuras/Spearman/s3-t8.pdf}
+    \includegraphics[scale=0.4]{figuras/Spearman/s3-t8.pdf}
     \vspace{0.3cm} 
     \begin{minipage}{\linewidth}
         \centering
@@ -526,33 +523,33 @@ Com \textbf{t8 (0.48)}, a correlação é positiva e moderada mais alta que t5, 
 \end{figure}
 \FloatBarrier
 
-A correlação com \textbf{cc3 (t5-t3) (-0.36)} é moderada e negativa. Este efeito indica que \textbf{uma extensão prolongada entre t5 e t3 pode estar ligada a uma diminuição no tempo entre t8 e t5}, sugerindo que \textbf{o progresso no período intermediário (t5-t3) pode impactar diretamente os estágios finais}, acelerando o período entre t5 e t8.
+A correlação com \textit{cc3 (t5-t3) (-0.36)} é moderada e negativa. Este efeito indica que uma extensão prolongada entre t5 e t3 pode estar ligada a uma diminuição no tempo entre t8 e t5, sugerindo que \textbf{o progresso no período intermediário (t5-t3) pode impactar diretamente os estágios finais}, acelerando o período entre t5 e t8.
 
-A correlação com \textbf{tSC-t8 (-0.35)} é moderada e negativa. Isso indica uma \textbf{relação de compensação entre as fases intermediárias e finais do desenvolvimento embrionário}, onde o tempo entre tSC e t8 diminui, enquanto o tempo entre t8 e t5 aumenta.
+A correlação com \textit{tSC-t8 (-0.35)} é moderada e negativa. Isso indica uma \textbf{relação de compensação entre as fases intermediárias e finais do desenvolvimento embrionário}, onde o tempo entre tSC e t8 diminui, enquanto o tempo entre t8 e t5 aumenta.
 
-Finalmente, a correlação com a \textbf{Ploidia (0.25)} é moderada e positiva, indicando que, \textbf{conforme a ploidia cresce, o intervalo s3 (t8-t5) também tende a se expandir}. Este efeito pode sugerir que a \textbf{aneuploidia está ligado a uma diminuição no tempo de desenvolvimento, estendendo o intervalo entre t8 e t5}. Este comportamento pode indicar variações no crescimento celular devido à composição genética do embrião, onde \textbf{aneuploidias podem resultar em um desenvolvimento mais lento}.
+Finalmente, a correlação com a \textit{Ploidia (0.25)} é moderada e positiva, indicando que, conforme a ploidia cresce, o intervalo s3 (t8-t5) também tende a se expandir. Este efeito pode sugerir que a \textbf{aneuploidia está ligado a uma diminuição no tempo de desenvolvimento, estendendo o intervalo entre t8 e t5}. Este comportamento pode indicar variações no crescimento celular devido à composição genética do embrião, onde \textbf{aneuploidias podem resultar em um desenvolvimento mais lento}.
 
 \subsection*{tSC-t8}
-A relação com \textbf{t8 (-0.29)} é moderadamente negativa sugere que, \textbf{conforme o intervalo de tempo entre tSC e t8 cresce, o tempo de t8 também tende a crescer}. Este resultado indica que,\textbf{ ao aumentar o intervalo entre tSC e t8, pode ocorrer uma diminuição na velocidade do desenvolvimento embrionário entre tSC e t8, estendendo o período até t8}. Isso pode indicar uma etapa de crescimento mais lenta ou prolongada, influenciando o ritmo geral de avanço do embrião.
+A relação com \textit{t8 (-0.29)} é moderadamente negativa sugere que, conforme o intervalo de tempo entre tSC e t8 cresce, o tempo de t8 também tende a crescer. Este resultado indica que,\textbf{ ao aumentar o intervalo entre tSC e t8, pode ocorrer uma diminuição na velocidade do desenvolvimento embrionário entre tSC e t8, estendendo o período até t8}. Isso pode indicar uma etapa de crescimento mais lenta ou prolongada, influenciando o ritmo geral de avanço do embrião.
 
-A correlação com \textbf{tSC (0.70)} é forte e positiva, que indica que o intervalo tSC-t8 tem uma ligação direta com o intervalo tSC. \textbf{Conforme o intervalo de tempo entre tSC e t8 se amplia, o intervalo tSC também tende a se expandir}. Isso mostra uma relação em que o começo do estágio tSC afeta diretamente o tempo entre tSC e t8, indicando que um intervalo mais extenso entre tSC e t8 pode ser parcialmente determinado pela duração do estágio tSC em si. \textbf{Este efeito indica uma relação temporal na qual o estágio tSC desempenha um papel significativo no progresso do embrião no período subsequente até t8}.
+A correlação com \textit{tSC (0.70)} é forte e positiva, que indica que o intervalo tSC-t8 tem uma ligação direta com o intervalo tSC. \textbf{Conforme o intervalo de tempo entre tSC e t8 se amplia, o intervalo tSC também tende a se expandir}. Isso mostra uma relação em que o começo do estágio tSC afeta diretamente o tempo entre tSC e t8, indicando que um intervalo mais extenso entre tSC e t8 pode ser parcialmente determinado pela duração do estágio tSC em si. \textbf{Este efeito indica uma relação temporal na qual o estágio tSC desempenha um papel significativo no progresso do embrião no período subsequente até t8}.
 
-Em \textbf{tSB (0.44)}, a correlação é moderadamente positiva e sugere que, \textbf{conforme o intervalo tSB se amplia, o intervalo tSC-t8 também tende a crescer}. Isso pode sugerir que o período entre tSB e tSC pode estar ligado a um prolongamento até t8, o que poderia sinalizar a continuidade do desenvolvimento embrionário em um estágio mais prolongado. Este resultado indica que\textbf{ um período mais extenso entre tSB e tSC pode se estender até o intervalo tSC-t8, estendendo o processo}.
+Em \textit{tSB (0.44)}, a correlação é moderadamente positiva e sugere que, conforme o intervalo tSB se amplia, o intervalo tSC-t8 também tende a crescer. Isso pode sugerir que o período entre tSB e tSC pode estar ligado a um prolongamento até t8, o que poderia sinalizar a continuidade do desenvolvimento embrionário em um estágio mais prolongado. Este resultado indica que\textbf{ um período mais extenso entre tSB e tSC pode se estender até o intervalo tSC-t8, estendendo o processo}.
 
-A correlação de \textbf{tB-tSB (0.20)} é positiva e indica que \textbf{um crescimento no intervalo entre tB e tSB pode estar estreitamente ligado a um crescimento no intervalo tSC-t8}. Isso indica que o avanço do desenvolvimento embrionário de tB para tSB pode afetar o intervalo de tempo entre tSC e t8, embora não de maneira tão marcante.
+A correlação de \textit{tB-tSB (0.20)} é positiva e indica que um crescimento no intervalo entre tB e tSB pode estar estreitamente ligado a um crescimento no intervalo tSC-t8. Isso indica que o avanço do desenvolvimento embrionário de tB para tSB pode afetar o intervalo de tempo entre tSC e t8, embora não de maneira tão marcante.
 
-A correlação muito tênue \textbf{(0.04)} e positiva sugere que Ploidia exerce uma influência mínima no intervalo tSC-t8. 
+A correlação muito tênue \textit{(0.04)} e positiva sugere que Ploidia exerce uma influência mínima no intervalo tSC-t8. 
 
 \subsection*{tB-tSB}
-A correlação com a \textbf{Idade (0.20)} sendo positiva e fraca indica que, conforme a idade avança, o intervalo tB-tSB também tende a crescer, mesmo que de maneira sutil. Isso pode sugerir que a idade da paciente pode ter um pequeno impacto no desenvolvimento embrionário, possivelmente indicando uma variação no ritmo de desenvolvimento.
+A correlação com a \textit{Idade (0.20)} sendo positiva e fraca indica que, conforme a idade avança, o intervalo tB-tSB também tende a crescer, mesmo que de maneira sutil. Isso pode sugerir que a idade da paciente pode ter um pequeno impacto no desenvolvimento embrionário, possivelmente indicando uma variação no ritmo de desenvolvimento.
 
-A correlação moderadamente positiva do \textbf{Estágio (0.38)} indica que, \textbf{conforme o estágio de desenvolvimento progride, o intervalo tB-tSB tende a se estender}. Este efeito sugere que fases mais avançadas do desenvolvimento embrionário podem estar ligadas a um prolongamento no intervalo entre tB e tSB, o que pode indicar um avanço mais lento ou um intervalo mais extenso entre os eventos celulares que caracterizam tais fases.
+A correlação moderadamente positiva do \textit{Estágio (0.38)} indica que, conforme o estágio de desenvolvimento progride, o intervalo tB-tSB tende a se estender. Este efeito sugere que \textbf{fases mais avançadas do desenvolvimento embrionário podem estar ligadas a um prolongamento no intervalo entre tB e tSB}, o que pode indicar um avanço mais lento ou um intervalo mais extenso entre os eventos celulares que caracterizam tais fases.
 
-A correlação moderadamente positiva de \textbf{tB (0.38)} indica que, \textbf{conforme o intervalo tB se amplia, o intervalo tB-tSB também tende a se expandir}. Isso é coerente, já que \textbf{o período tB é um estágio inicial do desenvolvimento embrionário, e sua duração pode impactar diretamente o tempo até o estágio seguinte}, o tSB, impactando a evolução do desenvolvimento embrionário. Uma maior extensão do tB geralmente indica um período mais extenso até o tSB.
+A correlação moderadamente positiva de \textit{tB (0.38)} indica que, conforme o intervalo tB se amplia, o intervalo tB-tSB também tende a se expandir. Isso é coerente, já que \textbf{o período tB é um estágio inicial do desenvolvimento embrionário, e sua duração pode impactar diretamente o tempo até o estágio seguinte}, o tSB, impactando a evolução do desenvolvimento embrionário. Uma maior extensão do tB geralmente indica um período mais extenso até o tSB.
 
-A correlação de \textbf{tSC-t8 (0.20)} é fraca e positiva correlação sugere uma pequena ligação entre o intervalo tB-tSB e o intervalo tSC-t8. Isso indica que alterações no intervalo tB-tSB podem estar ligadas a alterações no tempo entre tSC e t8, mesmo que essa conexão seja restrita. 
+A correlação de \textit{tSC-t8 (0.20)} é fraca e positiva correlação sugere uma pequena ligação entre o intervalo tB-tSB e o intervalo tSC-t8. Isso indica que alterações no intervalo tB-tSB podem estar ligadas a alterações no tempo entre tSC e t8, mesmo que essa conexão seja restrita. 
 
-A correlação com \textbf{Ploidia (-0.284)} exerce um efeito significativo, visto que \textbf{é a segunda correlação de maior magnitude entre as variáveis examinadas}. Desempenha um papel significativo, uma vez que indica que a qualidade genética do embrião, avaliada por tB e tSB, pode impactar diretamente a ploidia. Isso pode ser interpretado como um sinal de que \textbf{embriões com predisposições genéticas mais favoráveis, tais como ploidia euploide ou mosaico de baixo grau, podem exibir um ritmo acelerado de desenvolvimento, evidenciado pelo intervalo mais breve entre essas fases cruciais do seu desenvolvimento}. Essa correlação negativa sugere que a qualidade genética não só afeta a saúde do embrião, mas também pode influenciar a temporização dos eventos celulares. 
+A correlação com \textit{Ploidia (-0.284)} exerce um efeito significativo, visto que \textbf{é a segunda correlação de maior magnitude entre as variáveis examinadas}. Desempenha um papel significativo, uma vez que indica que a qualidade genética do embrião, avaliada por tB e tSB, pode impactar diretamente a ploidia. Isso pode ser interpretado como um sinal de que \textbf{embriões com predisposições genéticas mais favoráveis, tais como ploidia euploide ou mosaico de baixo grau, podem exibir um ritmo acelerado de desenvolvimento, evidenciado pelo intervalo mais breve entre essas fases cruciais do seu desenvolvimento}. Essa correlação negativa sugere que a qualidade genética não só afeta a saúde do embrião, mas também pode influenciar a temporização dos eventos celulares. 
 
 \subsection*{Ploidia}
 A avaliação das variáveis relacionadas à ploidia indica que \textbf{a idade materna tem o maior efeito na qualidade genética do embrião}. A idade materna, \textbf{com uma correlação de -0,50}, apresenta uma correlação inversa significativa com a ploidia. Isso significa que, \textbf{conforme a mulher envelhece, a quantidade de embriões euploides diminui, o que indica um crescimento na taxa de aneuploidia}. Isso está alinhado com o que a literatura já aponta sobre o impacto do envelhecimento materno na qualidade genética dos embriões, onde embriões de mulheres mais idosas têm maior probabilidade de conter erros cromossômicos. Assim, a idade materna é um elemento crucial na avaliação da ploidia embrionária e deve ser levada em conta em procedimentos de fertilização in vitro.
@@ -651,23 +648,49 @@ A distribuição dos dados foi feita por meio de um programa Python, apresentado
 Foi utilizado um gerador pseudoaleatório controlado pelo parâmetro \texttt{random\_state} para embaralhar os dados, assegurando a reprodutibilidade dos resultados.
 
 \subsection*{Arquivos Gerados}
-Os conjuntos de dados foram convertidos em arquivos Excel, cada um denominado conforme sua função. Cada subconjunto reflete a diversidade presente no conjunto original e o embaralhamento garante que os subconjuntos não compartilhem padrões específicos devido à ordenação prévia dos dados. Caso haja a vontade de ver esses documentos, siga os passos descritos da “Atividade 4” no GitHub do nosso projeto: GitHub-TCC, executando o código, se obtém todos os arquivos. Os arquivos produzidos incluem:
+Os conjuntos de dados foram convertidos em arquivos Excel, cada um denominado conforme sua função. Cada subconjunto reflete a diversidade presente no conjunto original e o embaralhamento garante que os subconjuntos não compartilhem padrões específicos devido à ordenação prévia dos dados. Caso haja a vontade de ver esses documentos, siga os passos descritos da “Atividade 4” no GitHub do nosso projeto: \href{https://github.com/sabrinaberno/TCC1}{GitHub-TCC}, executando o código, se obtém todos os arquivos. Os arquivos produzidos incluem as figuras \ref{fig:dados-treinamento}, \ref{fig:dados-validacao} e \ref{fig:dados-teste}.
 
+    \begin{figure}[h]
+        \captionsetup{font=footnotesize, justification=centering, labelsep=period, position=above}
+        \caption{Conjunto de Treinamento: dados\_treinamento.xlsx}
+        \label{fig:dados-treinamento}
+        \centering
+        \includegraphics[scale=0.45]{figuras/dadosTreinamento.pdf}
+        \vspace{0.3cm} 
+        \begin{minipage}{\linewidth}
+            \centering
+            \scriptsize{Fonte: Autoras (2025)}
+        \end{minipage}
+    \end{figure}
+    \FloatBarrier
 
-\begin{itemize}
-    \item \textbf{Conjunto de Treinamento:} dados\_treinamento.xlsx
+    \begin{figure}[h]
+        \captionsetup{font=footnotesize, justification=centering, labelsep=period, position=above}
+        \caption{Conjunto de Validação: dados\_validacao.xlsx}
+        \label{fig:dados-validacao}
+        \centering
+        \includegraphics[scale=0.45]{figuras/dadosValidacao.pdf}
+        \vspace{0.3cm} 
+        \begin{minipage}{\linewidth}
+            \centering
+            \scriptsize{Fonte: Autoras (2025)}
+        \end{minipage}
+    \end{figure}
+    \FloatBarrier
 
-    %%PLANILHA
-
-    \item \textbf{Conjunto de Validação:} dados\_validacao.xlsx
-
-    %%PLANILHA
-
-
-    \item \textbf{Conjunto de Teste:} dados\_teste.xlsx
-
-    %%PLANILHA
-\end{itemize}
+    \begin{figure}[h]
+        \captionsetup{font=footnotesize, justification=centering, labelsep=period, position=above}
+        \caption{Conjunto de Teste: dados\_teste.xlsx}
+        \label{fig:dados-teste}
+        \centering
+        \includegraphics[scale=0.45]{figuras/dadosTeste.pdf}
+        \vspace{0.3cm} 
+        \begin{minipage}{\linewidth}
+            \centering
+            \scriptsize{Fonte: Autoras (2025)}
+        \end{minipage}
+    \end{figure}
+    \FloatBarrier
 
 O documento \texttt{“dados\_treinamento.xlsx”} será o único empregado nas próxima fase da atividade, de aumento de dados, para evitar interferências ruins na criação e desempenho do modelo de aprendizado de máquina \cite{kiar2021}
 
@@ -676,7 +699,7 @@ A utilização da técnica de ampliação de dados (data augmentation) através 
 
 Depois de executar o código apresentado e explicado na Atividade 4, a quantidade de dados de treinamento foi triplicada, de acordo com o fator de ampliação estabelecido em 3, utilizado em situações onde o conjunto de dados inicial é extremamente pequeno. O programa produziu novos valores numéricos através da distribuição normal, usando a média e o desvio padrão das colunas originais, assegurando que os novos valores preservassem as propriedades estatísticas do conjunto original. Por outro lado, as colunas categóricas tiveram seus valores replicados de forma aleatória, mantendo as proporções originais e a disposição das categorias. 
 
-Esta operação resultou na geração de 228 linhas, o que equivale a três vezes o total de linhas existentes no conjunto de dados. Se desejar acessar esse documento, basta seguir as instruções da "Atividade 4" no GitHub do nosso projeto: GitHub-TCC. O conjunto ampliado de dados foi guardado em um novo documento Excel, denominado \texttt{dados\_treinamento\_aumentado.xlsx}, pronto para ser aplicado em fases subsequentes do trabalho. 
+Esta operação resultou na geração de 228 linhas, o que equivale a três vezes o total de linhas existentes no conjunto de dados. Se desejar acessar esse documento, basta seguir as instruções da "Atividade 4" no GitHub do nosso projeto: \href{https://github.com/sabrinaberno/TCC1}{GitHub-TCC}. O conjunto ampliado de dados foi guardado em um novo documento Excel, denominado \texttt{dados\_treinamento\_aumentado.xlsx}, pronto para ser aplicado em fases subsequentes do trabalho. 
 
 Assim, a implementação do procedimento de ampliação de dados levou à formação de um conjunto de dados de treinamento ampliado, preservando as características estatísticas e a consistência das distribuições originais, enquanto ampliava a variedade e a quantidade de exemplos disponíveis para o treinamento do modelo. Isso garantiu um fundamento de treinamento mais robusto, auxiliando na conquista de melhores resultados no modelo preditivo.
 

@@ -9,9 +9,6 @@
 #logs
 *.log
 
-#PDFs
-*.pdf
-
 *.lof
 *.lot
 *.bbl
@@ -19,3 +16,5 @@
 *.brf
 *.toc
 *.idx
+
+*.eps
