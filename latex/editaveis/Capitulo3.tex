@@ -8,34 +8,21 @@ Em relação à natureza desta pesquisa, trata-se de uma pesquisa aplicada. Temo
 
 Com esta pesquisa, a aplicação do modelo de IA tem a potencialidade de melhorar os sucessos dos tratamentos de FIV, fazendo o processo de seleção embrionária mais eficaz, menos invasivo e mais acessível a um maior número de pessoas.
 
-Assim sendo, ao focar na resolução do problema apresentado com o uso de tecnologia, essa pesquisa representa claramente a natureza aplicada, visto que com os conhecimentos científicos e tecnológicos, pretendemos trazer novos insights para a medicina reprodutiva. 
-
 \subsection{Método ou Abordagem Metodológica}
 
 A metodologia ou abordagem metodológica dessa pesquisa é quantitativa \cite{nascimento2016}. Nosso foco é a análise dos dados numéricos referentes aos padrões morfocinéticos de embriões. Esses dados serão utilizados para o desenvolvimento da IA, que será capaz de prever a porcentagem de euploidia, auxiliando na seleção de embriões com maior possibilidade de saúde genética.
-
-A escolha da abordagem quantitativa se dá a: 
-
-\begin{itemize}
-  \item \textbf{Objetividade:} A pesquisa contém a análise de dados expressos em números, como por exemplo o tempo de divisão celular e outros indicadores obtidos pelo TLS. Os dados vão ser analisados para certificar maior consistência e precisão nos resultados.
-  \item \textbf{Correlação:} Com a utilização do modelo de IA, exige-se a identificação da correlação entre todas as variáveis numéricas existentes entre os dados e os seus pesos para interferir no sucesso do procedimento. 
-\end{itemize}
 
 Escolher a abordagem quantitativa nos ajudará a atingir os objetivos desta pesquisa, permitindo explorar e validar os dados com precisão, oferecendo resultados objetivos. 
 
 \subsection{Objetivos}
 
-Quanto aos objetivos, o objetivo desta pesquisa é exploratório. Este trabalho procura identificar e investigar padrões em dados morfocinéticos de embriões, usando o TLS, explorando a possibilidade de realizar essa predição juntamente com as tecnologias de IA.
+Quanto aos objetivos, o objetivo desta pesquisa é exploratório \cite{nascimento2016}. Este trabalho procura identificar e investigar padrões em dados morfocinéticos de embriões, usando o TLS, explorando a possibilidade de realizar essa predição juntamente com as tecnologias de IA.
 
 Ao focar na concepção de um modelo que terá a capacidade de identificar padrões nos dados,exploraremos a relação entre esses dados e a importância de cada padrão para o resultado desejado, compreendendo os fatores que influenciam a saúde genética dos embriões, mas sem um conhecimento prévio estabelecido que explique completamente essas relações.
 
-Com o desenvolvimento do modelo de predição, propomos fornecer uma opção para a seleção embrionária, em que sua criação e validação iniciam de uma exploração de dados. Assim, a justificativa para o objetivo exploratório é pela tentativa de explorar os dados obtidos pelo TLS, sem partir de um conjunto de dados que já possui pesos e importâncias pré-definidos. 
-
 \subsection{Procedimentos De Pesquisa}
 
-O procedimento adotado neste trabalho é experimental. Definimos este procedimento por causa do objetivo de investigar as relações entre as variáveis, o que é uma característica da pesquisa experimental. Buscamos estabelecer uma relação de causa e efeito entre as características morfocinéticas dos embriões, mais especificamente a porcentagem de euploidia.
-
-Por definição, a pesquisa experimental tem o foco na observação e controle de variáveis para averiguar o impacto de uma ou mais delas sobre uma variável dependente, segundo \citeonline{nascimento2016}. No caso desta pesquisa, trabalhamos com dados já existentes dos embriões, mas o nosso objetivo principal é relacionar esses dados, entender seus pesos e investigar como essas variáveis influenciam para predizer a porcentagem de euploidia, realizando uma análise causal entre os dados. 
+O procedimento adotado neste trabalho é experimental. Definimos este procedimento por causa do objetivo de investigar as relações entre as variáveis, o que é uma característica da pesquisa experimental \cite{nascimento2016}. Buscamos estabelecer uma relação de causa e efeito entre as características morfocinéticas dos embriões, mais especificamente a porcentagem de euploidia.
 
 \section{Design da Pesquisa}
 
@@ -78,7 +65,7 @@ Nas seções a seguir, demonstraremos os objetivos de cada fase, mostrando suas 
       \textcolor[HTML]{133E78}{\textbf{Atividade 1 (A1)}} \newline
       Análise, Revisão e Seleção de Variáveis para Predição de Euploidia &
       - Pesquisa bibliográfica \newline
-      - Entrevista com Especialista \newline
+
       - Python - Biblioteca Pandas &
       - Analisar, Revisar e Selecionar as variáveis \newline
       - Limpeza dos dados \\
@@ -87,17 +74,17 @@ Nas seções a seguir, demonstraremos os objetivos de cada fase, mostrando suas 
 
       \cellcolor[HTML]{133e78} & 
       \textcolor[HTML]{133E78}{\textbf{Atividade 2 (A2)}} \newline
-      Identificação da Correlação e Atribuição de Pesos aos Parâmetros na Previsão da Ploidia do Embrião &
-      - Coeficiente de correlação de Spearman &
-      - Análise das correlações entre variáveis pelo Gráfico de dispersão \\
+      Normalização dos Dados para Otimização &
+      - Z-Score &
+      - Normalização das variáveis numéricas \\
 
       \cline{2-4}
 
       \cellcolor[HTML]{133e78} & 
       \textcolor[HTML]{133E78}{\textbf{Atividade 3 (A3)}} \newline
-      Normalização dos Dados para Otimização &
-      - Z-Score &
-      - Normalização das variáveis numéricas \\
+      Identificação da Correlação e Atribuição de Pesos aos Parâmetros na Previsão da Ploidia do Embrião &
+      - Coeficiente de correlação de Spearman &
+      - Análise das correlações entre variáveis pelo Gráfico de dispersão \\
 
       \cline{2-4}
 
@@ -112,7 +99,6 @@ Nas seções a seguir, demonstraremos os objetivos de cada fase, mostrando suas 
       \hline
     \end{tabular}
   }
-  \caption*{\scriptsize Fonte: Autoras (2024)}
 \end{table} 
 \FloatBarrier  %impede que o texto flutue para outra página (garante que a tabela fique nessa ordem)
 
@@ -122,35 +108,35 @@ Nas seções a seguir, demonstraremos os objetivos de cada fase, mostrando suas 
 
 Começaremos com a verificação da pertinência das variáveis já existentes na planilha de dados dos embriões e com a avaliação da introdução de outras variáveis que possam aprimorar a exatidão da análise, ou até mesmo com a eliminação de variáveis, se necessário. Em seguida, faremos a limpeza dos dados, substituindo valores nulos por valores mais apropriados em alguns casos, como nas colunas que realizam cálculos entre outras colunas, onde será possível identificar valores e substituí-los.
 
-Para realizar a verificação da pertinência das variáveis já existentes e avaliar a viabilidade de introduzir novas variáveis, utilizaremos a pesquisa bibliográfica, nos norteando pelos estudos apresentados no capítulo 2: o de \citeonline{yuan2023}, o artigo 'Development of an artificial intelligence-based model for predicting the euploidy of blastocysts in PGT-A treatments' e o de \citeonline{souzarebeca2022}, 'Análise da ploidia de embriões humanos por meio da inteligência artificial com o uso de variáveis de morfologia, morfocinética e variáveis relacionadas com a paciente'. Ambos os artigos descrevem o uso de IA para fazer a predição da ploidia de embriões, o que se assemelha com o que queremos propor, com a diferença de que temos o objetivo final de prever a porcentagem de aneuploidia. Dessa forma, analisaremos os estudos feitos por ambos pesquisadores e utilizaremos para entender o poder que cada variável tem para o objetivo final e se é necessário adicionar outras variáveis que não existem na nossa planilha, ou até mesmo excluí-las. Além disso, conduziremos entrevistas com o especialista encarregado de fornecer os dados, para uma análise prática da pertinência das variáveis disponíveis e para debater possíveis variáveis extras que possam ser relevantes para a análise.As entrevistas possibilitarão alinhar a seleção das variáveis ao conhecimento clínico e experiência prática do profissional, garantindo que as variáveis selecionadas sejam aplicáveis no cenário real de previsão de euploidia. Em relação a limpeza dos dados, utilizaremos a linguagem \textit{Python} que possui a biblioteca \textit{Pandas}, que permite o carregamento de planilhas do Excel, do formato .xlsx, como a que possuímos. De acordo com \citeonline{chen2018}: “O Pandas é uma biblioteca Python de código aberto para análise de dados. Ele dá a Python a capacidade de trabalhar com dados do tipo planilha, permitindo carregar, manipular, alinhar e combinar dados rapidamente, entre outras funções.”.Usaremos as funções \textit{isnull()} e \textit{info()}, da biblioteca \textit{Pandas}.
+Para realizar a verificação da pertinência das variáveis já existentes e avaliar a viabilidade de introduzir novas variáveis, utilizaremos a pesquisa bibliográfica, nos norteando pelos estudos apresentados no capítulo 2: o de \citeonline{yuan2023}, o artigo 'Development of an artificial intelligence-based model for predicting the euploidy of blastocysts in PGT-A treatments' e o de \citeonline{souzarebeca2022}, 'Análise da ploidia de embriões humanos por meio da inteligência artificial com o uso de variáveis de morfologia, morfocinética e variáveis relacionadas com a paciente'. Ambos os artigos descrevem o uso de IA para fazer a predição da ploidia de embriões, o que se assemelha com o que queremos propor, com a diferença de que temos o objetivo final de prever a porcentagem de aneuploidia. 
+
+Dessa forma, analisaremos os estudos feitos por ambos pesquisadores e utilizaremos para entender o poder que cada variável tem para o objetivo final e se é necessário adicionar outras variáveis que não existem na nossa planilha, ou até mesmo excluí-las. Além disso, conduziremos entrevistas com o especialista encarregado de fornecer os dados, para uma análise prática da pertinência das variáveis disponíveis e para debater possíveis variáveis extras que possam ser relevantes para a análise. As entrevistas possibilitarão alinhar a seleção das variáveis ao conhecimento clínico e experiência prática do profissional, garantindo que as variáveis selecionadas sejam aplicáveis no cenário real de previsão de euploidia. Em relação a limpeza dos dados, utilizaremos a linguagem \textit{Python} que possui a biblioteca \textit{Pandas}, que permite o carregamento de planilhas do Excel, do formato .xlsx, como a que possuímos. De acordo com \citeonline{chen2018}: “O Pandas é uma biblioteca Python de código aberto para análise de dados. Ele dá a Python a capacidade de trabalhar com dados do tipo planilha, permitindo carregar, manipular, alinhar e combinar dados rapidamente, entre outras funções.”.Usaremos as funções \textit{isnull()} e \textit{info()}, da biblioteca \textit{Pandas}.
 
 Inicialmente, analisar as variáveis possibilitando a detecção de variáveis irrelevantes ou redundantes, aprimorando a correlação entre os parâmetros estudados e a percentagem de euploidia. Também a detecção e correção de inconsistências, como valores em branco ou discrepâncias, garantindo que o conjunto de dados esteja organizado e pronto para futuras análises, prevenindo distorções nos resultados. 
 
-\paragraph{\textbf{Atividade 2 (A2):} Identificação da Correlação e Atribuição de Pesos aos Parâmetros na Previsão da Ploidia do Embrião}
+\paragraph{\textbf{Atividade 2 (A2):} Normalização dos Dados para Otimização}
 
-O objetivo desta atividade é identificar as relações entre os diferentes parâmetros presentes na planilha de dados dos embriões, avaliando a intensidade e o sentido dessas relações, com foco em sua influência na porcentagem de euploidia. Após a pesquisa bibliográfica e as entrevistas concedidas pelo especialista, utilizaremos o coeficiente de correlação de Spearman, que mede a relação monótona entre duas variáveis, considerando as ordens atribuídas às observações em vez dos valores originais \cite{sousa2019}. A correlação será calculada para todas as combinações possíveis de variáveis, possibilitando uma análise mais detalhada de suas interações \cite{sousa2019}. Um gráfico de dispersão será gerado para complementar a análise visual, facilitando a identificação de padrões. Também com o conhecimento adquirido pela A1, determinaremos a relevância relativa de cada parâmetro na previsão da ploidia do embrião, atribuindo pesos que reflitam sua influência, identificando a relevância de cada parâmetro.
-
-Para realizar a análise de correlação entre os parâmetros, será utilizado o coeficiente de Spearman, um método estatístico amplamente empregado para avaliar a intensidade e o sentido da relação monótona entre duas variáveis. Inicialmente, as variáveis do conjunto de dados serão classificadas em ordem crescente, atribuindo-lhes ranks que serão usados para o cálculo do coeficiente. Essa abordagem permite capturar relações tanto lineares quanto não lineares entre as variáveis \cite{sousa2019}, explicado com mais detalhes no APÊNDICE D. 
-
-A fórmula do coeficiente de correlação de Spearman será aplicada, utilizando as ordens atribuídas, assegurando que o método se adapte a diferentes formatos de relação, como curvas monótonas crescentes ou decrescentes. Além disso, será realizada uma análise complementar com gráficos de dispersão, que ajudarão a identificar a inclinação dos dados e o sentido da correlação, sendo positiva (próximas ao valor 1) quando as variáveis variam no mesmo sentido e negativa (próximas ao valor -1) quando variam em sentidos opostos \cite{sousa2019}. O resultado numérico do coeficiente será avaliado em relação à sua magnitude, indicando se a correlação é forte, moderada ou fraca, e seu sinal indicará o tipo de relação (positiva ou negativa). 
-
-Usaremos a biblioteca Pandas para manipulação dos dados e a SciPy para calcular o coeficiente de Spearman. A metodologia para a definição e atribuição de pesos específicos aos parâmetros relevantes para a ploidia do embrião combina análise teórica e prática. Inicialmente, será realizada uma pesquisa bibliográfica em publicações científicas e revisões sistemáticas que explorem a influência dos parâmetros na ploidia embrionária. Paralelamente, serão conduzidas entrevistas estruturadas com especialistas em medicina reprodutiva para coletar opiniões qualificadas e validar os achados teóricos. Durante as entrevistas, serão discutidos os fatores mais críticos e as percepções práticas sobre a influência de cada parâmetro, possibilitando uma visão mais contextualizada e aplicada. Caso existam opiniões divergentes ou discrepâncias, essas serão analisadas de maneira qualitativa. Nesse processo, buscaremos compreender os motivos por trás das diferenças nas interpretações ou nas evidências apresentadas, priorizando a busca por justificativas bem fundamentadas que expliquem como e por que cada parâmetro influencia a ploidia do embrião. Em vez de apenas números ou valores específicos, o foco estará em reunir argumentos sólidos e evidências documentadas que sustentem a atribuição de pesos aos parâmetros, garantindo consistência e embasamento científico nas conclusões finais.
-
-Os cálculos realizados com o coeficiente de Spearman permitirão identificar quais parâmetros possuem uma relação mais forte (positiva ou negativa) com a porcentagem de euploidia, além de explorar como esses parâmetros se relacionam entre si. Os gráficos gerados deverão destacar as variáveis mais influentes, os padrões visuais que reforcem as relações monótonas, áreas onde a ausência de correlação linear não exclua outras formas de relação. Também resultará em uma lista detalhada dos parâmetros identificados, acompanhada das respectivas justificativas para os pesos atribuídos a cada um, com base em sua influência na ploidia do embrião. Em vez de valores numéricos, os resultados trarão explicações fundamentadas cientificamente, apresentando as razões pelas quais cada parâmetro exerce determinada influência. Essas justificativas serão construídas a partir da revisão bibliográfica e das opiniões dos especialistas entrevistados, com destaque para as evidências e argumentos que sustentem as decisões tomadas. O resultado final fornecerá uma visão qualitativa e consistente dos fatores que impactam a ploidia, sendo uma base essencial para análises e decisões futuras no estudo.
-
-\paragraph{\textbf{Atividade 3 (A3):} Normalização dos Dados para Otimização}
-
-As variáveis numéricas são normalizadas, por meio de uma técnica de normalização, o Z-Score, assegurando os intervalos de valores de cada coluna. 
-
-A normalização é de grande importância que façamos a normalização dos dados, visto que, de acordo com \citeonline{milewski2016}:“Estudos anteriores demonstraram que a incorporação de dados morfológicos normalizados para avaliação da qualidade do embrião aumenta consideravelmente o poder preditivo dos modelos criados.”. A normalização é uma forma de dimensionar recursos, transformando o intervalo deles em uma escala padrão \cite{jaiswal2024}. Também é importante citar que “dados normalizados também são fáceis de interpretar e, portanto, mais fáceis de entender. Quando todos os recursos de um conjunto de dados estão na mesma escala, também se torna mais fácil identificar e visualizar as relações entre diferentes recursos e fazer comparações significativas.” \cite{jaiswal2024}. Utilizaremos o método Z-Score, detalhado no APÊNDICE B, mas em resumo, é um método que transforma os dados para que eles tenham média 0 e desvio padrão 1, sendo útil para garantir que todas as variáveis tenham a mesma escala, o que tem grande importância para algoritmos que possuem dados que dependem um dos outros \cite{jaiswal2024}.
+As variáveis numéricas são normalizadas, por meio de uma técnica de normalização, o Z-Score, assegurando os intervalos de valores de cada coluna. A normalização é de grande importância que façamos a normalização dos dados, visto que, de acordo com \citeonline{milewski2016} estudos anteriores demonstraram que a incorporação de dados morfológicos normalizados para avaliação da qualidade do embrião aumenta consideravelmente o poder preditivo dos modelos criados. A normalização é uma forma de dimensionar recursos, transformando o intervalo deles em uma escala padrão \cite{jaiswal2024}. Também é importante citar que dados normalizados também são fáceis de interpretar e, portanto, mais fáceis de entender. Quando todos os recursos de um conjunto de dados estão na mesma escala, também se torna mais fácil identificar e visualizar as relações entre diferentes recursos e fazer comparações significativas. \cite{jaiswal2024}. Utilizaremos o método Z-Score, detalhado no APÊNDICE \ref{apendice:zscore}.
 
 Por fim, a normalização das variáveis assegurará que todas estejam dentro do mesmo intervalo, eliminando vieses numéricos e aprimorando a exatidão dos algoritmos de aprendizado de máquina que serão implementados posteriormente.
 
+\paragraph{\textbf{Atividade 3 (A3):} Identificação da Correlação e Atribuição de Pesos aos Parâmetros na Previsão da Ploidia do Embrião}
+
+O objetivo desta atividade é identificar as relações entre os diferentes parâmetros presentes na planilha de dados dos embriões, avaliando a intensidade e o sentido dessas relações, com foco em sua influência na porcentagem de euploidia. Após a pesquisa bibliográfica, utilizaremos o coeficiente de correlação de Spearman, que mede a relação monótona entre duas variáveis, considerando as ordens atribuídas às observações em vez dos valores originais \cite{sousa2019}. A correlação será calculada para todas as combinações possíveis de variáveis, possibilitando uma análise mais detalhada de suas interações \cite{sousa2019}. Um gráfico de dispersão será gerado para complementar a análise visual, facilitando a identificação de padrões. Também com o conhecimento adquirido pela A1, determinaremos a relevância relativa de cada parâmetro na previsão da ploidia do embrião, atribuindo pesos que reflitam sua influência, identificando a relevância de cada parâmetro.
+
+Para realizar a análise de correlação entre os parâmetros será utilizado o coeficiente de Spearman, um método estatístico amplamente empregado para avaliar a intensidade e o sentido da relação monótona entre duas variáveis. Inicialmente, as variáveis do conjunto de dados serão classificadas em ordem crescente, atribuindo-lhes ranks que serão usados para o cálculo do coeficiente. Essa abordagem permite capturar relações tanto lineares quanto não lineares entre as variáveis \cite{sousa2019}, explicado com mais detalhes no APÊNDICE \ref{apendice:spearman}. 
+
+A fórmula do coeficiente de correlação de Spearman será aplicada, utilizando as ordens atribuídas, assegurando que o método se adapte a diferentes formatos de relação, como curvas monótonas crescentes ou decrescentes. Além disso, será realizada uma análise complementar com gráficos de dispersão, que ajudarão a identificar a inclinação dos dados e o sentido da correlação, sendo positiva (próximas ao valor 1) quando as variáveis variam no mesmo sentido e negativa (próximas ao valor -1) quando variam em sentidos opostos \cite{sousa2019}. O resultado numérico do coeficiente será avaliado em relação à sua magnitude, indicando se a correlação é forte, moderada ou fraca, e seu sinal indicará o tipo de relação (positiva ou negativa). 
+
+Usaremos a biblioteca Pandas para manipulação dos dados e a SciPy para calcular o coeficiente de Spearman. A metodologia para a definição e atribuição de pesos específicos aos parâmetros relevantes para a ploidia do embrião combina análise teórica e prática. Inicialmente, será realizada uma pesquisa bibliográfica em publicações científicas e revisões sistemáticas que explorem a influência dos parâmetros na ploidia embrionária.
+
+Os cálculos realizados com o coeficiente de Spearman permitirão identificar quais parâmetros possuem uma relação mais forte (positiva ou negativa) com a porcentagem de euploidia, além de explorar como esses parâmetros se relacionam entre si. Os gráficos gerados deverão destacar as variáveis mais influentes, os padrões visuais que reforcem as relações monótonas, áreas onde a ausência de correlação linear não exclua outras formas de relação. Também resultará em uma lista detalhada dos parâmetros identificados, acompanhada das respectivas justificativas para os pesos atribuídos a cada um, com base em sua influência na ploidia do embrião. Em vez de valores numéricos, os resultados trarão explicações fundamentadas cientificamente, apresentando as razões pelas quais cada parâmetro exerce determinada influência. O resultado final fornecerá uma visão qualitativa e consistente dos fatores que impactam a ploidia, sendo uma base essencial para análises e decisões futuras no estudo.
+
 \paragraph{\textbf{Atividade 4 (A4):} Separar o conjunto de dados em conjuntos de treinamento, validação e teste, fazendo uma distribuição dos dados e aplicar técnica de aumento de dados}
    
-A separação do conjunto de dados será feita para garantir que as etapas de treinamento, validação e testes sejam feitas de forma organizada. Iremos dividir em 3 conjuntos: Treinamento, para ensinar o modelo; Validação, para ajustar os parâmetros de forma adequada e evitar o overfitting, ocorre quando um algoritmo reduz o erro por meio da memorização de exemplos de treinamento em vez de aprender a verdadeira relação geral entre os dados \cite{bashir2020}; e Teste, para avaliar o desempenho final. A divisão será produzida com uma distribuição de 70\% dos dados para treinamento, 15\% para validação e 15\% para teste. O nosso conjunto de dados original é relativamente pequeno, tendo 84 linhas, assim, aplicaremos a técnica de aumento de dados (data augmentation) usando o algoritmo Monte Carlo (APÊNDICE C), que gera novas amostras a partir de dados existentes. Utilizaremos a técnica exclusivamente nos dados de treinamento para evitar interferências ruins na criação e desempenho do modelo de aprendizado de máquina, preservando as características e padrões já existentes na tabela, contribuindo para a capacidade do modelo \cite{kiar2021}. 
+A separação do conjunto de dados será feita para garantir que as etapas de treinamento, validação e testes sejam feitas de forma organizada. Iremos dividir em 3 conjuntos: Treinamento, para ensinar o modelo; Validação, para ajustar os parâmetros de forma adequada e evitar o overfitting, ocorre quando um algoritmo reduz o erro por meio da memorização de exemplos de treinamento em vez de aprender a verdadeira relação geral entre os dados \cite{bashir2020}; e Teste, para avaliar o desempenho final. A divisão será produzida com uma distribuição de 70\% dos dados para treinamento, 15\% para validação e 15\% para teste. O nosso conjunto de dados original é relativamente pequeno, tendo 84 linhas, assim, aplicaremos a técnica de aumento de dados (data augmentation) usando o algoritmo Monte Carlo (APÊNDICE \ref{apendice:montecarlo}), que gera novas amostras a partir de dados existentes. Utilizaremos a técnica exclusivamente nos dados de treinamento para evitar interferências ruins na criação e desempenho do modelo de aprendizado de máquina, preservando as características e padrões já existentes na tabela, contribuindo para a capacidade do modelo \cite{kiar2021}. 
 
-Para a realização, usaremos uma abordagem padrão em aprendizado de máquina, dividindo o conjunto de dados em três, como citado. A divisão é feita para garantir que cada conjunto seja representativo e que o modelo seja avaliado imparcialmente \cite{bashir2020}. Para aumentar o conjunto de dados de treinamento, será aplicada uma técnica de aumento de dados (data augmentation) com Monte Carlo, que é a geração de dados artificiais de alta qualidade por meio da manipulação de amostras de dados existentes \cite{wang2019}. 
+Para a realização, usaremos uma abordagem padrão em aprendizado de máquina, dividindo o conjunto de dados em três, como citado. A divisão é feita para garantir que cada conjunto seja representativo e que o modelo seja avaliado imparcialmente \cite{bashir2020}. Para aumentar o conjunto de dados de treinamento, será aplicada uma técnica de aumento de dados (data augmentation) com Monte Carlo, que é a geração de dados artificiais de alta qualidade por meio da manipulação de amostras de dados existentes \cite{wang2024}. 
 
 O resultado esperado é a divisão do conjunto de dados em três subconjuntos: treinamento, validação e teste e a ampliação do conjunto de treinamento com o uso de data augmentation, aplicando o algoritmo de Monte Carlo. 
 
@@ -202,7 +188,6 @@ O resultado esperado é a divisão do conjunto de dados em três subconjuntos: t
       \hline 
     \end{tabular}
   }
-  \caption*{\scriptsize Fonte: Autoras (2024)}
 \end{table} 
 \FloatBarrier
 
@@ -212,14 +197,13 @@ O resultado esperado é a divisão do conjunto de dados em três subconjuntos: t
 
 O desenvolvimento do modelo de Machine Learning para a predição de euploidia começará com a implementação do algoritmo k-Nearest Neighbors (KNN), com o objetivo de classificar os embriões como euploides ou aneuploides. O KNN foi escolhido inicialmente devido à sua simplicidade e eficácia em problemas de classificação, especialmente quando se tem dados com distribuições bem definidas. Caso o modelo de KNN não forneça os resultados esperados, a regressão linear e o Naive Bayes serão testados como alternativas. O objetivo principal é alcançar uma precisão de 70\%, e se esse objetivo não for atingido com o KNN, esses modelos alternativos serão ajustados até que o objetivo seja atingido.
 
-O processo de desenvolvimento será realizado em várias etapas. Na Atividade 3, o pré-processamento dos dados já terá sido realizado, incluindo a limpeza e normalização dos dados, sendo a normalização especialmente importante para o KNN, pois este modelo é sensível à escala dos dados. Com os dados prontos, passaremos para a fase de treinamento do modelo.
+O processo de desenvolvimento será realizado em várias etapas. Na Atividade 3, o pré-processamento dos dados já terá sido realizado, incluindo a limpeza e normalização dos dados, sendo a normalização especialmente importante para o KNN, pois este modelo é sensível à escala dos dados \cite{zhang2016}. Com os dados prontos, passaremos para a fase de treinamento do modelo.
 
-Inicialmente, utilizaremos o \textit{KNeighborsClassifier} do \textit{Scikit-learn}. O primeiro passo será definir o número de vizinhos (n\_neighbors), um dos parâmetros mais importantes do KNN. Para isso,  utilizaremos um valor de 
-k igual a 3 para o número de vizinhos, devido à sua simplicidade e aplicabilidade comprovada em problemas semelhantes. Se o modelo não alcançar a precisão de 70\% no conjunto de teste, ajustaremos o valor de k para 5, a fim de observar se uma maior quantidade de vizinhos pode melhorar a desempenho do modelo.
+Inicialmente, utilizaremos o \textit{KNeighborsClassifier} do \textit{Scikit-learn}. O primeiro passo será definir o número de vizinhos (n\_neighbors), um dos parâmetros mais importantes do KNN \cite{zhang2016}. Para isso,  utilizaremos um valor de k igual a 3 para o número de vizinhos, devido à sua simplicidade e aplicabilidade comprovada em problemas semelhantes. Se o modelo não alcançar a precisão de 70\% no conjunto de teste, ajustaremos o valor de k para 5, a fim de observar se uma maior quantidade de vizinhos pode melhorar a desempenho do modelo.
 
-A regressão linear será uma das alternativas a ser explorada. Embora tradicionalmente voltada para problemas de regressão, a regressão linear pode ser adaptada para tarefas de classificação binária. Usaremos o \textit{LogisticRegression} do \textit{Scikit-learn} para esse fim. Assim como o KNN, o modelo de regressão linear será treinado com os dados de treinamento, e seus parâmetros serão ajustados, se necessário, para maximizar a precisão. A avaliação será feita com base nos resultados obtidos no conjunto de teste.
+A regressão linear será uma das alternativas a ser explorada. Embora tradicionalmente voltada para problemas de regressão, a regressão linear pode ser adaptada para tarefas de classificação binária  \cite{rodrigues}. Usaremos o \textit{LogisticRegression} do \textit{Scikit-learn} para esse fim. Assim como o KNN, o modelo de regressão linear será treinado com os dados de treinamento, e seus parâmetros serão ajustados, se necessário, para maximizar a precisão. A avaliação será feita com base nos resultados obtidos no conjunto de teste.
 
-Outra alternativa será o Naive Bayes, que é particularmente eficiente para problemas de classificação, especialmente quando as características são independentes entre si. Usaremos a implementação do \textit{NaiveBayes} disponível no \textit{Scikit-learn}, treinando o modelo da mesma forma que os anteriores, e ajustando seus parâmetros conforme necessário.
+Outra alternativa será o Naive Bayes, que é particularmente eficiente para problemas de classificação, especialmente quando as características são independentes entre si  \cite{rish2001}. Usaremos a implementação do \textit{NaiveBayes} disponível no \textit{Scikit-learn}, treinando o modelo da mesma forma que os anteriores, e ajustando seus parâmetros conforme necessário.
 
 Os dados utilizados para treinar e testar os modelos serão divididos em três conjuntos: treinamento, validação e teste. O conjunto de treinamento será utilizado para ajustar os parâmetros do modelo, o de validação ajudará a ajustar os hiperparâmetros como o valor de k no KNN, e o conjunto de teste será usado para avaliar a precisão final do modelo.
 
