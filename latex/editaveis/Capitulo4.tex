@@ -17,26 +17,67 @@
 
 \chapter[Execução da Pesquisa]{Execução da Pesquisa}
 
-Antes de começar a "Execução da Pesquisa", é crucial enfatizar que todas as fases deste estudo foram realizadas de acordo com as normas éticas e legais pertinentes à investigação científica. A documentação que comprova isso está devidamente incluída nos anexos deste estudo, incluindo os seguintes documentos essenciais:
+Antes de começar a "Execução da Pesquisa e Análise dos Resultados", é crucial enfatizar que todas as fases deste estudo foram realizadas de acordo com as normas éticas e legais pertinentes à investigação científica. Os dados utilizados neste estudo foram obtidos por meio do especialista em Reprodução Humana Assistida, Dr. Bruno Ramalho, e de suas pacientes, que autorizaram o uso dessas informações para fins de pesquisa. As informações foram coletadas na clínica Bruno Ramalho Reprodução Humana, bem como na clínica Genesis, onde o Dr. Bruno também atua. A documentação que comprova isso está devidamente incluída nos anexos deste estudo, incluindo os seguintes documentos essenciais:
 \begin{itemize}
-  \item \textbf{Parecer da Plataforma Brasil}: Inclui a permissão ética que valida a utilização dos dados dos embriões para a execução deste estudo, garantindo a conformidade com os padrões éticos definidos para pesquisas que envolvem seres humanos (disponível no Anexo \ref{anexo:parecer-cep}) 
+  \item \textbf{Parecer da Plataforma Brasil}: Inclui a permissão ética que valida a utilização dos dados dos embriões para a execução deste estudo, garantindo a conformidade com os padrões éticos definidos para pesquisas que envolvem seres humanos (disponível no Anexo \ref{anexo:parecer-cep})
   \item \textbf{Contrato de Autorização para Utilização de Dados em Pesquisa}: Assinado pelo Dr. Bruno Ramalho, que autoriza o uso dos dados clínicos de suas pacientes, essenciais para a modelagem e análise realizadas durante esta pesquisa (disponível no Anexo \ref{anexo:contrato-autorizacao})
-  \item \textbf{Termo de Consentimento para Utilização de Dados de Entrevistas, Gravação de Reuniões e Uso de Gravação}: Contrato que permite o uso de discursos, dados e gravações provenientes das reuniões e entrevistas conduzidas com o Dr. Bruno Ramalho, garantindo que as informações e contribuições fornecidas por ele fossem utilizadas com total autorização (disponível no Anexo \ref{anexo:termo-consentimento}). 
+  \item \textbf{Termo de Consentimento para Utilização de Dados de Entrevistas, Gravação de Reuniões e Uso de Gravação}: Contrato que permite o uso de discursos, dados e gravações provenientes das reuniões e entrevistas conduzidas com o Dr. Bruno Ramalho, garantindo que as informações e contribuições fornecidas por ele fossem utilizadas com total autorização (disponível no Anexo \ref{anexo:termo-consentimento}).
 \end{itemize}
-Estes documentos evidenciam o comprometimento ético e a transparência desta pesquisa, enfatizando que todas as informações empregadas foram obtidas de maneira responsável e autorizada. 
+Estes documentos evidenciam o comprometimento ético e a transparência desta pesquisa, enfatizando que todas as informações empregadas foram obtidas de maneira responsável e autorizada.
+Os códigos mencionados nas atividades estão disponíveis no repositório do projeto no GitHub, podendo ser acessado aqui: \textbf{\href{https://github.com/sabrinaberno/TCC1}{GitHub-TCC}}, onde são detalhadamente explicados, incluindo a lógica utilizada para sua implementação e os resultados obtidos.
+
+
+
 
 \section{Fase 1: Análise e Preparação de Dados}
 \subsection{OE1 - Expansão, Processamento e Análise de Dados para Predição de Ploidia}
 \subsubsection{Atividade 1 (A1): Análise, Revisão, Seleção e Limpeza de Variáveis para Predição de Euploidia}
-O desenvolvimento dessa atividade teve início com a elaboração do referencial teórico, abordando os conceitos fundamentais relacionados ao aprendizado supervisionado e às tecnologias aplicadas no contexto da fertilização in vitro, além de nos aprofundarmos em pesquisas relacionadas a área da medicina reprodutiva. A pesquisa teórica foi direcionada ao entendimento dos padrões morfocinéticos de embriões capturados por sistemas de Time-Lapse e de como essas informações podem ser utilizadas para prever a porcentagem de euploidia, um indicador crítico da saúde genética do embrião.
+O desenvolvimento desta atividade teve início com a verificação da relevância das variáveis com base nos estudos do referencial teórico. Esse processo envolveu a análise das variáveis presentes na tabela de dados que serão utilizadas nesta pesquisa, garantindo sua adequação ao objetivo do estudo. As variáveis selecionadas inicialmente são:
+\begin{table}[ht]
+  \centering
+  \begin{tabular}{|l|c|}
+  \hline
+  \textbf{Variáveis} & \textbf{Definição} \\ \hline
+  Id & Identificador numérico de cada paciente. \\ \hline
+  Idade & Idade da paciente no momento do procedimento. \\ \hline
+  Data da biopsia & Data em que foi realizada a biópsia embrionária. \\ \hline
+  Embrião n. & Identificação numérica do embrião dentro do ciclo de fertilização. \\ \hline
+  Estágio & Dia de evolução no cultivo. \\ \hline
+  Morfo & Classificação morfológica dos embriões baseada no estágio de expansão da blástula, estágio inicial do desenvolvimento embrionário. \\ \hline
+  Kidscore & Algoritmo que combina variáveis morfocinéticas e parâmetros de desenvolvimento embrionário. \\ \hline
+  st2 & Primeiro indício de movimentos citoplasmáticos antes da primeira citocinese. \\ \hline
+  t2 & Tempo para 2 células. \\ \hline
+  t3 & Tempo para 3 células. \\ \hline
+  t4 & Tempo para 4 células. \\ \hline
+  t5 & Tempo para 5 células. \\ \hline
+  t8 & Tempo para 8 células. \\ \hline
+  tSC & Tempo de formação do estágio de clivagem sincronizada (Time to Synchronized Compaction). \\ \hline
+  tSB & Tempo para o início da blastulação (Time to Start Blastulation). \\ \hline
+  tB & Tempo para o Blastocisto (Time to Blastocyst). \\ \hline
+  t2-st2 & Intervalo de tempo entre o T2 e o ST2. \\ \hline
+  cc2 (t3-t2) & Tempo necessário para que o embrião passe da divisão de 2 células (T2) para a divisão de 3 células (T3). \\ \hline
+  cc3 (t5-t3) & Tempo necessário para que o embrião passe da divisão de 3 células (T3) para a divisão de 5 células (T5). \\ \hline
+  t5-t2 & Intervalo de tempo entre o estágio de 2 células (T2) e o estágio de 5 células (T5). \\ \hline
+  s2 (t4-t3) & Intervalo de tempo necessário para que o embrião passe do estágio de 3 células (T3) para o estágio de 4 células (T4). \\ \hline
+  s3 (t8-t5) & Intervalo de tempo necessário para que o embrião passe do estágio de 5 células (T5) para o estágio de 8 células (T8). \\ \hline
+  tSC-t8 & Intervalo de tempo entre o estágio em que o embrião atinge a compactação inicial (tSC) e o estágio de 8 células (T8). \\ \hline
+  tB-tSB & Intervalo de tempo entre o estágio em que o embrião atinge o blastocisto inicial (tSB) e o estágio de blastocisto expandido (tB). \\ \hline
+  Ploidia & Estado de ploidia do embrião. \\ \hline
+  \end{tabular}
+  \caption{Variáveis analisadas no modelo de IA para predição de euploidia embrionária. A explicação mais detalhada sobre essas variáveis está no APÊNDICE A}
+  \label{tab:definicoes_variaveis}
+\end{table}
 
-Os dados utilizados neste estudo foram obtidos por meio do especialista, \citeonline{ramalho2024}, e de suas pacientes, que autorizaram o uso dessas informações para fins de pesquisa, contratos esses que estão na sessão de Anexo. As informações foram coletadas na clínica Bruno Ramalho Reprodução Humana, bem como na clínica Genesis, onde o \citeonline{ramalho2024} também atua.
+Com base no estudo do referencial teórico, realizamos uma análise criteriosa para identificar a necessidade de introduzir novas variáveis que possam aprimorar a precisão do modelo, bem como excluir aquelas que se mostraram irrelevantes. A partir da revisão bibliográfica, conduzimos um processo de seleção das variáveis mais relevantes para o nosso modelo de Inteligência Artificial, fundamentado em evidências científicas. Dessa forma, foi possível identificar um conjunto de variáveis extraídas da base de dados que apresentam respaldo teórico quanto à sua influência na evolução do modelo. As variáveis selecionadas para o estudo são: \textbf{Idade, t2, t3, t4, t5, t8, s2, cc2 (t3-t2), tSC, tSB, tB, cc3 (t5-t3), s3 (t8-t5), t5-t2, tSC-t8, tB-tSB, Estágio, Morfo e KIDScore}.
 
-A primeira etapa dessa atividade consiste em verificar a pertinência das variáveis já existentes na \textbf{“Planilha Original de Dados dos Embriões”}, que se encontra no Anexo \ref{anexo:planilha-original}, analisando seu impacto no desempenho do modelo preditivo. Essa análise também busca identificar se há necessidade de introduzir novas variáveis que possam melhorar a precisão do modelo ou excluir aquelas que se mostram irrelevantes.
+A coluna de \textbf{Plodia} também foi selecionada, pois nos possibilita agrupar os embriões em duas categorias claras, distinguindo entre aqueles com euploidia normal e aqueles com alterações cromossômicas, o que é crucial para a elaboração de um modelo sólido.
 
+Não identificamos estudos que estabelecem uma ligação direta entre o parâmetro \textbf{st2} e a previsão de euploidia. Apesar do movimento citoplasmático antes da citocinese ser um marco significativo no desenvolvimento embrionário, a ausência de provas científicas que liguem esse movimento à qualidade do embrião e à euploidia nos levou a remover o \textbf{st2} da lista de variáveis para o modelo. Igualmente, não foram identificados estudos que analisassem especificamente o intervalo entre \textbf{t2} (o instante em que o embrião alcança a fase de duas células) e \textbf{st2} (movimento citoplasmático pré-citocinese) para prever a euploidia. Como \textbf{st2} foi eliminada, também removemos o parâmetro \textbf{t2-st2} do nosso grupo de variáveis.
+
+A partir disso, conseguimos determinar quais variáveis são fundamentais para a elaboração do nosso modelo de previsão de euploidia. Depois de examinar e revisar as variáveis, modificamos a planilha para espelhar os dados mais significativos para o modelo. As colunas \textbf{Id, Data da biópsia e Embrião n.} também foram eliminadas, uma vez que não contribuem para o valor do modelo. Adicionalmente, as variáveis \textbf{st2} e \textbf{t2-st2} foram eliminadas, conforme mencionado anteriormente. Portanto, a planilha revisada agora inclui somente as variáveis que possuem uma ligação comprovada com a previsão de euploidia, fundamentada nas evidências científicas revisadas.
 
 \subsubsection{Limpeza dos Dados}
-Ao lidar com os dados ausentes, utilizamos o método de Análise de Casos Completos (ACC), que envolve a remoção de observações que possuem pelo menos um valor ausente \cite{camargos2011}. Este procedimento é frequentemente empregado quando o número de dados ausentes é reduzido, assegurando que a remoção de algumas observações não interfira de forma significativa na análise estatística e preserva a consistência do modelo \cite{camargos2011}. Em nosso cenário, das 84 linhas de dados disponíveis, apenas 2 apresentavam valores ausentes. As células sem dados estão em preto na \textbf{"Planilha com Indicação de Dados Ausentes"} no Anexo \ref{anexo:planilha-dados-ausentes}. 
+Ao lidar com os dados ausentes, utilizamos o método de Análise de Casos Completos (ACC), que envolve a remoção de observações que possuem pelo menos um valor ausente (Camargos, 2011). Este procedimento é frequentemente empregado quando o número de dados ausentes é reduzido, assegurando que a remoção de algumas observações não interfira de forma significativa na análise estatística e preserva a consistência do modelo (Camargos, 2011). Em nosso cenário, das 85 linhas de dados disponíveis, apenas 2 apresentavam valores ausentes. Por esse motivo, excluímos essas duas linhas de modo manual, já que é um número muito pequeno para fazer um código de limpeza de dados, assim, a planilha se modifica, resultando em 83 linhas.
 
 \subsubsection{Atividade 2 (A2): Identificação da Correlação entre os Parâmetros na Previsão da Ploidia do Embrião}
 
