@@ -1,70 +1,23 @@
 \chapter[Análise dos Resultados]{Análise dos Resultados}
 
-\section{Fase 1: Análise e Preparação de Dados}
-\subsection{OE1 - Expansão, Processamento e Análise de Dados para Predição de Ploidia}
-\subsubsection{Atividade 1 (A1): Análise, Revisão, Seleção e Limpeza de Variáveis para Predição de Euploidia}
-Na fase inicial da tarefa (A1), realizamos uma análise, revisão e escolha das variáveis para o nosso modelo de IA. Através do estudo bibliográfico, conseguimos verificar um grupo de variáveis da planilha de dados que possui fundamentação científica que evidenciam sua importância para a evolução do modelo. As variáveis selecionadas para o nosso estudo serão: \textbf{Idade, t2, t3, t4, t5, t8, s2, cc2, tSC, tSB, tB, cc3 (t5-t3), s3 (t8-t5), t5-t2, tSC-t8, tB-tSB, Estágio, Morfo e KIDScore}. 
-
-A coluna de \textbf{Plodia} também foi selecionada, pois nos possibilita agrupar os embriões em duas categorias claras, distinguindo entre aqueles com euploidia normal e aqueles com alterações cromossômicas, o que é crucial para a elaboração de um modelo sólido.
-
-Não identificamos estudos que estabelecem uma ligação direta entre o parâmetro \textbf{st2} e a previsão de euploidia. Apesar do movimento citoplasmático antes da citocinese ser um marco significativo no desenvolvimento embrionário, a ausência de provas científicas que liguem esse movimento à qualidade do embrião e à euploidia nos levou a remover o \textbf{st2} da lista de variáveis para o modelo. Igualmente, não foram identificados estudos que analisassem especificamente o intervalo entre \textbf{t2} (o instante em que o embrião alcança a fase de duas células) e \textbf{st2} (movimento citoplasmático pré-citocinese) para prever a euploidia. Como \textbf{st2} foi eliminada, também removemos o parâmetro \textbf{t2-st2} do nosso grupo de variáveis
-
-A partir do estudo bibliográfico minucioso realizado na seção de \textbf{Atividade 1 do Capítulo 4}, conseguimos determinar quais variáveis são fundamentais para a elaboração do nosso modelo de previsão de euploidia. Depois de examinar e revisar as variáveis, modificamos a planilha para espelhar os dados mais significativos para o modelo, que se encontra no Anexo \ref{anexo:planilha-revisada} como \textbf{"Planilha Revisada - Colunas Excluídas"}. Portanto, as colunas \textbf{Id, Data da biópsia e Embrião n.} foram eliminadas, uma vez que não contribuem para o valor do modelo. Adicionalmente, as variáveis \textbf{st2} e \textbf{t2-st2} foram eliminadas, conforme mencionado anteriormente. Portanto, a planilha revisada agora inclui somente as variáveis que possuem uma ligação comprovada com a previsão de euploidia, fundamentada nas evidências científicas revisadas.
-
-Ao tratar de \textbf{dados ausentes} em conjuntos de dados, utilizando o método Análise de Casos Completos (ACC), possuíamos 84 linhas de dados, das quais apenas 2 têm dados ausentes. Na \textbf{"Planilha com Indicação de Dados Ausentes"} (Anexo \ref{anexo:planilha-dados-ausentes}), os campos que não possuem dados estão em preto. Por esse motivo, excluímos essas duas linhas de modo manual, já que é um número muito pequeno para fazer um código de limpeza de dados, assim, a planilha se modifica se tornando a \textbf{"Planilha de Dados Refinados"} presente no Anexo \ref{anexo:planilha-refinada}, resultando em 82 linhas, que está nos anexos. 
-
 \subsubsection{Atividade 2 (A2): Identificação da Correlação entre os Parâmetros na Previsão da Ploidia do Embrião}
 
-A análise de correlação foi realizada com o objetivo de identificar as interações mais significativas entre os parâmetros relacionados ao desenvolvimento embrionário e a ploidia. Para isso, foi utilizado o coeficiente de Spearman, explicado no APÊNDICE \ref{apendice:spearman}. A análise das relações entre as variáveis possibilitou a identificação das variáveis que se afetam e afetam a porcentagem de euploidia, fornecendo um alicerce para a melhoria de processos e tomada de decisões da IA. A consolidação dos resultados resultou em dois documentos: um arquivo Excel (\textit{correlation\_results.xlsx}) que apresenta uma visão aprofundada dos coeficientes calculados, transformado em um PDF mais compacto para facilitar a visualização, disponível nos anexos, e um documento Word (\textit{relatorio\_correlacoes.docx}) que contém todos os gráficos de dispersão para as combinações examinadas e valores de correlação relacionados, totalizando 172 páginas. Caso haja interesse em consultar o documento completo, siga os passos descritos na “Atividade 2” no GitHub do projeto: \textit{\href{https://github.com/sabrinaberno/TCC1}{GitHub-TCC}}. Executando o código, é possível gerar o documento completo.
+Em seguida, apresentaremos a avaliação dos resultados mais relevantes obtidos a partir dos dois documentos gerados pelo código, destacando as variáveis com correlações mais significativas, bem como aquelas com pouca ou nenhuma interação. Para uma visão mais abrangente dos dados, a matriz de correlação entre todas as variáveis está disponível nos anexos.
 
-\subsection*{correlation\_results}
-
-A função \texttt{spearman} da biblioteca \texttt{SciPy} foi empregada para gerar o coeficiente de Spearman no código, calculando tanto o coeficiente de correlação quanto o valor-p para cada par de variáveis. Inicialmente, o código importou as informações do arquivo \textit{"Planilha de Dados Refinados"} presente no Anexo \ref{anexo:planilha-refinada}, reconheceu as colunas numéricas pertinentes e iterou sobre todas as combinações possíveis de variáveis, assegurando que uma variável não fosse comparada a si mesma.
-
-Os resultados gerados na planilha \textit{correlation\_results} incluem três colunas:
-\begin{itemize}
-    \item \textbf{Variable 1:} A primeira variável da análise.
-    \item \textbf{Variable 2:} A segunda variável correlacionada.
-    \item \textbf{Spearman Coefficient:} O coeficiente calculado para o par de variáveis.
-\end{itemize}
-
-Os coeficientes de correlação de Spearman, foram calculados a partir de todas as combinações possíveis de variáveis escolhidas da base de dados, que está presente de forma mais enxuta nos anexos. Cada linha identifica um par de variáveis examinadas, com os seus resultados apontando a intensidade e a direção (positiva ou negativa) da correlação entre elas. Ressaltando que, uma correlação positiva perfeita é representada por um valor de +1 que indica que o crescimento de uma variável está sempre ligado ao crescimento da outra. Por outro lado, um valor de -1 indica uma correlação negativa perfeita, em que o aumento de uma variável corresponde consistentemente à diminuição da outra. Quando o coeficiente é zero, indica que as variáveis não possuem uma relação monotônica evidente, isto é, não existe um padrão consistente de variação conjunta. 
-
-\subsection*{relatorio\_correlacoes}
-
-O documento \textit{relatorio\_correlacoes.docx} foi gerado automaticamente usando a biblioteca \texttt{python-docx}, que permite a criação e manipulação de documentos Word. Depois de obter os coeficientes de Spearman para cada par de variáveis como descrito e apresentado no documento \textit{“correlation\_results”} explicado acima, o código itera sobre essas combinações. 
-
-Este documento fornece uma avaliação minuciosa das correlações, com os gráficos de dispersão para cada par de variáveis e os valores dos coeficientes de Spearman, em que esses valores estão escritos com seu sinal de positivo ou negativo, seguido de duas casas decimais. O documento é necessário para entender padrões particulares e enfatizar relações relevantes de forma visual.
-
-Em seguida, apresentaremos a avaliação dos resultados mais relevantes obtidos a partir dos dois documentos produzidos pelo código, ressaltando as variáveis que possuem ligações mais sólidas entre si, assim como as que possuem pouca ou nenhuma interação recíproca. Esses resultados serão comparados com as referências bibliográficas anteriormente discutidas.
 
 
 \subsection*{Idade}
 
-A correlação com \textbf{t4 (-0,15) na Figura \ref{fig:idade-t4} sugere que a idade exerce uma influência leve sobre eventos específicos do desenvolvimento embrionário}. Mulheres mais velhas podem apresentar embriões com ligeiro atraso no tempo necessário para atingir o estágio \textit{t4}. Embora a influência da idade no ritmo inicial de desenvolvimento seja limitada, há uma leve tendência de atraso.
+A correlação com \textbf{t4 (-0,15) sugere que a idade exerce uma influência negativa leve sobre eventos específicos do desenvolvimento embrionário}. Mulheres mais velhas podem apresentar embriões com ligeiro atraso no tempo necessário para atingir o estágio \textit{t4}. Embora a influência da idade no ritmo inicial de desenvolvimento seja limitada, há uma leve tendência de atraso. Em relação ao tempo para 5 células, \textit{t5} (0.11), obteve uma correlação positiva.\textbf{ Isso sugere uma tendência muito sutil de que embriões em fases mais avançadas estejam ligados a mães de mais idade}, como observado na Figura \ref{fig:idade-t4-t5}.
 
 \begin{figure}[h]
     \captionsetup{font=footnotesize, justification=centering, labelsep=period, position=above}
-    \caption{Dispersão entre Idade e t4 - Coeficiente de Spearman: -0.15}
+    \caption{Dispersão entre Idade e t4 - Coeficiente de Spearman: -0.15 e entre Idade e t5 - Coeficiente de Spearman: 0.11}
     \label{fig:idade-t4}
     \centering
-    \includegraphics[scale=0.6]{figuras/Spearman/idade-t4.pdf}
+    \includegraphics[scale=0.6]{figuras/Spearman/idade-t4-t5.pdf}
     \vspace{0.3cm} 
-    \begin{minipage}{\linewidth}
-        \centering
-        \scriptsize{Fonte: Autoras (2025)}
-    \end{minipage}
-\end{figure}
-\FloatBarrier
-
-Em relação ao tempo para 5 células, \textit{t5} (0.11), obteve uma correlação positiva.\textbf{ Isso sugere uma tendência muito sutil de que embriões em fases mais avançadas estejam ligados a mães de mais idade}, como observado na Figura \ref{fig:idade-t5}.
-
-\begin{figure}[h]
-    \captionsetup{font=footnotesize, justification=centering, labelsep=period, position=above}
-    \caption{Dispersão entre Idade e t5 - Coeficiente de Spearman: 0,11}
-    \label{fig:idade-t5}
-    \centering
-    \includegraphics[scale=0.6]{figuras/Spearman/idade-t5.pdf}
+    \caption{A análise da dispersão entre Idade e as variáveis t4 e t5, utilizando o coeficiente de Spearman, revela correlações leves. O coeficiente de Spearman entre Idade e t4 foi de -0,15, indicando uma correlação monotônica negativa fraca, ou seja, à medida que a idade aumenta, há uma leve tendência de redução no tempo t4. Já entre Idade e t5, o coeficiente foi de 0,11, sugerindo uma correlação monotônica positiva fraca, indicando que o aumento da idade pode estar associado a um leve aumento no tempo t5.}
     \begin{minipage}{\linewidth}
         \centering
         \scriptsize{Fonte: Autoras (2025)}
@@ -557,82 +510,6 @@ A avaliação das variáveis relacionadas à ploidia indica que \textbf{a idade 
 Adicionalmente, as variáveis \textbf{tB-tSB e cc3 (t5-t3)} possuem uma correlação moderada de -0,28 com a ploidia, sugerindo que o período entre as fases de desenvolvimento \textbf{t5, t3, tB e tSB podem afetar diretamente a qualidade genética do embrião}. Este intervalo de tempo está ligado ao ritmo de divisão celular e ao comportamento dos cromossomos. Mudanças nesse processo podem comprometer a criação de embriões euploides, levando a um aumento na probabilidade de aneuploidia. Essa correlação sugere que a sincronização adequada do desenvolvimento embrionário entre esses estágios é fundamental para a formação de embriões geneticamente saudáveis.
 
 Outros fatores, como o \textbf{estágio de desenvolvimento (-0,24) e o t5 (-0,24)}, também mostraram uma correlação negativa com a ploidia. Isso indica que \textbf{o avanço para fases mais avançadas de desenvolvimento e o atraso no t5 podem estar ligados a uma queda na qualidade genética dos embriões}. Essas variáveis enfatizam a necessidade de um acompanhamento exato do desenvolvimento embrionário, pois pequenas mudanças no intervalo entre as fases podem influenciar o comportamento genético do embrião, levando a embriões com menor probabilidade de implantação.
-
-\subsubsection{Atividade 3 (A3): Normalização dos Dados para Otimização}
-
-O método Z-Score, explicado no Apêndice \ref{apendice:zscore}, foi aplicado com êxito para normalizar os dados morfocinéticos dos embriões, conforme explicado no Capítulo 4. Esta fase foi importante para garantir que todas as variáveis numéricas, sem importar suas unidades ou escalas originais, estivessem na mesma base de comparação. Este procedimento, crucial para a implementação de algoritmos de aprendizado de máquina, eliminou vieses de amplitude e permitiu uma avaliação mais consistente e comparável entre os dados. 
-
-\subsection*{Análise da Planilha Normalizada}
-Depois de realizar a normalização, a Tabela \ref{tab:normalizacao} gerada apresenta os dados convertidos para que cada variável possua uma média de 0 e um desvio padrão de 1. 
-
-\begin{table}[h!]
-    \centering
-    \renewcommand{\arraystretch}{1.2} 
-    \captionsetup{font=footnotesize, justification=centering, labelsep=period, position=above}
-    \caption{Planilha Normalizada}
-    \label{tab:normalizacao}
-    \begin{tabular}{|c|c|c|c|}
-        \vspace{0.2cm} \cellcolor[HTML]{008940}  \textbf{Kidscore} & \cellcolor[HTML]{008940} \textbf{t2} & \cellcolor[HTML]{008940}  \textbf{t3} & \cellcolor[HTML]{008940}  \textbf{t4} \\
-        
-        \hline
-        -0,1651468441 & -1,04331772 & -0,2061446738 & -0,1365241993 \\
-        -0,3621219891 & 0,0828611265 & 0,1102377935 & -0,04951654895 \\
-        1,509141888 & -0,7805426557 & -0,4547308981 & -0,8035828516 \\
-        -0,1651468441 & 0,233018306 & 0,08769304581 & -0,1365241993 \\
-        1,75536082 & -0,4426890018 & -0,4095334028 & -0,8909505013 \\
-        1,410654316 & -0,9306998352 & -0,6129221317 & -1,151613453 \\
-        0,8689726671 & -1,231014194 & -0,5677246364 & -1,064605802 \\
-        -0,3128782029 & -0,8180819506 & -0,4547308981 & -0,7745803015 \\
-        0,9182164534 & -1,11839631 & -0,9067058513 & -1,586651704 \\
-        -0,06665927163 & 0,833647024 & 0,607410242 & 0,7625458359 \\
-        -0,5095833479 & 0,833647024 & 1,217576429 & 1,197593105 \\
-        -1,888679363 & 0,3831754855 & 0,0650429815 & -0,07851909905 \\
-        \hline
-    \end{tabular}
-    \caption*{\scriptsize Fonte: Autoras (2024)}
-\end{table}
-\FloatBarrier
-
-Isso reduz o efeito das variações de escala entre as variáveis e simplifica a compreensão dos dados. A tabela normalizada foi verificada e todos os valores foram ajustados de acordo com a fórmula do Z-Score, com a média e o desvio padrão calculados para cada linha. Por exemplo, a variável "t2" tinha valores que oscilavam entre 19 e 38 horas antes da normalização, indicando uma ampla dispersão na faixa de dados. Depois de normalizados, os dados da variável foram convertidos em uma escala com média zero e desvio padrão de 1. Isso permitiu que todos os valores da variável estivessem comparáveis, mesmo com a grande variação original.
-
-\subsection*{Efeito da Normalização na Comparabilidade das Variáveis}
-O principal benefício de normalizar as variáveis é que agora é possível compará-las de forma mais justa. Antes da normalização, variáveis como o "t8" (que apresentava uma amplitude maior) poderiam impactar de forma desproporcional o modelo de aprendizado de máquina, enquanto variáveis como o "t2", com uma amplitude menor, poderiam ser desconsideradas. Com a normalização, todas as variáveis estão na mesma escala, possibilitando uma avaliação justa de cada uma durante o treinamento do modelo.
-
-Este efeito é especialmente relevante em algoritmos que lidam com escalas de variáveis, tais como redes neurais. Com os dados normalizados, as conexões entre as variáveis podem ser examinadas de forma mais nítida, simplificando a elaboração de modelos preditivos mais confiáveis.
-
-\subsection*{Impacto na Qualidade dos Modelos de Previsão}
-Modelos elaborados a partir de dados normalizados costumam ter um desempenho superior, já que são menos afetados por variáveis de escalas mais elevadas (Jaiswal, 2024). Ademais, a normalização tem o potencial de intensificar a convergência de algoritmos de otimização, como o gradiente descendente, que pode ser mais lento ou até mesmo não funcionar se os dados não forem padronizados (Milewski et al., 2016).
-
-Agora que as variáveis estão em uma escala comparável, os modelos de previsão da porcentagem de euploidia dos embriões têm maior chance de gerar resultados mais exatos e seguros. 
-
-\subsection*{Análise dos Resultados Normalizados}
-\textbf{Idade e Kidscore:} A normalização destas variáveis (Tabela \ref{tab:normalizacao-idade-kidscore}) mostrou que ambas possuem distribuições semelhantes em termos de amplitude, sugerindo uma maior homogeneidade nos dados demográficos e nos escores atribuídos aos embriões.
-
-\begin{table}[h!]
-    \centering
-    \renewcommand{\arraystretch}{1.2}
-    \captionsetup{font=footnotesize, justification=centering, labelsep=period, position=above}
-    \caption{Normalização da Idade e Kidscore}
-    \label{tab:normalizacao-idade-kidscore}
-    \begin{tabular}{|c|c|}
-        \hline
-        \vspace{0.2cm} \cellcolor[HTML]{008940} \textbf{Idade} & \cellcolor[HTML]{008940} \textbf{Kidscore} \\
-        \hline
-        -0,3353649796 & -0,1651468441 \\
-        1,209574814 & -0,3621219891 \\
-        1,209574814 & 1,509141888 \\
-        1,209574814 & -0,1651468441 \\
-        1,209574814 & 1,75536082 \\
-        \hline
-    \end{tabular}
-    \caption*{\scriptsize Fonte: Autoras (2024)}
-\end{table}
-\FloatBarrier
-
-
-\textbf{Parâmetros Temporais:} Após a normalização, ficou evidente que os tempos relacionados à divisão celular possuem uma distribuição com pouca variabilidade, o que pode refletir padrões biológicos comuns nos embriões analisados.
-
-\textbf{Durações e Intervalos:} Os intervalos normalizados mostraram diferenças mais acentuadas nessas variáveis em relação aos tempos absolutos. Isso pode sugerir que os intervalos entre eventos celulares são mais propensos a alterações individuais.
 
 \subsubsection{Atividade 4 (A4): Separar o conjunto de dados em conjuntos de treinamento, validação e teste, fazendo uma distribuição dos dados e aplicar técnica de aumento de dados}
 Nessa atividade, compartilhamos os resultados alcançados ao realizar o processo de subdivisão do conjunto de dados em três subconjuntos: treinamento, validação e teste. Esta fase é crucial para assegurar que o modelo de aprendizado de máquina seja formado, ajustado e avaliado de forma justa e representativa.

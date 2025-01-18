@@ -26,9 +26,6 @@ Antes de começar a "Execução da Pesquisa e Análise dos Resultados", é cruci
 Estes documentos evidenciam o comprometimento ético e a transparência desta pesquisa, enfatizando que todas as informações empregadas foram obtidas de maneira responsável e autorizada.
 Os códigos mencionados nas atividades estão disponíveis no repositório do projeto no GitHub, podendo ser acessado aqui: \textbf{\href{https://github.com/sabrinaberno/TCC1}{GitHub-TCC}}, onde são detalhadamente explicados, incluindo a lógica utilizada para sua implementação e os resultados obtidos.
 
-
-
-
 \section{Fase 1: Análise e Preparação de Dados}
 \subsection{OE1 - Expansão, Processamento e Análise de Dados para Predição de Ploidia}
 \subsubsection{Atividade 1 (A1): Análise, Revisão, Seleção e Limpeza de Variáveis para Predição de Euploidia}
@@ -68,20 +65,79 @@ O desenvolvimento desta atividade teve início com a verificação da relevânci
   \label{tab:definicoes_variaveis}
 \end{table}
 
-Com base no estudo do referencial teórico, realizamos uma análise criteriosa para identificar a necessidade de introduzir novas variáveis que possam aprimorar a precisão do modelo, bem como excluir aquelas que se mostraram irrelevantes. A partir da revisão bibliográfica, conduzimos um processo de seleção das variáveis mais relevantes para o nosso modelo de Inteligência Artificial, fundamentado em evidências científicas. Dessa forma, foi possível identificar um conjunto de variáveis extraídas da base de dados que apresentam respaldo teórico quanto à sua influência na evolução do modelo. As variáveis selecionadas para o estudo são: \textbf{Idade, t2, t3, t4, t5, t8, s2, cc2 (t3-t2), tSC, tSB, tB, cc3 (t5-t3), s3 (t8-t5), t5-t2, tSC-t8, tB-tSB, Estágio, Morfo e KIDScore}.
+Com base no estudo do referencial teórico, realizamos uma análise para identificar a necessidade de introduzir novas variáveis que possam aprimorar a precisão do modelo, bem como excluir aquelas que se mostraram irrelevantes. A partir da revisão bibliográfica, conduzimos um processo de seleção das variáveis mais relevantes para o nosso modelo de Inteligência Artificial, fundamentado em evidências científicas. Dessa forma, foi possível identificar um conjunto de variáveis da base de dados que apresentam respaldo teórico quanto à sua influência na evolução do modelo. As variáveis selecionadas para o estudo são: \textbf{Idade, t2, t3, t4, t5, t8, s2, cc2 (t3-t2), tSC, tSB, tB, cc3 (t5-t3), s3 (t8-t5), t5-t2, tSC-t8, tB-tSB, Estágio, Morfo e KIDScore}.
 
 A coluna de \textbf{Plodia} também foi selecionada, pois nos possibilita agrupar os embriões em duas categorias claras, distinguindo entre aqueles com euploidia normal e aqueles com alterações cromossômicas, o que é crucial para a elaboração de um modelo sólido.
 
 Não identificamos estudos que estabelecem uma ligação direta entre o parâmetro \textbf{st2} e a previsão de euploidia. Apesar do movimento citoplasmático antes da citocinese ser um marco significativo no desenvolvimento embrionário, a ausência de provas científicas que liguem esse movimento à qualidade do embrião e à euploidia nos levou a remover o \textbf{st2} da lista de variáveis para o modelo. Igualmente, não foram identificados estudos que analisassem especificamente o intervalo entre \textbf{t2} (o instante em que o embrião alcança a fase de duas células) e \textbf{st2} (movimento citoplasmático pré-citocinese) para prever a euploidia. Como \textbf{st2} foi eliminada, também removemos o parâmetro \textbf{t2-st2} do nosso grupo de variáveis.
 
-A partir disso, conseguimos determinar quais variáveis são fundamentais para a elaboração do nosso modelo de previsão de euploidia. Depois de examinar e revisar as variáveis, modificamos a planilha para espelhar os dados mais significativos para o modelo. As colunas \textbf{Id, Data da biópsia e Embrião n.} também foram eliminadas, uma vez que não contribuem para o valor do modelo. Adicionalmente, as variáveis \textbf{st2} e \textbf{t2-st2} foram eliminadas, conforme mencionado anteriormente. Portanto, a planilha revisada agora inclui somente as variáveis que possuem uma ligação comprovada com a previsão de euploidia, fundamentada nas evidências científicas revisadas.
+A partir disso, conseguimos determinar quais variáveis são fundamentais para a elaboração do nosso modelo de previsão de euploidia. Depois de examinar e revisar as variáveis, modificamos a planilha para espelhar os dados mais significativos para o modelo. As colunas \textbf{Id, Data da biópsia e Embrião n.} também foram eliminadas, uma vez que não contribuem para o valor do modelo. Portanto, a planilha revisada inclui somente as variáveis que possuem uma ligação comprovada com a previsão de euploidia, fundamentada nas evidências científicas revisadas.
 
 \subsubsection{Limpeza dos Dados}
 Ao lidar com os dados ausentes, utilizamos o método de Análise de Casos Completos (ACC), que envolve a remoção de observações que possuem pelo menos um valor ausente (Camargos, 2011). Este procedimento é frequentemente empregado quando o número de dados ausentes é reduzido, assegurando que a remoção de algumas observações não interfira de forma significativa na análise estatística e preserva a consistência do modelo (Camargos, 2011). Em nosso cenário, das 85 linhas de dados disponíveis, apenas 2 apresentavam valores ausentes. Por esse motivo, excluímos essas duas linhas de modo manual, já que é um número muito pequeno para fazer um código de limpeza de dados, assim, a planilha se modifica, resultando em 83 linhas.
 
-\subsubsection{Atividade 2 (A2): Identificação da Correlação entre os Parâmetros na Previsão da Ploidia do Embrião}
+\subsubsection{Atividade 2 (A2): Normalização dos Dados para Otimização}
+A etapa de normalização dos dados é um passo fundamental na criação de modelos de aprendizado de máquina, particularmente em situações onde as variáveis têm diferentes escalas e distribuições. Esta tarefa foi executada com o uso do método Z-Score. Esta metodologia modifica os dados de forma que cada variável possua uma média de 0 e um desvio padrão de 1, explicado na APÊNDICE \ref{apendice:zscore}. 
 
-O coeficiente de \textbf{correlação de Spearman}, explicado no APÊNDICE \ref{apendice:spearman}, foi escolhido para esta atividade devido à necessidade de reconhecer relações entre os parâmetros documentados nos dados dos embriões e a porcentagem de euploidia. A metodologia leva em conta a classificação ordinal das observações, minimizando os efeitos de valores atípicos e permitindo a análise de variáveis com distribuições não normais \cite{sousa2019}. Além disso, a sua facilidade de uso em pesquisas científicas e a sua vasta aplicação em estudos destacam sua utilidade na análise de ploidia dos embriões.
+A normalização foi conduzida com Python e a biblioteca Pandas. O procedimento foi automatizado para simplificar a análise em grande escala dos dados morfocinéticos dos embriões. A normalização foi aplicada especificamente às variáveis numéricas do conjunto de dados, previamente selecionadas na fase de escolha das variáveis. 
+
+A sequência de passos executados pelo código para a normalização dos dados foi:
+
+\begin{enumerate}
+    \item \textbf{Análise dos Dados:} Os dados foram inicialmente importados do arquivo Excel que possui os dados dos embriões, usando a função \texttt{pd.read\_excel()}.
+    
+    \item \textbf{Identificação das Colunas Numéricas:} Em seguida, foram identificadas as colunas numéricas do \textit{DataFrame} através do método \texttt{select\_dtypes()}. Essa etapa é muito importante, já que a normalização com Z-Score deve ser realizada apenas em variáveis contínuas. As variáveis normalizadas foram: Idade, Kidscore, t2, t3, t4, t5, t8, tSC, tSB, tB, cc2 (\texttt{t3-t2}), cc3 (\texttt{t5-t3}), \texttt{t5-t2}, s2 (\texttt{t4-t3}), s3 (\texttt{t8-t5}), \texttt{tSC-t8} e \texttt{tB-tSB}.
+    
+    \item \textbf{Cálculo da Média e Desvio Padrão:} Para cada variável numérica, a média e o desvio padrão foram calculados.
+    
+    \item \textbf{Utilização do Z-Score:} Para cada valor de uma variável, a média é subtraída e o desvio padrão é dividido, de acordo com a fórmula. Isso modifica os dados para que todas as variáveis apresentem média zero e desvio padrão igual a 1.
+    
+    \item \textbf{Armazenamento dos Dados Normalizados:} Depois de aplicar o Z-Score, os dados normalizados foram guardados em uma nova planilha Excel, denominada “\texttt{Planilha\_normalizada.xlsx}”.
+\end{enumerate}
+
+A opção pelo Z-Score se deve à sua habilidade de converter os dados para uma escala padrão, preservando as informações pertinentes. Pesquisas apontam que a normalização melhora a precisão dos algoritmos de aprendizado de máquina ao remover os efeitos de escalas distintas entre as variáveis \cite{jaiswal2024}. Além disso, essa técnica simplifica a comparação entre variáveis, auxiliando na interpretação e validação dos modelos criados.
+
+\subsection*{Análise da Planilha Normalizada}
+Depois de realizar a normalização, a Tabela \ref{tab:normalizacao} gerada apresenta os dados convertidos para que cada variável possua uma média de 0 e um desvio padrão de 1. 
+
+\begin{table}[h!]
+  \centering
+  \renewcommand{\arraystretch}{1.2} 
+  \captionsetup{font=footnotesize, justification=centering, labelsep=period, position=above}
+  \caption{Planilha Normalizada}
+  \label{tab:normalizacao}
+  \begin{tabular}{|c|c|c|c|}
+      \vspace{0.2cm} \cellcolor[HTML]{008940}  \textbf{Kidscore} & \cellcolor[HTML]{008940} \textbf{t2} & \cellcolor[HTML]{008940}  \textbf{t3} & \cellcolor[HTML]{008940}  \textbf{t4} \\
+      
+      \hline
+      -0,1651468441 & -1,04331772 & -0,2061446738 & -0,1365241993 \\
+      -0,3621219891 & 0,0828611265 & 0,1102377935 & -0,04951654895 \\
+      1,509141888 & -0,7805426557 & -0,4547308981 & -0,8035828516 \\
+      -0,1651468441 & 0,233018306 & 0,08769304581 & -0,1365241993 \\
+      1,75536082 & -0,4426890018 & -0,4095334028 & -0,8909505013 \\
+      1,410654316 & -0,9306998352 & -0,6129221317 & -1,151613453 \\
+      0,8689726671 & -1,231014194 & -0,5677246364 & -1,064605802 \\
+      -0,3128782029 & -0,8180819506 & -0,4547308981 & -0,7745803015 \\
+      0,9182164534 & -1,11839631 & -0,9067058513 & -1,586651704 \\
+      -0,06665927163 & 0,833647024 & 0,607410242 & 0,7625458359 \\
+      -0,5095833479 & 0,833647024 & 1,217576429 & 1,197593105 \\
+      -1,888679363 & 0,3831754855 & 0,0650429815 & -0,07851909905 \\
+      \hline
+  \end{tabular}
+  \caption*{\scriptsize Fonte: Autoras (2024)}
+\end{table}
+\FloatBarrier
+
+Isso reduz o efeito das variações de escala entre as variáveis e simplifica a compreensão dos dados. A tabela normalizada foi verificada e todos os valores foram ajustados de acordo com a fórmula do Z-Score, com a média e o desvio padrão calculados para cada linha. Por exemplo, a variável "t2" tinha valores que oscilavam entre 19 e 38 horas antes da normalização, indicando uma ampla dispersão na faixa de dados. Depois de normalizados, os dados da variável foram convertidos em uma escala com média zero e desvio padrão de 1. Isso permitiu que todos os valores da variável estivessem comparáveis, mesmo com a grande variação original.
+
+\subsection*{Efeito da Normalização na Comparabilidade das Variáveis}
+O principal benefício de normalizar as variáveis é que agora é possível compará-las de forma mais justa. Antes da normalização, variáveis como o "t8" (que apresentava uma amplitude maior) poderiam impactar de forma desproporcional o modelo de aprendizado de máquina, enquanto variáveis como o "t2", com uma amplitude menor, poderiam ser desconsideradas. Com a normalização, todas as variáveis estão na mesma escala, possibilitando uma avaliação justa de cada uma durante o treinamento do modelo.
+
+Este efeito é especialmente relevante em algoritmos que lidam com escalas de variáveis, tais como redes neurais. Com os dados normalizados, as conexões entre as variáveis podem ser examinadas de forma mais nítida, simplificando a elaboração de modelos preditivos mais confiáveis.
+
+\subsubsection{Atividade 3 (A3): Identificação da Correlação entre os Parâmetros na Previsão da Ploidia do Embrião}
+
+O coeficiente de \textbf{correlação de Spearman}, explicado no APÊNDICE \ref{apendice:spearman}, foi escolhido para esta atividade devido à necessidade de reconhecer relações entre os parâmetros documentados nos dados dos embriões e a porcentagem de euploidia. A metodologia leva em conta a classificação ordinal das observações, minimizando os efeitos de valores atípicos e permitindo a análise de variáveis com distribuições não normais \cite{sousa2019}.
 
 O programa em Python criado para essa análise foi desenvolvido para ser modular, eficaz e gerar resultados claros tanto em formato visual quanto textual. Ele emprega as bibliotecas \textit{Pandas, SciPy, Matplotlib e python-docx} para manipular dados, determinar correlações, produzir gráficos e elaborar relatórios em Word. A seguir, detalha-se a lógica do código:
 
@@ -92,126 +148,15 @@ O programa em Python criado para essa análise foi desenvolvido para ser modular
     \item \textbf{Elaboração de Relatório Automatizado}: O relatório gerado contém descrições textuais dos coeficientes e gráficos correspondentes. Este documento automatizado facilita a comunicação visual e escrita dos resultados.
 \end{itemize}
 
-O código em Python utilizado para realizar a análise está apresentado a seguir:
-
-\begin{lstlisting}
-  import pandas as pd
-  from scipy.stats import spearmanr
-  import matplotlib.pyplot as plt
-  from docx import Document
-  from docx.shared import Inches
-  import os
-  
-  file_path = "PlanilhaDadosRefinados.xlsx"
-  data = pd.read_excel(file_path)
-  
-  numerical_columns = [ 
-      "Idade", "Estágio", "Morfo", "KIDScore", "t2", "t3", "t4", "t5", "t8", "tSC", "tSB", "tB", "cc2 (t3-t2)", 
-      "cc3 (t5-t3)", "t5-t2", "s2 (t4-t3)", "s3 (t8-t5)", "tSC-t8", "tB-tSB", "Ploidia"
-  ]
-  
-  numerical_columns = [col for col in numerical_columns if col in data.columns]
-  
-  results = []
-  for col1 in numerical_columns:
-      for col2 in numerical_columns:
-          if col1 != col2:  
-              coef, _ = spearmanr(data[col1], data[col2], nan_policy="omit")
-              results.append({"Variable 1": col1, "Variable 2": col2, "Spearman Coefficient": coef})
-  
-  correlation_df = pd.DataFrame(results)
-  
-  output_file = "correlation_results.xlsx"
-  correlation_df.to_excel(output_file, index=False)
-  print(f"\nResultados salvos no arquivo: {output_file}")
-  
-  doc = Document()
-  doc.add_heading('Correlação de Spearman - Embriões', 0)
-  
-  output_dir = "gráficos"
-  os.makedirs(output_dir, exist_ok=True)
-  
-  color_var1 = "lightgreen"
-  color_var2 = "darkblue"
-  
-  for index, row in correlation_df.iterrows():
-      var1, var2 = row['Variable 1'], row['Variable 2']
-      coef = row['Spearman Coefficient']
-  
-      plt.figure(figsize=(6, 4))
-      plt.scatter(data[var1], data[var2], alpha=0.6, c=color_var1, label=f'{var1}', marker='o')
-      plt.scatter(data[var2], data[var1], alpha=0.6, c=color_var2, label=f'{var2}', marker='x')
-      
-      plt.title(f"Dispersão entre {var1} e {var2} (Coeficiente de Spearman: {coef:.2f})")
-      plt.xlabel(var1)
-      plt.ylabel(var2)
-  
-      img_path = os.path.join(output_dir, f"grafico_{var1}_{var2}.png")
-      plt.savefig(img_path)
-      plt.close()
-  
-      doc.add_heading(f'Correlação entre {var1} e {var2}', level=1)
-      doc.add_paragraph(f'Coeficiente de Spearman: {coef:.2f}')
-      doc.add_picture(img_path, width=Inches(5.0))
-  
-  output_word = "relatorio_correlacoes.docx"
-  doc.save(output_word)
-  
-  print(f"\nRelatório gerado e salvo em: {output_word}")
-\end{lstlisting}
-
 O código analisa a correlação entre as variáveis numéricas em uma sequência de dados, empregando o coeficiente de Spearman. Ele inicia carregando a planilha Excel com as informações dos embriões e seleciona todas as colunas relevantes para a análise. O coeficiente de Spearman é calculado para cada par de variáveis, avaliando a intensidade e a direção da relação monótona entre elas. Os resultados são armazenados em um \texttt{DataFrame}, que é uma estrutura de dados bidimensional do Pandas, semelhante a uma tabela, permitindo fácil manipulação e análise. Esta tabela é então exportada para um arquivo Excel chamado \texttt{correlation\_results.xlsx}.
 
-Após isso, o programa gera gráficos de dispersão para observar as correlações, ressaltando os padrões das variáveis associadas. Esses gráficos, juntamente com os coeficientes de correlação, são automaticamente incorporados a um documento Word. No final, temos um relatório completo com as análises e visualizações, salvo como um arquivo chamado \texttt{relatorio\_correlacoes.docx}.
+Após isso, o programa gera gráficos de dispersão para observar as correlações, ressaltando os padrões das variáveis associadas. Esses gráficos, juntamente com os coeficientes de correlação, são automaticamente incorporados a um documento Word. No final, temos um relatório completo com as análises e visualizações, salvo como um arquivo chamado \texttt{relatorio\_correlacoes.docx}, que contém todos os gráficos de dispersão para as combinações examinadas e valores de correlação relacionados, totalizando 172 páginas. 
 
-\subsubsection{Atividade 3 (A3): Normalização dos Dados para Otimização}
-A etapa de normalização dos dados é um passo fundamental na criação de modelos de aprendizado de máquina, particularmente em situações onde as variáveis têm diferentes escalas e distribuições. Esta tarefa foi executada com o uso do método Z-Score. Esta metodologia modifica os dados de forma que cada variável possua uma média de 0 e um desvio padrão de 1, explicado na APÊNDICE \ref{apendice:zscore}. 
+Em seguida, apresentaremos a avaliação dos resultados mais relevantes obtidos a partir dos dois documentos gerados pelo código, destacando as variáveis com correlações mais significativas, bem como aquelas com pouca ou nenhuma interação. Para uma visão mais abrangente dos dados, a matriz de correlação entre todas as variáveis está disponível no Anexo \ref{anexo:correlacoes}.
 
-A normalização foi conduzida com Python e a biblioteca Pandas. O procedimento foi automatizado para simplificar a análise em grande escala dos dados morfocinéticos dos embriões. A normalização foi aplicada especificamente às variáveis numéricas do conjunto de dados, previamente selecionadas na fase de escolha das variáveis. O código utilizado para realizar essa atividade foi:
 
-\begin{lstlisting}
-  import pandas as pd
-  import numpy as np
-  
-  
-  file_path = "PlanilhaDeDadosDosEmbriões4.xlsx"  
-  data = pd.read_excel(file_path)
-  
-  
-  numeric_columns = data.select_dtypes(include=[np.number]).columns
-  
-  
-  normalized_data = data.copy()
-  
-  
-  for col in numeric_columns:
-      mean = data[col].mean()
-      std = data[col].std()
-      normalized_data[col] = (data[col] - mean) / std
-  
-  
-  output_file = "Planilha_normalizada.xlsx"
-  normalized_data.to_excel(output_file, index=False)
-  
-  
-  print(f"Normalização concluída. Arquivo salvo como: {output_file}")
-\end{lstlisting}  
 
-A sequência de passos executados pelo código para a normalização dos dados foi:
 
-\begin{enumerate}
-    \item \textbf{Análise dos Dados:} Os dados foram inicialmente importados do arquivo Excel que possui os dados dos embriões, usando a função \texttt{pd.read\_excel()}.
-    
-    \item \textbf{Identificação das Colunas Numéricas:} Em seguida, foram identificadas as colunas numéricas do \textit{DataFrame} através do método \texttt{select\_dtypes()}. Essa etapa é muito importante, já que a normalização com Z-Score deve ser realizada apenas em variáveis contínuas. As variáveis normalizadas foram: Idade, Kidscore, t2, t3, t4, t5, t8, tSC, tSB, tB, cc2 (\texttt{t3-t2}), cc3 (\texttt{t5-t3}), \texttt{t5-t2}, s2 (\texttt{t4-t3}), s3 (\texttt{t8-t5}), \texttt{tSC-t8} e \texttt{tB-tSB}.
-    
-    \item \textbf{Cálculo da Média e Desvio Padrão:} Para cada variável numérica, a média e o desvio padrão foram calculados. Esses valores são fundamentais para a utilização da fórmula do Z-Score, apresentada e explicada no \textbf{APÊNDICE \ref{apendice:zscore}}.
-    
-    \item \textbf{Utilização do Z-Score:} Para cada valor de uma variável, a média é subtraída e o desvio padrão é dividido, de acordo com a fórmula. Isso modifica os dados para que todas as variáveis apresentem média zero e desvio padrão igual a 1.
-    
-    \item \textbf{Armazenamento dos Dados Normalizados:} Depois de aplicar o Z-Score, os dados normalizados foram guardados em uma nova planilha Excel, denominada “\texttt{Planilha\_normalizada.xlsx}”. A planilha está em “\texttt{Atividade 3}” no GitHub do nosso projeto: \textbf{\href{https://github.com/sabrinaberno/TCC1}{GitHub-TCC}}.
-\end{enumerate}
-
-A opção pelo Z-Score se deve à sua habilidade de converter os dados para uma escala padrão, preservando as informações pertinentes. Pesquisas apontam que a normalização melhora a precisão dos algoritmos de aprendizado de máquina ao remover os efeitos de escalas distintas entre as variáveis \cite{jaiswal2024}. Além disso, essa técnica simplifica a comparação entre variáveis, auxiliando na interpretação e validação dos modelos criados.
 
 \subsubsection{Atividade 4 (A4): Separar o conjunto de dados em conjuntos de treinamento, validação e teste, fazendo uma distribuição dos dados e aplicar técnica de aumento de dados}
 Nessa atividade, apresentamos a implementação do procedimento de segmentação do conjunto de dados em três subconjuntos diferentes: treinamento, validação e teste. Esta distribuição obedece às proporções estabelecidas na metodologia (70\%, 15\% e 15\%, respectivamente) e foi feita através de um \textit{script} em Python. Utilizamos a planilha criada pela Atividade 3, a ``\texttt{Planilha\_normalizada.xlsx}'', pois utilizaremos os dados já normalizados e tratados a partir de agora.
