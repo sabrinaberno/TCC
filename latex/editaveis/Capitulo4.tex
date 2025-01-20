@@ -29,40 +29,43 @@ Os códigos mencionados nas atividades estão disponíveis no repositório do pr
 \section{Fase 1: Análise e Preparação de Dados}
 \subsection{OE1 - Expansão, Processamento e Análise de Dados para Predição de Ploidia}
 \subsubsection{Atividade 1 (A1): Análise, Revisão, Seleção e Limpeza de Variáveis para Predição de Euploidia}
-O desenvolvimento desta atividade teve início com a verificação da relevância das variáveis com base nos estudos do referencial teórico. Esse processo envolveu a análise das variáveis presentes na tabela de dados que serão utilizadas nesta pesquisa, garantindo sua adequação ao objetivo do estudo. As variáveis selecionadas inicialmente são:
-\begin{table}[ht]
-  \begin{tabular}{|l|c|}
-  \hline
-  \textbf{Variáveis} & \textbf{Definição} \\ \hline
-  Id & Identificador numérico de cada paciente. \\ \hline
-  Idade & Idade da paciente no momento do procedimento. \\ \hline
-  Data da biopsia & Data em que foi realizada a biópsia embrionária. \\ \hline
-  Embrião n. & Identificação numérica do embrião dentro do ciclo de fertilização. \\ \hline
-  Estágio & Dia de evolução no cultivo. \\ \hline
-  Morfo & Classificação morfológica dos embriões baseada no estágio de expansão da blástula, estágio inicial do desenvolvimento embrionário. \\ \hline
-  Kidscore & Algoritmo que combina variáveis morfocinéticas e parâmetros de desenvolvimento embrionário. \\ \hline
-  st2 & Primeiro indício de movimentos citoplasmáticos antes da primeira citocinese. \\ \hline
-  t2 & Tempo para 2 células. \\ \hline
-  t3 & Tempo para 3 células. \\ \hline
-  t4 & Tempo para 4 células. \\ \hline
-  t5 & Tempo para 5 células. \\ \hline
-  t8 & Tempo para 8 células. \\ \hline
-  tSC & Tempo de formação do estágio de clivagem sincronizada (Time to Synchronized Compaction). \\ \hline
-  tSB & Tempo para o início da blastulação (Time to Start Blastulation). \\ \hline
-  tB & Tempo para o Blastocisto (Time to Blastocyst). \\ \hline
-  t2-st2 & Intervalo de tempo entre o T2 e o ST2. \\ \hline
-  cc2 (t3-t2) & Tempo necessário para que o embrião passe da divisão de 2 células (T2) para a divisão de 3 células (T3). \\ \hline
-  cc3 (t5-t3) & Tempo necessário para que o embrião passe da divisão de 3 células (T3) para a divisão de 5 células (T5). \\ \hline
-  t5-t2 & Intervalo de tempo entre o estágio de 2 células (T2) e o estágio de 5 células (T5). \\ \hline
-  s2 (t4-t3) & Intervalo de tempo necessário para que o embrião passe do estágio de 3 células (T3) para o estágio de 4 células (T4). \\ \hline
-  s3 (t8-t5) & Intervalo de tempo necessário para que o embrião passe do estágio de 5 células (T5) para o estágio de 8 células (T8). \\ \hline
-  tSC-t8 & Intervalo de tempo entre o estágio em que o embrião atinge a compactação inicial (tSC) e o estágio de 8 células (T8). \\ \hline
-  tB-tSB & Intervalo de tempo entre o estágio em que o embrião atinge o blastocisto inicial (tSB) e o estágio de blastocisto expandido (tB). \\ \hline
-  Ploidia & Estado de ploidia do embrião. \\ \hline
-  \end{tabular}
-  \caption{Variáveis analisadas no modelo de IA para predição de euploidia embrionária. A explicação mais detalhada sobre essas variáveis está no APÊNDICE A}
-  \label{tab:definicoes_variaveis}
-\end{table}
+O desenvolvimento desta atividade teve início com a verificação da relevância das variáveis com base nos estudos do referencial teórico. Esse processo envolveu a análise das variáveis presentes na tabela de dados que serão utilizadas nesta pesquisa, garantindo sua adequação ao objetivo do estudo. 
+
+% As variáveis selecionadas inicialmente são:
+
+% \begin{table}[ht]
+%   \begin{tabular}{|l|c|}
+%   \hline
+%   \textbf{Variáveis} & \textbf{Definição} \\ \hline
+%   Id & Identificador numérico de cada paciente. \\ \hline
+%   Idade & Idade da paciente no momento do procedimento. \\ \hline
+%   Data da biopsia & Data em que foi realizada a biópsia embrionária. \\ \hline
+%   Embrião n. & Identificação numérica do embrião dentro do ciclo de fertilização. \\ \hline
+%   Estágio & Dia de evolução no cultivo. \\ \hline
+%   Morfo & Classificação morfológica dos embriões baseada no estágio de expansão da blástula, estágio inicial do desenvolvimento embrionário. \\ \hline
+%   Kidscore & Algoritmo que combina variáveis morfocinéticas e parâmetros de desenvolvimento embrionário. \\ \hline
+%   st2 & Primeiro indício de movimentos citoplasmáticos antes da primeira citocinese. \\ \hline
+%   t2 & Tempo para 2 células. \\ \hline
+%   t3 & Tempo para 3 células. \\ \hline
+%   t4 & Tempo para 4 células. \\ \hline
+%   t5 & Tempo para 5 células. \\ \hline
+%   t8 & Tempo para 8 células. \\ \hline
+%   tSC & Tempo de formação do estágio de clivagem sincronizada (Time to Synchronized Compaction). \\ \hline
+%   tSB & Tempo para o início da blastulação (Time to Start Blastulation). \\ \hline
+%   tB & Tempo para o Blastocisto (Time to Blastocyst). \\ \hline
+%   t2-st2 & Intervalo de tempo entre o T2 e o ST2. \\ \hline
+%   cc2 (t3-t2) & Tempo necessário para que o embrião passe da divisão de 2 células (T2) para a divisão de 3 células (T3). \\ \hline
+%   cc3 (t5-t3) & Tempo necessário para que o embrião passe da divisão de 3 células (T3) para a divisão de 5 células (T5). \\ \hline
+%   t5-t2 & Intervalo de tempo entre o estágio de 2 células (T2) e o estágio de 5 células (T5). \\ \hline
+%   s2 (t4-t3) & Intervalo de tempo necessário para que o embrião passe do estágio de 3 células (T3) para o estágio de 4 células (T4). \\ \hline
+%   s3 (t8-t5) & Intervalo de tempo necessário para que o embrião passe do estágio de 5 células (T5) para o estágio de 8 células (T8). \\ \hline
+%   tSC-t8 & Intervalo de tempo entre o estágio em que o embrião atinge a compactação inicial (tSC) e o estágio de 8 células (T8). \\ \hline
+%   tB-tSB & Intervalo de tempo entre o estágio em que o embrião atinge o blastocisto inicial (tSB) e o estágio de blastocisto expandido (tB). \\ \hline
+%   Ploidia & Estado de ploidia do embrião. \\ \hline
+%   \end{tabular}
+%   \caption{Variáveis analisadas no modelo de IA para predição de euploidia embrionária. A explicação mais detalhada sobre essas variáveis está no APÊNDICE A}
+%   \label{tab:definicoes_variaveis}
+% \end{table}
 
 Com base no estudo do referencial teórico, realizamos uma análise para identificar a necessidade de introduzir novas variáveis que possam aprimorar a precisão do modelo, bem como excluir aquelas que se mostraram irrelevantes. A partir da revisão bibliográfica, conduzimos um processo de seleção das variáveis mais relevantes para o nosso modelo de Inteligência Artificial, fundamentado em evidências científicas. Dessa forma, foi possível identificar um conjunto de variáveis da base de dados que apresentam respaldo teórico quanto à sua influência na evolução do modelo. As variáveis selecionadas para o estudo são: \textbf{Idade, t2, t3, t4, t5, t8, s2, cc2 (t3-t2), tSC, tSB, tB, cc3 (t5-t3), s3 (t8-t5), t5-t2, tSC-t8, tB-tSB, Estágio, Morfo e KIDScore}.
 
@@ -159,9 +162,9 @@ A correlação com \textbf{t4 (-0,15) sugere que a idade exerce uma influência 
 \begin{figure}[h]
     \captionsetup{font=footnotesize, justification=centering, labelsep=period, position=above}
     \caption{Dispersão entre Idade e t4 - Coeficiente de Spearman: -0.15 e entre Idade e t5 - Coeficiente de Spearman: 0.11}
-    \label{fig:idade-t4}
+    \label{fig:idade-t4-t5}
     \centering
-    \includegraphics[scale=0.6]{figuras/Spearman/idade-t4-t5.pdf}
+    \includegraphics[scale=0.4]{figuras/Spearman/idade-t4-t5.pdf}
     \vspace{0.3cm} 
     \caption{A análise da dispersão entre Idade e as variáveis t4 e t5, utilizando o coeficiente de Spearman, revela correlações leves. O coeficiente de Spearman entre Idade e t4 foi de -0,15, indicando uma correlação monotônica negativa fraca, ou seja, à medida que a idade aumenta, há uma leve tendência de redução no tempo t4. Já entre Idade e t5, o coeficiente foi de 0,11, sugerindo uma correlação monotônica positiva fraca, indicando que o aumento da idade pode estar associado a um leve aumento no tempo t5.}
     \begin{minipage}{\linewidth}
@@ -170,14 +173,14 @@ A correlação com \textbf{t4 (-0,15) sugere que a idade exerce uma influência 
 \end{figure}
 \FloatBarrier 
 
-Ao reparar em alguns índices negativos, observamos os índices \textbf{tSB (-0.10), cc2 (t3-t2) (-0.17), s2 (t4-t3) (-0.24),  s3 (t8-t5) (-0.28) e a Ploidia(-0.50)}. Nota-se que os coeficientes mais próximos de 0 (como -0,10 a -0,28) indicam uma correlação negativa fraca. Isso traduz que há uma tendência muito sutil de que, quando uma variável aumenta, a idade, a outra diminui. Em \textit{tSB} Figura \ref{fig:idade-tSB}, o coeficiente negativo insinua que o tempo de formação inicial da blastocisto tende a ser menor em embriões provenientes de mães mais velhas. Na variável \textit{cc2}, Figura \ref{fig:idade-cc2}, a correlação desfavorável sugere uma maior irregularidade no intervalo entre a segunda e a terceira divisão celular (t2 para t3) em embriões de mães mais velhas. Em \textbf{s2} (Figura \ref{fig:idade-s2}) e \textit{s3} (Figura \ref{fig:idade-s3}), mostra que a idade materna também está ligada a uma diminuição na eficácia do intervalo entre as divisões celulares de t3 para t4. Isso indica um efeito na fase intermediária do ciclo celular. Nos embriões de mães mais velhas, o período entre a fase de 8 células e a formação do blastocisto final é estendido, sinalizando obstáculos no progresso dessas fases. Todos esses atrasos podem ser cruciais, já que fases iniciais bem sincronizadas são fundamentais para um desenvolvimento embrionário adequado, mostrando como uma idade avançada pode afetar o desenvolvimento embrionário, afirmando a bibliografia estudada, fato já citado por \citeonline{borges2019}, que reitera que \textbf{a idade materna exerce maior influência sobre a qualidade embrionária}.
+Ao reparar em alguns índices negativos, observamos os índices \textbf{tSB (-0.10), cc2 (t3-t2) (-0.17), s2 (t4-t3) (-0.24),  s3 (t8-t5) (-0.28) e a Ploidia(-0.50)}. Nota-se que os coeficientes mais próximos de 0 (como -0,10 a -0,28) indicam uma correlação negativa fraca. Isso traduz que há uma tendência muito sutil de que, quando uma variável aumenta, a idade, a outra diminui. Em \textit{tSB} Figura \ref{fig:idade-tSB-cc2-s2-s3}, o coeficiente negativo insinua que o tempo de formação inicial da blastocisto tende a ser menor em embriões provenientes de mães mais velhas. Na variável \textit{cc2}, Figura \ref{fig:idade-tSB-cc2-s2-s3}, a correlação desfavorável sugere uma maior irregularidade no intervalo entre a segunda e a terceira divisão celular (t2 para t3) em embriões de mães mais velhas. Em \textbf{s2} (Figura \ref{fig:idade-tSB-cc2-s2-s3}) e \textit{s3} (Figura \ref{fig:idade-tSB-cc2-s2-s3}), mostra que a idade materna também está ligada a uma diminuição na eficácia do intervalo entre as divisões celulares de t3 para t4. Isso indica um efeito na fase intermediária do ciclo celular. Nos embriões de mães mais velhas, o período entre a fase de 8 células e a formação do blastocisto final é estendido, sinalizando obstáculos no progresso dessas fases. Todos esses atrasos podem ser cruciais, já que fases iniciais bem sincronizadas são fundamentais para um desenvolvimento embrionário adequado, mostrando como uma idade avançada pode afetar o desenvolvimento embrionário, afirmando a bibliografia estudada, fato já citado por \citeonline{borges2019}, que reitera que \textbf{a idade materna exerce maior influência sobre a qualidade embrionária}.
 
 \begin{figure}[h]
     \captionsetup{font=footnotesize, justification=centering, labelsep=period, position=above}
     \caption{Dispersão entre Idade e tSB - Coeficiente de Spearman: -0.10 | Dispersão entre Idade e cc2 (t3-t2) - Coeficiente de Spearman: -0.15 | Dispersão entre Idade e s2 (t4-t3) - Coeficiente de Spearman: -0.24 | Dispersão entre Idade e s3 (t8-t5) - Coeficiente de Spearman: -0.28}
-    \label{fig:idade-t4}
+    \label{fig:idade-tSB-cc2-s2-s3}
     \centering
-    \includegraphics[scale=0.6]{figuras/Spearman/Idade-tSB_cc2_s2_s3.pdf}
+    \includegraphics[scale=0.4]{figuras/Spearman/Idade-tSB_cc2_s2_s3.pdf}
     \vspace{0.3cm} 
     \caption{A análise das relações entre Idade e as variáveis tSB, cc2 (t3-t2), s2 (t4-t3) e s3 (t8-t5) revela correlações negativas de diferentes intensidades, sugerindo que o aumento da idade pode estar associado a uma redução nos respectivos intervalos de tempo. A correlação entre Idade e tSB (-0,10) e entre Idade e cc2 (t3-t2) (-0,15) é fraca, indicando uma leve tendência de diminuição desses valores com o aumento da idade, mas sem um padrão claro. Já a correlação entre Idade e s2 (t4-t3) (-0,24) é moderadamente negativa, sugerindo uma relação mais perceptível entre o aumento da idade e a redução desse intervalo. A relação mais intensa foi observada entre Idade e s3 (t8-t5) (-0,28), apontando que a idade pode influenciar de maneira mais consistente a redução desse tempo. }
     \begin{minipage}{\linewidth}
