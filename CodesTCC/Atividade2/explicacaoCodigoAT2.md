@@ -96,8 +96,9 @@ for col in numeric_columns:
     * *Cálculo da Média*: A média dos valores é calculada com o método ```mean()```, que fornece a média aritmética dos dados.
     * *Cálculo do Desvio Padrão*: O desvio padrão é calculado com o método ```std()```, que mede a dispersão dos dados em relação à média.
     * *Aplicação da Fórmula Z-score*: A normalização de cada valor da coluna é realizada pela fórmula:
+
         $$
-        Z = \frac{X - \mu}{\sigma}
+            Z = \frac{X - \mu}{\sigma}
         $$
 
         Onde:
