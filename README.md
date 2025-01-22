@@ -1,14 +1,21 @@
-# Template TCC FGA-UnB
+# Trabalho de Conclusão de Curso
 
-Template para Trabalhos de Conclusão de Cursos (TCC) na Faculdade do
-Gama (FGA) em Latex.
+## Template TCC FGA-UnB
+
+<details>
+  <summary> Template para Trabalhos de Conclusão de Cursos (TCC) </summary>
+Template para Trabalhos de Conclusão de Cursos (TCC) na Faculdade do Gama (FGA) em Latex.
 
 Licenciado em Creative Commons Atribuição 3.0:
 http://creativecommons.org/licenses/by/3.0/
 
 Desenvolvido e adaptado pelo professor Edson Alves <edsomjr@gmail.com>.
+</details>
 
 ## Dependências
+
+<details>
+  <summary> O que é necessário para executar o latex do projeto? </summary>
 Para utilizar, certifique-se de ter instalados no seu ambiente o [Docker](https://docs.docker.com/engine/install/) e o [Docker-compose](https://docs.docker.com/compose/install/).
 
 ## Construindo imagem
@@ -53,3 +60,15 @@ sudo chown $USER /var/run/docker.sock
 sudo systemctl enable docker
 sudo systemctl start docker
 ```
+</details>
+
+## Código das Atividades do TCC
+
+<details>
+  <summary>Saiba mais sobre os códigos criados!</summary>
+
+- [Código explicado e detalhado da Atividade 2](CodesTCC/Atividade2/explicacaoCodigoAT2.md)
+- [Código explicado e detalhado da Atividade 3](CodesTCC/Atividade3/explicacaoCodigoAT3.md)
+
+
+</details>

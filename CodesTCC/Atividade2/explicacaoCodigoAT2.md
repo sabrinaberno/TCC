@@ -37,7 +37,7 @@ normalized_data.to_excel(output_file, index=False)
 print(f"Normalização concluída. Arquivo salvo como: {output_file}")
 ```
 
-## Rodar o Código "divisao_dados.py"
+## Executar o Código "normalizacao_zscore.py"
 
 1. Instale as dependências, caso necessário:
 ```python
