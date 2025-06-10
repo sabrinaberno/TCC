@@ -378,6 +378,22 @@ Ao construir a Matriz de Confusão, espera-se obter uma análise detalhada do de
 
 A finalidade é desenvolver o protótipo de uma interface básica que possibilite aos médicos visualizar as previsões de euploidia produzidas pelo modelo. O protótipo incluirá componentes cruciais como campos de preenchimento para os dados necessários à previsão, botões de interação para envio de informações, além de uma área de apresentação dos resultados.
 
-Para criar uma interface fácil de usar que permita aos médicos visualizar as previsões de euploidia, empregaremos o Figma, um software colaborativo baseado na web para a criação de interfaces. O Figma disponibiliza funcionalidades que simplificam a criação de interfaces de usuário e experiências do usuário, priorizando a colaboração em tempo real, por meio de uma gama de ferramentas de edição vetorial e prototipagem \cite{figma2024}.
+Para criar uma interface fácil de usar que permita aos médicos visualizar as previsões de euploidia, empregaremos o  \textbf{Figma}, um software colaborativo baseado na web para a criação de interfaces. O Figma disponibiliza funcionalidades que simplificam a criação de interfaces de usuário e experiências do usuário, priorizando a colaboração em tempo real, por meio de uma gama de ferramentas de edição vetorial e prototipagem \cite{figma2024}.
 
-O resultado é que o protótipo da interface básica possibilite aos médicos uma visualização clara e intuitiva das previsões de euploidia. A interface precisa ser funcional e esteticamente atraente, assegurando a compreensão simples dos resultados exibidos. Serão coletadas opiniões valiosas sobre o design, a navegação e a clareza das informações apresentadas, possibilitando as alterações necessárias.
+O resultado esperado é que o protótipo da interface básica possibilite aos médicos uma visualização clara e intuitiva das previsões de euploidia. A interface precisa ser funcional e esteticamente atraente, assegurando a compreensão simples dos resultados exibidos.
+
+Complementarmente, a interface web será implementada com as seguintes tecnologias modernas:
+
+\begin{itemize}
+\item \textbf{Next.js com App Router}: Será adotado o framework Next.js com a nova arquitetura de roteamento baseada em diretórios (app/), permitindo uma organização clara entre páginas, componentes reutilizáveis (components/) e bibliotecas auxiliares (lib/). Essa estruturação favorecerá a escalabilidade e a manutenção do projeto.
+
+\item \textbf{TypeScript}: A linguagem utilizada será TypeScript, por sua tipagem estática que proporcionará maior segurança no desenvolvimento, especialmente relevante em projetos que lidam com dados médicos sensíveis.
+
+\item \textbf{TailwindCSS}: A estilização será feita com TailwindCSS, o que permitirá construir rapidamente uma interface responsiva e visualmente alinhada às cores definidas para o projeto (verde e azul), com consistência e flexibilidade.
+
+\item \textbf{Vercel}: A aplicação será hospedada na plataforma Vercel, que oferece integração nativa com Next.js e permite deploys contínuos e automáticos. Isso garantirá que a versão mais recente da aplicação esteja sempre disponível online para testes e validações.
+
+\item \textbf{Leitura de Planilhas XLSX}: A aplicação contará com uma funcionalidade de upload de arquivos .xlsx contendo os dados morfocinéticos dos embriões. Após o envio, a aplicação realizará a leitura e simulará uma resposta do modelo de aprendizado de máquina, classificando os embriões como euploides ou aneuploides.
+\end{itemize}
+
+Com essa abordagem, espera-se disponibilizar uma interface funcional que complementará o protótipo em Figma, possibilitando testes reais e coleta de feedback por parte de usuários da área médica. O foco será garantir clareza na visualização dos resultados, facilidade de navegação e estética coerente com a finalidade científica e profissional do projeto.
