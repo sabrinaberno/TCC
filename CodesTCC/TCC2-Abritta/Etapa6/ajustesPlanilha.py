@@ -1,12 +1,12 @@
 import pandas as pd
 import numpy as np
 
-file_path = "PlanilhaCompleta.xlsx"
+file_path = "teste1.xlsx"
 
 data = pd.read_excel(file_path)
 
-# Substituindo os valores da coluna 'Ploidia' de 'euploide' e 'aneuploide' para 0 e 1
-data['Ploidia'] = data['Ploidia'].replace({'Euplóide': 0, 'Aneuplóide': 1})
+# Substituindo os valores da coluna 'Ploidia' de 'euploide' e 'aneuploide' para 1 e 0
+data['Ploidia'] = data['Ploidia'].replace({'Euplóide': 1, 'Aneuplóide': 0})
 
 # Removendo a letra D da coluna Estágio para ficar somente números representado o dia
 data['Estágio'] = data['Estágio'].str.replace("D", "", regex=False)
