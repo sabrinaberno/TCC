@@ -169,7 +169,7 @@ A principal função das camadas ocultas é extrair e transformar característic
 
 \subsubsection{Características das Camadas Densas}
 
-As camadas do MLP são chamadas densas (\textit{fully connected}) porque cada neurônio em uma camada está conectado a todos os neurônios da camada seguinte. Essa estrutura permite que a rede aprenda combinações complexas dos atributos de entrada \cite{goodfellow2016}.
+As camadas do MLP são chamadas densas (\textit{fully connected}) porque cada neurônio em uma camada está conectado a todos os neurônios da camada seguinte. Essa estrutura permite que a rede aprenda combinações complexas dos atributos de entrada \cite{haykin2009}.
 
 O cálculo realizado por um neurônio em uma camada densa pode ser expresso como:
 
@@ -183,17 +183,19 @@ Onde wi representam os pesos ajustáveis, xi as entradas e b o termo de viés bi
     a = \phi(z)
 \end{equation}
 
-\subsubsection{Funções de Ativação}
+\subsubsection{Inteligência Artificial Explicável (XAI) e o Algoritmo LIME}
 
-As funções de ativação introduzem não linearidade no modelo, o que é essencial para que a rede aprenda padrões complexos além de simples combinações lineares. As funções mais utilizadas incluem:
+As Redes Neurais Artificiais funcionam como verdadeiras “caixas-pretas” (black-box models). Isso significa que, embora sejam capazes de fazer previsões com alta precisão, não revelam claramente como chegaram a essas conclusões \cite{adadi2018}. Sua complexidade estrutural, com milhares ou milhões de parâmetros ajustáveis (como pesos sinápticos e funções de ativação em múltiplas camadas ocultas), dificulta o entendimento do processo de tomada de decisão. Em outras palavras, mesmo que o modelo diga que um embrião tem alta chance de ser euploide, não se sabe exatamente quais características levaram a essa decisão \cite{ribeiro2016}.
 
-\begin{itemize}
-    \item \textbf{ReLU (Rectified Linear Unit)}: definida como $\phi(z) = \max(0, z)$. Essa função é amplamente utilizada por sua simplicidade computacional e capacidade de mitigar o problema do gradiente desaparecido em redes profundas \cite{haykin2009}. No modelo deste trabalho, a função ReLU foi utilizada nas camadas ocultas, favorecendo a convergência durante o treinamento.
-   
-    \item \textbf{Sigmoid}: definida como $\phi(z) = \frac{1}{1 + e^{-z}}$. Essa função comprime a saída para o intervalo (0, 1), sendo especialmente útil para problemas de classificação binária na camada de saída. No entanto, seu uso em camadas ocultas é menos comum, pois valores muito grandes ou muito pequenos de z levam à saturação, resultando em gradientes próximos de zero, o que prejudica o aprendizado \cite{haykin2009}.
-\end{itemize}
+Nesse contexto, com o crescente uso de algoritmos de aprendizado de máquina em áreas sensíveis, como a medicina reprodutiva, se torna essencial garantir que os modelos sejam não apenas eficazes, mas também compreensíveis. A área de Inteligência Artificial Explicável (XAI {-} Explainable Artificial Intelligence) surgiu para suprir essa demanda, oferecendo métodos que possibilitam entender como e por que um modelo chega a determinada predição \cite{gilpin2018}. A XAI busca mitigar o trade-off tradicional entre desempenho e interpretabilidade, viabilizando o uso de modelos complexos em cenários que demandam responsabilidade e rastreabilidade de decisões \cite{gilpin2018}.
 
-A função Sigmoid transforma a saída do neurônio em uma interpretação probabilística, especialmente útil em tarefas onde o modelo deve fornecer a probabilidade de um determinado evento pertencer a uma das classes possíveis.
+A complexidade dessas redes reside na combinação não linear de milhares de parâmetros, como pesos sinápticos, viéses e funções de ativação distribuídos em diversas camadas ocultas, o que torna inviável a extração direta de regras ou padrões lógicos que expliquem de forma clara a razão por trás de uma decisão específica. Esse cenário levanta uma questão crítica: é seguro confiar em um sistema cujas decisões não podem ser explicadas? Em contextos como diagnósticos médicos ou decisões terapêuticas, a ausência de explicação pode comprometer a confiança de médicos, pacientes e órgãos reguladores, mesmo que o modelo apresente bons resultados estatísticos \cite{gilpin2018}. A confiança em uma tecnologia vai além da performance, requer também justificativas compreensíveis para que os profissionais possam validar, interpretar e, se necessário, questionar as decisões tomadas por essas ferramentas.
+
+Para resolver esse problema, surgiram técnicas de XAI capazes de oferecer explicações compreensíveis sobre os modelos e suas predições. Uma das abordagens mais utilizadas é o algoritmo LIME (Local Interpretable Model-Agnostic Explanations), desenvolvido por Ribeiro, Singh e Guestrin (2016). O LIME atua de forma “agnóstica ao modelo”, ou seja, pode ser aplicado a qualquer tipo de modelo preditivo, independentemente da sua estrutura interna, seja uma árvore de decisão, uma rede neural, ou um modelo de ensemble.
+
+O funcionamento do LIME é baseado na ideia de explicação local. Em vez de tentar explicar o modelo inteiro, ele foca em entender por que uma única predição específica foi feita. Para isso, o LIME cria várias versões modificadas (perturbações) da instância original, pequenas variações dos dados de entrada, e observa como o modelo responde a essas variações \cite{ribeiro2016}. Em seguida, ele ajusta um modelo simples (como uma regressão linear) para imitar o comportamento do modelo complexo somente naquele entorno local, identificando quais variáveis mais contribuíram para a decisão. O resultado é uma explicação visual e numérica, fácil de interpretar até mesmo por quem não conhece os detalhes matemáticos do modelo original.
+
+Essa abordagem será utilizada no presente trabalho com o objetivo de explicar as predições do modelo MLP treinado para estimar a probabilidade de um embrião ser euploide. Ao aplicar o LIME, foi possível calcular a contribuição percentual de cada variável para cada embrião, tornando o processo de decisão mais transparente e confiável. A utilização de ferramentas de XAI como o LIME agrega valor clínico ao modelo de predição, permitindo uma análise interpretável dos fatores morfocinéticos envolvidos na determinação da euploidia.
 
 \section{Identificação de Padrões Morfocinéticos e Predição de Euploidia com IA e Trabalhos Correlatos}
 
