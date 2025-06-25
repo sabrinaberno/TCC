@@ -350,28 +350,42 @@ A Curva ROC será gerada com base nas probabilidades de pertencimento à classe 
 
 Por fim, será calculada a AUC com a função \texttt{roc\_auc\_score} da biblioteca \texttt{scikit-learn}. A AUC varia de 0 a 1 e resume a capacidade do modelo de distinguir corretamente entre as classes. Valores mais próximos de 1 indicam excelente desempenho, enquanto valores próximos de 0{,}5 indicam que o modelo se comporta de maneira semelhante a um classificador aleatório \cite{vilela2022}. A partir dessas análises, espera-se obter uma base sólida para avaliar a eficácia do modelo e sua viabilidade de aplicação prática na predição de euploidia, com suporte tanto quantitativo quanto interpretativo.
 
-\subsubsection{\textbf{Objetivo Específico 4} - Protótipo de Interface}
+\subsubsection{\textbf{Objetivo Específico 4} - Desenvolver uma Interface}
 
 \paragraph{\textbf{Atividade 8 (A8):} Prototipar uma interface básica para exibir as predições de euploidia para o usuário final (médicos)}
 
-A finalidade é desenvolver o protótipo de uma interface básica que possibilite aos médicos visualizar as previsões de euploidia produzidas pelo modelo. O protótipo incluirá componentes cruciais como campos de preenchimento para os dados necessários à previsão, botões de interação para envio de informações, além de uma área de apresentação dos resultados.
+O objetivo desta etapa é desenvolver um protótipo interativo da interface que será utilizada pelos médicos para visualizar as predições de euploidia. Este protótipo deve contemplar os princípios fundamentais de design de interfaces, experiência do usuário (UX) e acessibilidade, garantindo que a navegação seja intuitiva e que os resultados sejam apresentados de forma clara e eficiente.
 
-Para criar uma interface fácil de usar que permita aos médicos visualizar as previsões de euploidia, empregaremos o  \textbf{Figma}, um software colaborativo baseado na web para a criação de interfaces. O Figma disponibiliza funcionalidades que simplificam a criação de interfaces de usuário e experiências do usuário, priorizando a colaboração em tempo real, por meio de uma gama de ferramentas de edição vetorial e prototipagem \cite{figma2024}.
-
-O resultado esperado é que o protótipo da interface básica possibilite aos médicos uma visualização clara e intuitiva das previsões de euploidia. A interface precisa ser funcional e esteticamente atraente, assegurando a compreensão simples dos resultados exibidos.
-
-Complementarmente, a interface web será implementada com as seguintes tecnologias modernas:
-
+Para isso, será utilizado o \textbf{Figma}, uma ferramenta colaborativa online para design de interfaces, que oferece recursos de edição vetorial, prototipagem rápida e suporte à colaboração em tempo real \cite{figma2024}. O protótipo incluirá:
 \begin{itemize}
-\item \textbf{Next.js com App Router}: Será adotado o framework Next.js com a nova arquitetura de roteamento baseada em diretórios (app/), permitindo uma organização clara entre páginas, componentes reutilizáveis (components/) e bibliotecas auxiliares (lib/). Essa estruturação favorecerá a escalabilidade e a manutenção do projeto.
-
-\item \textbf{TypeScript}: A linguagem utilizada será TypeScript, por sua tipagem estática que proporcionará maior segurança no desenvolvimento, especialmente relevante em projetos que lidam com dados médicos sensíveis.
-
-\item \textbf{TailwindCSS}: A estilização será feita com TailwindCSS, o que permitirá construir rapidamente uma interface responsiva e visualmente alinhada às cores definidas para o projeto (verde e azul), com consistência e flexibilidade.
-
-\item \textbf{Vercel}: A aplicação será hospedada na plataforma Vercel, que oferece integração nativa com Next.js e permite deploys contínuos e automáticos. Isso garantirá que a versão mais recente da aplicação esteja sempre disponível online para testes e validações.
-
-\item \textbf{Leitura de Planilhas XLSX}: A aplicação contará com uma funcionalidade de upload de arquivos .xlsx contendo os dados morfocinéticos dos embriões. Após o envio, a aplicação realizará a leitura e simulará uma resposta do modelo de aprendizado de máquina, classificando os embriões como euploides ou aneuploides.
+  \item Campos para entrada de dados morfocinéticos;
+  \item Botões de interação para envio e processamento dos dados;
+  \item Área de exibição dos resultados de predição;
+  \item Layout responsivo, alinhado às boas práticas de usabilidade e padrões de design.
 \end{itemize}
 
-Com essa abordagem, espera-se disponibilizar uma interface funcional que complementará o protótipo em Figma, possibilitando testes reais e coleta de feedback por parte de usuários da área médica. O foco será garantir clareza na visualização dos resultados, facilidade de navegação e estética coerente com a finalidade científica e profissional do projeto.
+Este protótipo busca atender às necessidades dos médicos, com foco em acessibilidade, clareza e facilidade de uso. Para isso, foram adotados princípios de design centrado no usuário e duas heurísticas de usabilidade de \citeonline{nielsen1994} como principais referências:
+
+\textbf{1. Visibilidade do status do sistema (Visibility of system status:)} É essencial que o sistema mantenha os usuários informados sobre o que está acontecendo, por meio de feedbacks adequados e em tempo razoável. No protótipo, isso será implementado através de mensagens claras de carregamento, feedback visual após o envio dos dados e indicações sobre o status da previsão. Dessa forma, os médicos terão maior segurança sobre o funcionamento do sistema.
+
+\textbf{2. Flexibilidade e eficiência de uso (Flexibility and efficiency of use:)} A interface deve ser eficiente tanto para usuários iniciantes quanto experientes. Por isso, o protótipo será planejado para permitir o preenchimento rápido de informações, uso de atalhos e automações simples — como o preenchimento automático a partir de planilhas — reduzindo o esforço e otimizando o tempo do profissional médico durante o uso.
+
+Essas duas heurísticas são estratégicas para garantir uma experiência fluida, confiável e alinhada ao contexto clínico, onde clareza, eficiência e rapidez de interpretação são aspectos críticos. O resultado esperado é que o protótipo da interface básica possibilite aos médicos uma visualização clara e intuitiva das previsões de euploidia. A interface precisa ser funcional e simples, assegurando a compreensão dos resultados exibidos.
+
+\paragraph{\textbf{Atividade 9 (A9):}  Desenvolver a aplicação web integrando o protótipo à inteligência artificial existente}
+
+Após criação do protótipo de interface, esta etapa consiste no desenvolvimento efetivo da aplicação web, implementando a interface projetada com tecnologias modernas e integrando-a ao modelo de inteligência artificial desenvolvido nas etapas anteriores. A implementação será feita com:
+
+\textbf{Next.js com App Router}: Framework React com arquitetura moderna para organização modularizada entre páginas, componentes e bibliotecas, facilitando a escalabilidade e manutenção do código.
+
+\textbf{TypeScript}: Linguagem de programação com tipagem estática para maior robustez, facilitando a detecção precoce de erros, especialmente relevante no contexto médico.
+
+\textbf{TailwindCSS}: Framework utilitário para estilização rápida, promovendo uma interface responsiva e consistente com o esquema de cores definido.
+
+\textbf{Leitura de arquivos XLSX}: Implementação de funcionalidade para upload e leitura de planilhas contendo dados morfocinéticos, que serão processados e enviados ao modelo de machine learning.
+
+\textbf{Integração com o modelo de IA}: Comunicação da interface com a API do modelo, para envio dos dados, processamento das predições e exibição dos resultados em tempo real para o usuário.
+
+A hospedagem será realizada na \textbf{Vercel}, garantindo deploy contínuo e acesso fácil para testes e validações.
+
+Ao final desta etapa, espera-se concluir o desenvolvimento do protótipo da interface, representando a finalização prática do trabalho. Essa interface terá papel fundamental ao permitir que médicos utilizem o sistema de forma clara, acessível e eficiente, apoiando a análise de dados morfocinéticos e auxiliando na tomada de decisão em casos clínicos. Dessa forma, a proposta visa não apenas validar a aplicação da inteligência artificial no contexto médico, mas também promover uma ferramenta com potencial de impacto real na rotina de profissionais da saúde reprodutiva.
