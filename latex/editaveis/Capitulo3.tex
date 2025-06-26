@@ -32,70 +32,6 @@ Para desenvolver e testar o modelo, utilizaremos a linguagem de programação Py
 
 Nesta pesquisa, buscaremos identificar e mapear os padrões em um campo que ainda está em desenvolvimento. A prática será testada em um ambiente controlado com dados obtidos pelo TLS, avaliando a efetividade do modelo com base na sua capacidade de prever, em porcentagem, a ploidia do embrião.
 
-\section{Passos para o Desenvolvimento de um Algoritmo de Aprendizado de Máquina}
-
-O desenvolvimento de sistemas baseados em aprendizado de máquina é um processo que envolve uma série de etapas bem definidas. Essas etapas vão desde a definição inicial do problema até a implementação e manutenção do sistema em um ambiente de produção. Segundo \citeonline{geron2017}, em \textit{Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow}, seguir uma abordagem estruturada permite que os desenvolvedores abordem os desafios de forma sistemática, garantindo não apenas a eficácia técnica do modelo, mas também sua aplicabilidade prática. O processo começa com a definição do problema e o entendimento do contexto geral. Depois, os dados são coletados, explorados para descobrir padrões e preparados para melhorar os resultados dos algoritmos. Em seguida, diferentes modelos são testados, e os melhores são ajustados para formar uma solução final. Essa solução é apresentada, implementada em produção e monitorada continuamente para garantir que funcione bem ao longo do tempo \cite{geron2017}.
-
-\subsection{Definição do problema e análise do panorama geral}
-A definição clara do problema e a análise do panorama geral são etapas essenciais para o sucesso de projetos de aprendizado de máquina, pois orienta todas as decisões subsequentes, desde a coleta de dados até a implementação final. Conforme abordado por \citeonline{geron2017} e \citeonline{muller2017}, essas etapas fornecem a base para decisões estratégicas ao longo do desenvolvimento do modelo.  Isso envolve determinar como a solução será utilizada, identificar o tipo de problema (como classificação ou regressão) e escolher métricas de desempenho que estejam alinhadas aos objetivos esperados \cite{geron2017}. O primeiro passo é estabelecer claramente o objetivo em termos de negócio e pesquisa. 
-
-Além disso, é importante avaliar as soluções existentes ou alternativas em uso, que podem servir como ponto de comparação para medir o impacto do modelo. Também é necessário validar hipóteses iniciais sobre os dados e a abordagem, garantindo que o problema esteja bem estruturado e que as limitações sejam compreendidas desde o início. Segundo \citeonline{muller2017}, uma compreensão profunda dos dados e suas características é essencial para a escolha dos algoritmos e para o sucesso do projeto. Perguntas como “Quantos dados possuo?”, “Há dados faltantes?” e “Esses dados são suficientes para responder às perguntas do projeto?” guiam essa análise \cite{muller2017}.
-
-Por fim, essa etapa também exige atenção ao alinhamento entre o problema técnico e os resultados esperados em termos de negócio ou impacto social. Isso garante que o desenvolvimento não seja apenas tecnicamente sólido, mas também relevante e eficaz em seu contexto de aplicação.
-
-\subsection{Obtenção de Dados}
-A etapa de obtenção de dados é um dos pilares fundamentais para o sucesso de um projeto de aprendizado de máquina, pois a qualidade e a relevância das informações coletadas impactam diretamente a eficácia do modelo \cite{geron2017}. O processo começa com a identificação e a listagem dos dados necessários, levando em conta sua quantidade e suas características, como formato, tipo e origem \cite{geron2017}. É igualmente importante garantir que as fontes de dados sejam documentadas, que haja espaço suficiente para armazenamento e que os dados estejam acessíveis de maneira eficiente.
-
-Nessa etapa, é imprescindível observar as obrigações legais e éticas, especialmente as previstas na Lei Geral de Proteção de Dados (LGPD) no Brasil. Isso abrange a obtenção de consentimentos adequados para o uso das informações e a aplicação de medidas de segurança, como a anonimização, para proteger dados sensíveis \cite{muller2017}. Conforme destacado por \citeonline{muller2017}, além de cumprir os requisitos legais, é fundamental assegurar a integridade e a privacidade dos dados, principalmente em situações que envolvam informações pessoais ou confidenciais.
-
-Para mitigar os desafios relacionados à qualidade dos dados, \citeonline{geron2017} sugere o uso de técnicas como a limpeza, normalização e engenharia de atributos. Além disso, ele ressalta a importância de práticas contínuas de validação, como a separação adequada entre conjuntos de treinamento e teste, garantindo que o modelo seja testado em dados que nunca encontrou antes. Dessa forma, a abordagem holística para o gerenciamento de dados reforça o desenvolvimento de sistemas robustos, confiáveis e éticos em projetos de Aprendizado de Máquina \cite{geron2017}.
-
-\subsection{Exploração de Dados}
-A obtenção e a exploração de dados representam etapas essenciais para o sucesso de projetos de aprendizado de máquina, pois determinam a base sobre a qual os modelos serão desenvolvidos \cite{geron2017}. Antes de preparar os dados para os algoritmos, é essencial entender as características e as relações existentes no conjunto de dados, iniciando a exploração com uma cópia dos dados originais, reduzindo sua escala, se necessário, para facilitar a análise inicial \cite{geron2017}.
-
-A exploração dos dados deve seguir uma abordagem sistemática que envolve:
-
-\begin{enumerate}
-    \item \textbf{Estudo das características dos atributos:} Identificar o nome, o tipo (categórico, numérico, texto, etc.), o percentual de valores ausentes, o nível de ruído (outliers, erros de arredondamento), a utilidade potencial para a tarefa e o tipo de distribuição (gaussiana, uniforme, logarítmica) dos dados disponíveis.
-    \item \textbf{Identificação de atributos-alvo:} No caso de aprendizado supervisionado, determinar qual atributo será o alvo da predição.
-    \item \textbf{Visualização de dados:} Criar gráficos de dispersão, histogramas ou outros métodos visuais para identificar padrões, correlações e tendências. \citeonline{geron2017} sugere, por exemplo, experimentar combinações de atributos, como comparar o número de quartos por domicílio, em vez de analisar apenas o número total de quartos.
-    \item \textbf{Correlação entre atributos:} Analisar as relações entre as variáveis para identificar combinações promissoras que possam melhorar a precisão do modelo.
-\end{enumerate}
-
-\citeonline{muller2017} destaca que a inspeção visual dos dados é essencial para compreender sua estrutura e identificar inconsistências, como unidades de medida divergentes ou valores inesperados, comuns em cenários reais. Ele recomenda o uso de gráficos de dispersão para analisar relações entre dois atributos ou gráficos de pares para explorar múltiplas combinações quando o número de variáveis é pequeno. Essa etapa também permite verificar se o problema pode ser resolvido manualmente, validando se as informações necessárias estão presentes no conjunto de dados.
-
-Além disso, \citeonline{geron2017} ressalta a importância de aplicar transformações aos atributos, criando variáveis derivadas mais relevantes, como "população por domicílio", em vez de usar dados brutos. Ele também enfatiza a necessidade de documentar aprendizados e, se necessário, ajustar o escopo do projeto para incluir dados adicionais que possam melhorar os resultados. Essas práticas tornam a análise de dados uma etapa crucial para preparar modelos robustos e aumentar as chances de sucesso no projeto.
-
-\subsection{Preparação dos dados para os Algoritmos de Aprendizado de Máquina}
-A preparação dos dados para algoritmos de aprendizado de máquina é uma etapa essencial que envolve diversas transformações. Para tornar o processo mais eficiente, é recomendável criar funções específicas para realizar essas transformações, o que permite aplicá-las facilmente em novos conjuntos de dados e reutilizá-las em projetos futuros \cite{geron2017}. Entre as principais transformações, destaca-se a limpeza dos dados, que envolve lidar com valores ausentes. Para atributos com valores ausentes existem três opções: eliminar os registros correspondentes, excluir o atributo inteiro ou substituir os valores faltantes por uma constante, como a média ou a mediana \cite{geron2017}. 
-
-Outro aspecto crucial na preparação dos dados é a escalabilidade dos atributos. Muitos algoritmos de aprendizado de máquina não funcionam bem quando as variáveis numéricas têm escalas muito diferentes \cite{geron2017}. Recomenda-se o uso de técnicas de escalonamento de atributos, como a normalização, que ajusta os valores para um intervalo de 0 a 1, ou a padronização, que ajusta os dados para ter média zero e variância unitária \cite{geron2017}. A escolha entre essas duas técnicas depende das características do algoritmo utilizado, já que a padronização é menos afetada por outliers e pode ser mais indicada em certos casos, como em redes neurais. A partir desse processo de preparação, o próximo passo é a seleção de modelos promissores, onde o uso de validação cruzada e a análise dos erros dos modelos ajudam a refinar a escolha do modelo mais adequado para o problema em questão \cite{geron2017}.
-
-\subsection{Seleção e treinamento do modelo}
-A seleção e o treinamento de modelos em aprendizado de máquina são etapas essenciais para desenvolver soluções eficazes \cite{geron2017}. Após a preparação dos dados, que inclui a exploração e a transformação, o próximo passo é escolher e treinar um modelo adequado. Para isso, um modelo simples pode ser treinado no conjunto de dados, permitindo observar sua performance inicial \cite{geron2017}. No entanto, para uma avaliação mais precisa, a validação cruzada é uma abordagem melhor. Essa técnica divide o conjunto de treinamento em K subconjuntos e, em seguida, treina e avalia o modelo várias vezes, usando um subconjunto diferente para validação a cada vez, o que gera uma estimativa mais confiável da performance do modelo \cite{geron2017}.
-
-Uma alternativa eficaz para melhorar o desempenho do modelo é combinar múltiplas árvores de decisão de forma sequencial, onde cada árvore é treinada para corrigir os erros das anteriores, melhorando a acurácia e reduzindo o risco de overfitting, como o Gradient Boosting \cite{geron2017}. A abordagem de treinar múltiplos modelos com parâmetros padrão e avaliá-los usando validação cruzada permite selecionar as melhores opções para o problema em questão \cite{geron2017}.
-
-Além disso, para aprimorar a performance do modelo, é fundamental realizar uma análise das variáveis mais relevantes e ajustar as características dos dados \cite{geron2017}. A engenharia de atributos e a seleção de features permitem que os modelos se ajustem para cometer diferentes tipos de erros, o que ajuda a melhorar a precisão geral. Essas etapas devem ser repetidas de forma iterativa, ajustando o modelo com base nas análises de erros e nas mudanças nos dados, o que possibilita a evolução do desempenho do modelo ao longo do processo \cite{geron2017}.
-
-\subsection{Ajuste do modelo}
-
-O processo de ajuste fino de modelos (fine-tuning) é uma etapa crucial no desenvolvimento de modelos de aprendizado de máquina, especialmente após a seleção de modelos promissores \cite{geron2017}. Uma das abordagens mais comuns para realizar esse ajuste é o uso do \textit{Scikit-Learn}, que automatiza a busca pelos melhores hiperparâmetros do modelo. Em vez de testar manualmente combinações de valores para os hiperparâmetros, o \textit{Scikit-Learn} avalia todas as possibilidades de uma lista de valores, utilizando validação cruzada para escolher a melhor configuração \cite{geron2017}. Isso facilita o processo, economizando tempo e aumentando a precisão na escolha dos parâmetros ideais para o modelo.
-
-Além do ajuste de hiperparâmetros, outra técnica importante para aprimorar o modelo é o uso de \textit{Métodos de Ensemble}. Esses métodos combinam os melhores modelos individuais, muitas vezes resultando em um desempenho superior ao de qualquer modelo isolado \cite{geron2017}. A combinação de modelos com erros diferentes pode reduzir a variabilidade e melhorar a precisão geral. Um exemplo clássico é o \textit{Random Forest}, que utiliza múltiplas árvores de decisão para obter melhores resultados do que uma única árvore. A estratégia de ensemble pode ser fundamental para melhorar o desempenho do modelo, especialmente em tarefas complexas \cite{geron2017}.
-
-Após o ajuste, é importante analisar os melhores modelos e seus erros para entender melhor o desempenho do sistema. Inspecionar os atributos mais importantes para a previsão pode revelar insights valiosos sobre o problema \cite{muller2017}. Além disso, entender os tipos de erros cometidos pelo modelo e as razões por trás deles pode ajudar a ajustar o modelo, adicionando ou removendo features, tratando outliers ou refinando a transformação dos dados \cite{muller2017}. Após realizar essas melhorias, o modelo deve ser avaliado no conjunto de teste para estimar sua capacidade de generalização. A avaliação no conjunto de teste fornece uma medida objetiva da performance do modelo em dados não vistos, sendo fundamental para garantir que o modelo não esteja superajustado aos dados de treinamento \cite{muller2017}.
-
-\subsection{Lançamento da Solução}
-Após a aprovação do lançamento de um projeto, é crucial preparar a solução para produção, conectando as fontes de dados de entrada e escrevendo os testes necessários para garantir que o sistema funcione conforme esperado. A integridade e a qualidade do sistema, bem como sua adaptação ao ambiente de produção, são essenciais para que ele se mantenha eficiente.
-
-A qualidade dos dados de entrada também deve ser constantemente monitorada, já que problemas como sensores defeituosos ou dados desatualizados podem impactar significativamente a acuracidade do modelo, prejudicando sua performance e a confiança nos resultados gerados  \cite{muller2017}.
-
-A manutenção do sistema é outro aspecto crítico após o lançamento, exigindo que o modelo seja re-treinado regularmente com dados frescos \cite{geron2017}. Isso é importante para evitar que a performance do sistema flutue de forma inesperada, o que pode acontecer se o modelo for atualizado de maneira esporádica \cite{geron2017}. A automação desse processo de re-treinamento é essencial para garantir que o modelo seja atualizado sempre que necessário, sem depender de intervenções manuais. 
-
-Portanto, o lançamento de um sistema de aprendizado de máquina não se limita à integração inicial dos dados e à validação do modelo. O sucesso contínuo depende de um monitoramento eficiente e de uma manutenção constante, garantindo que o modelo se adapte às mudanças nos dados ao longo do tempo. Implementando uma infraestrutura de monitoramento e re-treinamento robusta, as equipes podem assegurar que o sistema continue atendendo aos objetivos de negócios de forma eficaz e precisa, minimizando riscos e maximizando a performance ao longo de sua vida útil.
-
-
 \section{Fases de Trabalho}
 
 As fases do nosso trabalho se dividem em duas etapas: \textbf{Fase 1: Análise e Preparação de Dados} (Tabela \ref{tab:fase1}), com o objetivo de compreender e organizar os dados para realizar a análise da influência dos parâmetros na porcentagem de euploidia, e a \textbf{Fase 2: Desenvolvimento e Avaliação do Modelo} detalhada na Tabela (Tabela \ref{tab:fase2}), que foca no desenvolvimento, ajuste e avaliação de um modelo de ML para efetuar a predição de euploidia, finalizando com a entrega de um protótipo de uma interface a ser evoluída em trabalhos futuros, realizando a criação e junção dos dois.
@@ -179,13 +115,17 @@ Começaremos com a análise das variáveis existentes na planilha de dados dos e
 
 Para realizar a verificação da pertinência das variáveis já existentes e avaliar a viabilidade de introduzir novas variáveis, utilizaremos a pesquisa bibliográfica, nos norteando pelos estudos apresentados no capítulo 2: o de \citeonline{yuan2023}, o artigo 'Development of an artificial intelligence-based model for predicting the euploidy of blastocysts in PGT-A treatments' e o de \citeonline{souzarebeca2022}, 'Análise da ploidia de embriões humanos por meio da inteligência artificial com o uso de variáveis de morfologia, morfocinética e variáveis relacionadas com a paciente'. Ambos os artigos descrevem o uso de IA para fazer a predição da ploidia de embriões, o que se assemelha com o que queremos propor, com a diferença de que temos o objetivo final de prever a porcentagem de aneuploidia. 
 
-Dessa forma, analisaremos os estudos feitos por ambos pesquisadores e utilizaremos para entender o poder que cada variável tem para o objetivo final e se é necessário adicionar outras variáveis que não existem na nossa planilha, ou até mesmo excluí-las. Além disso, conduziremos entrevistas com o especialista encarregado de fornecer os dados, para uma análise prática da pertinência das variáveis disponíveis e para debater possíveis variáveis extras que possam ser relevantes para a análise. As entrevistas possibilitarão alinhar a seleção das variáveis ao conhecimento clínico e experiência prática do profissional, garantindo que as variáveis selecionadas sejam aplicáveis no cenário real de previsão de euploidia. Em relação a limpeza dos dados, utilizaremos a linguagem \textit{Python} que possui a biblioteca \textit{Pandas}, que permite o carregamento de planilhas do Excel, do formato .xlsx, como a que possuímos. De acordo com \citeonline{chen2018}: “O Pandas é uma biblioteca Python de código aberto para análise de dados. Ele dá a Python a capacidade de trabalhar com dados do tipo planilha, permitindo carregar, manipular, alinhar e combinar dados rapidamente, entre outras funções.”.Usaremos as funções \textit{isnull()} e \textit{info()}, da biblioteca \textit{Pandas}.
+Dessa forma, analisaremos os estudos feitos por ambos pesquisadores e utilizaremos para entender o poder que cada variável tem para o objetivo final e se é necessário adicionar outras variáveis que não existem na nossa planilha, ou até mesmo excluí-las. Além disso, conduziremos entrevistas com o especialista encarregado de fornecer os dados, para uma análise prática da pertinência das variáveis disponíveis e para debater possíveis variáveis extras que possam ser relevantes para a análise. As entrevistas possibilitarão alinhar a seleção das variáveis ao conhecimento clínico e experiência prática do profissional, garantindo que as variáveis selecionadas sejam aplicáveis no cenário real de previsão de euploidia. Em relação a limpeza dos dados, utilizaremos a linguagem \textit{Python} que possui a biblioteca \textit{Pandas}, que permite o carregamento de planilhas do Excel, do formato .xlsx, como a que possuímos. De acordo com \citeonline{chen2018}: “O Pandas é uma biblioteca Python de código aberto para análise de dados. Ele dá a Python a capacidade de trabalhar com dados do tipo planilha, permitindo carregar, manipular, alinhar e combinar dados rapidamente, entre outras funções.”.Usaremos as funções \textit{isnull()} e \textit{info()}, da biblioteca \textit{Pandas}. 
+
+Essa atividade corresponde ao Passo 2 do desenvolvimento de algoritmos de aprendizado de máquina, que trata da obtenção dos dados necessários para o projeto.
 
 \paragraph{\textbf{Atividade 2 (A2):} Normalização dos Dados para Otimização}
 
 Antes de iniciarmos a normalização, algumas variáveis serão transformadas para o formato numérico, pois estão originalmente representadas como strings. A primeira variável a ser alterada será a ploidia, que será convertida para valores binários: 0 para euploide e 1 para aneuploide. Em seguida, a variável estágio será modificada removendo-se a letra “D” e mantendo apenas o número que representa o dia de desenvolvimento embrionário, como 5, 6 ou 4. Por fim, a variável classificação Morfo será substituída pelo seu grupo numérico equivalente, conforme descrito no referencial teórico, com valores de 1 a 4.
 
 As variáveis numéricas serão normalizadas por meio de uma técnica de normalização, o \textbf{Z-Score}, detalhado no APÊNDICE \ref{apendice:zscore}. A normalização será essencial, pois, de acordo com \citeonline{milewski2016}, estudos anteriores demonstraram que a incorporação de dados morfológicos normalizados na avaliação da qualidade embrionária aumenta consideravelmente o poder preditivo dos modelos construídos. A normalização é uma forma de dimensionar recursos, transformando o intervalo deles em uma escala padrão \cite{jaiswal2024}. Essa técnica transformará os dados para uma escala padrão \cite{jaiswal2024}, facilitando a interpretação e a comparação entre diferentes variáveis.
+
+Essa atividade corresponde ao Passo 3 do desenvolvimento de algoritmos de aprendizado de máquina, que envolve a preparação e transformação dos dados para garantir que estejam em um formato adequado para o treinamento dos modelos.
 
 \paragraph{\textbf{Atividade 3 (A3):} Identificação da Correlação e Atribuição de Pesos aos Parâmetros na Previsão da Ploidia do Embrião}
 
@@ -194,6 +134,8 @@ O objetivo desta atividade é identificar as relações entre os diferentes par�
 A fórmula do coeficiente de correlação de Spearman será aplicada, utilizando as ordens atribuídas, assegurando que o método se adapte a diferentes formatos de relação, como curvas monótonas crescentes ou decrescentes. Além disso, será realizada uma análise complementar com gráficos de dispersão, que ajudarão a identificar a inclinação dos dados e o sentido da correlação, sendo positiva (próximas ao valor 1) quando as variáveis variam no mesmo sentido e negativa (próximas ao valor -1) quando variam em sentidos opostos \cite{sousa2019}. O resultado numérico do coeficiente será avaliado em relação à sua magnitude, indicando se a correlação é forte, moderada ou fraca, e seu sinal indicará o tipo de relação (positiva ou negativa). 
 
 Usaremos a biblioteca Pandas para manipulação dos dados e a SciPy para calcular o coeficiente de Spearman. A metodologia para a definição e atribuição de pesos específicos aos parâmetros relevantes para a ploidia do embrião combina análise teórica e prática. Inicialmente, será realizada uma pesquisa bibliográfica em publicações científicas e revisões sistemáticas que explorem a influência dos parâmetros na ploidia embrionária.
+
+Essa atividade corresponde ao Passo 3 do desenvolvimento de algoritmos de aprendizado de máquina, que envolve a preparação e transformação dos dados para garantir que estejam em um formato adequado para o treinamento dos modelos.
 
 \paragraph{\textbf{Atividade 4 (A4):} Separar o conjunto de dados em conjuntos de treinamento e teste, fazendo uma distribuição dos dados e aplicar técnica de aumento de dados}
 
@@ -204,6 +146,8 @@ Como o tamanho do conjunto de dados inviabiliza uma divisão tradicional em trê
 Além da divisão, será feito um \textbf{balanceamento das classes} durante a divisão dos dados, a fim de garantir que a escolha aleatória não acabe segregando mais amostras de uma classe em um conjunto do que em outro. Esse cuidado é essencial para evitar viés nos dados e assegurar que o modelo tenha a oportunidade de aprender e ser avaliado com amostras representativas de todas as classes, o que pode impactar diretamente na precisão do modelo.
 
 Dado o volume reduzido de dados, aplicamos a técnica de aumento de dados (data augmentation), utilizando o algoritmo de Monte Carlo (ver APÊNDICE \ref{apendice:montecarlo}), com o objetivo de gerar amostras sintéticas de alta qualidade a partir dos dados existentes. Essa técnica foi aplicada exclusivamente ao conjunto de treinamento, de forma a evitar interferências na avaliação final e permitir que o modelo aprenda a partir de padrões legítimos.  
+
+Essa atividade corresponde ao Passo 4 do desenvolvimento de algoritmos de aprendizado de máquina, que trata da preparação final dos dados, garantindo um aprendizado mais robusto e eficaz do modelo.
 
 % A separação do conjunto de dados será feita para garantir que as etapas de treinamento e testes sejam realizadas de forma organizada. Iremos dividir em 2 conjuntos: \textbf{Treinamento}, para ensinar o modelo e ajustar os parâmetros de forma adequada, evitando o overfitting — que ocorre quando um algoritmo reduz o erro por meio da memorização de exemplos de treinamento, em vez de aprender a verdadeira relação geral entre os dados \cite{bashir2020} —; e \textbf{Teste}, para avaliar o desempenho final. A divisão será realizada com uma distribuição de 80\% dos dados para treinamento e 20\% para teste.
 
@@ -282,27 +226,30 @@ Dado o volume reduzido de dados, aplicamos a técnica de aumento de dados (data 
       - Gráfico exibindo a relação entre a sensibilidade e a especificidade para diferentes valores de limiar. \\
       \hline
 
-      % --- Seção OE4 ---
-      \parbox[c]{\linewidth}{
-        \vspace{0.2cm}
-        \centering
-        \textcolor[HTML]{133E78}{\textbf{
-          OE4 \\[0.1cm]
-          Protótipo de \\[0.1cm]
-          Interface
-        }}
-      }
+     % --- Seção OE4 ---
+      \multirow{2}{*}{
+          \parbox[c]{\linewidth}{
+              \vspace{0.2cm}
+              \centering
+              \hspace{0.1cm}\textcolor[HTML]{133E78}{\textbf{
+                  OE4 \\[0.1cm]
+                  Protótipo de \\[0.1cm]
+                  Interface
+              }}\hspace{0.1cm}
+          }
+      } 
       & 
       \textcolor[HTML]{133E78}{\textbf{Atividade 8 (A8)}} \newline
-      Prototipar uma interface &
-      - Interface básica desenvolvida no FIGMA &
-      - Interface básica \\
-      \hline
-      &
+      Prototipar uma interface básica para exibir as predições de euploidia para o usuário final (médicos) &
+      - Figma &
+      - Protótipo funcional \\
+      \cline{2-4}
+      & 
       \textcolor[HTML]{133E78}{\textbf{Atividade 9 (A9)}} \newline
-      Desenvolvimento e Implementação da Versão Beta do Sistema/Modelo &
-      - bla bla bla &
-      - blu blu blu \\
+      Desenvolver a aplicação web integrando o protótipo à inteligência artificial existente &
+      - Next.js, TypeScript e TailwindCSS \newline
+      - Vercel &
+      - Aplicação web com leitura de planilhas .xlsx integrada à IA \\
       \hline
     \end{tabular}
   }
@@ -322,6 +269,8 @@ Na etapa de avaliação, calcularia métricas fundamentais como acurácia, área
 
 Ao final, espera-se obter um modelo capaz de classificar embriões com pelo menos 70\% de precisão, fornecendo uma base confiável para apoio a decisões clínicas e pesquisas científicas.
 
+Essa atividade corresponde ao Passo 5 do desenvolvimento de algoritmos de aprendizado de máquina, que envolve a seleção, desenvolvimento e treinamento do modelo para realizar as predições desejadas com base nos dados preparados nas etapas anteriores.
+
 \subsubsection{\textbf{Objetivo Específico 3} - Avaliação do modelo}
 
 \paragraph{\textbf{Atividade 6 (A6):} Utilizar métricas de avaliação mais adequadas para medir o desempenho do modelo de acordo com a natureza do problema de classificação}
@@ -340,6 +289,8 @@ Cada métrica será detalhada a seguir:
 
 Espera-se que a análise dessas métricas proporcione uma avaliação abrangente do desempenho do modelo, destacando seus pontos fortes e limitações, e possibilitando ajustes para melhorar sua confiabilidade e alinhamento com os objetivos do problema. Além disso, a escolha criteriosa das métricas será essencial para orientar decisões estratégicas, especialmente em aplicações sensíveis a erros de classificação.
 
+Essa atividade corresponde ao Passo 6 do desenvolvimento de algoritmos de aprendizado de máquina, que envolve a seleção, desenvolvimento e treinamento do modelo, que trata da avaliação do desempenho do modelo utilizando métricas apropriadas e técnicas de análise para compreender sua eficácia, pontos fortes e limitações antes da implementação final.
+
 \paragraph{\textbf{Atividade 7 (A7):} Avaliar a precisão e eficácia do modelo em prever corretamente casos de euploidia e aneuploidia  por meio da Matriz de Confusão e Curva ROC}
 
 O objetivo desta atividade é avaliar o desempenho do modelo de classificação desenvolvido para prever corretamente os casos de euploidia e aneuploidia, utilizando a Matriz de Confusão e a Curva ROC (Receiver Operating Characteristic). A Matriz de Confusão será construída após o treinamento e teste do modelo, permitindo a identificação das taxas de verdadeiros positivos (TP), falsos positivos (FP), verdadeiros negativos (TN) e falsos negativos (FN). Essa análise contribuirá para a compreensão do desempenho geral do modelo e identificação de possíveis pontos de melhoria. Adicionalmente, será gerada a Curva \textit{ROC}, que avalia a performance do modelo na separação entre as classes euploide (classe positiva) e aneuploide (classe negativa), com base em diferentes valores de limiar (\textit{threshold}) \cite{vilela2022}. A partir dela, será possível observar a sensibilidade e a especificidade do modelo em diversos pontos de corte. A métrica AUC (Área sob a Curva) será utilizada como indicador global da capacidade do modelo em distinguir entre as classes, sendo especialmente útil em cenários de classificação desbalanceada \cite{vilela2022}.
@@ -349,6 +300,8 @@ A avaliação será realizada em duas etapas principais: a construção da Matri
 A Curva ROC será gerada com base nas probabilidades de pertencimento à classe euploide, fornecidas pela função \texttt{predict\_proba} da biblioteca \texttt{scikit-learn}. Essa curva será traçada com o auxílio da função \texttt{roc\_curve}, que calcula os valores de taxa de falsos positivos (1 - especificidade) e de verdadeiros positivos (sensibilidade) para diferentes valores de limiar \cite{vilela2022}. O gráfico resultante, com a especificidade no eixo \(x\) e a sensibilidade no eixo \(y\), permitirá uma análise detalhada do comportamento do modelo à medida que o limiar de decisão varia. Essa análise é particularmente útil para identificar o ponto ótimo de corte, equilibrando os \textit{trade-offs} entre falsos positivos e falsos negativos.
 
 Por fim, será calculada a AUC com a função \texttt{roc\_auc\_score} da biblioteca \texttt{scikit-learn}. A AUC varia de 0 a 1 e resume a capacidade do modelo de distinguir corretamente entre as classes. Valores mais próximos de 1 indicam excelente desempenho, enquanto valores próximos de 0{,}5 indicam que o modelo se comporta de maneira semelhante a um classificador aleatório \cite{vilela2022}. A partir dessas análises, espera-se obter uma base sólida para avaliar a eficácia do modelo e sua viabilidade de aplicação prática na predição de euploidia, com suporte tanto quantitativo quanto interpretativo.
+
+Essa atividade corresponde ao Passo 6 do desenvolvimento de algoritmos de aprendizado de máquina, que envolve a seleção, desenvolvimento e treinamento do modelo, que trata da avaliação do desempenho do modelo utilizando métricas apropriadas e técnicas de análise para compreender sua eficácia, pontos fortes e limitações antes da implementação final.
 
 \subsubsection{\textbf{Objetivo Específico 4} - Desenvolver uma Interface}
 
@@ -372,6 +325,8 @@ Este protótipo busca atender às necessidades dos médicos, com foco em acessib
 
 Essas duas heurísticas são estratégicas para garantir uma experiência fluida, confiável e alinhada ao contexto clínico, onde clareza, eficiência e rapidez de interpretação são aspectos críticos. O resultado esperado é que o protótipo da interface básica possibilite aos médicos uma visualização clara e intuitiva das previsões de euploidia. A interface precisa ser funcional e simples, assegurando a compreensão dos resultados exibidos.
 
+A Atividade 8 (A8) corresponde ao Passo 7 do desenvolvimento do algoritmo de aprendizado de máquina, que envolve o lançamento da solução.
+
 \paragraph{\textbf{Atividade 9 (A9):}  Desenvolver a aplicação web integrando o protótipo à inteligência artificial existente}
 
 Após criação do protótipo de interface, esta etapa consiste no desenvolvimento efetivo da aplicação web, implementando a interface projetada com tecnologias modernas e integrando-a ao modelo de inteligência artificial desenvolvido nas etapas anteriores. A implementação será feita com:
@@ -389,3 +344,5 @@ Após criação do protótipo de interface, esta etapa consiste no desenvolvimen
 A hospedagem será realizada na \textbf{Vercel}, garantindo deploy contínuo e acesso fácil para testes e validações.
 
 Ao final desta etapa, espera-se concluir o desenvolvimento do protótipo da interface, representando a finalização prática do trabalho. Essa interface terá papel fundamental ao permitir que médicos utilizem o sistema de forma clara, acessível e eficiente, apoiando a análise de dados morfocinéticos e auxiliando na tomada de decisão em casos clínicos. Dessa forma, a proposta visa não apenas validar a aplicação da inteligência artificial no contexto médico, mas também promover uma ferramenta com potencial de impacto real na rotina de profissionais da saúde reprodutiva.
+
+A Atividade 8 (A8) corresponde ao Passo 7 do desenvolvimento do algoritmo de aprendizado de máquina, que envolve o lançamento da solução.
