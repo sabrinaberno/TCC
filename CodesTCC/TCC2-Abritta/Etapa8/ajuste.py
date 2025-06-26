@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 
-file_path = "teste8.xlsx"
+file_path = "geral.xlsx"
 
 data = pd.read_excel(file_path)
 
