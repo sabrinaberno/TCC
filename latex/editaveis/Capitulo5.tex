@@ -6,7 +6,7 @@ Até o presente momento, a pesquisa evoluiu atingindo marcos importantes na estr
 \subsection{Fase 1: Análise e Preparação de Dados}
 A realização da "Análise, Revisão, Seleção e Limpeza de Variáveis" identificou variáveis relevantes para a previsão de euploidia, com base em revisões bibliográficas e critérios científicos.
 
-A "Normalização dos Dados", com a aplicação do método Z-Score, permitiu equalizar a escala das variáveis, garantindo maior precisão na análise.
+A "Normalização dos Dados" permitiu equalizar a escala das variáveis, garantindo maior precisão na análise.
 
 Identificação da correlação entre variáveis, com o coeficiente de Spearman, se destacou relações significativas entre variáveis como a idade materna e os tempos de desenvolvimento embrionário (tB-tSB e CC3) na previsão da euploidia.
 
@@ -14,7 +14,7 @@ E por fim, a divisão e aumento de dados, implementadando a separação em conju
 
 Dessa maneira, finalizamos a Fase 1, que inclui o objetivo específico 1, de "Expansão, Processamento e Análise de Dados para Predição de Ploidia". 
 
-\section{Descobertas e Resultados Preliminares}
+\subsubsection{Descobertas e Resultados Preliminares da Fase 1}
 
 A \textbf{idade materna}, com correlação negativa de \textbf{-0,50}, é o fator mais relevante na qualidade genética do embrião, consequentemente sendo o fato que mais afeta negativamente a ploidia. Esse dado reforça a importância de considerar a idade como parâmetro essencial em tratamentos de fertilização in vitro.
 
@@ -22,12 +22,46 @@ Variáveis como o estágio de desenvolvimento e o tempo \textbf{t5} apresentam c
 
 Sobre os \textbf{tempos de desenvolvimento embrionário}, a diferenças entre \textbf{tB-tSB (-0,28) e CC3 (-0,28)} indicam que a sincronização das divisões celulares é fundamental para a formação de embriões euploides. Além de que apresentaram correlações moderadas com a ploidia, sugerindo que o sincronismo no desenvolvimento celular é um elemento-chave na formação de embriões saudáveis.
 
-Com a normalização, o ajuste das escalas das variáveis permitiu maior uniformidade e comparabilidade entre elas, facilitando a identificação de padrões no modelo preditivo.
+Apesar de algumas variáveis apresentarem uma correlação direta fraca ou inexistente com a ploidia — como é o caso do \textit{Morfo}, \textit{tSC}, \textit{tSB}, \textit{cc2} e o intervalo \textit{tSC-t8}, que demonstra um efeito praticamente nulo — é importante destacar que essas variáveis mantêm entre si relações estatísticas relevantes, capazes de influenciar, de forma indireta, o comportamento da ploidia. 
+
+As inter-relações entre os parâmetros temporais do desenvolvimento embrionário constroem um cenário dinâmico e multifatorial, no qual o impacto de uma variável sobre a ploidia pode não ser imediato ou isolado, mas sim mediado por sua influência em outras etapas do desenvolvimento. Por exemplo, mesmo que o \textit{cc2} (\textit{t3-t2}) não apresente uma relação significativa direta com a ploidia, ele se conecta a outros parâmetros, como o \textit{t3} e o \textit{cc3}, sendo que este último já demonstra uma correlação moderada e negativa com a ploidia (-0.281).
+
+Da mesma forma, variáveis como o \textit{tSC} e o intervalo \textit{tSC-t8}, apesar de mostrarem uma correlação direta praticamente nula com a ploidia, estão integradas a outros intervalos temporais que, por sua vez, têm potencial de afetar o desfecho genético do embrião. Isso evidencia que o sistema de desenvolvimento embrionário funciona de maneira interdependente, onde alterações em um ponto específico podem reverberar ao longo do processo, impactando de forma indireta variáveis de interesse clínico, como a ploidia.
+
+Portanto, ao considerar a exclusão de variáveis do modelo ou da análise, é fundamental adotar uma abordagem sistêmica, reconhecendo que a ausência de uma relação direta com a ploidia não implica na irrelevância da variável dentro do contexto geral do desenvolvimento embrionário. Desconsiderar essas variáveis pode levar a interpretações incompletas ou equivocadas do comportamento biológico em estudo.
+
+\subsection{Fase 2:  Desenvolvimento e Avaliação do Modelo}
+A segunda fase do projeto teve como principal objetivo transformar o conhecimento gerado na etapa anterior em uma solução funcional de predição de euploidia, baseada em inteligência artificial, acessível a médicos e profissionais da saúde reprodutiva. A partir das análises realizadas na Fase 1, que revelaram correlações importantes entre variáveis morfocinéticas e a ploidia embrionária, foi possível estruturar um modelo preditivo robusto e iniciar o desenvolvimento de uma interface prática e responsiva.
+
+\subsubsection{Resultados do Modelo Preditivo}
+Com base nas variáveis analisadas e selecionadas, desenvolveu-se uma Rede Neural Multicamadas (MLP) capaz de prever, com base nos dados de um embrião, a probabilidade de ele ser euploide. O modelo alcançou uma acurácia de 88,2\% e uma AUC de 0,944, indicando alta capacidade discriminativa entre embriões euploides e aneuploides. Além disso, a utilização do método LIME permitiu interpretar e visualizar quais variáveis mais contribuíram para cada predição individual, promovendo transparência e confiabilidade, essenciais no contexto médico.
+
+Esses resultados foram viabilizados graças à estrutura sólida construída na Fase 1, que realizou um trabalho criterioso de normalização, balanceamento, análise estatística e aumento de dados. As descobertas de correlações significativas (como a influência da idade materna, tB-tSB, CC3, e tempo de clivagem) foram cruciais para orientar a arquitetura do modelo e sua performance atual.
+
+\subsubsection{Benefícios Práticos para o Uso Clínico}
+A integração do modelo a uma aplicação web proporciona acesso prático aos resultados preditivos em tempo real. A interface, desenvolvida com Next.js, TypeScript, TailwindCSS e conectada via FastAPI, permite que o médico:
+\begin{itemize}
+    \item Faça o upload de uma planilha com dados morfocinéticos;
+
+    \item Visualize os resultados da predição de forma imediata e intuitiva;
+
+    \item Receba mensagens claras de erro em caso de problemas com o arquivo enviado;
+
+    \item Entenda quais características impactaram na predição de cada embrião.
+\end{itemize}
+
+Esses elementos aumentam significativamente a agilidade e confiabilidade na tomada de decisão clínica, reduzindo o tempo necessário para análises manuais e possibilitando um suporte adicional na escolha de embriões viáveis para implantação.
+
+A interface foi projetada com base em um MVP funcional, garantindo simplicidade, acessibilidade e foco nos recursos mais críticos. A solução foi continuamente testada, validada e disponibilizada via deploy contínuo na plataforma Vercel, garantindo sua estabilidade e reprodutibilidade.
 
 \section{Considerações Finais}
 
-A progressão do projeto até este ponto demonstra avanços na compreensão dos padrões morfocinéticos que influenciam a euploidia. A conclusão da Fase 1 permitiu não apenas a limpeza e preparação dos dados, mas também a identificação de relações estatisticamente relevantes entre as variáveis.
+A execução deste trabalho permitiu o desenvolvimento de uma solução inovadora e menos invasiva para a predição da euploidia em embriões humanos, integrando conhecimentos de engenharia de software, aprendizado de máquina e medicina reprodutiva.
 
-Com os dados devidamente estruturados, o próximo passo será o treinamento do modelo, buscando refinar a capacidade da IA de oferecer uma alternativa menos invasiva e mais acessível para a seleção de embriões em tratamentos de fertilização in vitro. A seleção criteriosa das variáveis, embasada em literatura relevante, assegurou que o modelo fosse construído sobre parâmetros cientificamente validados. Além disso, a limpeza e normalização dos dados eliminaram vieses e prepararam um conjunto de dados consistente, refletindo uma metodologia rigorosa focada na confiabilidade dos resultados.
+Na Fase 1, se realizou a análise e preparação dos dados, etapa crucial que envolveu a seleção criteriosa das variáveis morfocinéticas e morfológicas relevantes, bem como a limpeza, normalização e expansão da base de dados. A aplicação de testes estatísticos, como o coeficiente de Spearman, permitiu identificar quais parâmetros tinham maior ou menor influência na ploidia dos embriões. Além disso, a normalização dos dados utilizando o z-score possibilitou o balanceamento das escalas entre as variáveis, garantindo que o modelo pudesse aprender de forma equitativa e evitar viéses relacionados à magnitude dos dados.
 
-Dessa forma, os resultados obtidos até o momento reforçam o potencial do modelo na predição da euploidia embrionária, contribuindo para avanços na medicina reprodutiva. Trabalhos futuros devem focar no treinamento e validação do modelo.
+Essa base sólida construída na Fase 1 foi determinante para o desempenho da Fase 2, que consistiu no desenvolvimento, treinamento e avaliação dos modelos de machine learning. O conhecimento obtido anteriormente possibilitou a construção de algoritmos mais precisos, já que os dados de entrada estavam devidamente preparados e os parâmetros relevantes estavam bem compreendidos. A integração entre as duas fases é evidente: sem a etapa rigorosa de análise e preparação, o modelo não teria alcançado o desempenho elevado que foi observado na classificação da ploidia.
+
+Além do desenvolvimento técnico, o projeto também contemplou a criação de uma interface básica voltada ao público médico, permitindo a visualização direta das predições realizadas pela IA, com foco na aplicabilidade prática da solução em contextos clínicos.
+
+De forma geral, este projeto demonstrou que é possível utilizar inteligência artificial para fornecer suporte à decisão médica na escolha de embriões com maior potencial de implantação, reduzindo a dependência de métodos invasivos como o PGT-A. A abordagem proposta mostra-se promissora tanto por sua viabilidade técnica quanto por seu potencial de impacto social, ao tornar os tratamentos de fertilização mais acessíveis, rápidos e seguros.
