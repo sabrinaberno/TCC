@@ -30,13 +30,13 @@ O PGT-A classifica os embriões em três categorias: euploide (normal, com 46 cr
 \begin{center}
     \begin{figure}[h]
         \captionsetup{font=footnotesize, position=above}
-        \caption{Resultados do PGT-A e suas respectivas probabilidades de sucesso gestacional}
         \label{fig:ResultadosPGT}
         \centering
         \includegraphics[scale=0.5]{figuras/ResultadosPGT.pdf}
         \vspace{0.3cm} 
         % \caption{Classificação dos embriões após o teste genético pré-implantacional para aneuploidias (PGT-A). O PGT-A avalia o número de cromossomos em células do embrião, permitindo classificá-los em três categorias: euploides (número normal de cromossomos), mosaicos (mistura de células com número normal e anormal de cromossomos) e aneuploides (número anormal de cromossomos em todas as células). A figura ilustra esquematicamente as diferentes classificações e as respectivas probabilidades de sucesso gestacional.}
         % \scriptsize{Classificação dos embriões após o teste genético pré-implantacional para aneuploidias (PGT-A). O PGT-A avalia o número de cromossomos em células do embrião, permitindo classificá-los em três categorias: euploides (número normal de cromossomos), mosaicos (mistura de células com número normal e anormal de cromossomos) e aneuploides (número anormal de cromossomos em todas as células). A figura ilustra esquematicamente as diferentes classificações e as respectivas probabilidades de sucesso gestacional.}
+        \caption{Resultados do PGT-A e suas respectivas probabilidades de sucesso gestacional}
     \end{figure}
 \end{center}
 \FloatBarrier
@@ -55,7 +55,6 @@ Estudos indicam que embriões descartados como aneuploides pelo PGT-A resultaram
 
 \begin{figure}[h]
     \captionsetup{font=footnotesize, position=above}
-    \caption{Discrepância potencial entre uma biópsia de células utilizando PGT-A e a composição celular em regiões adjacentes do trofectoderma}
     \label{fig:biopsiaPGT-A}
     \centering
     \includegraphics[scale=0.6]{figuras/biopsiaPGT-A.pdf}
@@ -64,6 +63,7 @@ Estudos indicam que embriões descartados como aneuploides pelo PGT-A resultaram
         \centering
         % \caption{Representação esquemática da biópsia do trofectoderma e a influência da amostragem na determinação da ploidia embrionária. (A) Embrião euploide com células da massa celular interna (MCI) e do trofectoderma (TE) com pouca ou nenhuma aneuploidia. A biópsia resulta em uma amostra com menos de 20\% de células aneuploides, classificando o embrião como euploide. (B) Embrião mosaico com proporção similar de células euploides e aneuploides. A biópsia pode resultar em uma amostra com 20-80\% de células aneuploides, classificando o embrião como mosaico. (C) Embrião predominantemente aneuploide. A biópsia resulta em uma amostra com mais de 80\% de células aneuploides, classificando o embrião como aneuploide. Observação: A ploidia embrionária determinada pela biópsia do trofectoderma pode variar de acordo com a região amostrada, devido à mosaicidade embrionária. A figura ilustra a incerteza associada à classificação da ploidia embrionária com base em uma pequena amostra de células.}
         % \scriptsize{Representação esquemática da biópsia do trofectoderma e a influência da amostragem na determinação da ploidia embrionária. (A) Embrião euploide com células da massa celular interna (MCI) e do trofectoderma (TE) com pouca ou nenhuma aneuploidia. A biópsia resulta em uma amostra com menos de 20\% de células aneuploides, classificando o embrião como euploide. (B) Embrião mosaico com proporção similar de células euploides e aneuploides. A biópsia pode resultar em uma amostra com 20-80\% de células aneuploides, classificando o embrião como mosaico. (C) Embrião predominantemente aneuploide. A biópsia resulta em uma amostra com mais de 80\% de células aneuploides, classificando o embrião como aneuploide. Observação: A ploidia embrionária determinada pela biópsia do trofectoderma pode variar de acordo com a região amostrada, devido à mosaicidade embrionária. A figura ilustra a incerteza associada à classificação da ploidia embrionária com base em uma pequena amostra de células.}
+    \caption{Discrepância potencial entre uma biópsia de células utilizando PGT-A e a composição celular em regiões adjacentes do trofectoderma}
     \end{minipage}
 \end{figure}
 \FloatBarrier
@@ -126,12 +126,12 @@ O aprendizado supervisionado consiste no treinamento de algoritmos com base em c
 
 \begin{figure}[h]
     \captionsetup{font=footnotesize, position=above}
-    \caption{Aprendizado Supervisionado: Identificando Euploidia e Aneuploidia}
     \label{fig:biopsiaPGT-A}
     \centering
     \includegraphics[scale=0.35]{figuras/aprendizadoSuper.pdf}
     \vspace{0.3cm} 
     % \caption{Os dados já possuem seus próprios rótulos. Já é definido o que significa ser euploide e aneuplóide. Os dados rotulados (ou seja, com rótulos já atribuídos) são usados para treinar o modelo. Nesse contexto, ao se referir a "euploide" e "aneuplóide", esses rótulos podem representar classes que o modelo deve aprender a identificar com base nas características dos dados, ajudando a prever ou classificar novos casos com precisão.}
+    \caption{Aprendizado Supervisionado: Identificando Euploidia e Aneuploidia}
 \end{figure}
 \FloatBarrier
 
@@ -168,10 +168,10 @@ Cada neurônio em uma camada recebe entradas da camada anterior, aplica um somat
 
 \begin{figure}[h]
     \captionsetup{font=footnotesize, position=above}
-    \caption{Estrutura de um MLP com uma camada de entrada, três camadas ocultas e uma camada de saída.}
     \label{fig:biopsiaPGT-A}
     \centering
     \includegraphics[scale=0.35]{figuras/multilayer.pdf}
+    \caption{Estrutura de um MLP com uma camada de entrada, três camadas ocultas e uma camada de saída.}
     \vspace{0.3cm}
 \end{figure}
 \FloatBarrier
