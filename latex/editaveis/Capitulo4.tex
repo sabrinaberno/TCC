@@ -27,9 +27,9 @@ Estes documentos evidenciam o comprometimento ético e a transparência desta pe
 Os códigos mencionados nas atividades estão disponíveis no repositório do projeto no GitHub, podendo ser acessado aqui: \textbf{\href{https://github.com/sabrinaberno/TCC1}{GitHub-TCC}}, onde são detalhadamente explicados, incluindo a lógica utilizada para sua implementação e os resultados obtidos.
  
 \section{Fase 1: Análise e Preparação de Dados}
-\subsection{OE1 - Expansão, Processamento e Análise de Dados para Predição de Ploidia}
+\subsection{OE1 - Expandir, Processar e Analisar os Dados para Predição de Ploidia}
 \subsubsection{Atividade 1 (A1): Análise, Revisão, Seleção e Limpeza de Variáveis para Predição de Euploidia}
-O desenvolvimento desta atividade teve início com a verificação da relevância das variáveis com base nos estudos do referencial teórico. Esse processo envolveu a análise das variáveis presentes na tabela de dados que serão utilizadas nesta pesquisa, garantindo sua adequação ao objetivo do estudo. 
+O desenvolvimento desta atividade teve início com a verificação da relevância das variáveis com base nos estudos da fundamentação teórica. Esse processo envolveu a análise das variáveis presentes na tabela de dados que serão utilizadas nesta pesquisa, garantindo sua adequação ao objetivo do estudo. 
 
 % As variáveis selecionadas inicialmente são:
 
@@ -470,13 +470,13 @@ A aplicação da média e do desvio padrão assegura que os novos dados numéric
 Depois de executar o código, a base de dados de treinamento foi  \textbf{ampliada em 20 vezes}, conforme o fator de aumento definido. As amostras sintéticas geradas foram concatenadas ao conjunto original, totalizando um volume significativamente maior de dados. Essa abordagem é especialmente indicada em contextos onde o conjunto de dados é escasso, como em estudos biomédicos, e contribui para a construção de modelos mais estáveis, com maior capacidade de reconhecer padrões complexos e realizar previsões confiáveis em novos dados.
 
 \section{Fase 2: Desenvolvimento e Avaliação do Modelo}
-\subsection{OE2 - Treinamento e Ajuste de Modelo de Machine Learning para Predição de Euploidia}
+\subsection{OE2 - Treinar e Ajustar do Modelo de Machine Learning para Predição de Euploidia}
 \subsubsection{Atividade 5 (A5): Desenvolvimento e Treinamento do Modelo de Machine Learning para Otimização da Predição de Euploidia}
 Nesta etapa do projeto, foi desenvolvido e treinado um modelo de Aprendizado de Máquina (Machine Learning) com o objetivo de otimizar a predição de ploidia em embriões, utilizando dados morfocinéticos extraídos do Time-Lapse System (TLS). O modelo escolhido foi uma Rede Neural Artificial do tipo Perceptron Multicamadas (MLP, do inglês Multilayer Perceptron), implementada com a biblioteca Scikit-Learn em linguagem Python.
 
 A \textbf{Scikit-Learn} foi empregada para \textit{diversas tarefas essenciais do pipeline de modelagem}, incluindo: a divisão dos dados em conjuntos de treino e teste com estratificação, a padronização dos atributos com \texttt{StandardScaler}, o treinamento da rede neural com \texttt{MLPClassifier} e a avaliação do modelo por meio de métricas como acurácia, curva ROC e matriz de confusão. Além disso, a Scikit-Learn também foi responsável pela serialização do modelo e do scaler com a ferramenta \texttt{joblib}, permitindo seu reaproveitamento em outras etapas do sistema. Essa integração modular e coesa entre diferentes etapas do processo de modelagem é um dos principais pontos fortes da Scikit-Learn, se tornando particularmente adequada para projetos como esse, que exigem reprodutibilidade, clareza na implementação e robustez computacional \cite{geron2017}.
 
-A arquitetura de Rede Neural Artificial utilizada foi o \textbf{Perceptron Multicamadas} (MLP, do inglês \textit{Multilayer Perceptron}), que é uma rede supervisionada composta por três tipos de camadas: uma de entrada, uma ou mais ocultas e uma de saída \cite{haykin2001}. O modelo MLP foi construído utilizando a classe \texttt{MLPClassifier}, da biblioteca Scikit-Learn, que é um algoritmo de aprendizado supervisionado baseado em Redes Neurais Artificiais que utiliza o algoritmo de retropropagação do erro para realizar a otimização dos pesos durante o treinamento \cite{geron2017}.  Essa classe faz parte do módulo \texttt{sklearn.neural\_network} e oferece uma interface padronizada para treinamento e predição, integrando facilmente ao restante do ecossistema da Scikit-Learn, como ferramentas de validação cruzada, seleção de atributos e ajuste de hiperparâmetros \cite{scikit-learn}. 
+A arquitetura de Rede Neural Artificial utilizada foi o \textbf{Perceptron Multicamadas} (MLP, do inglês \textit{Multilayer Perceptron}), que é uma rede supervisionada composta por três tipos de camadas: uma de entrada, uma ou mais ocultas e uma de saída \cite{haykin2009}. O modelo MLP foi construído utilizando a classe \texttt{MLPClassifier}, da biblioteca Scikit-Learn, que é um algoritmo de aprendizado supervisionado baseado em Redes Neurais Artificiais que utiliza o algoritmo de retropropagação do erro para realizar a otimização dos pesos durante o treinamento \cite{geron2017}.  Essa classe faz parte do módulo \texttt{sklearn.neural\_network} e oferece uma interface padronizada para treinamento e predição, integrando facilmente ao restante do ecossistema da Scikit-Learn, como ferramentas de validação cruzada, seleção de atributos e ajuste de hiperparâmetros \cite{geron2017}. 
 
 A configuração do modelo incluiu os seguintes hiperparâmetros principais:
 \begin{itemize}
@@ -494,7 +494,7 @@ Para tornar as predições do modelo mais compreensíveis para embriologistas e 
 
 Ao aplicar o modelo preditivo em novos dados, a entrada inicial, uma planilha contendo os dados morfocinéticas dos embriões, passa por um processo de pré-processamento automatizado. Esse pipeline transforma variáveis originalmente categóricas, como classificações textuais da morfologia embrionária, em valores numéricos padronizados. Um exemplo dessa transformação é a classificação morfológica, que é convertida automaticamente em categorias numéricas que representam níveis de qualidade embrionária, conforme descrito na metodologia. Após essa etapa, os dados numéricos são submetidos a um escalonamento por meio de um \textit{scaler}, que normaliza as variáveis para uma mesma escala, evitando que diferenças de magnitude influenciem indevidamente a predição. Em seguida, o modelo de Rede Neural MLP realiza a predição da classe para cada embrião, classificando-os como euploides ou aneuploides. Assim, o modelo fornece a probabilidade associada à predição da classe euploide, expressa em termos percentuais. Finalmente, os resultados (que incluem as informações originais da planilha, a classificação prevista e a probabilidade de euploidia) são exportados para um novo arquivo. Essa saída organizada facilita a interpretação dos dados e suporta a tomada de decisão clínica, tornando o processo mais transparente e acessível.
 
-\subsection{OE3 - Avaliação do Modelo}
+\subsection{OE3 - Realizar Avaliação do Modelo}
 \subsubsection{Atividade 6 (A6): Utilizar métricas adequadas para medir o desempenho do modelo}
 Nesta etapa, foram aplicadas métricas quantitativas para avaliar o desempenho do modelo de aprendizado de máquina desenvolvido para a predição de euploidia em embriões. A \textbf{acurácia} de 88,2\% indica que o modelo classificou corretamente a grande maioria dos embriões, tanto euploides quanto aneuploides, mostrando uma performance geral satisfatória. A \textbf{Área sob a Curva ROC (AUC)} de 0,944 evidencia a elevada capacidade do modelo em distinguir entre as classes, mesmo ao variar o limiar de decisão. 
 
@@ -549,7 +549,7 @@ O gráfico da Figura~\ref{fig:sensibilidade} apresenta a variação das métrica
 
 Dessa forma, a análise da matriz de confusão e da curva de sensibilidade versus especificidade confirma que o modelo apresenta excelente desempenho, especialmente na identificação de embriões aneuploides. A ausência de falsos positivos e a possibilidade de ajustar o limiar de decisão conforme a prioridade clínica tornam o modelo uma ferramenta promissora.
 
-\subsection{OE4 - Protótipo de Interface}
+\subsection{OE4 - Construir Protótipo}
 \subsubsection{Atividade 8 (A8): Prototipar uma interface básica para exibir as predições de euploidia para o usuário final (médicos)}
 A execução da Atividade 08 teve início com a análise das necessidades essenciais para a construção de uma interface funcional, clara e objetiva voltada aos profissionais da área médica. O principal objetivo nesta etapa foi desenvolver um protótipo viável de interface — um \textit{Mínimo Produto Viável} (MVP) — que possibilitasse a visualização das predições de euploidia de maneira intuitiva, prática e segura. Como a intenção é evoluir progressivamente esse sistema, priorizou-se uma entrega enxuta, mas funcional, capaz de ser testada e aprimorada com base no feedback dos usuários finais.
 
