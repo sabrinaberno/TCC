@@ -306,42 +306,73 @@ Essa atividade corresponde ao Passo 6 do desenvolvimento de algoritmos de aprend
 
 \paragraph{\textbf{Atividade 8 (A8):} Prototipar uma interface básica para exibir as predições de euploidia para o usuário final (médicos)}
 
-O objetivo desta etapa é desenvolver um protótipo interativo da interface que será utilizada pelos médicos para visualizar as predições de euploidia. Este protótipo deve contemplar os princípios fundamentais de design de interfaces, experiência do usuário (UX) e acessibilidade, garantindo que a navegação seja intuitiva e que os resultados sejam apresentados de forma clara e eficiente.
+O objetivo desta etapa é desenvolver um protótipo interativo da interface que será utilizada pelos médicos para visualizar as predições de euploidia de embriões com base nos dados morfocinéticos fornecidos. Este protótipo deve contemplar os princípios fundamentais de design de interfaces, experiência do usuário (UX) e acessibilidade, garantindo que a navegação seja intuitiva e que os resultados sejam apresentados de forma clara e eficiente.
 
-Para isso, será utilizado o \textbf{Figma}, uma ferramenta colaborativa online para design de interfaces, que oferece recursos de edição vetorial, prototipagem rápida e suporte à colaboração em tempo real \cite{figma2024}. O protótipo incluirá:
+Para isso, será utilizada a ferramenta online \textbf{Figma}, amplamente reconhecida por sua versatilidade no desenvolvimento colaborativo de protótipos interativos de alta fidelidade \cite{figma2024}. O Figma permitirá o trabalho simultâneo da equipe, com recursos para edição vetorial, prototipagem rápida e compartilhamento de fluxos interativos.
+
+O protótipo incluirá os seguintes elementos principais:
 \begin{itemize}
-  \item Campos para entrada de dados morfocinéticos;
-  \item Botões de interação para envio e processamento dos dados;
-  \item Área de exibição dos resultados de predição;
-  \item Layout responsivo, alinhado às boas práticas de usabilidade e padrões de design.
+  \item \textbf{Campos para entrada de dados morfocinéticos:} Área destinada ao \textit{upload} de arquivos que conterão as informações necessárias para a predição;
+  \item \textbf{Botões de interação:} Elementos visuais que possibilitarão o envio e processamento dos dados inseridos;
+  \item \textbf{Área de exibição de resultados:} Seção responsável por apresentar, de forma clara e acessível, os resultados da predição de ploidia;
+  \item \textbf{Layout responsivo:} Interface adaptável a diferentes dispositivos e tamanhos de tela, garantindo acessibilidade e boa usabilidade.
 \end{itemize}
 
-Este protótipo busca atender às necessidades dos médicos, com foco em acessibilidade, clareza e facilidade de uso. Para isso, foram adotados princípios de design centrado no usuário e duas heurísticas de usabilidade de \citeonline{nielsen1994} como principais referências:
+O protótipo será construído com base no \textbf{Design Centrado no Usuário} (DCU), uma abordagem que colocará as necessidades, capacidades e limitações dos usuários no centro do processo de design \cite{norman2013design}. Considerando o ambiente médico, onde decisões rápidas e seguras são fundamentais, será imprescindível garantir uma interface intuitiva, eficiente e de fácil interpretação.
 
-\textbf{1. Visibilidade do status do sistema (Visibility of system status:)} É essencial que o sistema mantenha os usuários informados sobre o que está acontecendo, por meio de feedbacks adequados e em tempo razoável. No protótipo, isso será implementado através de mensagens claras de carregamento, feedback visual após o envio dos dados e indicações sobre o status da previsão. Dessa forma, os médicos terão maior segurança sobre o funcionamento do sistema.
+Para isso, serão aplicadas como referência as \textbf{Heurísticas de Usabilidade de Nielsen} \cite{nielsen1994}, um conjunto amplamente reconhecido de diretrizes que auxiliará no desenvolvimento de sistemas mais acessíveis, eficazes e agradáveis. As heurísticas de Jakob Nielsen, publicadas em 1994, foram formuladas com base em décadas de estudos sobre interação humano-computador e têm sido, desde então, utilizadas como padrão para avaliação e desenvolvimento de sistemas interativos \cite{molich1990improving}.
 
-\textbf{2. Flexibilidade e eficiência de uso (Flexibility and efficiency of use:)} A interface deve ser eficiente tanto para usuários iniciantes quanto experientes. Por isso, o protótipo será planejado para permitir o preenchimento rápido de informações, uso de atalhos e automações simples — como o preenchimento automático a partir de planilhas — reduzindo o esforço e otimizando o tempo do profissional médico durante o uso.
+Essas heurísticas representam princípios universais de usabilidade e visam assegurar que os usuários possam interagir com o sistema de forma segura, confortável e produtiva. Duas dessas heurísticas, em especial, serão incorporadas ao protótipo:
+\begin{enumerate}
+  \item \textbf{1. Visibilidade do status do sistema (Visibility of system status:)} É essencial que o sistema mantenha os usuários informados sobre o que está acontecendo, por meio de feedbacks adequados e em tempo razoável. No protótipo, isso será implementado através de mensagens claras de carregamento, feedback visual após o envio dos dados e indicações sobre o status da previsão. Dessa forma, os médicos terão maior segurança sobre o funcionamento do sistema.
 
-Essas duas heurísticas são estratégicas para garantir uma experiência fluida, confiável e alinhada ao contexto clínico, onde clareza, eficiência e rapidez de interpretação são aspectos críticos. O resultado esperado é que o protótipo da interface básica possibilite aos médicos uma visualização clara e intuitiva das previsões de euploidia. A interface precisa ser funcional e simples, assegurando a compreensão dos resultados exibidos.
+  \item \textbf{2. Flexibilidade e eficiência de uso (Flexibility and efficiency of use:)} A interface deve ser eficiente tanto para usuários experientes em tecnologia quanto aqueles com menor familiaridade digital. Por isso, o protótipo será planejado para realizar o envio de dados de forma ágil, com suporte a preenchimentos automáticos ou reaproveitamento de planilhas padronizadas, reduzindo o tempo de interação e o esforço necessário para acessar as predições
+\end{enumerate}
 
-A Atividade 8 (A8) corresponde ao Passo 7 do desenvolvimento do algoritmo de aprendizado de máquina, que envolve o lançamento da solução.
+A importância da aplicação dessas diretrizes será ainda maior considerando o contexto de uso médico, onde uma interface mal projetada pode impactar diretamente na tomada de decisão clínica e, consequentemente, na segurança e no bem-estar dos pacientes. Conforme destacado por \citeonline{healthUsability}, a avaliação da usabilidade em sistemas de informação em saúde é fundamental não apenas para melhorar a experiência do usuário, mas também para reduzir erros humanos, aumentar a confiabilidade dos processos e garantir a segurança do paciente.
+
+A Atividade 8 (A8) corresponderá ao Passo 7 do ciclo de desenvolvimento do algoritmo de aprendizado de máquina, quando a solução será disponibilizada por meio de uma interface amigável e acessível, conectando a inteligência artificial à prática clínica.
 
 \paragraph{\textbf{Atividade 9 (A9):}  Desenvolver a aplicação web integrando o protótipo à inteligência artificial existente}
 
-Após criação do protótipo de interface, esta etapa consiste no desenvolvimento efetivo da aplicação web, implementando a interface projetada com tecnologias modernas e integrando-a ao modelo de inteligência artificial desenvolvido nas etapas anteriores. A implementação será feita com:
+Após criação do protótipo interativo na Atividade 8, esta etapa coresponderá ao desenvolvimento da aplicação web, implementando de froma prática a interface projetada com tecnologias modernas e integrando-a ao modelo de inteligência artificial desenvolvido nas etapas anteriores. O objetivo será transformar a solução teórica em uma aplicação funcional e acessível, permitindo o uso por médicos especialistas em reprodução assistida. A implementação será realizada com:
 
-\textbf{Next.js com App Router}: Framework React com arquitetura moderna para organização modularizada entre páginas, componentes e bibliotecas, facilitando a escalabilidade e manutenção do código.
+\begin{itemize}
+  \item \textbf{Next.js com App Router}: Framework React com arquitetura moderna para organização modularizada entre páginas, componentes e bibliotecas, facilitando a escalabilidade e manutenção do código.
 
-\textbf{TypeScript}: Linguagem de programação com tipagem estática para maior robustez, facilitando a detecção precoce de erros, especialmente relevante no contexto médico.
+  \item \textbf{TypeScript}: Linguagem de programação com tipagem estática para maior robustez, facilitando a detecção precoce de erros, especialmente relevante no contexto médico.
 
-\textbf{TailwindCSS}: Framework utilitário para estilização rápida, promovendo uma interface responsiva e consistente com o esquema de cores definido.
+  \item \textbf{TailwindCSS}: Framework utilitário para estilização rápida, promovendo uma interface responsiva e consistente com o esquema de cores definido previamente no protótipo.
 
-\textbf{Leitura de arquivos XLSX}: Implementação de funcionalidade para upload e leitura de planilhas contendo dados morfocinéticos, que serão processados e enviados ao modelo de machine learning.
+  \item \textbf{Leitura de arquivos XLSX}: Implementação de funcionalidade para upload e leitura de planilhas contendo dados morfocinéticos, que serão processados e enviados ao modelo de machine learning.
 
-\textbf{Integração com o modelo de IA}: Comunicação da interface com a API do modelo, para envio dos dados, processamento das predições e exibição dos resultados em tempo real para o usuário.
+  \item \textbf{FastAPI}: Framework backend em Python escolhido para transformar o modelo de IA em uma API moderna e de alta performance, com documentação automática via Swagger, validação de dados e integração simplificada com o front-end.
 
-A hospedagem será realizada na \textbf{Vercel}, garantindo deploy contínuo e acesso fácil para testes e validações.
+  \item \textbf{Hospedagem da API na Render}: A FastAPI será implantada na plataforma Render, garantindo disponibilidade, escalabilidade e facilidade de manutenção.
+
+  \item \textbf{Hospedagem da aplicação web na Vercel}: A aplicação Next.js será hospedada na Vercel, permitindo deploy contínuo, agilidade nas entregas e fácil acesso para testes e validações ao longo do desenvolvimento.
+\end{itemize}
+
+A interface será cuidadosamente construída para refletir o fluxo de uso planejado, garantindo uma transição fluida entre o protótipo e o ambiente real de utilização. Durante o desenvolvimento, será priorizado o \textbf{design centrado no usuário}, buscando promover clareza, legibilidade e acessibilidade, aspectos essenciais no contexto médico, onde qualquer ambiguidade pode comprometer a tomada de decisão.
+
+Outro aspecto fundamental nesta etapa será a aplicação sistemática de práticas de \textbf{Clean Code}, conforme os princípios descritos por \citeonline{martin2009cleancode}. A adoção dessas boas práticas contribuirá para a legibilidade, manutenibilidade e robustez do código, assegurando a qualidade da solução mesmo em contextos sensíveis como o da saúde. Os seguintes princípios serão aplicados:
+
+\begin{itemize}
+  \item \textbf{Nomenclatura clara e intuitiva}: Os nomes de variáveis, funções e componentes serão descritivos e precisos, refletindo suas responsabilidades no sistema.
+  
+  \item \textbf{Consistência nos padrões}: Será mantida uniformidade nos padrões de nomenclatura, indentação e formatação, promovendo um código organizado e previsível.
+
+  \item \textbf{Funções pequenas e focadas}: As funções serão escritas para desempenhar uma única tarefa, mantendo-se concisas e especializadas.
+
+  \item \textbf{Comentários relevantes e sucintos}: Os comentários serão utilizados com moderação, apenas quando realmente necessários para esclarecer intenções que não estejam evidentes no código.
+
+  \item \textbf{Evitar repetição de código (DRY)}: O projeto buscará reutilização inteligente de componentes e funções para evitar duplicação desnecessária.
+
+  \item \textbf{Tratamento adequado de erros}: Serão implementadas estratégias robustas para lidar com falhas e fornecer mensagens de erro claras e informativas ao usuário.
+
+  \item \textbf{Princípio KISS (Keep It Simple, Stupid)}: O código será mantido o mais simples e direto possível, evitando complexidades desnecessárias que possam dificultar a manutenção e o entendimento futuro.
+\end{itemize}
 
 Ao final desta etapa, espera-se concluir o desenvolvimento do protótipo da interface, representando a finalização prática do trabalho. Essa interface terá papel fundamental ao permitir que médicos utilizem o sistema de forma clara, acessível e eficiente, apoiando a análise de dados morfocinéticos e auxiliando na tomada de decisão em casos clínicos. Dessa forma, a proposta visa não apenas validar a aplicação da inteligência artificial no contexto médico, mas também promover uma ferramenta com potencial de impacto real na rotina de profissionais da saúde reprodutiva.
 
-A Atividade 8 (A8) corresponde ao Passo 7 do desenvolvimento do algoritmo de aprendizado de máquina, que envolve o lançamento da solução.
+A Atividade 9 (A9) corresponde ao Passo 7 do desenvolvimento do algoritmo de aprendizado de máquina, que envolve o lançamento da solução.
