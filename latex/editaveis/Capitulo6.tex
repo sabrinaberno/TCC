@@ -1,37 +1,38 @@
-\chapter[Planejamento]{Planejamento}
+\chapter[Conclusões e Trabalhos Futuros]{Conclusões e Trabalhos Futuros}
+
+\section{Conclusões Finais}
+Este trabalho teve como ponto de partida a crescente necessidade da medicina reprodutiva por métodos menos invasivos, acessíveis e eficazes para a avaliação genética embrionária, tendo como contexto principal a fertilização in vitro (FIV) e os desafios ligados à seleção de embriões euploides. Conforme apresentado no Capítulo 1, a abordagem por meio do PGT-A apresenta limitações importantes relacionadas ao custo, tempo e invasividade, o que motiva o desenvolvimento de soluções alternativas.
+
+Neste sentido, o projeto alcançou seus objetivos ao desenvolver uma solução baseada em inteligência artificial capaz de analisar dados morfocinéticos provenientes do Time-Lapse System, prevendo a porcentagem de euploidia de forma quantitativa, rápida e não invasiva. A criação do modelo de Machine Learning com desempenho robusto, evidenciado por acurácia acima de 88\%, alta sensibilidade e uma Área Sob a Curva (AUC) de 0,94, demonstra o sucesso técnico da proposta.
+
+Além disso, a construção do protótipo de software com interface web acessível permite a aplicação prática dos resultados, aproximando a tecnologia da rotina clínica e facilitando a adoção por profissionais de saúde. A inclusão de mecanismos para interpretar localmente as predições, por meio do algoritmo LIME, reforça a confiabilidade e transparência do sistema, elementos essenciais em um ambiente médico.
+
+Um ponto muito importante para o sucesso do modelo foi a boa conexão entre as fases do projeto, principalmente o cuidado com os dados morfocinéticos na Fase 1. Além de limpar, escolher e organizar as variáveis, fizemos um estudo detalhado para entender quais variáveis eram realmente importantes para prever a euploidia. Esse estudo mostrou que nossos dados estavam alinhados com o que a literatura médica atual aponta, confirmando que escolhemos as variáveis certas.
+
+Essa combinação entre o estudo dos dados que coletamos e a pesquisa na literatura ajudou a fortalecer a confiança na qualidade dos dados. Também serviu como base para construir um modelo de Machine Learning mais coerente e que faz sentido dentro da realidade clínica. Por isso, as análises da Fase 1 foram fundamentais para que o modelo identificasse padrões importantes e gerasse predições confiáveis e úteis para a medicina.
+
+Assim, a qualidade e a organização dos dados provenientes do Time-Lapse System serviram como base sólida para o treinamento eficaz do modelo (Fase 2), o que se refletiu diretamente nos resultados de alta acurácia e sensibilidade observados. Essa integração entre as etapas evidencia que a preparação dos dados não é apenas um procedimento preliminar, mas sim um pilar essencial para a construção de soluções robustas e aplicáveis na medicina reprodutiva.
+
+Em suma, este estudo não apenas atende aos objetivos gerais e específicos traçados inicialmente, como também reforça a importância da interdisciplinaridade entre tecnologia e medicina para gerar soluções inovadoras e com potencial real de transformação na prática clínica da reprodução assistida.                                                                                                                                                                                                                                    
+\section{Trabalhos Futuros}
+Visando aprimorar e expandir a pesquisa e a aplicação desenvolvidas, propõem-se as seguintes melhorias e linhas de desenvolvimento futuro, organizadas para garantir maior robustez técnica, usabilidade e impacto clínico:
 
 \begin{itemize}
-    \item \textbf{A1} - Análise, revisão, seleção e limpeza de variáveis para predição de euploidia.
-    \item \textbf{A2} - Normalização dos dados para otimização.
-    \item \textbf{A3} - Identificação da correlação e atribuição de pesos aos parâmetros na previsão da ploidia do embrião.
-    \item \textbf{A4} - Divisão dos dados e aplicação de \textit{Data Augmentation}.
-    \item \textbf{Apr. TCC1}. - Apresentação do TCC1
-    \item \textbf{Revisão TCC1} - Ajustes no TCC1 solicitados pela banca e pelo orientador
-    \item \textbf{A5} - Desenvolvimento e Treinamento do Modelo de Machine Learning
-    \item \textbf{A6} - Utilizar métricas adequadas para medir o desempenho do modelo 
-    \item \textbf{A7} - Avaliação do Desempenho do Modelo na Predição por meio da Matriz de Confusão e Curva ROC
-    \item \textbf{A8} - Prototipar uma interface
-    \item \textbf{Apr. TCC2} - Apresentação do TCC2
+    \item \textbf{Transferência das validações de entrada para o modelo de IA:}  
+    Atualmente, as validações quanto à conformidade dos dados (formato, integr                        idade dos valores) são feitas pela aplicação web antes do envio para o modelo preditivo. A proposta é incorporar essas verificações diretamente no modelo de inteligência artificial, o que permitirá um processamento mais autônomo e resiliente. Isso reduzirá a dependência de verificações manuais na interface, aumentará a robustez do sistema contra erros e inconformidades, e possibilitará um tratamento mais inteligente e contextualizado de dados inconsistentes.
+
+    \item \textbf{Implementação de sistema de histórico clínico individualizado:}  
+    Para tornar a aplicação mais útil no ambiente clínico, é fundamental desenvolver uma funcionalidade que permita armazenar e gerenciar o histórico de predições de cada paciente e seus embriões de forma segura e organizada. Essa funcionalidade facilitará o acompanhamento longitudinal da evolução dos embriões, evitará o reenvio repetitivo de planilhas, e fornecerá aos médicos uma visão consolidada e prática para decisões clínicas mais informadas.
+
+    \item \textbf{Integração com sistemas de clínicas e consultórios médicos:}  
+    A interoperabilidade com softwares já adotados pelas clínicas de fertilização e consultórios médicos é crucial para a adoção efetiva da plataforma. Essa integração permitirá a troca automática de dados, otimizará o fluxo de trabalho dos profissionais, reduzirá erros decorrentes de entradas manuais, e facilitará o uso cotidiano da ferramenta, tornando-a parte natural dos processos clínicos existentes.
+
+    \item \textbf{Desenvolvimento de um Painel Analítico Interativo para Médicos:}  
+    A criação de dashboards dinâmicos e interativos oferecerá aos médicos ferramentas visuais para análise aprofundada dos dados preditivos. Por meio de gráficos, filtros por critérios clínicos (como idade materna, período, tipo de embrião) e visualização de tendências ao longo do tempo, o painel ampliará o suporte à tomada de decisão baseada em dados, promovendo análises estratégicas e acompanhamento contínuo do desempenho clínico.
+
+    \item \textbf{Outras pesquisas e validações:}  
+    Futuras investigações devem incluir a validação do modelo em bases de dados maiores, multicêntricas e mais diversificadas, garantindo sua generalização e robustez em contextos variados. Também é recomendada a exploração de outras técnicas e algoritmos avançados de \textit{Machine Learning}, que possam melhorar a acurácia e interpretabilidade das predições. Por fim, estudos prospectivos e clínicos poderão consolidar a eficácia da solução, promovendo sua validação científica e aceitação na prática médica.
+
 \end{itemize}
 
-\renewcommand{\arraystretch}{1.2}
-\begin{table}[ht]
-    \centering
-    \caption{Cronograma de atividades do TCC}
-    \begin{tabular}{|l|c|c|c|c|c|c|c|c|}
-    \hline
-    \cellcolor[HTML]{008940}\textbf{Atividades} & \cellcolor[HTML]{008940}\textbf{Dez} & \cellcolor[HTML]{008940}\textbf{Jan} & \cellcolor[HTML]{008940}\textbf{Fev} & \cellcolor[HTML]{008940}\textbf{Mar} & \cellcolor[HTML]{008940}\textbf{Abr} & \cellcolor[HTML]{008940}\textbf{Mai} & \cellcolor[HTML]{008940}\textbf{Jun} & \cellcolor[HTML]{008940}\textbf{Jul}\\ \hline
-    A1 & X & X &   &   &   &   &   &  \\ \hline
-    A2 &   & X &   &   &   &   &   &  \\ \hline
-    A3 &   & X &   &   &   &   &   &  \\ \hline
-    A4 &   & X &   &   &   &   &   &  \\ \hline
-    Apr. TCC1 &   & X &   &   &   &   &   &  \\ \hline
-    Revisão TCC1 &   &   &   & X &   &   &   &  \\ \hline
-    A5 &   &   &   & X & X &   &   &  \\ \hline
-    A6 &   &   &   & X & X &   &   &  \\ \hline
-    A7 &   &   &   &   &   & X &   &  \\ \hline
-    A8 &   &   &   &   &   &   & X & X \\ \hline
-    Apr. TCC2 &   &   &   &   &   &   &   & X \\ \hline
-    \end{tabular}
-    \label{tab:cronograma}
-\end{table}
+Esses aprimoramentos visam não apenas o avanço técnico da plataforma, mas também sua incorporação efetiva na rotina médica, contribuindo para decisões mais rápidas, precisas e seguras no contexto da medicina reprodutiva. O projeto, portanto, abre caminhos promissores para a consolidação de tecnologias de IA como suporte real à prática clínica, com foco em acessibilidade, eficiência e impacto positivo na jornada do paciente. Todas essas melhorias estão alinhadas ao objetivo geral do projeto: desenvolver uma abordagem baseada em inteligência artificial para identificar padrões em dados morfocinéticos de embriões, obtidos por meio do Time-Lapse System, capaz de predizer a porcentagem de euploidia, proporcionando uma solução mais eficaz e menos invasiva em comparação ao PGT-A.

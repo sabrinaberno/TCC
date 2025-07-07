@@ -1,33 +1,104 @@
-\chapter[Considerações e Trabalhos Futuros]{Considerações e Trabalhos Futuros}
+\chapter[ Discussão dos Resultados]{ Discussão dos Resultados}
 
-Até o presente momento, a pesquisa evoluiu atingindo marcos importantes na estruturação do modelo de Aprendiziado de Maquina para a predição da euploidia em embriões a partir de dados morfocinéticos. O objetivo dessa primeira etapa foi realizar o tratamento dos dados, além de também entender como cada variável da nossa tabela de dados se influenciavam e na ploidia. 
+Este trabalho teve como objetivo geral desenvolver uma abordagem baseada em inteligência artificial para identificar padrões em dados morfocinéticos de embriões, obtidos por meio do Time-Lapse System, capaz de predizer a classificação e a porcentagem de ploidia, proporcionando uma solução mais eficaz e menos invasiva em comparação ao PGT-A. A seguir, revisitam-se os objetivos específicos estabelecidos no Capítulo 1, discutindo como cada um foi cumprido ao longo da pesquisa.
 
-\section{Objetivos Cumpridos e Fases Concluídas}
-\subsection{Fase 1: Análise e Preparação de Dados}
-A realização da "Análise, Revisão, Seleção e Limpeza de Variáveis", assim, se identificou variáveis relevantes para a previsão de euploidia, com base em revisões bibliográficas e critérios científicos.
+\section{Cumprimento dos Objetivos da Pesquisa}
+\subsection{OE1: Expandir, Processar e Analisar os Dados para Predição de Ploidia}
+Esse objetivo foi alcançado por meio da execução das Atividades 1 a 4, que envolveram a análise, revisão e seleção criteriosa das variáveis mais relevantes para a predição de euploidia, incluindo idade materna, tempos de divisão celular (como \textit{t2}, \textit{t3}, \textit{t4}, \textit{t5}, \textit{t8}), intervalos derivados (como \textit{cc2}, \textit{s2}, \textit{cc3}, \textit{s3}) e indicadores clínicos como estágio e morfologia do embrião. A normalização dos dados, utilizando técnicas como \textit{Z-Score}, permitiu a padronização das variáveis para o treinamento do modelo, enquanto a identificação de correlações contribuiu para fundamentar a seleção de pesos, evidenciando variáveis com maior influência na previsão da euploidia. Além disso, a divisão dos dados em conjuntos de treinamento, validação e teste, juntamente com a aplicação de técnicas de aumento de dados (\textit{Data Augmentation}), possibilitou uma melhor generalização do modelo.
 
-A "Normalização dos Dados", com a aplicação do método Z-Score, permitiu equalizar a escala das variáveis, garantindo maior precisão na análise.
+\subsection{OE2: Treinar e Ajustar de Modelo de Machine Learning para Predição de Ploidia}
+Este objetivo foi alcançado com a construção e treinamento de modelos de \textit{Machine Learning} supervisionados, incluindo o \textit{Multilayer Perceptron} (\textit{MLP}), utilizado para predizer a euploidia com base nos parâmetros morfocinéticos e clínicos selecionados. Os ajustes de hiperparâmetros foram realizados para otimizar o desempenho, considerando métricas de acurácia, sensibilidade e especificidade. Os resultados demonstraram alta performance preditiva, com destaque para o modelo que obteve \textit{AUC} superior a 0{,}94, indicando excelente capacidade discriminatória entre embriões euploides e aneuploides.
 
-Identificação da correlação entre variáveis, com o coeficiente de Spearman, se destacou relações significativas entre variáveis como a idade materna e os tempos de desenvolvimento embrionário (tB-tSB e CC3) na previsão da euploidia.
+\subsection{OE3: Realizar Avaliação do Modelo}
+A avaliação do modelo foi realizada por meio da análise das métricas de desempenho, incluindo matriz de confusão, curva \textit{ROC} e análise da relação entre sensibilidade e especificidade. Os resultados confirmaram a robustez do modelo desenvolvido, validando sua aplicabilidade prática como ferramenta não invasivo de predição da saúde genética embrionária. A alta acurácia alcançada sugere a viabilidade do uso de dados morfocinéticos como preditores confiáveis de euploidia, complementando métodos invasivos como o \textit{PGT-A}.
 
-E por fim, a divisão e aumento de dados, implementadando a separação em conjuntos de treinamento, validação e teste, complementada por técnicas de aumento de dados para preservar padrões estatísticos e evitar overfitting.
+\subsection{OE4: Construir Protótipo}
+Por fim, foi desenvolvido um protótipo de interface para a aplicação web, integrando o modelo de inteligência artificial de forma a apresentar os resultados das predições de maneira clara e acessível aos usuários finais, como médicos e embriologistas. Após isso, a interface foi projetada considerando usabilidade e experiência do usuário, com foco em otimizar o processo de análise e seleção embrionária nas clínicas de fertilização \textit{in vitro}.
 
-Dessa maneira, finalizamos a Fase 1, que inclui o objetivo específico 1, de "Expansão, Processamento e Análise de Dados para Predição de Ploidia". 
+\section{Análise Crítica das Correlações Identificadas}
+A análise dos coeficientes de correlação de Spearman realizada neste estudo permitiu identificar relações estatísticas relevantes entre variáveis morfocinéticas e a ploidia dos embriões. A seguir, se apresenta as interpretações críticas dessas correlações, acompanhadas de comparações com os achados da literatura científica revisada no Capítulo 2.
 
-\section{Descobertas e Resultados Preliminares}
+\subsection{Correlação entre Idade Materna e Euploidia}
+Os resultados indicaram correlação negativa entre idade materna e euploidia, confirmando que o aumento da idade está associado à redução da probabilidade de embriões euploides. Essa evidência está alinhada com o estudo de \citeonline{yuan2023}, que demonstrou que mulheres acima de 35 anos apresentam declínio significativo na taxa de euploidia devido à menor qualidade e quantidade de ovócitos disponíveis. O coeficiente de correlação de \textit{Spearman} identificado neste trabalho reforça a necessidade de considerar a idade como uma variável crítica em modelos preditivos de saúde embrionária.
 
-A \textbf{idade materna}, com correlação negativa de \textbf{-0,50}, é o fator mais relevante na qualidade genética do embrião, consequentemente sendo o fato que mais afeta negativamente a ploidia. Esse dado reforça a importância de considerar a idade como parâmetro essencial em tratamentos de fertilização in vitro.
+\subsection{Correlação entre tB-tSB e Euploidia}
+Foi observada correlação negativa entre o intervalo \textit{tB}-\textit{tSB} e a euploidia, sugerindo que embriões que apresentam maior diferença temporal entre o início da expansão do blastocisto (\textit{tSB}) e o blastocisto totalmente expandido (\textit{tB}) tendem a ter menor probabilidade de serem euploides. Essa interpretação corrobora os achados de \citeonline{cruz2012}, que indicam que embriões com tempos prolongados de desenvolvimento apresentam maior risco de aneuploidias ou falhas no potencial de implantação.
 
-Variáveis como o estágio de desenvolvimento e o tempo \textbf{t5} apresentam correlações moderadas e negativas (-0,24), sugerindo que atrasos em etapas particulares do ciclo embrionário podem afetar adversamente a qualidade genética.
+\subsection{Correlação entre t5 e Euploidia}
+O tempo \textit{t5}, que representa o momento em que o embrião atinge o estágio de 5 células, mostrou correlação negativa com a euploidia quando excede o intervalo ótimo (48{,}8--56{,}6 horas). Esse achado é consistente com \citeonline{cruz2012}, que identificaram \textit{t5} como um dos preditores mais significativos do potencial de implantação, sendo que tempos fora do intervalo ótimo podem estar relacionados a alterações cromossômicas ou aneuploidias. Embriões que atingiram \textit{t5} dentro do intervalo descrito apresentaram maior probabilidade de serem euploides, demonstrando que o modelo de \textit{IA} treinado neste estudo capta essa relação de forma adequada.
 
-Sobre os \textbf{tempos de desenvolvimento embrionário}, a diferenças entre \textbf{tB-tSB (-0,28) e CC3 (-0,28)} indicam que a sincronização das divisões celulares é fundamental para a formação de embriões euploides. Além de que apresentaram correlações moderadas com a ploidia, sugerindo que o sincronismo no desenvolvimento celular é um elemento-chave na formação de embriões saudáveis.
+\subsection{Outras Correlações Significativas}
+Além das variáveis destacadas, foram observadas correlações significativas entre:
 
-Com a normalização, o ajuste das escalas das variáveis permitiu maior uniformidade e comparabilidade entre elas, facilitando a identificação de padrões no modelo preditivo.
+\begin{itemize}
+    \item \textit{t2} e \textit{t4} ($r=0{,}89$) e \textit{t3} e \textit{t2} ($r=0{,}78$): correlações positivas fortes, indicando alta dependência entre os tempos de divisão sequenciais, como descrito por \citeonline{cruz2012}, e reforçando que a cadência adequada das divisões celulares está diretamente associada ao desenvolvimento embrionário saudável.
+    \item \textit{tSC} e \textit{tSB} ($r=0{,}75$) e \textit{tSB} e \textit{tB} ($r=0{,}93$): correlações positivas fortes, demonstrando que os tempos relacionados à expansão e eclosão do blastocisto são interdependentes. Estudos como o de \citeonline{capalbo2014} reforçam que blastocistos que atingem estágios avançados de forma sincronizada tendem a apresentar maior euploidia.
+\end{itemize}
 
-\section{Considerações Finais}
+\subsection{Correlações fracas ou inexistentes}
+Apesar de algumas variáveis apresentarem uma correlação direta fraca ou inexistente com a ploidia — como é o caso do \textit{Morfo}, \textit{tSC}, \textit{tSB}, \textit{cc2} e o intervalo \textit{tSC-t8}, que demonstra um efeito praticamente nulo — é importante destacar que essas variáveis mantêm entre si relações estatísticas relevantes, capazes de influenciar, de forma indireta, o comportamento da ploidia. 
 
-A progressão do projeto até este ponto demonstra avanços na compreensão dos padrões morfocinéticos que influenciam a euploidia. A conclusão da Fase 1 permitiu não apenas a limpeza e preparação dos dados, mas também a identificação de relações estatisticamente relevantes entre as variáveis.
+As inter-relações entre os parâmetros temporais do desenvolvimento embrionário constroem um cenário dinâmico e multifatorial, no qual o impacto de uma variável sobre a ploidia pode não ser imediato ou isolado, mas sim mediado por sua influência em outras etapas do desenvolvimento. Por exemplo, mesmo que o \textit{cc2} (\textit{t3-t2}) não apresente uma relação significativa direta com a ploidia, ele se conecta a outros parâmetros, como o \textit{t3} e o \textit{cc3}, sendo que este último já demonstra uma correlação moderada e negativa com a ploidia (-0.281).
 
-Com os dados devidamente estruturados, o próximo passo será o treinamento do modelo, buscando refinar a capacidade da IA de oferecer uma alternativa menos invasiva e mais acessível para a seleção de embriões em tratamentos de fertilização in vitro. A seleção criteriosa das variáveis, embasada em literatura relevante, assegurou que o modelo fosse construído sobre parâmetros cientificamente validados. Além disso, a limpeza e normalização dos dados eliminaram vieses e prepararam um conjunto de dados consistente, refletindo uma metodologia rigorosa focada na confiabilidade dos resultados.
+Da mesma forma, variáveis como o \textit{tSC} e o intervalo \textit{tSC-t8}, apesar de mostrarem uma correlação direta praticamente nula com a ploidia, estão integradas a outros intervalos temporais que, por sua vez, têm potencial de afetar o desfecho genético do embrião. Isso evidencia que o sistema de desenvolvimento embrionário funciona de maneira interdependente, onde alterações em um ponto específico podem reverberar ao longo do processo, impactando de forma indireta variáveis de interesse clínico, como a ploidia.
 
-Dessa forma, os resultados obtidos até o momento reforçam o potencial do modelo na predição da euploidia embrionária, contribuindo para avanços na medicina reprodutiva. Trabalhos futuros devem focar no treinamento e validação do modelo.
+Portanto, ao considerar a exclusão de variáveis do modelo ou da análise, é fundamental adotar uma abordagem sistêmica, reconhecendo que a ausência de uma relação direta com a ploidia não implica na irrelevância da variável dentro do contexto geral do desenvolvimento embrionário. Desconsiderar essas variáveis pode levar a interpretações incompletas ou equivocadas do comportamento biológico em estudo.
+
+\section{Desempenho do Modelo e Comparação com o Estado da Arte}
+O modelo de \textit{Machine Learning} desenvolvido neste trabalho apresentou acurácia superior a 88\%, \textit{AUC} (Área sob a Curva \textit{ROC}) de 0,94 e \textit{recall} elevado, indicando alta sensibilidade para identificar embriões euploides. Esses resultados evidenciam a capacidade discriminatória do modelo em diferenciar embriões saudáveis daqueles com aneuploidias, garantindo menor risco de falsos negativos, fator crítico na prática clínica.
+
+A matriz de confusão revelou alta taxa de verdadeiros positivos e negativos, demonstrando que o modelo é equilibrado em sua classificação, sem tendência significativa a erros de um único tipo. Já a Curva \textit{ROC}, com \textit{AUC} de 0,94, comprova excelente performance geral, confirmando a robustez do modelo em diferentes limiares de decisão. Na prática, quanto mais próxima de 1,0 for a \textit{AUC}, maior a capacidade do modelo de distinguir corretamente entre as classes (euploide/aneuploide).
+
+\subsection{Comparação com o Estado da Arte}
+Os resultados obtidos foram comparados aos principais trabalhos correlatos revisados no Capítulo 2:
+
+\begin{itemize}
+    \item \citeonline{yuan2023} identificaram a forte correlação entre idade materna e euploidia, mas não desenvolveram um modelo preditivo automatizado baseado em \textit{Machine Learning}. Portanto, o presente estudo avança ao operacionalizar essa relação em um modelo prático de apoio clínico.
+
+    \item \citeonline{souzarebeca2022} destacou a importância de variáveis morfocinéticas como \textit{t2}, \textit{t3}, \textit{t5} e \textit{cc2}, confirmadas neste trabalho como relevantes para o modelo preditivo. No entanto, Souza não apresentou um algoritmo de classificação e predição, diferentemente deste estudo.
+
+    \item \textit{KIDScore\texttrademark} é um sistema comercial que utiliza variáveis morfocinéticas e fornece uma pontuação de 0 a 10 baseada em \textit{IA} para estimar o potencial de implantação do embrião \cite{gazzo2020}. Embora apresente boa acurácia preditiva para implantação, não realiza classificação direta de euploidia ou aneuploidia ou porcentagem de ploidia, limitando seu uso para avaliação genética embrionária.
+
+    \item \textit{CHLOE\texttrademark} é outro algoritmo de \textit{IA} citado pela literatura que, similarmente ao \textit{KIDScore}, utiliza análise de imagens \textit{Time-Lapse} para estimar viabilidade embrionária, mas não realiza predição quantitativa de euploidia.
+\end{itemize}
+
+\subsection{Originalidade e Valor Clínico}
+O modelo desenvolvido apresenta como grande diferencial a predição quantitativa da porcentagem de ploidia (0--100\%), em contraste com os sistemas existentes que se restringem a classificações binárias (euploide/aneuploide) ou categóricas de implantação. Essa abordagem original oferece aos embriologistas e médicos informações adicionais, permitindo decisões mais seguras sobre a transferência embrionária, principalmente em casos de mosaico ou quando há dúvidas sobre o potencial genético do embrião. A predição da porcentagem permite, ainda, planejar estratégias personalizadas de acordo com o risco detectado.
+
+\subsection{Importância do LIME para Interpretabilidade}
+Outro aspecto inovador do modelo é a incorporação do algoritmo \textit{LIME} (\textit{Local Interpretable Model-agnostic Explanations}) para interpretabilidade de predições individuais. No contexto médico, a interpretabilidade é fundamental para garantir:
+
+\begin{itemize}
+    \item \citeonline{ribeiro2016} destacam que o \textit{LIME} permite a geração de explicações locais aproximadas, evidenciando as variáveis que mais influenciam cada predição. Segundo os autores, essa ferramenta ``explica as previsões de qualquer classificador de maneira interpretável e fiel'' \cite{ribeiro2016}.
+
+    \item Utilizar o \textit{LIME} ajuda a diminuir o chamado efeito ``caixa-preta'', que ocorre quando um modelo de \textit{inteligência artificial} faz previsões ou decisões, mas as pessoas não conseguem entender como ele chegou àquelas conclusões. Em áreas como a saúde, onde a confiança e a compreensão dos resultados são fundamentais, tornar o funcionamento do modelo mais transparente aumenta as chances de aceitação e uso por profissionais clínicos \cite{samek2017explainable}.
+\end{itemize}
+
+\subsection{Exemplo real de uso do LIME na saúde}
+\citeonline{naz2023explainable} desenvolveram uma \textit{Convolutional Neural Network} (CNN) para a classificação de múltiplas doenças pulmonares, incluindo edema, tuberculose e pneumonia associada à COVID-19, a partir de radiografias de tórax. Para tornar o processo de decisão do modelo mais transparente, os autores utilizaram o método \textit{LIME} (\textit{Local Interpretable Model-agnostic Explanations}), que permite explicar, de forma visual e interpretável, o resultado de cada predição, destacando automaticamente as regiões da imagem consideradas mais relevantes pelo modelo. A análise demonstrou que as áreas identificadas pelo \textit{LIME} coincidiram com as regiões apontadas por radiologistas como críticas para o diagnóstico, evidenciando o potencial clínico da ferramenta para apoiar decisões médicas de forma confiável e compreensível.
+
+\citeonline{aldughayfiq2023explainable} aplicaram técnicas de \textit{deep learning} em imagens fundoscópicas com o objetivo de diagnosticar retinoblastoma, um câncer ocular infantil. Após o treinamento de um classificador, os autores utilizaram as ferramentas \textit{LIME} (\textit{Local Interpretable Model-agnostic Explanations}) e \textit{SHAP} (\textit{SHapley Additive exPlanations}) para gerar mapas de salientização local, que destacam as regiões da imagem mais relevantes para a decisão do modelo. Os resultados demonstraram que o \textit{LIME} foi capaz de identificar corretamente as áreas com presença tumoral, além de evidenciar as características visuais que mais contribuíram para a predição. Essa abordagem interpretável fornece informações adicionais aos médicos, permitindo compreender quais aspectos do tumor, como tamanho, forma e localização, influenciaram o diagnóstico, favorecendo maior confiança clínica no uso do modelo.
+
+\citeonline{alabi2023machine} se concentraram no prognóstico de pacientes com câncer de nasofaringe, utilizando dados clínicos e registros epidemiológicos. Eles treinaram um robusto modelo de \textit{machine learning} do tipo ensemble e empregaram as técnicas \textit{LIME} e \textit{SHAP} para explicar as predições individuais da probabilidade de sobrevida. O \textit{LIME} evidenciou o nível de confiabilidade de cada predição, mostrando como variáveis como idade, estádio tumoral e etnia contribuíram para o resultado previsto. Nas palavras dos autores, o \textit{LIME} revelou “o grau de confiabilidade da predição feita pelo modelo”. Dessa forma, para cada paciente, o \textit{LIME} destacou as características que fundamentaram o prognóstico estimado, auxiliando oncologistas na interpretação e uso clínico do modelo.
+
+\section{Implicações Práticas e Sociais}
+Os resultados obtidos neste estudo apresentam implicações práticas significativas para a área de reprodução assistida. O modelo desenvolvido possui potencial para aumentar substancialmente a agilidade e a confiabilidade na tomada de decisão clínica, fornecendo aos embriologistas e médicos informações preditivas objetivas sobre a euploidia embrionária de forma rápida e não invasiva.
+
+Na prática, o modelo pode ser utilizado como ferramenta de triagem inicial ou como suporte complementar à decisão médica, permitindo priorizar embriões com maior probabilidade de euploidia para transferência.
+
+Além dos benefícios clínicos, o estudo apresenta importantes implicações sociais e emocionais. O principal avanço está relacionado à possibilidade de redução do uso de biópsias embrionárias invasivas (como o \textit{PGT-A}) para análise cromossômica. Ao propor uma abordagem preditiva não invasiva, o modelo contribui para reduzir os custos globais do tratamento de fertilização in vitro, o tornando mais acessível.
+
+Outro impacto social relevante está na redução do estresse emocional das pacientes. O processo de \textit{FIV} já é, por si só, psicologicamente desgastante e a expectativa quanto à qualidade genética dos embriões é um fator adicional de ansiedade. Uma ferramenta de predição confiável, não invasiva e de fácil aplicação pode proporcionar maior segurança emocional aos casais, que se sentem mais confiantes nas decisões clínicas tomadas pela equipe multidisciplinar.
+
+Por fim, ao contribuir para a seleção de embriões mais saudáveis de forma segura, rápida e acessível, o modelo desenvolvido fortalece a medicina reprodutiva baseada em dados, promove a democratização do acesso a tecnologias de ponta e reforça o compromisso ético com a melhoria da qualidade de vida de pacientes e famílias.
+
+\section{Limitações e Ameaças à Validade do Estudo}
+Este estudo apresenta algumas limitações e ameaças à validade que devem ser consideradas para a interpretação adequada dos resultados e para direcionar pesquisas futuras.
+
+Primeiramente, o tamanho reduzido da base de dados utilizada, embora ampliado por técnicas de \textit{data augmentation}, pode comprometer a generalização do modelo para populações maiores ou diferentes, especialmente em dados provenientes de outras clínicas com protocolos e características distintas. Essa limitação é comum em estudos iniciais e reforça a necessidade de validações futuras com \textit{datasets} mais amplos, diversos e representativos.
+
+Outro ponto importante é que, apesar do bom desempenho demonstrado, o modelo desenvolvido deve ser compreendido como uma ferramenta auxiliar à decisão clínica, e não como substituto do julgamento médico. A interpretação e aplicação dos resultados devem sempre considerar o contexto clínico e a experiência dos profissionais envolvidos.
+
+Em termos de interpretabilidade, embora o \textit{SHAP} seja considerado teoricamente mais consistente por garantir propriedades como aditividade e justiça na atribuição das importâncias das variáveis, o objetivo inicial deste estudo foi gerar explicações locais, rápidas e clinicamente interpretáveis, justificando a escolha do \textit{LIME} como primeira abordagem. Como aprimoramento futuro, propõe-se a implementação conjunta do \textit{LIME} e do \textit{SHAP}, especialmente em cenários com bases de dados maiores, pois o \textit{SHAP} oferece explicações mais robustas e consistentes para modelos de maior complexidade. Assim, em versões futuras deste projeto, a integração dessas duas técnicas poderá ampliar a confiabilidade das interpretações, fortalecer a validação científica dos resultados e aumentar a aceitação do modelo pelos profissionais de saúde.
+
+Por fim, ressalvas quanto a possíveis vieses não controlados, como fatores demográficos, variações clínicas e técnicas de coleta, podem afetar a validade dos resultados em um contexto mais amplo. Portanto, estudos futuros devem buscar diversificar amostras, incluir dados multicêntricos e realizar validações prospectivas para consolidar a eficácia e segurança do modelo em ambientes reais de aplicação.
