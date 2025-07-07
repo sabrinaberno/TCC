@@ -551,7 +551,7 @@ Dessa forma, a análise da matriz de confusão e da curva de sensibilidade versu
 
 \subsection{OE4 - Construir Protótipo}
 \subsubsection{Atividade 8 (A8): Prototipar uma interface básica para exibir as predições de euploidia para o usuário final (médicos)}
-A execução da Atividade 08 teve início com a análise das necessidades essenciais para a construção de uma interface funcional, clara e objetiva voltada aos profissionais da área médica. O principal objetivo nesta etapa foi desenvolver um protótipo viável de interface — um \textit{Mínimo Produto Viável} (MVP) — que possibilitasse a visualização das predições de euploidia de maneira intuitiva, prática e segura. Como a intenção é evoluir progressivamente esse sistema, priorizou-se uma entrega enxuta, mas funcional, capaz de ser testada e aprimorada com base no feedback dos usuários finais.
+A execução da Atividade 08 teve início com a análise das necessidades essenciais para a construção de uma interface funcional, clara e objetiva voltada aos profissionais da área médica.O principal objetivo desta etapa foi desenvolver um protótipo viável de interface, um \textit{Mínimo Produto Viável} (MVP), que possibilitasse a visualização das predições de euploidia de maneira intuitiva, prática e segura. Como a intenção é evoluir progressivamente esse sistema, priorizou-se uma entrega enxuta, mas funcional, capaz de ser testada e aprimorada com base no feedback dos usuários finais.
 
 A prototipação foi realizada utilizando a ferramenta \textbf{Figma}, que permitiu o desenvolvimento visual colaborativo e iterativo da solução. O MVP da interface consiste em uma estrutura simples com foco total na funcionalidade central: permitir que o usuário realize o \textit{upload} de uma planilha com dados morfocinéticos dos embriões e receba como resultado a predição da ploidia de cada um deles, incluindo a probabilidade estimada de euploidia.
 
@@ -567,7 +567,7 @@ O processo de construção da interface considerou os seguintes elementos:
 
     \item \textbf{Upload e Validação de Arquivo:} A funcionalidade principal da interface é o envio da planilha. Foram integradas validações para evitar o envio incorreto de arquivos — etapa crítica para garantir a integridade dos dados analisados e a segurança da predição.
 
-    \item \textbf{Página de Resultados:} Após o envio, o usuário é redirecionado a uma segunda página, que apresenta de forma clara os resultados da análise. São exibidos o total de embriões analisados, a quantidade classificada como euploide, a quantidade aneuploide e a probabilidade de euploidia associada a cada embrião.
+    \item \textbf{Página de Resultados:} Após o envio, o usuário é redirecionado a uma segunda página, que apresenta de forma clara os resultados da análise. São exibidos o total de embriões analisados, o número de embriões classificados como euploides e como aneuploides e a probabilidade de euploidia associada a cada embrião.
 
 \end{itemize}
 
@@ -586,7 +586,7 @@ Para a \textbf{integração com o modelo de inteligência artificial}, foi utili
 
 A aplicação foi \textbf{hospedada na plataforma Vercel}, que possibilitou um processo de \textbf{deploy contínuo} desde as primeiras fases de desenvolvimento. Isso permitiu testar cada nova funcionalidade em tempo real, facilitando ajustes iterativos e garantindo que a versão de produção estivesse sempre atualizada e funcional.
 
-A aplicação de práticas de \textbf{Clean Code} foi conduzida ao longo do desenvolvimento da aplicação, com base nos princípios descritos por \citeonline{martin2009cleancode}. Tais práticas visam garantir legibilidade, manutenibilidade e robustez do código, aspectos essenciais em soluções que envolvem dados sensíveis e contextos clínicos. Dentre os princípios adotados, destacam-se:
+As práticas de \textbf{Clean Code} foram aplicadas ao longo de todo o desenvolvimento da aplicação, com base nos princípios descritos por \citeonline{martin2009cleancode}. Tais práticas visam garantir legibilidade, manutenibilidade e robustez do código, aspectos essenciais em soluções que envolvem dados sensíveis e contextos clínicos. Dentre os princípios adotados, destacam-se:
 
 \begin{itemize}
     \item \textbf{Nomenclatura clara e intuitiva}: todos os nomes de variáveis, funções e componentes foram definidos de forma descritiva, refletindo com precisão sua responsabilidade no sistema;
