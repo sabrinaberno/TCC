@@ -302,3 +302,51 @@ Dentro desse cenário, o sistema CHLOE\texttrademark{} (Cultivating Human Life t
 De forma semelhante ao CHLOE\texttrademark{}, nosso modelo também combina IA e dados morfocinéticos para oferecer uma avaliação robusta e detalhada dos embriões. No entanto, enquanto o CHLOE\texttrademark{} se destaca por sua integração e foco na confiança do processo, nosso modelo propõe uma abordagem que enfatiza a estimativa quantitativa da porcentagem de aneuploidia, permitindo uma análise ainda mais detalhada da qualidade genética dos embriões. 
 
 Com essas similaridades e diferenças em mente, nosso objetivo é desenvolver um modelo preditivo que combine precisão e acessibilidade, oferecendo uma análise quantitativa detalhada da saúde genética dos embriões. Essa abordagem tem o potencial de melhorar as taxas de sucesso nos tratamentos de fertilização in vitro, contribuindo para decisões mais informadas e eficazes no processo de seleção embrionária.
+
+\section{Engenharia de Software Aplicada ao Projeto}
+Para a condução deste trabalho, foram adotadas \textbf{metodologias ágeis} como forma de organizar e estruturar o desenvolvimento do projeto. Foram utilizadas práticas do Scrum e do Kanban, com o intuito de promover uma abordagem iterativa, colaborativa e flexível, compatível com a natureza experimental e multidisciplinar do estudo.
+
+\subsection{Scrum como estrutura de gerenciamento ágil}
+O projeto seguiu os princípios do \textit{Scrum}, uma metodologia ágil que se destaca por sua abordagem iterativa e incremental, baseada em ciclos curtos chamados \textit{Sprints}, durante os quais o trabalho é planejado, executado e revisado \cite{schwaber2010scrum}. O Scrum promove a transparência, a inspeção contínua e a adaptação rápida ao longo do processo de desenvolvimento, além de incentivar a comunicação frequente entre os membros da equipe.
+
+No contexto deste trabalho, adotamos Sprints de 14 dias. Cada Sprint começava com um \textit{Sprint Planning}, onde as tarefas prioritárias eram definidas com base nos objetivos da etapa atual do projeto. Ao final do ciclo, realizava uma reunião de revisão e retrospectiva para avaliar o progresso e identificar pontos de melhoria para os próximos passos.
+
+Durante o desenvolvimento, a dupla manteve uma rotina de reuniões semanais com o orientador acadêmico, Prof. Dr. George Marsicano, para validação técnica e científica dos avanços. Além disso, reuniões mensais com o médico responsável, Dr. Bruno Ramalho, permitiram alinhar os critérios clínicos e práticos à evolução do modelo.
+
+\subsection{Requisitos e planejamento das atividades}
+Além disso, os requisitos do sistema foram inicialmente definidos nas reuniões de escopo com o orientador e o médico responsável. Contudo, em conformidade com os princípios ágeis, esses requisitos foram revisados, refinados e atualizados constantemente conforme o projeto evoluía. A cada nova Sprint, reavaliávamos os objetivos e validávamos com os especialistas se os requisitos ainda atendiam às necessidades do domínio biomédico.
+
+Durante o planejamento das atividades, também realizávamos a análise de dependências entre as tarefas. Isso permitia organizar o projeto de forma lógica e eficiente, priorizando tarefas que eram pré-requisitos para outras. Por exemplo, a implementação do modelo preditivo só foi iniciada após a consolidação do conjunto de dados e normalização estatística. Esse rastreio de dependências garantiu fluidez no desenvolvimento, evitando bloqueios e retrabalho ao longo das entregas.
+
+\subsection{Kanban para gestão visual das tarefas}
+De forma complementar ao Scrum, foi utilizado o sistema \textit{Kanban} para gerenciar visualmente o fluxo de trabalho do projeto. Essa metodologia é reconhecida por sua flexibilidade e pela capacidade de adaptação, permitindo ajustes conforme necessário ao longo do desenvolvimento \cite{kniberg2010kanban}.
+
+O quadro Kanban era composto pelas colunas: \textbf{Backlog}, \textbf{A fazer na Sprint atual}, \textbf{Em progresso}, e \textbf{Feito}, conforme sugerido por Kniberg e Skarin \cite{kniberg2010kanban}. Cada tarefa era representada por um cartão contendo:
+\begin{itemize}
+    \item Título da atividade;
+    \item Descrição;
+    \item Objetivo;
+    \item Responsável;
+    \item Prazo estimado;
+    \item Critérios de aceitação.
+\end{itemize}
+
+Um exemplo de tarefa registrada no quadro Kanban foi:
+\begin{itemize}
+    \item \textbf{Título da atividade:} Treinar modelo MLP com validação cruzada
+    \item \textbf{Descrição:} Aplicar o modelo de rede neural MLP com diferentes sementes de inicialização para verificar robustez.
+    \item \textbf{Objetivo:} Encontrar uma configuração estável de treinamento com bom desempenho preditivo.
+    \item \textbf{Responsável:} Maria
+    \item \textbf{Prazo estimado:} 05/05/2025 - 14/05/2025 (O prazo foi definido para 10 dias, antes mesmo de completar a Sprint atual, para garantir tempo suficiente para ajustes e validações).
+    \item \textbf{Critérios de aceitação:} Modelo treinado, resultados avaliados com métricas de acurácia, AUC e recall; modelo salvo no formato \texttt{.pkl}.
+\end{itemize}
+
+A definição de \textbf{pronto (done)} considerava:
+\begin{itemize}
+    \item Entregável concluído com êxito técnico e validado em reunião com o orientador;
+    \item Código ou análise documentada;
+    \item Testes realizados e documentados;
+    \item Repositório atualizado.
+\end{itemize}
+
+Essa integração entre o Kanban e os ciclos do Scrum permitiu manter o controle do progresso em tempo real, identificar gargalos rapidamente e adaptar prioridades sempre que necessário.
